@@ -1,6 +1,10 @@
 # 대한민국 외식 프랜차이즈 시장 분석 3D GIS 대시보드
 ## Franchise Dashboard (Phase 6 MVP & Phase 7 실행환경 표준화)
 
+> **🌐 공식 라이브 웹사이트**: [https://franchise-dashboard-scpz.onrender.com/](https://franchise-dashboard-scpz.onrender.com/)  
+> **📖 공식 사용자 설명서 (용어사전 포함)**: [`USER_GUIDE.html`](USER_GUIDE.html)  
+> **🎮 인터랙티브 라이브 쇼케이스**: [`Franchise_Dashboard_Showcase.html`](Franchise_Dashboard_Showcase.html)
+
 전국 735,185개 고유 외식업 점포 전수 분석 데이터와 공정거래위원회 4개년(2023~2026) 거시통계를 결합한 **대한민국 외식 프랜차이즈 시장 분석용 인터랙티브 3D GIS 대시보드**입니다.
 
 ---
@@ -87,7 +91,8 @@ scripts\run_frontend.bat
 # 또는 직접 실행 (포트: 5173)
 npm run dev --prefix frontend
 ```
-- **대시보드 웹 접속 주소**: `http://localhost:5173`
+- **클라우드 공식 웹사이트**: [https://franchise-dashboard-scpz.onrender.com/](https://franchise-dashboard-scpz.onrender.com/)
+- **로컬 개발서버 접속 주소**: `http://localhost:5173`
 
 ---
 

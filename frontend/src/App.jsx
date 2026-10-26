@@ -8,6 +8,7 @@ import ViewportStoreInspector from './components/ViewportStoreInspector';
 import FtcBenchmarkPanel from './components/FtcBenchmarkPanel';
 import DashboardHome from './components/DashboardHome';
 import CinematicIntro from './components/CinematicIntro';
+import UserGuideModal from './components/UserGuideModal';
 import { 
   fetchSummary, 
   fetchGridDensity, 
@@ -99,6 +100,15 @@ export default function App() {
 
   const handleOpenIntro = useCallback(() => {
     setShowIntro(true);
+  }, []);
+
+  // 사용자 가이드 및 용어 사전 모달 팝업 상태 관리 (중앙 모달)
+  const [showGuideModal, setShowGuideModal] = useState(false);
+  const handleOpenGuideModal = useCallback(() => {
+    setShowGuideModal(true);
+  }, []);
+  const handleCloseGuideModal = useCallback(() => {
+    setShowGuideModal(false);
   }, []);
 
   // 4. 공정위 거시통계 상태 관리 (업종·연도 필터 연동) 및 48개 중분류 드릴다운 상태
@@ -795,9 +805,14 @@ export default function App() {
           onOpenMapWithBrand={handleOpenMapWithBrand}
           onOpenMapWithRegion={handleOpenMapWithRegion}
           onOpenIntro={handleOpenIntro}
+          onOpenGuideModal={handleOpenGuideModal}
           onRefresh={loadMapData}
           isRefreshing={isRefreshing}
           apiStatus={apiStatus}
+        />
+        <UserGuideModal
+          isOpen={showGuideModal}
+          onClose={handleCloseGuideModal}
         />
       </>
     );
@@ -820,6 +835,7 @@ export default function App() {
         isRefreshing={isRefreshing}
         onBackToDashboard={handleBackToDashboard}
         onOpenIntro={handleOpenIntro}
+        onOpenGuideModal={handleOpenGuideModal}
       />
 
       {/* 2. 지역, 업종 및 기준연도 선택 바 (CategoryFilterBar) */}
@@ -902,6 +918,7 @@ export default function App() {
           storeTypeFilter={storeTypeFilter}
           storeSearchQuery={storeSearchQuery}
           onInspectBrand={handleInspectBrand}
+          onOpenGuideModal={handleOpenGuideModal}
         />
 
         {/* 지도 상단 중앙: 1줄 슬림 점포·브랜드 통합 검색 및 인텔리전스 바 */}
@@ -1002,6 +1019,11 @@ export default function App() {
           onToggleDrawer={() => setIsFtcDrawerOpen((prev) => !prev)}
         />
       </main>
+
+      <UserGuideModal
+        isOpen={showGuideModal}
+        onClose={handleCloseGuideModal}
+      />
     </div>
   );
 }

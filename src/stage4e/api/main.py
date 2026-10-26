@@ -21,7 +21,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from src.stage4e.api.routers import summary, regions, categories, brands, spatial, ftc_macro
+from src.stage4e.api.routers import summary, regions, categories, brands, spatial, ftc_macro, system
 from scripts.restore_db import restore_analytics_db
 
 app = FastAPI(
@@ -84,6 +84,7 @@ app.include_router(categories.router)
 app.include_router(brands.router)
 app.include_router(spatial.router)
 app.include_router(ftc_macro.router)
+app.include_router(system.router)
 
 
 @app.exception_handler(ValueError)
@@ -126,6 +127,18 @@ ASSETS_DIR = DIST_DIR / "assets"
 
 if ASSETS_DIR.exists():
     app.mount("/assets", StaticFiles(directory=str(ASSETS_DIR)), name="assets")
+
+
+@app.get("/", include_in_schema=False)
+async def root_endpoint(request: Request):
+    """루트 요청: 브라우저(HTML) 요청 시 SPA index.html을 서빙하고, API 클라이언트(JSON) 요청 시 헬스체크를 반환합니다."""
+    accept = request.headers.get("accept", "")
+    index_file = DIST_DIR / "index.html"
+    if "text/html" in accept and index_file.is_file():
+        return FileResponse(index_file)
+    if index_file.is_file() and "application/json" not in accept:
+        return FileResponse(index_file)
+    return health_check()
 
 
 @app.get("/{full_path:path}", include_in_schema=False)

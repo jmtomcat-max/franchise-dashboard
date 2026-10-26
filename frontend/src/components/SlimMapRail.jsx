@@ -21,7 +21,8 @@ export default function SlimMapRail({
   isFtcDrawerOpen = false,
   onToggleFtcDrawer,
   onResetView,
-  hasGridData = false
+  hasGridData = false,
+  onOpenGuideModal
 }) {
   return (
     <aside className="slim-map-rail" aria-label="3D 지도 시각화 제어 레일">
@@ -199,6 +200,25 @@ export default function SlimMapRail({
             </svg>
           </span>
           <span className="rail-label">리셋</span>
+        </button>
+      )}
+
+      {/* 7. 사용자 가이드 및 용어 사전 모달 팝업 열기 */}
+      {onOpenGuideModal && (
+        <button
+          type="button"
+          className="rail-btn guide-btn"
+          onClick={onOpenGuideModal}
+          aria-label="사용자 가이드 및 용어 사전 팝업 열기"
+          title="사용자 가이드 및 용어 사전 (중앙 모달)"
+        >
+          <span className="rail-icon">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </span>
+          <span className="rail-label">가이드</span>
         </button>
       )}
     </aside>

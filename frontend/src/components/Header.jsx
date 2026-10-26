@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchDataStatus } from '../services/api';
 
-export default function Header({ apiStatus, onRefresh, isRefreshing, onBackToDashboard, onOpenIntro }) {
+export default function Header({ apiStatus, onRefresh, isRefreshing, onBackToDashboard, onOpenIntro, onOpenGuideModal }) {
+  const [dataStatus, setDataStatus] = useState(null);
+
+  useEffect(() => {
+    let ignore = false;
+    fetchDataStatus().then(status => {
+      if (!ignore && status) {
+        setDataStatus(status);
+      }
+    });
+    return () => { ignore = true; };
+  }, [isRefreshing]);
+
   const isConnected = apiStatus.summary && apiStatus.grid && apiStatus.hotspots;
   const isPartial = (apiStatus.summary || apiStatus.grid || apiStatus.hotspots) && !isConnected;
 
@@ -66,6 +79,43 @@ export default function Header({ apiStatus, onRefresh, isRefreshing, onBackToDas
             <span className="intro-btn-icon" aria-hidden="true">🎬</span>
             <span>시네마틱 인트로</span>
           </button>
+        )}
+
+        {onOpenGuideModal && (
+          <button 
+            type="button"
+            className="intro-video-trigger-btn user-guide-modal-btn"
+            onClick={onOpenGuideModal}
+            title="3D 대시보드 사용자 가이드 및 용어 사전 열기"
+            aria-label="사용자 가이드 모달 열기"
+            style={{ 
+              borderColor: 'rgba(0, 113, 227, 0.35)', 
+              color: '#0071e3', 
+              background: 'rgba(0, 113, 227, 0.08)' 
+            }}
+          >
+            <span className="intro-btn-icon" aria-hidden="true">📖</span>
+            <span>사용자 가이드</span>
+          </button>
+        )}
+
+        {dataStatus && (
+          <div 
+            className={`status-pill ${dataStatus.has_update ? 'badge-warning update-alert-pill' : 'badge-neutral'}`}
+            title={dataStatus.has_update 
+              ? `신규 공공데이터(${dataStatus.latest_available_version})가 감지되었습니다. 클릭 시 업데이트 명령어가 복사됩니다.` 
+              : `데이터 기준: ${dataStatus.active_version}`}
+            style={dataStatus.has_update ? { cursor: 'pointer', background: 'rgba(255, 179, 0, 0.15)', borderColor: '#ffb300', color: '#ffb300', fontWeight: 600 } : {}}
+            onClick={() => {
+              if (dataStatus.has_update) {
+                const cmd = `python scripts/run_monthly_update.py --yearmonth ${dataStatus.latest_available_version}`;
+                navigator.clipboard?.writeText(cmd);
+                alert(`신규 공공데이터(${dataStatus.latest_available_version})가 출시되었습니다!\n\n업데이트 명령어가 복사되었습니다:\n${cmd}`);
+              }
+            }}
+          >
+            <span>{dataStatus.has_update ? `🔔 새 데이터(${dataStatus.latest_available_version})` : `📅 ${dataStatus.active_version} 기준`}</span>
+          </div>
         )}
 
         <div className={`status-pill ${statusBadgeClass}`}>

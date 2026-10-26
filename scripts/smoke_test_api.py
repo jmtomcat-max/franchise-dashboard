@@ -141,12 +141,13 @@ def run_smoke_tests(base_url: Optional[str] = None) -> int:
 
         start_time = time.perf_counter()
         try:
+            headers = {"Accept": "application/json"}
             if is_live:
-                resp = httpx.get(f"{base_url}{path}", timeout=10.0)
+                resp = httpx.get(f"{base_url}{path}", headers=headers, timeout=10.0)
                 status_code = resp.status_code
                 data = resp.json()
             else:
-                resp = client.get(path)
+                resp = client.get(path, headers=headers)
                 status_code = resp.status_code
                 data = resp.json()
             elapsed_ms = (time.perf_counter() - start_time) * 1000

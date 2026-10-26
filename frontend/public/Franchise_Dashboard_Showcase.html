@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Franchise Dashboard 인터랙티브 라이브 쇼케이스 | Apple Style</title>
+  
+  <!-- Apple-inspired Clean Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Three.js for Interactive 3D WebGL Map Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <style>
+    /* ==========================================================================
+       APPLE SIGNATURE CLEAN LIGHT DESIGN SYSTEM (100% Light Mode Fixed)
+       ========================================================================== */
+    :root {
+      --bg-canvas: #ffffff;
+      --bg-subtle: #f5f5f7;
+      --bg-surface: #fbfbfd;
+      --bg-card: #ffffff;
+      --bg-nav: rgba(255, 255, 255, 0.92);
+      
+      --text-primary: #1d1d1f;
+      --text-secondary: #515154;
+      --text-tertiary: #86868b;
+      
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-medium: rgba(0, 0, 0, 0.16);
+      
+      --apple-blue: #0071e3;
+      --apple-blue-hover: #0077ed;
+      --apple-blue-bg: rgba(0, 113, 227, 0.08);
+      --apple-green: #28cd41;
+      --apple-green-bg: rgba(40, 205, 65, 0.08);
+      --apple-orange: #ff9500;
+      --apple-orange-bg: rgba(255, 149, 0, 0.08);
+      --apple-purple: #af52de;
+      --apple-red: #ff3b30;
+      
+      --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Pretendard", "Plus Jakarta Sans", sans-serif;
+      --font-mono: "SF Mono", "JetBrains Mono", Consolas, monospace;
+      --ease-apple: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      background-color: var(--bg-subtle);
+      color: var(--text-primary);
+      font-family: var(--font-system);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       TOP APPLE NAV BAR
+       ========================================================================== */
+    .apple-nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 52px;
+      background: var(--bg-nav);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .nav-brand-title svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--apple-blue);
+    }
+
+    .nav-badge-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--apple-blue-bg);
+      color: var(--apple-blue);
+      border: 1px solid rgba(0, 113, 227, 0.2);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-nav-guide {
+      height: 32px;
+      padding: 0 12px;
+      border-radius: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s var(--ease-apple);
+    }
+
+    .btn-nav-guide:hover {
+      border-color: var(--border-medium);
+      background: var(--bg-surface);
+    }
+
+    .btn-nav-launch {
+      height: 32px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: var(--apple-blue);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.2s var(--ease-apple);
+    }
+
+    .btn-nav-launch:hover {
+      background: var(--apple-blue-hover);
+    }
+
+    /* ==========================================================================
+       HERO INTRODUCTION BLOCK
+       ========================================================================== */
+    .showcase-hero {
+      text-align: center;
+      padding: 44px 20px 24px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--apple-blue);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .hero-desc strong {
+      color: var(--apple-blue);
+    }
+
+    /* ==========================================================================
+       MAIN INTERACTIVE SIMULATOR FRAME (Apple Display Frame)
+       ========================================================================== */
+    .simulator-stage-wrap {
+      max-width: 1280px;
+      margin: 0 auto 60px auto;
+      padding: 0 24px;
+    }
+
+    .apple-display-frame {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Sub-Header inside Virtual Dashboard */
+    .dash-mock-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .dash-region-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .dash-region-badge svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--apple-blue);
+    }
+
+    .dash-kpi-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .dash-kpi-item {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .dash-kpi-val {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    /* Category Filter Bar */
+    .dash-cat-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+
+    .dash-cat-pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s var(--ease-apple);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dash-cat-pill:hover {
+      background: var(--border-subtle);
+      color: var(--text-primary);
+    }
+
+    .dash-cat-pill.active {
+      background: var(--apple-blue);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 2px 8px rgba(0, 113, 227, 0.3);
+    }
+
+    /* ==========================================================================
+       VIRTUAL 3D/2D MAP CANVAS (WebGL Real 3D Renderer)
+       ========================================================================== */
+    .dash-viewport-body {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      background: #e9eef4; /* Apple Map Light Surface */
+      overflow: hidden;
+    }
+
+    #three-map-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: grab;
+    }
+
+    #three-map-canvas:active {
+      cursor: grabbing;
+    }
+
+    /* Floating Street HUD Overlay */
+    .map-street-hud {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      pointer-events: none;
+    }
+
+    .map-street-hud span {
+      color: var(--apple-blue);
+      font-weight: 700;
+    }
+
+    /* Floating Store Popup Card */
+    .store-popup-card {
+      position: absolute;
+      top: 140px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 16px 20px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+      z-index: 200;
+      min-width: 270px;
+      display: none;
+      animation: popIn 0.25s var(--ease-spring);
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: translateX(-50%) scale(0.9); }
+      to { opacity: 1; transform: translateX(-50%) scale(1); }
+    }
+
+    .popup-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--apple-green-bg);
+      color: var(--apple-green);
+      margin-bottom: 6px;
+    }
+
+    .popup-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .popup-sub {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+    }
+
+    .popup-close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: var(--text-tertiary);
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       RIGHT FLOATING SLIMMAPRAIL (44px Slim Floating Rail)
+       ========================================================================== */
+    .dash-maprail-dock {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 48px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .rail-action-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s var(--ease-apple);
+      position: relative;
+    }
+
+    .rail-action-btn:hover {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+      border-color: var(--border-medium);
+    }
+
+    .rail-action-btn.active {
+      background: var(--apple-blue);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 2px 8px rgba(0, 113, 227, 0.35);
+    }
+
+    .rail-action-btn svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+    }
+
+    .rail-action-btn span {
+      font-size: 8px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .rail-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border-subtle);
+      margin: 2px 0;
+    }
+
+    /* ==========================================================================
+       SLIDING FTC BENCHMARK DRAWER (우측 슬라이딩 패널)
+       ========================================================================== */
+    .dash-ftc-drawer {
+      position: absolute;
+      top: 0;
+      right: -360px;
+      width: 340px;
+      height: 100%;
+      background: #ffffff;
+      border-left: 1px solid var(--border-subtle);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.06);
+      z-index: 90;
+      padding: 24px 20px;
+      transition: right 0.4s var(--ease-apple);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .dash-ftc-drawer.is-open {
+      right: 0;
+    }
+
+    .drawer-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-title-row h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .drawer-close-btn {
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: var(--text-tertiary);
+      cursor: pointer;
+    }
+
+    .drawer-stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .drawer-stat-label {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      margin-bottom: 4px;
+    }
+
+    .drawer-stat-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--apple-blue);
+    }
+
+    /* ==========================================================================
+       WHAT CHANGED SMART GUIDANCE OVERLAY (실시간 스마트 가이드 툴팁)
+       ========================================================================== */
+    .dash-live-guidance-bar {
+      background: #ffffff;
+      border-top: 1px solid var(--border-subtle);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .guidance-badge {
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--apple-blue-bg);
+      border: 1px solid rgba(0, 113, 227, 0.2);
+      color: var(--apple-blue);
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .guidance-message {
+      font-size: 13.5px;
+      color: var(--text-primary);
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .guidance-message strong {
+      color: var(--apple-blue);
+    }
+
+    /* ==========================================================================
+       BOTTOM INTERACTIVE CALCULATOR (실시간 창업비용 & 매출 시뮬레이터)
+       ========================================================================== */
+    .calculator-section {
+      max-width: 1280px;
+      margin: 0 auto 80px auto;
+      padding: 0 24px;
+    }
+
+    .calc-hardware-card {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 36px 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .calc-header {
+      margin-bottom: 24px;
+    }
+
+    .calc-header h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .calc-header p {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .calc-slider-wrap {
+      margin: 28px 0;
+    }
+
+    .calc-slider-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .calc-slider-val {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--apple-blue);
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--border-medium);
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--apple-blue);
+      box-shadow: 0 2px 8px rgba(0, 113, 227, 0.4);
+      cursor: pointer;
+    }
+
+    .calc-grid-results {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .calc-stat-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .calc-stat-sub {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      margin-bottom: 4px;
+    }
+
+    .calc-stat-num {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .calc-stat-num.highlight {
+      color: var(--apple-blue);
+    }
+
+    /* Footer */
+    .showcase-footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    @media (max-width: 768px) {
+      .calc-grid-results {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .dash-kpi-bar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP APPLE NAV BAR
+       ========================================================================== -->
+  <header class="apple-nav">
+    <div class="nav-left">
+      <a href="#" class="nav-brand-title">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span>Franchise Dashboard</span>
+      </a>
+      <span class="nav-badge-pill">인터랙티브 라이브 쇼케이스</span>
+    </div>
+
+    <div class="nav-right">
+      <a href="USER_GUIDE.html" class="btn-nav-guide">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        <span>공식 사용자 설명서 (용어사전 포함)</span>
+      </a>
+      <a href="https://franchise-dashboard-scpz.onrender.com/" target="_blank" class="btn-nav-launch" title="클라우드 공식 웹사이트로 이동">
+        <span>공식 사이트 바로가기</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO INTRODUCTION
+       ========================================================================== -->
+  <section class="showcase-hero">
+    <div class="hero-eyebrow">Interactive Live Playground</div>
+    <h1 class="hero-title">버튼을 클릭하면 지도가 어떻게 바뀌는지 직접 체험하세요</h1>
+    <p class="hero-desc">
+      공식 웹 서비스(<strong><a href="https://franchise-dashboard-scpz.onrender.com/" target="_blank" style="color: var(--apple-blue); text-decoration: underline;">franchise-dashboard-scpz.onrender.com</a></strong>)와 100% 동일한 기능을 가상 체험할 수 있습니다.<br>
+      화면 우측의 <strong>SlimMapRail 버튼</strong>과 상단의 <strong>업종 필터</strong>를 직접 눌러보세요. 
+      지도가 3D/2D로 회전하고, 100m 입체 기둥이 오르내리며, 공정위 벤치마크 패널이 열리는 실제 대시보드의 동작을 직접 확인하실 수 있습니다.
+    </p>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE DISPLAY STAGE (실제 WebGL 3D 맵 샌드박스)
+       ========================================================================== -->
+  <section class="simulator-stage-wrap">
+    <div class="apple-display-frame">
+      
+      <!-- 1. Mock Sub-Header -->
+      <div class="dash-mock-header">
+        <div class="dash-region-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>서울특별시 강남구 (역삼·신논현 상권)</span>
+        </div>
+
+        <div class="dash-kpi-bar">
+          <div class="dash-kpi-item">
+            <span>선택 업종 점포수:</span>
+            <span class="dash-kpi-val" id="kpi-store-count">11,296 개</span>
+          </div>
+          <div class="dash-kpi-item">
+            <span>프랜차이즈 침투율:</span>
+            <span class="dash-kpi-val" style="color: var(--apple-blue);" id="kpi-penetration">28.4 %</span>
+          </div>
+          <div class="dash-kpi-item">
+            <span>최고 밀집도:</span>
+            <span class="dash-kpi-val" style="color: var(--apple-orange);">100m당 42개소</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Category Filter Bar (Clickable) -->
+      <div class="dash-cat-bar">
+        <button class="dash-cat-pill active" onclick="clickCategoryFilter(this, '전체 외식업', 11296, 28.4, 0x0071e3)">
+          <span>🍽️ 전체 외식업</span>
+        </button>
+        <button class="dash-cat-pill" onclick="clickCategoryFilter(this, '카페·음료', 2410, 36.8, 0xff9500)">
+          <span>☕ 카페·음료</span>
+        </button>
+        <button class="dash-cat-pill" onclick="clickCategoryFilter(this, '치킨·패스트푸드', 1840, 48.2, 0xff3b30)">
+          <span>🍗 치킨·패스트푸드</span>
+        </button>
+        <button class="dash-cat-pill" onclick="clickCategoryFilter(this, '베이커리·디저트', 980, 41.5, 0xaf52de)">
+          <span>🥐 베이커리·디저트</span>
+        </button>
+        <button class="dash-cat-pill" onclick="clickCategoryFilter(this, '한식', 3620, 19.4, 0x28cd41)">
+          <span>🍚 한식</span>
+        </button>
+        <button class="dash-cat-pill" onclick="clickCategoryFilter(this, '일식', 1180, 24.1, 0x0071e3)">
+          <span>🍣 일식</span>
+        </button>
+      </div>
+
+      <!-- 3. WebGL 3D Interactive Map Viewport -->
+      <div class="dash-viewport-body" id="viewport-body">
+        
+        <!-- Three.js Real 3D Canvas -->
+        <canvas id="three-map-canvas"></canvas>
+
+        <!-- Street HUD -->
+        <div class="map-street-hud">
+          📍 <span>테헤란로 × 강남대로</span> 교차 상권 (100m 단위 격자 표출 중)
+        </div>
+
+        <!-- Store Popup Window -->
+        <div class="store-popup-card" id="store-popup">
+          <button class="popup-close-btn" onclick="closeStorePopup()">×</button>
+          <span class="popup-badge" id="pop-badge">공인 프랜차이즈</span>
+          <div class="popup-title" id="pop-name">메가MGC커피 강남역점</div>
+          <div class="popup-sub" id="pop-cat">카페·음료 (커피전문점)</div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4;" id="pop-addr">서울 강남구 강남대로 396</div>
+        </div>
+
+        <!-- Right Floating SlimMapRail (44px) -->
+        <aside class="dash-maprail-dock">
+          <!-- 1. 3D/2D Pitch Toggle -->
+          <button class="rail-action-btn active" id="btn-rail-3d" onclick="toggleMap3D()" title="3D 경사각 시점 / 2D 평면 탑뷰 토글">
+            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span id="rail-lbl-3d">3D</span>
+          </button>
+
+          <!-- 2. Extrusion Height Toggle -->
+          <button class="rail-action-btn active" id="btn-rail-ext" onclick="toggleMapExtrusion()" title="100m 기둥 높이 On/Off">
+            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>기둥</span>
+          </button>
+
+          <!-- 3. Color Mode Toggle -->
+          <button class="rail-action-btn" id="btn-rail-color" onclick="toggleColorMode()" title="밀집도 색상 / 업종별 색상 전환">
+            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20z"/></svg>
+            <span>색상</span>
+          </button>
+
+          <!-- 4. Drone Tour -->
+          <button class="rail-action-btn" id="btn-rail-drone" onclick="triggerDroneTour()" title="상권 핫스팟 드론 비행 투어">
+            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
+            <span>드론</span>
+          </button>
+
+          <div class="rail-divider"></div>
+
+          <!-- 5. FTC Benchmark Drawer Toggle -->
+          <button class="rail-action-btn" id="btn-rail-ftc" onclick="toggleFtcDrawer()" title="공정위 창업비용 벤치마크 드로어">
+            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+            <span>FTC</span>
+          </button>
+
+          <!-- 6. Reset View -->
+          <button class="rail-action-btn" onclick="resetMapView()" title="상권 시점 초기화">
+            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+            <span>초기화</span>
+          </button>
+        </aside>
+
+        <!-- Sliding FTC Benchmark Drawer -->
+        <div class="dash-ftc-drawer" id="ftc-drawer">
+          <div class="drawer-title-row">
+            <h3>공정위(FTC) 벤치마크</h3>
+            <button class="drawer-close-btn" onclick="toggleFtcDrawer()">×</button>
+          </div>
+          <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;">
+            공정거래위원회 4개년(2023~2026) 실측 정보공개서 데이터를 기반으로 산출된 공식 재무 지표입니다.
+          </p>
+
+          <div class="drawer-stat-card">
+            <div class="drawer-stat-label">강남구 외식 가맹점 평균 연매출</div>
+            <div class="drawer-stat-val">3억 8,400 만원</div>
+            <div style="font-size: 11px; color: var(--apple-green); font-weight: 600; margin-top: 2px;">↑ 전년 대비(YoY) +5.4%</div>
+          </div>
+
+          <div class="drawer-stat-card">
+            <div class="drawer-stat-label">평당 평균 인테리어 시공비</div>
+            <div class="drawer-stat-val">220 만원 / 평</div>
+            <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">기본 집기 및 조명 포함 기준</div>
+          </div>
+
+          <div class="drawer-stat-card">
+            <div class="drawer-stat-label">평균 가맹비 + 보증금 + 교육비</div>
+            <div class="drawer-stat-val">2,150 만원</div>
+            <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">보증금은 계약 종료 시 환급</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 4. Real-time Smart Guidance Feedback Bar -->
+      <div class="dash-live-guidance-bar">
+        <span class="guidance-badge">실시간 동작 안내</span>
+        <div class="guidance-message" id="guidance-text">
+          현재 <strong>3D 경사각 시점(52°)</strong>에서 100m 정밀 기둥을 보고 계십니다. 우측 <strong>SlimMapRail 버튼</strong>들을 클릭해 보세요!
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BOTTOM INTERACTIVE CALCULATOR (실시간 창업비용 & 매출 계산기)
+       ========================================================================== -->
+  <section class="calculator-section">
+    <div class="calc-hardware-card">
+      <div class="calc-header">
+        <h3>📊 실시간 창업비용 & 매출 벤치마크 시뮬레이터</h3>
+        <p>공정거래위원회 2026 실측 통계를 바탕으로 매장 평수를 조절해 초기 투자금과 예상 연매출을 즉시 계산합니다.</p>
+      </div>
+
+      <div class="calc-slider-wrap">
+        <div class="calc-slider-info">
+          <span>창업 희망 매장 전용 면적</span>
+          <span class="calc-slider-val" id="calc-area-label">15 평 (49.6 ㎡)</span>
+        </div>
+        <input type="range" id="calc-area-range" min="8" max="60" value="15" step="1" oninput="updateCalculator(this.value)">
+      </div>
+
+      <div class="calc-grid-results">
+        <div class="calc-stat-box">
+          <div class="calc-stat-sub">가맹비 + 보증금 + 교육비</div>
+          <div class="calc-stat-num">1,850 만원</div>
+        </div>
+        <div class="calc-stat-box">
+          <div class="calc-stat-sub">인테리어비 (평당 210만)</div>
+          <div class="calc-stat-num" id="stat-interior">3,150 만원</div>
+        </div>
+        <div class="calc-stat-box">
+          <div class="calc-stat-sub">총 추정 초기 창업비용</div>
+          <div class="calc-stat-num highlight" id="stat-total">5,000 만원</div>
+        </div>
+        <div class="calc-stat-box">
+          <div class="calc-stat-sub">연간 평균 가맹점 매출액</div>
+          <div class="calc-stat-num" style="color: var(--apple-green);" id="stat-rev">2.5 억원</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="showcase-footer">
+    <p>© 2026 Franchise Dashboard. Built with Apple Clean Light Design Standards.</p>
+  </footer>
+
+  <!-- ==========================================================================
+       THREE.JS WEBGL REAL 3D ENGINE & INTERACTION LOGIC
+       ========================================================================== -->
+  <script>
+    let scene, camera, renderer;
+    let pillarsGroup = new THREE.Group();
+    let roadsGroup = new THREE.Group();
+    let pinsGroup = new THREE.Group();
+
+    let is3D = true;
+    let isExtrusion = true;
+    let isColorCategory = false;
+    let isDrawerOpen = false;
+
+    // Target Camera Transforms for Smooth LERP Animation
+    let targetCamera = {
+      x: 0,
+      y: 18,
+      z: 24,
+      lookAtY: 0
+    };
+
+    const guidanceEl = document.getElementById('guidance-text');
+
+    function initWebGLMap() {
+      const canvas = document.getElementById('three-map-canvas');
+      const container = document.getElementById('viewport-body');
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xe9eef4); // Apple Map Surface Color
+
+      camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+      camera.position.set(targetCamera.x, targetCamera.y, targetCamera.z);
+      camera.lookAt(0, targetCamera.lookAtY, 0);
+
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // Lighting
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+      scene.add(ambientLight);
+
+      const dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
+      dirLight.position.set(20, 40, 20);
+      scene.add(dirLight);
+
+      // 1. Street Grid & Blocks (Apple Map Streets)
+      const roadMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+      const greenMat = new THREE.MeshBasicMaterial({ color: 0xd8e8d8 }); // Parks
+
+      // Main Arterial Roads
+      const hRoad = new THREE.Mesh(new THREE.PlaneGeometry(60, 2.5), roadMat);
+      hRoad.rotation.x = -Math.PI / 2;
+      hRoad.position.y = 0.01;
+      roadsGroup.add(hRoad);
+
+      const vRoad = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 60), roadMat);
+      vRoad.rotation.x = -Math.PI / 2;
+      vRoad.position.y = 0.01;
+      roadsGroup.add(vRoad);
+
+      // Map City Grid Lines
+      const gridHelper = new THREE.GridHelper(60, 30, 0xc5d3e0, 0xdbe4ed);
+      gridHelper.position.y = 0.005;
+      roadsGroup.add(gridHelper);
+
+      scene.add(roadsGroup);
+
+      // 2. 100m Density 3D Extrusion Pillars
+      const pillarGeo = new THREE.BoxGeometry(1.6, 1, 1.6);
+      const pillarData = [
+        { x: -1.2, z: -1.2, h: 8.5, color: 0xff3b30, count: 42 },
+        { x: 1.2, z: -1.2, h: 7.2, color: 0xff3b30, count: 38 },
+        { x: -1.2, z: 1.2, h: 6.4, color: 0xff9500, count: 34 },
+        { x: 1.2, z: 1.2, h: 5.1, color: 0xff9500, count: 26 },
+        { x: -4.5, z: -4.5, h: 4.2, color: 0x0071e3, count: 21 },
+        { x: 4.5, z: -4.5, h: 3.6, color: 0x0071e3, count: 18 },
+        { x: -4.5, z: 4.5, h: 2.5, color: 0x28cd41, count: 12 },
+        { x: 4.5, z: 4.5, h: 1.8, color: 0x28cd41, count: 8 },
+        { x: 0, z: -6.0, h: 3.0, color: 0x0071e3, count: 15 },
+        { x: 0, z: 6.0, h: 2.0, color: 0x28cd41, count: 10 }
+      ];
+
+      pillarData.forEach(item => {
+        const mat = new THREE.MeshLambertMaterial({
+          color: item.color,
+          transparent: true,
+          opacity: 0.88
+        });
+        const mesh = new THREE.Mesh(pillarGeo, mat);
+        mesh.scale.set(1, item.h, 1);
+        mesh.position.set(item.x, item.h / 2, item.z);
+        mesh.userData = {
+          origH: item.h,
+          origColor: item.color,
+          count: item.count
+        };
+
+        // Wireframe Edge
+        const edges = new THREE.EdgesGeometry(pillarGeo);
+        const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 }));
+        mesh.add(line);
+
+        pillarsGroup.add(mesh);
+      });
+
+      scene.add(pillarsGroup);
+
+      // 3. Store Marker Pins (3D Spheres with Pulsing ring)
+      const pinGeo = new THREE.SphereGeometry(0.35, 16, 16);
+      const pinMat = new THREE.MeshBasicMaterial({ color: 0x0071e3 });
+      
+      const pinCoords = [
+        { x: -0.8, z: -0.8, name: "메가MGC커피 강남역점", cat: "카페·음료", addr: "서울 강남구 강남대로 396" },
+        { x: 1.5, z: 0.8, name: "스타벅스 강남R점", cat: "카페·음료", addr: "서울 강남구 테헤란로 102" },
+        { x: -1.0, z: 2.0, name: "BBQ치킨 역삼점", cat: "치킨·패스트푸드", addr: "서울 강남구 역삼로 115" },
+        { x: 2.2, z: -2.0, name: "파리바게뜨 신논현역점", cat: "베이커리·디저트", addr: "서울 강남구 봉은사로 108" }
+      ];
+
+      pinCoords.forEach(p => {
+        const pinMesh = new THREE.Mesh(pinGeo, pinMat);
+        pinMesh.position.set(p.x, 0.4, p.z);
+        pinMesh.userData = p;
+        pinsGroup.add(pinMesh);
+      });
+
+      scene.add(pinsGroup);
+
+      // Window resize listener
+      window.addEventListener('resize', onResizeThree, false);
+
+      // Render Loop
+      animateThree();
+    }
+
+    function onResizeThree() {
+      const container = document.getElementById('viewport-body');
+      if (!container || !renderer || !camera) return;
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    }
+
+    function animateThree() {
+      requestAnimationFrame(animateThree);
+
+      // Smooth Camera Transition (LERP)
+      camera.position.x += (targetCamera.x - camera.position.x) * 0.08;
+      camera.position.y += (targetCamera.y - camera.position.y) * 0.08;
+      camera.position.z += (targetCamera.z - camera.position.z) * 0.08;
+      camera.lookAt(0, targetCamera.lookAtY, 0);
+
+      // Render
+      renderer.render(scene, camera);
+    }
+
+    /* ==========================================================================
+       SLIMMAPRAIL CONTROLS
+       ========================================================================== */
+    // 1. 3D / 2D Toggle
+    function toggleMap3D() {
+      const btn = document.getElementById('btn-rail-3d');
+      const lbl = document.getElementById('rail-lbl-3d');
+      is3D = !is3D;
+
+      if (is3D) {
+        // 3D Pitch View (52° Inclined Birdseye View)
+        targetCamera.x = 0;
+        targetCamera.y = 18;
+        targetCamera.z = 24;
+        targetCamera.lookAtY = 0;
+        btn.classList.add('active');
+        lbl.innerText = '3D';
+        guidanceEl.innerHTML = '👉 <strong>[3D 경사각 시점(52°)]</strong> 활성화: 카메라가 52도 각도로 기울어져 100m 격자 기둥의 높낮이를 입체적으로 관찰합니다.';
+      } else {
+        // 2D Flat Top View (Straight Down Top View)
+        targetCamera.x = 0;
+        targetCamera.y = 34;
+        targetCamera.z = 0.2; // Almost directly above
+        targetCamera.lookAtY = 0;
+        btn.classList.remove('active');
+        lbl.innerText = '2D';
+        guidanceEl.innerHTML = '👉 <strong>[2D 평면 탑뷰]</strong>로 전환되었습니다. 지도를 수직 직하강으로 내려다보며 도로망과 점포의 평면 위치를 왜곡 없이 파악합니다.';
+      }
+    }
+
+    // 2. Extrusion Height Toggle (기둥 높이 켜기/끄기)
+    function toggleMapExtrusion() {
+      const btn = document.getElementById('btn-rail-ext');
+      isExtrusion = !isExtrusion;
+
+      pillarsGroup.children.forEach(mesh => {
+        const targetH = isExtrusion ? mesh.userData.origH : 0.08;
+        mesh.scale.y = targetH;
+        mesh.position.y = targetH / 2;
+      });
+
+      if (isExtrusion) {
+        btn.classList.add('active');
+        guidanceEl.innerHTML = '👉 <strong>[3D 기둥 렌즈 켜짐]</strong>: 100m 단위 점포 밀집도가 입체 기둥 높이로 솟아올랐습니다.';
+      } else {
+        btn.classList.remove('active');
+        guidanceEl.innerHTML = '👉 <strong>[3D 기둥 렌즈 꺼짐]</strong>: 기둥 높이가 바닥으로 내려앉아 가려졌던 골목의 개별 점포 위치가 명확히 드러납니다.';
+      }
+    }
+
+    // 3. Color Mode Toggle (밀집도 vs 업종별)
+    function toggleColorMode() {
+      const btn = document.getElementById('btn-rail-color');
+      isColorCategory = !isColorCategory;
+
+      pillarsGroup.children.forEach((mesh, idx) => {
+        if (isColorCategory) {
+          // Category Theme Colors (Orange for Cafe, Purple for Bakery)
+          mesh.material.color.setHex(idx % 2 === 0 ? 0xff9500 : 0xaf52de);
+        } else {
+          // Restore Heatmap Density Colors
+          mesh.material.color.setHex(mesh.userData.origColor);
+        }
+      });
+
+      if (isColorCategory) {
+        btn.classList.add('active');
+        guidanceEl.innerHTML = '👉 <strong>[업종별 고유 테마 색상]</strong>으로 변경되었습니다. 카페(주황), 베이커리(보라) 등 업종 테마별 분포가 강조됩니다.';
+      } else {
+        btn.classList.remove('active');
+        guidanceEl.innerHTML = '👉 <strong>[과밀도 히트맵 색상]</strong>으로 복귀했습니다. 빨간색 기둥일수록 경쟁이 치열한 과밀 상권입니다.';
+      }
+    }
+
+    // 4. Drone Tour Simulation
+    function triggerDroneTour() {
+      const btn = document.getElementById('btn-rail-drone');
+      btn.classList.add('active');
+      guidanceEl.innerHTML = '🚁 <strong>[상권 핫스팟 드론 비행 투어 시작]</strong>: 카메라가 강남역 사거리로 부드럽게 하강 비행 중입니다...';
+
+      // Swoop Camera Down
+      targetCamera.x = 4;
+      targetCamera.y = 8;
+      targetCamera.z = 12;
+      targetCamera.lookAtY = 2;
+
+      setTimeout(() => {
+        // Return to normal 3D
+        targetCamera.x = 0;
+        targetCamera.y = 18;
+        targetCamera.z = 24;
+        targetCamera.lookAtY = 0;
+        btn.classList.remove('active');
+        guidanceEl.innerHTML = '👉 드론 비행 투어가 완료되었습니다. 핵심 상권 중심부를 성공적으로 둘러보았습니다.';
+      }, 2500);
+    }
+
+    // 5. FTC Benchmark Drawer Toggle
+    function toggleFtcDrawer() {
+      const drawer = document.getElementById('ftc-drawer');
+      const btn = document.getElementById('btn-rail-ftc');
+      isDrawerOpen = !isDrawerOpen;
+
+      if (isDrawerOpen) {
+        drawer.classList.add('is-open');
+        btn.classList.add('active');
+        guidanceEl.innerHTML = '👉 <strong>[공정위(FTC) 벤치마크 패널 오픈]</strong>: 우측 서랍이 열리며 4개년 실측 가맹점 매출액과 평당 인테리어비가 표시됩니다.';
+      } else {
+        drawer.classList.remove('is-open');
+        btn.classList.remove('active');
+        guidanceEl.innerHTML = '👉 공정위 벤치마크 패널을 닫았습니다. 지도를 넓게 탐색할 수 있습니다.';
+      }
+    }
+
+    // 6. Reset View
+    function resetMapView() {
+      targetCamera.x = 0;
+      targetCamera.y = 18;
+      targetCamera.z = 24;
+      targetCamera.lookAtY = 0;
+      is3D = true;
+      document.getElementById('btn-rail-3d').classList.add('active');
+      document.getElementById('rail-lbl-3d').innerText = '3D';
+      guidanceEl.innerHTML = '👉 기본 시점으로 리셋되었습니다.';
+    }
+
+    // 7. Category Filter Bar Click
+    function clickCategoryFilter(btn, catName, count, penet, hexColor) {
+      document.querySelectorAll('.dash-cat-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.getElementById('kpi-store-count').innerText = count.toLocaleString() + ' 개';
+      document.getElementById('kpi-penetration').innerText = penet + ' %';
+
+      // Sync 3D Pillar Colors
+      pillarsGroup.children.forEach(mesh => {
+        mesh.material.color.setHex(hexColor);
+      });
+
+      guidanceEl.innerHTML = `👉 <strong>[${catName}]</strong> 업종 필터 적용 완료: 점포수 <strong>${count.toLocaleString()}개</strong> 및 침투율 <strong>${penet}%</strong>로 3D 지도가 동기화되었습니다.`;
+    }
+
+    // 8. Store Popup
+    function openStorePopup(name, cat, addr, badge) {
+      const pop = document.getElementById('store-popup');
+      document.getElementById('pop-name').innerText = name;
+      document.getElementById('pop-cat').innerText = cat;
+      document.getElementById('pop-addr').innerText = addr;
+      document.getElementById('pop-badge').innerText = badge;
+      pop.style.display = 'block';
+
+      guidanceEl.innerHTML = `📍 <strong>[개별 점포 팝업]</strong> '${name}' 매장의 상세 정보(업종: ${cat}, 가맹 여부: ${badge})를 확인하고 있습니다.`;
+    }
+
+    function closeStorePopup() {
+      document.getElementById('store-popup').style.display = 'none';
+    }
+
+    // 9. Interactive Calculator
+    function updateCalculator(val) {
+      const py = parseInt(val, 10);
+      const m2 = (py * 3.3058).toFixed(1);
+      document.getElementById('calc-area-label').innerText = `${py} 평 (${m2} ㎡)`;
+
+      const interior = py * 210;
+      const total = 1850 + interior;
+      const rev = (1.8 + (py * 0.045)).toFixed(1);
+
+      document.getElementById('stat-interior').innerText = `${interior.toLocaleString()} 만원`;
+      document.getElementById('stat-total').innerText = `${total.toLocaleString()} 만원`;
+      document.getElementById('stat-rev').innerText = `${rev} 억원`;
+    }
+
+    // Initialize WebGL Scene
+    window.addEventListener('DOMContentLoaded', () => {
+      initWebGLMap();
+    });
+  </script>
+</body>
+</html>

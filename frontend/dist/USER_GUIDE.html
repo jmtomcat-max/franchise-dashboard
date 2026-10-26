@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Franchise Dashboard 공식 사용자 설명서 | Apple Documentation Style</title>
+  
+  <!-- Apple-inspired Clean Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       APPLE SIGNATURE CLEAN LIGHT DESIGN SYSTEM (100% Light Mode Fixed)
+       ========================================================================== */
+    :root {
+      --bg-canvas: #ffffff;
+      --bg-subtle: #f5f5f7;
+      --bg-surface: #fbfbfd;
+      --bg-card: #ffffff;
+      --bg-card-hover: #fcfcfd;
+      --bg-nav: rgba(255, 255, 255, 0.92);
+      
+      --text-primary: #1d1d1f;
+      --text-secondary: #515154;
+      --text-tertiary: #86868b;
+      
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-medium: rgba(0, 0, 0, 0.16);
+      
+      --apple-blue: #0071e3;
+      --apple-blue-hover: #0077ed;
+      --apple-blue-bg: rgba(0, 113, 227, 0.08);
+      --apple-green: #28cd41;
+      --apple-green-bg: rgba(40, 205, 65, 0.08);
+      --apple-orange: #ff9500;
+      --apple-orange-bg: rgba(255, 149, 0, 0.08);
+      --apple-purple: #af52de;
+      --apple-red: #ff3b30;
+      
+      --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Pretendard", "Plus Jakarta Sans", sans-serif;
+      --font-mono: "SF Mono", "JetBrains Mono", Consolas, monospace;
+      --ease-apple: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      
+      --sidebar-width: 290px;
+      --content-max-width: 920px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: var(--font-system);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    /* ==========================================================================
+       TOP NAVIGATION BAR (Apple Translucent Blur Header)
+       ========================================================================== */
+    .apple-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 52px;
+      background: var(--bg-nav);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .nav-brand-title svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--apple-blue);
+    }
+
+    .nav-badge-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--apple-blue-bg);
+      color: var(--apple-blue);
+      border: 1px solid rgba(0, 113, 227, 0.2);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-search-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-search-input {
+      width: 220px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      padding: 0 10px 0 32px;
+      color: var(--text-primary);
+      font-size: 12px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s var(--ease-apple);
+    }
+
+    .nav-search-input:focus {
+      width: 270px;
+      background: #ffffff;
+      border-color: var(--apple-blue);
+      box-shadow: 0 0 0 3px var(--apple-blue-bg);
+    }
+
+    .nav-search-wrap svg {
+      position: absolute;
+      left: 10px;
+      width: 14px;
+      height: 14px;
+      stroke: var(--text-tertiary);
+    }
+
+    .btn-nav-action {
+      height: 32px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: var(--apple-blue);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s var(--ease-apple);
+    }
+
+    .btn-nav-action:hover {
+      background: var(--apple-blue-hover);
+    }
+
+    .btn-nav-secondary {
+      height: 32px;
+      padding: 0 12px;
+      border-radius: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s var(--ease-apple);
+    }
+
+    .btn-nav-secondary:hover {
+      background: #ffffff;
+      border-color: var(--border-medium);
+    }
+
+    /* ==========================================================================
+       SIDEBAR & MAIN DOCUMENTATION LAYOUT
+       ========================================================================== */
+    .doc-layout-container {
+      display: flex;
+      max-width: 1440px;
+      margin: 52px auto 0 auto;
+      min-height: calc(100vh - 52px);
+    }
+
+    /* Left Sidebar */
+    .doc-sidebar {
+      width: var(--sidebar-width);
+      position: sticky;
+      top: 52px;
+      height: calc(100vh - 52px);
+      overflow-y: auto;
+      border-right: 1px solid var(--border-subtle);
+      padding: 30px 16px 40px 24px;
+      flex-shrink: 0;
+      background: var(--bg-surface);
+    }
+
+    .sidebar-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      margin: 22px 0 8px 10px;
+    }
+
+    .sidebar-group-title:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .sidebar-nav-item a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.15s var(--ease-apple);
+    }
+
+    .sidebar-nav-item a:hover {
+      color: var(--text-primary);
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .sidebar-nav-item a.active {
+      color: var(--apple-blue);
+      background: var(--apple-blue-bg);
+      font-weight: 600;
+    }
+
+    .sidebar-nav-item .nav-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      width: 16px;
+    }
+
+    .sidebar-nav-item a.active .nav-num {
+      color: var(--apple-blue);
+    }
+
+    /* Right Main Article */
+    .doc-main {
+      flex: 1;
+      padding: 50px 64px 140px 64px;
+      max-width: calc(100% - var(--sidebar-width));
+      background: #ffffff;
+    }
+
+    .content-wrapper {
+      max-width: var(--content-max-width);
+      margin: 0 auto;
+    }
+
+    /* Typography & Sections */
+    .doc-header-block {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .doc-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--apple-blue);
+      margin-bottom: 12px;
+    }
+
+    .doc-title {
+      font-size: clamp(34px, 3.8vw, 46px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .doc-lead {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    .doc-section {
+      margin-bottom: 74px;
+      scroll-margin-top: 80px; /* Fixed Header Scroll Clearance */
+    }
+
+    .section-h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--apple-blue);
+      border-radius: 2px;
+    }
+
+    .section-desc {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .section-h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 34px 0 14px 0;
+    }
+
+    /* ==========================================================================
+       APPLE CALLOUT BANNERS (Note, Tip, Important)
+       ========================================================================== */
+    .apple-callout {
+      padding: 18px 22px;
+      border-radius: 14px;
+      margin: 26px 0;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+
+    .apple-callout.note {
+      background: var(--apple-blue-bg);
+      border: 1px solid rgba(0, 113, 227, 0.2);
+      color: var(--text-primary);
+    }
+    .apple-callout.note .callout-icon { color: var(--apple-blue); }
+
+    .apple-callout.tip {
+      background: var(--apple-green-bg);
+      border: 1px solid rgba(40, 205, 65, 0.2);
+      color: var(--text-primary);
+    }
+    .apple-callout.tip .callout-icon { color: var(--apple-green); }
+
+    .apple-callout.important {
+      background: var(--apple-orange-bg);
+      border: 1px solid rgba(255, 149, 0, 0.2);
+      color: var(--text-primary);
+    }
+    .apple-callout.important .callout-icon { color: var(--apple-orange); }
+
+    .callout-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .callout-body strong {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       GLOSSARY & TERMINOLOGY CARDS
+       ========================================================================== */
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .glossary-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 20px 22px;
+      transition: all 0.2s var(--ease-apple);
+    }
+
+    .glossary-card:hover {
+      background: #ffffff;
+      border-color: var(--apple-blue);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .glossary-term-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--apple-blue-bg);
+      color: var(--apple-blue);
+      margin-bottom: 8px;
+    }
+
+    .glossary-term-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .glossary-term-desc {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================================================
+       STEP-BY-STEP APPLE CARDS
+       ========================================================================== */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .step-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 22px 26px;
+      display: flex;
+      gap: 20px;
+      transition: all 0.2s var(--ease-apple);
+    }
+
+    .step-card:hover {
+      background: #ffffff;
+      border-color: var(--border-medium);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .step-number-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--apple-blue);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .step-content code {
+      font-family: var(--font-mono);
+      background: rgba(0, 0, 0, 0.05);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      color: var(--apple-blue);
+    }
+
+    /* ==========================================================================
+       EMBEDDED INTERACTIVE 3D MAP SIMULATOR (5번 섹션 내장 맵)
+       ========================================================================== */
+    .map-demo-sandbox {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      margin: 28px 0;
+    }
+
+    .map-demo-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .map-demo-header h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .map-demo-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--apple-blue-bg);
+      color: var(--apple-blue);
+    }
+
+    .map-demo-viewport {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      background: #eef2f6; /* Map Light Gray */
+      overflow: hidden;
+    }
+
+    /* Virtual Street Canvas */
+    .guide-map-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s var(--ease-apple);
+      transform-origin: center center;
+    }
+
+    .guide-map-canvas.is-3d {
+      transform: perspective(700px) rotateX(48deg) scale(1.1) translateY(-20px);
+    }
+
+    /* Streets */
+    .guide-map-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .guide-road-h {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 22px;
+      transform: translateY(-50%);
+      background: #ffffff;
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .guide-road-v {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 22px;
+      height: 100%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      border-left: 1px solid rgba(0, 0, 0, 0.12);
+      border-right: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .guide-road-label {
+      position: absolute;
+      top: 50%;
+      left: 14%;
+      transform: translateY(-50%);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      letter-spacing: 0.1em;
+    }
+
+    /* 3D Pillars */
+    .guide-pillars-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .g-pillar {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      transition: all 0.6s var(--ease-spring);
+    }
+
+    .is-3d .g-pillar.p-high {
+      height: 80px;
+      transform: translateY(-48px);
+      box-shadow: 0 14px 24px rgba(0, 0, 0, 0.25);
+    }
+    .is-3d .g-pillar.p-mid {
+      height: 50px;
+      transform: translateY(-18px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .is-3d .g-pillar.p-low {
+      height: 32px;
+      transform: translateY(0);
+    }
+
+    .flat-pillars .g-pillar {
+      height: 32px !important;
+      transform: translateY(0) !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Store Marker */
+    .g-store-pin {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--apple-blue);
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 113, 227, 0.4);
+      cursor: pointer;
+      transition: transform 0.2s var(--ease-spring);
+    }
+
+    .g-store-pin:hover {
+      transform: scale(1.4);
+      background: var(--apple-orange);
+    }
+
+    /* Live Feedback Footer inside Map */
+    .map-demo-feedback {
+      background: #ffffff;
+      border-top: 1px solid var(--border-subtle);
+      padding: 12px 20px;
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .map-demo-feedback strong {
+      color: var(--apple-blue);
+    }
+
+    /* Map Floating Controls */
+    .guide-map-controls {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 6px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      z-index: 50;
+    }
+
+    .guide-ctrl-btn {
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s var(--ease-apple);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .guide-ctrl-btn:hover {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+    }
+
+    .guide-ctrl-btn.active {
+      background: var(--apple-blue);
+      color: #ffffff;
+      border-color: transparent;
+    }
+
+    /* Tables */
+    .apple-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .apple-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .apple-table th {
+      background: var(--bg-surface);
+      padding: 14px 18px;
+      color: var(--text-primary);
+      font-weight: 700;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .apple-table td {
+      padding: 14px 18px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      background: #ffffff;
+    }
+
+    .apple-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--apple-blue-bg);
+      color: var(--apple-blue);
+    }
+
+    @media (max-width: 992px) {
+      .doc-sidebar { display: none; }
+      .doc-main { padding: 30px 20px; max-width: 100%; }
+      .glossary-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP APPLE CLEAN BAR
+       ========================================================================== -->
+  <header class="apple-nav">
+    <div class="nav-left">
+      <a href="#overview" class="nav-brand-title">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span>Franchise Dashboard</span>
+      </a>
+      <span class="nav-badge-pill">공식 사용자 설명서</span>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" class="nav-search-input" id="search-input" placeholder="용어, 기능 검색 (예: FTC, BBOX, 기둥)" oninput="handleSearch(this.value)">
+      </div>
+
+      <a href="Franchise_Dashboard_Showcase.html" class="btn-nav-secondary" title="실제 클릭하며 조작하는 체험관">
+        <span>🎮 인터랙티브 쇼케이스 열기</span>
+      </a>
+
+      <a href="https://franchise-dashboard-scpz.onrender.com/" target="_blank" class="btn-nav-action" title="클라우드 배포 공식 라이브 사이트 열기">
+        <span>공식 사이트 바로가기</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       DOCUMENTATION CONTAINER
+       ========================================================================== -->
+  <div class="doc-layout-container">
+
+    <!-- Left Apple Sidebar Table of Contents -->
+    <nav class="doc-sidebar" aria-label="문서 목차">
+      <div class="sidebar-group-title">시작하기</div>
+      <ul class="sidebar-nav-list">
+        <li class="sidebar-nav-item"><a href="#overview" class="active"><span class="nav-num">1</span> 시스템 개요 및 기획 의도</a></li>
+        <li class="sidebar-nav-item"><a href="#glossary"><span class="nav-num">2</span> 📚 초보자를 위한 핵심 용어 사전</a></li>
+        <li class="sidebar-nav-item"><a href="#quickstart"><span class="nav-num">3</span> 빠른 시작 (원클릭 실행)</a></li>
+      </ul>
+
+      <div class="sidebar-group-title">기능 상세 가이드</div>
+      <ul class="sidebar-nav-list">
+        <li class="sidebar-nav-item"><a href="#screen-layout"><span class="nav-num">4</span> 전체 화면 인터페이스 구성</a></li>
+        <li class="sidebar-nav-item"><a href="#maprail-controls"><span class="nav-num">5</span> SlimMapRail 3D 지도 조작법</a></li>
+        <li class="sidebar-nav-item"><a href="#taxonomy-brands"><span class="nav-num">6</span> 8대 업종 & 브랜드 지능 필터</a></li>
+        <li class="sidebar-nav-item"><a href="#ftc-benchmarks"><span class="nav-num">7</span> 공정위 창업비용 벤치마크</a></li>
+      </ul>
+
+      <div class="sidebar-group-title">실전 활용 매뉴얼</div>
+      <ul class="sidebar-nav-list">
+        <li class="sidebar-nav-item"><a href="#case-pre-founder"><span class="nav-num">8</span> 예비 창업자 실전 활용법</a></li>
+        <li class="sidebar-nav-item"><a href="#case-franchise-hq"><span class="nav-num">9</span> 가맹본부 전략팀 활용법</a></li>
+        <li class="sidebar-nav-item"><a href="#case-analyst"><span class="nav-num">10</span> 상권 분석가 & 투자자 활용법</a></li>
+      </ul>
+
+      <div class="sidebar-group-title">고객 지원 & FAQ</div>
+      <ul class="sidebar-nav-list">
+        <li class="sidebar-nav-item"><a href="#faq"><span class="nav-num">11</span> 자주 묻는 질문 (FAQ)</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="doc-main">
+      <div class="content-wrapper">
+
+        <!-- Header Block -->
+        <header class="doc-header-block">
+          <div class="doc-eyebrow">User Manual · Documentation</div>
+          <h1 class="doc-title">대한민국 외식 프랜차이즈 3D GIS 상권 분석 대시보드</h1>
+          <p class="doc-lead">
+            전국 735,185개 고유 외식업 점포 전수 조사 데이터와 공정거래위원회 4개년(2023~2026) 거시통계를 결합하여, 
+            상권의 과밀도와 브랜드 경쟁 현황을 3차원으로 분석하는 시스템의 공식 사용자 설명서입니다.
+          </p>
+        </header>
+
+        <!-- ==================================================================
+             SECTION 1: SYSTEM OVERVIEW & VISION (정확한 ID 부여)
+             ================================================================== -->
+        <section class="doc-section" id="overview">
+          <h2 class="section-h2">1. 시스템 개요 및 기획 의도</h2>
+          <p class="section-desc">
+            대한민국 외식업은 매년 10만 건에 육박하는 폐업이 발생하며, 신규 창업자의 3년 내 생존율이 40% 미만으로 떨어지는 위기를 겪고 있습니다. 
+            그 주된 원인은 <strong>'단편적인 2D 평면 지도'</strong>와 <strong>'주관적인 감(Intuition)'</strong>에만 의존해 억대 자본을 투자하기 때문입니다.
+          </p>
+
+          <div class="apple-callout note">
+            <span class="callout-icon">💡</span>
+            <div class="callout-body">
+              <strong>기획 의도: 왜 3차원 공간 인텔리전스인가?</strong>
+              평면 지도에서는 점포들이 한곳에 점으로 겹쳐 표시되어, 실제 그 골목의 경쟁 강도가 얼마나 치열한지 체감하기 어렵습니다. 
+              본 대시보드는 <strong>100m 정밀 격자 3D 기둥(`fill-extrusion`)</strong>의 높이로 경쟁 과밀도를 입체화하고, 
+              공정거래위원회의 실제 가맹점 평균 매출과 창업비용을 1:1 대사하여 실패 없는 의사결정을 돕습니다.
+            </div>
+          </div>
+
+          <h3 class="section-h3">시스템 핵심 4대 지표</h3>
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-number-badge">✓</div>
+              <div class="step-content">
+                <h4>전국 735,185개 외식 점포 전수 조사</h4>
+                <p>소상공인진흥공단 공공데이터를 기반으로 결측치 0% 자동 무결성 검증을 통과한 대한민국 외식업 전수 데이터베이스.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">✓</div>
+              <div class="step-content">
+                <h4>16개 광역시도 & 256개 시군구 전역 커버</h4>
+                <p>서울 강남구부터 제주 서귀포시까지 전국 모든 행정구역의 다차원 시장 침투율 및 업종 점유율 완벽 집계.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">✓</div>
+              <div class="step-content">
+                <h4>5,063개 브랜드 정밀 대사 (Decoupled State Model)</h4>
+                <p>전국 10개 이상 점포 클러스터링 알고리즘을 통해 일반 개인 음식점과 공인 프랜차이즈를 100% 분리하여 통계 왜곡 원천 차단.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">✓</div>
+              <div class="step-content">
+                <h4>공정거래위원회 4개년(2023~2026) 거시통계 결합</h4>
+                <p>브랜드별·업종별 실측 평균 매출액, 평당 인테리어비, 가맹금, 보증금 시계열 횡단면 데이터 융합 제공.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 2: GLOSSARY & TERMINOLOGY (핵심 용어 사전)
+             ================================================================== -->
+        <section class="doc-section" id="glossary">
+          <h2 class="section-h2">2. 📚 초보자를 위한 핵심 용어 & 약어 사전</h2>
+          <p class="section-desc">
+            시스템에서 사용하는 전문 기술 용어와 약어를 초보자도 한눈에 알기 쉽게 정리했습니다. 
+            처음 사용하시는 분은 이 사전을 먼저 읽어보시면 대시보드를 훨씬 직관적으로 이해하실 수 있습니다.
+          </p>
+
+          <div class="glossary-grid">
+            
+            <div class="glossary-card">
+              <span class="glossary-term-badge">약어 · 공공기관</span>
+              <h4 class="glossary-term-title">FTC (공정거래위원회)</h4>
+              <p class="glossary-term-desc">
+                <strong>Fair Trade Commission</strong>의 약칭입니다. 프랜차이즈 가맹본부가 법적으로 의무 제출하는 정보공개서(창업비용, 평균 매출액, 가맹점수)의 공식 출처입니다.
+              </p>
+            </div>
+
+            <div class="glossary-card">
+              <span class="glossary-term-badge">공간 기술 · 지도</span>
+              <h4 class="glossary-term-title">BBOX (Bounding Box, 뷰포트 사각형)</h4>
+              <p class="glossary-term-desc">
+                지도를 볼 때 현재 내 모니터 화면에 나타나는 지도의 사각형 영역을 뜻합니다. 73.5만 개 데이터를 한 번에 다 불러오면 컴퓨터가 멈추므로, 내가 확대해서 보고 있는 BBOX 안의 점포만 실시간으로 받아옵니다.
+              </p>
+            </div>
+
+            <div class="glossary-card">
+              <span class="glossary-term-badge">3D 시각화 기술</span>
+              <h4 class="glossary-term-title">fill-extrusion (3D 기둥 돌출)</h4>
+              <p class="glossary-term-desc">
+                평면 지도 위의 100m 격자를 점포 밀집도에 따라 위로 솟아오르게 만드는 3D 그래픽 기법입니다. 기둥이 높을수록 해당 블록에 경쟁 점포가 빽빽하게 모여 있음을 의미합니다.
+              </p>
+            </div>
+
+            <div class="glossary-card">
+              <span class="glossary-term-badge">통계 지표</span>
+              <h4 class="glossary-term-title">YoY (전년 대비 증감률)</h4>
+              <p class="glossary-term-desc">
+                <strong>Year-over-Year</strong>의 약어로, 작년 같은 기간 대비 올해 매출액이나 점포수가 몇 % 늘었거나 줄었는지를 나타내는 시계열 성장 지표입니다.
+              </p>
+            </div>
+
+            <div class="glossary-card">
+              <span class="glossary-term-badge">데이터 아키텍처</span>
+              <h4 class="glossary-term-title">Decoupled State Model (분리 대사 모델)</h4>
+              <p class="glossary-term-desc">
+                일반 개인 식당(독립점포)과 10개 이상 점포를 가진 공인 프랜차이즈 브랜드를 완전히 분리하여 관리하는 데이터 정제 방식입니다. 가짜 프랜차이즈가 통계에 섞이는 것을 방지합니다.
+              </p>
+            </div>
+
+            <div class="glossary-card">
+              <span class="glossary-term-badge">시장 분석 지표</span>
+              <h4 class="glossary-term-title">프랜차이즈 침투율 (%)</h4>
+              <p class="glossary-term-desc">
+                특정 행정구역(시군구)의 전체 외식업 점포 중 공인 가맹 프랜차이즈 점포가 차지하는 비율입니다. 침투율이 높을수록 대기업 브랜드 위주의 상권이며, 낮을수록 개인 식당이 많은 상권입니다.
+              </p>
+            </div>
+
+            <div class="glossary-card">
+              <span class="glossary-term-badge">공간 분석 단위</span>
+              <h4 class="glossary-term-title">100m 정밀 격자 (Hexagon / Grid)</h4>
+              <p class="glossary-term-desc">
+                넓은 행정동 단위를 넘어, 가로세로 100m 크기로 지도를 쪼개어 세밀하게 점포 수를 집계하는 분석 단위입니다. 한 걸음 차이로 갈리는 골목 상권의 진실을 보여줍니다.
+              </p>
+            </div>
+
+            <div class="glossary-card">
+              <span class="glossary-term-badge">UI 컴포넌트</span>
+              <h4 class="glossary-term-title">SlimMapRail (우측 슬림 제어 레일)</h4>
+              <p class="glossary-term-desc">
+                지도 화면 우측에 부착된 44px 폭의 미니멀 플로팅 조작 바입니다. 지도를 가리지 않으면서 3D 시점 전환, 기둥 높이 켜기/끄기, 색상 모드, 드론 투어 등을 원클릭으로 조작합니다.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 3: QUICK START
+             ================================================================== -->
+        <section class="doc-section" id="quickstart">
+          <h2 class="section-h2">3. 빠른 시작 및 접속 가이드</h2>
+          <p class="section-desc">
+            Franchise Dashboard는 공식 클라우드 웹사이트에 상시 배포되어 있어, 별도의 설치 없이 브라우저에서 바로 사용하실 수 있습니다.
+          </p>
+
+          <div class="apple-callout tip" style="margin-bottom: 24px;">
+            <span class="callout-icon">🌐</span>
+            <div class="callout-body">
+              <strong>공식 라이브 웹 서비스 (원클릭 즉시 접속)</strong>
+              공식 웹사이트 주소: <a href="https://franchise-dashboard-scpz.onrender.com/" target="_blank" style="color: var(--apple-blue); font-weight: 700; text-decoration: underline;">https://franchise-dashboard-scpz.onrender.com/</a><br>
+              PC와 태블릿, 모바일 브라우저에서 프로그램 설치 없이 즉시 전국 73.5만 개 외식업 3D 상권 지도를 이용하실 수 있습니다.
+            </div>
+          </div>
+
+          <h3 class="section-h3">로컬 개발 환경 직접 실행 (개발자 및 오프라인용)</h3>
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-number-badge">1</div>
+              <div class="step-content">
+                <h4>실행환경 사전점검 (Preflight Check)</h4>
+                <p>Python 3.12 가상환경, 5대 SQLite 데이터베이스 스키마 및 공정위 4개년 연도 무결성을 1초 만에 자동 검증합니다.</p>
+                <p><code>scripts\check_env.bat</code> 실행 → 모든 검사 <code>[PASS]</code> 확인</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">2</div>
+              <div class="step-content">
+                <h4>로컬 백엔드 API 서버 기동</h4>
+                <p>FastAPI 고성능 비동기 API 서버를 구동합니다.</p>
+                <p><code>scripts\run_backend.bat</code> 실행 → <code>http://127.0.0.1:8000</code> 기동 확인 (Swagger API 문서: <code>/docs</code>)</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">3</div>
+              <div class="step-content">
+                <h4>로컬 프론트엔드 대시보드 실행</h4>
+                <p>React + MapLibre GL JS 대시보드 개발 서버를 로컬에서 구동할 수 있습니다.</p>
+                <p><code>scripts\run_frontend.bat</code> 실행 → 로컬 브라우저에서 <code>http://localhost:5173</code> 접속</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="apple-callout tip">
+            <span class="callout-icon">⚡</span>
+            <div class="callout-body">
+              <strong>테스트 스위트 전수 검증</strong>
+              시스템 무결성을 확인하고 싶다면 <code>scripts\run_tests.bat</code>을 실행하세요. 
+              API 클라이언트부터 브랜드 마스터까지 82개 단위/통합 테스트가 100% 합격(PASS)하는 것을 확인하실 수 있습니다.
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 4: SCREEN INTERFACE LAYOUT
+             ================================================================== -->
+        <section class="doc-section" id="screen-layout">
+          <h2 class="section-h2">4. 전체 화면 인터페이스 구성</h2>
+          <p class="section-desc">
+            대시보드 화면은 정보 탐색의 편의성을 위해 5대 핵심 영역으로 직관적으로 구성되어 있습니다.
+          </p>
+
+          <div class="apple-table-wrap">
+            <table class="apple-table">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">인터페이스 영역</th>
+                  <th style="width: 28%;">소스 컴포넌트</th>
+                  <th>기능 및 역할</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>상단 헤더</strong></td>
+                  <td><code>Header.jsx</code></td>
+                  <td>전국 16개 시도 및 256개 시군구 선택 드롭다운, 데이터 기준월 안내, 새로고침.</td>
+                </tr>
+                <tr>
+                  <td><strong>업종 필터 바</strong></td>
+                  <td><code>CategoryFilterBar.jsx</code></td>
+                  <td>확정 8대 대분류(한식, 카페, 치킨 등) 원클릭 필터링 및 지도 색상 동기화.</td>
+                </tr>
+                <tr>
+                  <td><strong>3D GIS 메인 맵</strong></td>
+                  <td><code>MapContainer.jsx</code></td>
+                  <td>100m 정밀 격자 3D 기둥 표출, 줌 14+ 개별 점포 스트리밍 마커 및 팝업.</td>
+                </tr>
+                <tr>
+                  <td><strong>우측 슬림 제어 레일</strong></td>
+                  <td><code>SlimMapRail.jsx</code></td>
+                  <td>3D/2D 시점 전환, 기둥 렌즈 On/Off, 색상 테마 전환, 공정위 드로어 토글.</td>
+                </tr>
+                <tr>
+                  <td><strong>공정위 벤치마크 패널</strong></td>
+                  <td><code>FtcBenchmarkPanel.jsx</code></td>
+                  <td>우측 슬라이딩 패널. 4개년 YoY 매출 성장률, 창업비용 5대 요소 실측 벤치마크 제공.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 5: SLIMMAPRAIL CONTROLS (라이브 인터랙티브 맵 샌드박스 탑재)
+             ================================================================== -->
+        <section class="doc-section" id="maprail-controls">
+          <h2 class="section-h2">5. SlimMapRail 3D 지도 조작법</h2>
+          <p class="section-desc">
+            우측 SlimMapRail의 버튼들을 통해 지도의 시점과 렌더링 요소를 자유자재로 제어할 수 있습니다. 
+            아래에 내장된 <strong>체험형 3D 지도 시뮬레이터</strong>의 우측 버튼들을 직접 클릭해보세요.
+          </p>
+
+          <!-- Embedded Interactive 3D Map Sandbox inside Manual -->
+          <div class="map-demo-sandbox">
+            <div class="map-demo-header">
+              <h4>
+                <span>🗺️ 서울 강남역·테헤란로 상권 3D 인터랙티브 맵</span>
+              </h4>
+              <span class="map-demo-badge">직접 클릭하여 조작 가능</span>
+            </div>
+
+            <div class="map-demo-viewport">
+              <!-- Floating Slim Controls -->
+              <div class="guide-map-controls">
+                <button class="guide-ctrl-btn active" id="g-btn-3d" onclick="toggleGuide3D()">
+                  <span>3D 시점</span>
+                </button>
+                <button class="guide-ctrl-btn active" id="g-btn-ext" onclick="toggleGuideExt()">
+                  <span>기둥 높이</span>
+                </button>
+                <button class="guide-ctrl-btn" id="g-btn-color" onclick="toggleGuideColor()">
+                  <span>색상 테마</span>
+                </button>
+              </div>
+
+              <!-- Map Floor with Roads & 3D Extrusion Pillars -->
+              <div class="guide-map-canvas is-3d" id="guide-canvas">
+                <div class="guide-map-grid"></div>
+                <div class="guide-road-h"><span class="guide-road-label">테헤란로 (TEHERAN-RO)</span></div>
+                <div class="guide-road-v"></div>
+
+                <!-- 100m Extrusion Pillars -->
+                <div class="guide-pillars-layer" id="guide-pillars">
+                  <!-- Red High-density Hotspot -->
+                  <div class="g-pillar p-high" style="top: calc(50% - 46px); left: calc(50% - 46px); background: #ff3b30;">42</div>
+                  <div class="g-pillar p-high" style="top: calc(50% - 46px); left: calc(50% + 14px); background: #ff3b30;">38</div>
+                  <div class="g-pillar p-mid" style="top: calc(50% + 14px); left: calc(50% - 46px); background: #ff9500;">26</div>
+                  <div class="g-pillar p-mid" style="top: calc(50% + 14px); left: calc(50% + 14px); background: #ff9500;">21</div>
+                  
+                  <!-- Outer low-density -->
+                  <div class="g-pillar p-low" style="top: 20%; left: 30%; background: #0071e3;">14</div>
+                  <div class="g-pillar p-low" style="top: 20%; left: 65%; background: #0071e3;">11</div>
+                  <div class="g-pillar p-low" style="top: 72%; left: 32%; background: #28cd41;">8</div>
+                  <div class="g-pillar p-low" style="top: 72%; left: 62%; background: #28cd41;">6</div>
+                </div>
+
+                <!-- Interactive Store Pins -->
+                <div class="g-store-pin" style="top: 48%; left: 49%;" title="메가커피 강남역점"></div>
+                <div class="g-store-pin" style="top: 52%; left: 53%;" title="스타벅스 테헤란점"></div>
+              </div>
+            </div>
+
+            <!-- Real-time Feedback -->
+            <div class="map-demo-feedback">
+              <span>👉</span>
+              <span id="guide-feedback-txt">
+                현재 <strong>[3D 경사각(52°)]</strong> 상태입니다. 우측의 <strong>[3D 시점]</strong> 버튼을 누르면 평면 2D 탑뷰로 전환됩니다.
+              </span>
+            </div>
+          </div>
+
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-number-badge">1</div>
+              <div class="step-content">
+                <h4>3D 경사각 / 2D 평면 탑뷰 토글</h4>
+                <p>지도를 52도 각도로 기울여 3D 입체 기둥의 높낮이를 체감하거나, 위에서 똑바로 내려다보는 2D 평면 탑뷰로 즉시 전환합니다. 기둥 높이를 볼 때는 3D, 정확한 도로망을 볼 때는 2D를 선택하세요.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">2</div>
+              <div class="step-content">
+                <h4>3D 기둥 렌즈 (`fill-extrusion`) 켜기/끄기</h4>
+                <p>100m 격자 기둥의 높낮이를 On/Off 합니다. 기둥 뒤에 가려진 개별 점포 마커를 명확히 보고 싶을 때 기둥 렌즈를 끄면 쾌적한 평면 점포 지도로 바뀝니다.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">3</div>
+              <div class="step-content">
+                <h4>색상 모드 전환 (밀집도 vs 업종별)</h4>
+                <p>기둥의 색상을 '전체 점포 과밀도(Density Heatmap)' 기준에서 선택된 '8대 업종별 고유 테마 컬러'로 전환하여 업종별 분포를 직관적으로 비교합니다.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">4</div>
+              <div class="step-content">
+                <h4>상권 핫스팟 드론 비행 투어 (`Drone Tour`)</h4>
+                <p>강남역, 홍대입구, 명동 등 선택된 지역의 최고 핫스팟 상권으로 카메라가 활강하며 시네마틱 3D 뷰로 비행합니다.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">5</div>
+              <div class="step-content">
+                <h4>Zoom 14+ 개별 점포 스트리밍</h4>
+                <p>지도를 마우스 휠로 확대하여 줌레벨 14에 도달하면 실제 개별 매장 마커들이 화면에 나타나며, 마커를 클릭하면 상호명, 도로명 주소, 가맹 여부를 팝업으로 즉시 확인할 수 있습니다.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 6: TAXONOMY & BRANDS
+             ================================================================== -->
+        <section class="doc-section" id="taxonomy-brands">
+          <h2 class="section-h2">6. 8대 업종 분류 & 브랜드 지능 필터</h2>
+          <p class="section-desc">
+            외식업만을 정밀 분석하기 위해 <strong>확정된 8대 대분류 및 48대 중분류 체계</strong>를 엄격히 적용했습니다.
+          </p>
+
+          <div class="apple-table-wrap">
+            <table class="apple-table">
+              <thead>
+                <tr>
+                  <th>8대 대분류</th>
+                  <th>중분류 수</th>
+                  <th>대표 중분류 명칭</th>
+                  <th>대표 프랜차이즈 브랜드 예시</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge-category">한식</span></td>
+                  <td>8개 중분류</td>
+                  <td>국/탕/찌개, 고기/구이, 백반/한정식, 족발/보쌈, 면류, 전/부침 등</td>
+                  <td>원할머니보쌈, 놀부부대찌개, 하남돼지집, 한륜 등</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-category">카페·음료</span></td>
+                  <td>6개 중분류</td>
+                  <td>커피전문점, 테이크아웃, 티/버블티, 생과일주스, 빙수/전통차 등</td>
+                  <td>메가MGC커피, 컴포즈커피, 스타벅스, 이디야커피, 빽다방 등</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-category">치킨·패스트푸드</span></td>
+                  <td>6개 중분류</td>
+                  <td>치킨(프라이드/양념/오븐), 버거, 샌드위치/토스트, 피자 등</td>
+                  <td>BBQ, BHC, 교촌치킨, 맘스터치, 서브웨이, 프랭크버거 등</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-category">베이커리·디저트</span></td>
+                  <td>6개 중분류</td>
+                  <td>제과제빵, 아이스크림, 도넛/와플, 케이크, 떡/전통디저트 등</td>
+                  <td>파리바게뜨, 뚜레쥬르, 배스킨라빈스, 던킨도너츠, 설빙 등</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-category">일식</span></td>
+                  <td>6개 중분류</td>
+                  <td>돈가스/소바, 초밥/스시, 라멘/우동, 일식덮밥, 참치/이자카야식 등</td>
+                  <td>미소야, 쿠우쿠우, 백소정, 아비꼬 등</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-category">중식</span></td>
+                  <td>5개 중분류</td>
+                  <td>일반중식(짜장/짬뽕), 마라탕/마라샹궈, 양꼬치, 딤섬/만두 등</td>
+                  <td>홍콩반점0410, 탕화쿵푸마라탕, 소림마라 등</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-category">분식·간편식</span></td>
+                  <td>6개 중분류</td>
+                  <td>떡볶이/순대, 김밥/주먹밥, 라면/국수, 핫도그, 샐러드/도시락 등</td>
+                  <td>동대문엽기떡볶이, 죠스떡볶이, 김가네, 한솥도시락 등</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-category">양식·세계음식</span></td>
+                  <td>5개 중분류</td>
+                  <td>파스타/스테이크, 피자, 멕시칸, 아시안/베트남쌀국수, 인도커리 등</td>
+                  <td>롤링파스타, 미스사이공, 포메인 등</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="apple-callout important">
+            <span class="callout-icon">🛡️</span>
+            <div class="callout-body">
+              <strong>가짜 프랜차이즈 오분류 방지 체계</strong>
+              개인 음식점(독립점포)이 프랜차이즈로 잘못 잡히지 않도록, 전국 점포수 10개 이상 클러스터링 알고리즘과 공정위 공식 정보공개서 마스터 5,063개를 1:1 대사하여 왜곡 없는 데이터를 산출합니다.
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 7: FTC MACRO BENCHMARKS
+             ================================================================== -->
+        <section class="doc-section" id="ftc-benchmarks">
+          <h2 class="section-h2">7. 공정위 창업비용 벤치마크 활용법</h2>
+          <p class="section-desc">
+            우측 SlimMapRail의 공정위 버튼을 누르면 열리는 <strong>FtcBenchmarkPanel</strong>은 
+            공정거래위원회 4개년(2023~2026) 실측 정보공개서를 바탕으로 가맹점 평균 매출과 실제 창업비용을 제공합니다.
+          </p>
+
+          <h3 class="section-h3">창업비용 5대 요소 명세</h3>
+          <ul style="margin-left: 20px; color: var(--text-secondary); font-size: 14.5px; line-height: 1.8;">
+            <li><strong>가맹비(가입비)</strong>: 브랜드 상표권 사용 및 초기 영업 노하우 전수 비용.</li>
+            <li><strong>계약이행보증금</strong>: 물품대금 채권 확보를 위한 예치금 (계약 종료 시 100% 반환).</li>
+            <li><strong>교육비</strong>: 조리, 매장 운영, 고객 서비스 사전 필수 교육 비용.</li>
+            <li><strong>인테리어 비용</strong>: 매장 면적(평당)에 비례하는 바닥/벽면/조명 시공비.</li>
+            <li><strong>기타 설비비용</strong>: 주방 집기, POS 시스템, 간판 등 필수 하드웨어 비용.</li>
+          </ul>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 8: USE CASES
+             ================================================================== -->
+        <section class="doc-section" id="case-pre-founder">
+          <h2 class="section-h2">8. 상황별 실전 활용 매뉴얼 (3대 시나리오)</h2>
+
+          <!-- Case 1 -->
+          <h3 class="section-h3">CASE 1. 예비 창업자: 과밀 레드오션 회피 및 안전 출점</h3>
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-number-badge">1</div>
+              <div class="step-content">
+                <h4>시군구 선택 & 3D 기둥 렌즈 활성화</h4>
+                <p>상단 헤더에서 창업 희망 시군구(예: 서울 마포구)를 선택하고 3D 기둥 렌즈를 켭니다.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number-badge">2</div>
+              <div class="step-content">
+                <h4>붉고 높은 기둥(과밀 격자) 회피</h4>
+                <p>100m 격자 기둥이 붉게 솟아있는 곳은 동종 업종 경쟁이 포화된 곳이므로 우선적으로 피합니다.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number-badge">3</div>
+              <div class="step-content">
+                <h4>줌인(Zoom 14+)을 통한 반경 500m 실측</h4>
+                <p>지도를 확대하여 후보 상가 반경 500m 이내에 경쟁 브랜드 점포가 몇 개나 있는지 직접 스트리밍 마커로 확인합니다.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number-badge">4</div>
+              <div class="step-content">
+                <h4>공정위 벤치마크로 투자금 회수 기간 계산</h4>
+                <p>FTC 패널을 열어 동종 업종의 실제 평균 매출과 인테리어 비용을 검증하고 자본금 소진 리스크를 차단합니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 2 -->
+          <h3 class="section-h3" id="case-franchise-hq" style="margin-top: 48px;">CASE 2. 가맹본부 전략팀: 전국 출점 공백지(블루오션) 선점</h3>
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-number-badge">1</div>
+              <div class="step-content">
+                <h4>전국 256개 시군구 침투율 비교</h4>
+                <p>수도권 외 광역시 및 주요 시군구의 자사 브랜드 침투율을 경쟁 브랜드와 교차 대조합니다.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number-badge">2</div>
+              <div class="step-content">
+                <h4>출점 공백지(Blue Ocean) 필터링</h4>
+                <p>인구 밀도가 높지만 자사 브랜드가 아직 진입하지 않은 격자 포켓을 공간 집계 데이터로 찾아냅니다.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number-badge">3</div>
+              <div class="step-content">
+                <h4>가맹점 영업권 보호 반경 시뮬레이션</h4>
+                <p>신규 후보 점포와 기존 가맹점 간의 거리를 3D 공간에서 측정하여 가맹사업법상 영업지역 침해 분쟁을 방지합니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 3 -->
+          <h3 class="section-h3" id="case-analyst" style="margin-top: 48px;">CASE 3. 상권 분석가 & 투자자: VIP 고객 투자 브리핑</h3>
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-number-badge">1</div>
+              <div class="step-content">
+                <h4>핫스팟 드론 비행 투어로 몰입감 극대화</h4>
+                <p>회의실 대형 화면에서 대상 빌딩 상권으로 부드럽게 하강 비행하는 드론 카메라로 클라이언트의 이목을 집중시킵니다.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number-badge">2</div>
+              <div class="step-content">
+                <h4>8대 업종 순환 주기 및 결핍 업종 분석</h4>
+                <p>해당 상권에 카페가 과포화인지, 베이커리나 이색 양식 수요가 비어있는지 100m 기둥 테마로 진단합니다.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number-badge">3</div>
+              <div class="step-content">
+                <h4>4개년 시계열 횡단면 데이터 인용</h4>
+                <p>73.5만 건 전수 데이터와 4개년 공정위 통계로 뒷받침된 정밀 투자 의사결정 보고서를 작성합니다.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             SECTION 9: FAQ
+             ================================================================== -->
+        <section class="doc-section" id="faq">
+          <h2 class="section-h2">9. 자주 묻는 질문 (FAQ)</h2>
+          
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-number-badge">Q1</div>
+              <div class="step-content">
+                <h4>지도를 확대했는데 개별 점포 마커가 보이지 않아요.</h4>
+                <p>개별 점포 레이어는 브라우저 성능 최적화를 위해 <strong>줌레벨 14 이상</strong>에서만 실시간 BBOX 스트리밍됩니다. 지도를 더 확대해 보세요.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">Q2</div>
+              <div class="step-content">
+                <h4>3D 기둥 때문에 특정 매장이 가려져서 클릭하기 힘들어요.</h4>
+                <p>우측 SlimMapRail의 <strong>[3D 기둥 렌즈]</strong> 버튼을 누르면 기둥이 사라지고 평면 점포 지도로 전환되어 시야가 완전히 확보됩니다.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">Q3</div>
+              <div class="step-content">
+                <h4>백엔드 API 연결 오류가 발생합니다.</h4>
+                <p>FastAPI 서버가 구동 중인지 확인하세요. 터미널에서 <code>scripts\run_backend.bat</code>을 실행하고, 브라우저에서 <code>http://127.0.0.1:8000/docs</code>가 열리는지 확인하십시오.</p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number-badge">Q4</div>
+              <div class="step-content">
+                <h4>공정위 벤치마크 데이터의 기준 연도는 언제인가요?</h4>
+                <p>공정거래위원회에 정식 등록된 <strong>2023년부터 2026년까지의 4개년 최신 시계열 횡단면 데이터</strong>를 제공하고 있습니다.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="margin-top: 80px; padding-top: 30px; border-top: 1px solid var(--border-subtle); color: var(--text-tertiary); font-size: 13px; display: flex; justify-content: space-between; align-items: center;">
+          <span>© 2026 Franchise Dashboard. All rights reserved. Apple HIG Design Standards.</span>
+          <span>Version 7.1 · 735,185 Stores Live</span>
+        </footer>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    // 1. Sidebar Link Click Smooth Scroll (목차 1번 및 전 목차 확실한 점프)
+    document.querySelectorAll('.sidebar-nav-item a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').replace('#', '');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const headerOffset = 64;
+          const elementPosition = targetEl.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Update active link immediately
+          document.querySelectorAll('.sidebar-nav-item a').forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // 2. Embedded 3D Map Sandbox Interaction Logic
+    let isGuide3D = true;
+    let isGuideExt = true;
+    let isGuideColorCat = false;
+
+    function toggleGuide3D() {
+      const canvas = document.getElementById('guide-canvas');
+      const btn = document.getElementById('g-btn-3d');
+      const fb = document.getElementById('guide-feedback-txt');
+
+      isGuide3D = !isGuide3D;
+      if (isGuide3D) {
+        canvas.classList.add('is-3d');
+        btn.classList.add('active');
+        fb.innerHTML = '👉 <strong>[3D 경사각(52°)]</strong> 활성화: 100m 격자 기둥의 높낮이를 통해 상권 과밀도를 입체적으로 비교합니다.';
+      } else {
+        canvas.classList.remove('is-3d');
+        btn.classList.remove('active');
+        fb.innerHTML = '👉 <strong>[2D 평면 탑뷰]</strong>로 전환되었습니다. 지도를 수직으로 내려다보며 도로망과 점포의 정확한 위치를 파악합니다.';
+      }
+    }
+
+    function toggleGuideExt() {
+      const layer = document.getElementById('guide-pillars');
+      const btn = document.getElementById('g-btn-ext');
+      const fb = document.getElementById('guide-feedback-txt');
+
+      isGuideExt = !isGuideExt;
+      if (isGuideExt) {
+        layer.classList.remove('flat-pillars');
+        btn.classList.add('active');
+        fb.innerHTML = '👉 <strong>[기둥 렌즈 켜짐]</strong>: 100m 격자 밀집도에 따라 기둥이 솟아올랐습니다.';
+      } else {
+        layer.classList.add('flat-pillars');
+        btn.classList.remove('active');
+        fb.innerHTML = '👉 <strong>[기둥 렌즈 꺼짐]</strong>: 기둥 높이가 바닥으로 내려앉아 숨겨진 점포 마커가 선명하게 드러납니다.';
+      }
+    }
+
+    function toggleGuideColor() {
+      const pillars = document.querySelectorAll('.g-pillar');
+      const btn = document.getElementById('g-btn-color');
+      const fb = document.getElementById('guide-feedback-txt');
+
+      isGuideColorCat = !isGuideColorCat;
+      if (isGuideColorCat) {
+        btn.classList.add('active');
+        pillars.forEach((p, idx) => {
+          p.style.backgroundColor = idx % 2 === 0 ? '#ff9500' : '#af52de';
+        });
+        fb.innerHTML = '👉 <strong>[업종별 고유 테마 색상]</strong>으로 변경되었습니다. 카페(주황), 베이커리(보라) 등 업종 분포를 확인하세요.';
+      } else {
+        btn.classList.remove('active');
+        pillars.forEach((p, idx) => {
+          p.style.backgroundColor = idx < 2 ? '#ff3b30' : (idx < 4 ? '#ff9500' : (idx < 6 ? '#0071e3' : '#28cd41'));
+        });
+        fb.innerHTML = '👉 <strong>[과밀도 히트맵 색상]</strong>으로 복귀했습니다. 빨간색 기둥일수록 경쟁이 치열한 과밀 상권입니다.';
+      }
+    }
+
+    // 3. Search Filter
+    function handleSearch(query) {
+      const q = query.trim().toLowerCase();
+      if (!q) return;
+
+      const elements = document.querySelectorAll('.glossary-term-title, .section-h2, .section-h3, .step-content h4');
+      for (let el of elements) {
+        if (el.innerText.toLowerCase().includes(q)) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.style.backgroundColor = 'rgba(0, 113, 227, 0.15)';
+          setTimeout(() => { el.style.backgroundColor = 'transparent'; }, 2000);
+          break;
+        }
+      }
+    }
+
+    // 4. ScrollSpy for Sidebar
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.doc-section');
+      const navLinks = document.querySelectorAll('.sidebar-nav-item a');
+      
+      let currentSectionId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.scrollY >= top) {
+          currentSectionId = sec.getAttribute('id') || '';
+        }
+      });
+
+      if (currentSectionId) {
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${currentSectionId}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

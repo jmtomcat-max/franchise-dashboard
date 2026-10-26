@@ -95,6 +95,7 @@ export default function DashboardHome({
   onOpenMapWithBrand,
   onOpenMapWithRegion,
   onOpenIntro,
+  onOpenGuideModal,
   onRefresh,
   isRefreshing,
   apiStatus
@@ -683,6 +684,24 @@ export default function DashboardHome({
               >
                 <span className="finora-intro-icon">🎬</span>
                 <span className="finora-intro-label">시네마틱 인트로</span>
+              </button>
+            )}
+
+            {onOpenGuideModal && (
+              <button
+                type="button"
+                className="finora-intro-btn"
+                onClick={onOpenGuideModal}
+                title="3D 대시보드 사용자 가이드 및 용어 사전 열기"
+                aria-label="사용자 가이드 모달 열기"
+                style={{ 
+                  borderColor: 'rgba(0, 113, 227, 0.35)', 
+                  color: '#0071e3', 
+                  background: 'rgba(0, 113, 227, 0.08)' 
+                }}
+              >
+                <span className="finora-intro-icon">📖</span>
+                <span className="finora-intro-label">사용자 가이드</span>
               </button>
             )}
 

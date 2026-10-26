@@ -557,7 +557,8 @@ export default function MapContainer({
   focusStoreRequest = null,
   storeTypeFilter = 'all',
   storeSearchQuery = '',
-  onInspectBrand = null
+  onInspectBrand = null,
+  onOpenGuideModal = null
 }) {
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
@@ -1781,6 +1782,7 @@ export default function MapContainer({
         onToggleFtcDrawer={onToggleFtcDrawer}
         onResetView={handleResetView}
         hasGridData={hasGridData}
+        onOpenGuideModal={onOpenGuideModal}
       />
 
       {/* 100m 격자 호버 카드: 좌측 하단 1줄 (점포 팝업이 열려 있으면 표시하지 않음) */}

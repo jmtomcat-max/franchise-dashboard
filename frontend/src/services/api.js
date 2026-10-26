@@ -333,5 +333,19 @@ export async function fetchBrandStores(brandId, filters = {}, signal) {
   return res.json();
 }
 
+/**
+ * 현재 DB 버전 및 공공데이터 최신 업데이트 가능 여부를 조회합니다.
+ * @param {AbortSignal} [signal]
+ */
+export async function fetchDataStatus(signal) {
+  try {
+    const res = await fetch(`${BASE_URL}/api/v1/system/data-status`, { signal });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (err) {
+    return null;
+  }
+}
+
 export { BASE_URL };
 

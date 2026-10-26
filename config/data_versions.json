@@ -1,0 +1,20 @@
+{
+  "active_version": "202610",
+  "active_db_filename": "franchise_analytics_v1.sqlite3",
+  "active_brand_db_filename": "brand_master_v1.sqlite3",
+  "latest_checked_api_version": "202610",
+  "last_checked_at": "2026-10-26T11:00:00Z",
+  "has_update": false,
+  "history": [
+    {
+      "version": "202610",
+      "data_source_date": "2026-10",
+      "db_filename": "franchise_analytics_v1.sqlite3",
+      "brand_db_filename": "brand_master_v1.sqlite3",
+      "build_timestamp": "2026-10-13T01:58:30Z",
+      "total_stores": 735185,
+      "total_brands": 5063,
+      "status": "active"
+    }
+  ]
+}

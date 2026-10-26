@@ -4,6 +4,8 @@ Stage 4E: FastAPI 데이터베이스 연결 및 고속 캐싱 쿼리 실행 계�
 위치: src/stage4e/api/database.py
 """
 
+import json
+import os
 import sqlite3
 import threading
 from contextlib import contextmanager
@@ -11,16 +13,52 @@ from pathlib import Path
 from typing import Generator, List, Dict, Any, Optional, Tuple
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
-ANALYTICS_DB_PATH = BASE_DIR / "data" / "franchise_analytics_v1.sqlite3"
+DEFAULT_ANALYTICS_DB_PATH = BASE_DIR / "data" / "franchise_analytics_v1.sqlite3"
+DATA_VERSIONS_PATH = BASE_DIR / "config" / "data_versions.json"
+
+
+def get_analytics_db_path() -> Path:
+    """활성화된 분석 DB 파일 경로를 반환합니다 (환경변수 -> data_versions.json -> 기본값)."""
+    env_path = os.getenv("ANALYTICS_DB_PATH")
+    if env_path:
+        p = Path(env_path)
+        if p.exists():
+            return p
+
+    if DATA_VERSIONS_PATH.exists():
+        try:
+            with open(DATA_VERSIONS_PATH, "r", encoding="utf-8") as f:
+                meta = json.load(f)
+                active_filename = meta.get("active_db_filename")
+                if active_filename:
+                    candidate = BASE_DIR / "data" / active_filename
+                    if candidate.exists():
+                        return candidate
+        except Exception:
+            pass
+
+    return DEFAULT_ANALYTICS_DB_PATH
+
+# 호환성을 위해 전역 변수 유지
+ANALYTICS_DB_PATH = get_analytics_db_path()
 
 _thread_local = threading.local()
 
 
 def get_cached_connection() -> sqlite3.Connection:
     """스레드별 지속 연결 풀 및 mmap 고속 메모리 매핑을 반환합니다."""
+    current_path = get_analytics_db_path()
     conn = getattr(_thread_local, "conn", None)
-    if conn is None:
-        uri = f"file:{ANALYTICS_DB_PATH.as_posix()}?mode=ro"
+    cached_path = getattr(_thread_local, "db_path", None)
+
+    # DB 경로가 스위칭되었거나 기존 연결이 없으면 새로 연결
+    if conn is None or cached_path != current_path:
+        if conn is not None:
+            try:
+                conn.close()
+            except Exception:
+                pass
+        uri = f"file:{current_path.as_posix()}?mode=ro"
         conn = sqlite3.connect(uri, uri=True, check_same_thread=False)
         conn.row_factory = sqlite3.Row
         # 고속 메모리 매핑 및 캐시 설정 (Windows SQLite mmap 충돌 방지, Linux 배포 환경 유지)
@@ -29,6 +67,7 @@ def get_cached_connection() -> sqlite3.Connection:
             conn.execute("PRAGMA mmap_size = 268435456;") # 256MB mmap
         conn.execute("PRAGMA cache_size = -64000;")   # 64MB cache
         _thread_local.conn = conn
+        _thread_local.db_path = current_path
     return conn
 
 

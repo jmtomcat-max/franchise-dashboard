@@ -1,0 +1,68 @@
+name: Check New Public Data & Notify
+
+on:
+  schedule:
+    # 매일 한국시간 오전 09:00 (UTC 00:00) 실행
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 수동 테스트 트리거 지원
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 3.12 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 최신 공공데이터 기준월 감지
+        id: check_step
+        env:
+          DATA_GO_KR_API_KEY: ${{ secrets.DATA_GO_KR_API_KEY }}
+        run: |
+          set +e
+          python scripts/check_latest_api_version.py > output.json 2>&1
+          EXIT_CODE=$?
+          echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+          cat output.json
+          exit 0
+
+      - name: 신규 데이터 감지 시 GitHub Issue 생성 및 이메일 발송
+        if: steps.check_step.outputs.exit_code == '10'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          LATEST_VER=$(python -c "import json; print(json.load(open('config/data_versions.json'))['latest_checked_api_version'])")
+          ACTIVE_VER=$(python -c "import json; print(json.load(open('config/data_versions.json'))['active_version'])")
+          
+          # 이미 동일 버전으로 열려 있는 이슈가 있는지 중복 체크
+          EXISTING_ISSUE=$(gh issue list --state open --search "$LATEST_VER" --json number -q '.[0].number')
+          
+          if [ -z "$EXISTING_ISSUE" ]; then
+            gh issue create \
+              --title "[데이터 업데이트 필요] $LATEST_VER 소상공인 공공데이터 출시 감지" \
+              --body "### 📢 소상공인시장진흥공단 신규 공공데이터 감지 알림
+
+현재 서비스 중인 DB 기준월: **$ACTIVE_VER**
+감지된 신규 공공데이터 기준월: **$LATEST_VER**
+
+---
+### 🛠️ 수동 업데이트 실행 가이드 (로컬 터미널)
+터미널에서 아래 명령어를 실행하여 안전하게 1회 업데이트 및 블루/그린 무중단 배포를 진행하십시오:
+
+\`\`\`bash
+python scripts/run_monthly_update.py --yearmonth $LATEST_VER
+\`\`\`
+
+- 무결성 품질 게이트(12대 API 스모크 테스트 등)가 자동 검증된 후 배포됩니다.
+- 배포가 완료되면 본 이슈는 자동으로 닫힙니다."
+          else
+            echo "이미 해당 버전에 대한 열린 이슈(#$EXISTING_ISSUE)가 존재합니다. 생략합니다."
+          fi
