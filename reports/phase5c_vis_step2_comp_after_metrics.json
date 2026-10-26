@@ -1,0 +1,1824 @@
+{
+  "mode": "after",
+  "startedAt": "2026-10-15T05:02:44.725Z",
+  "environment": {
+    "browser": {
+      "product": "Chrome/155.0.8059.41",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "flags": [
+        "--headless=new",
+        "--enable-webgl",
+        "--ignore-gpu-blocklist"
+      ]
+    },
+    "gpuRenderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009A60) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+  },
+  "api": {
+    "gwangjin": {
+      "sigungu_code": "11215",
+      "received": 466,
+      "metaTotal": 466,
+      "uniqueGridIds": 466
+    },
+    "jeju": {
+      "sigungu_code": "50110",
+      "received": 1351,
+      "metaTotal": 1351,
+      "uniqueGridIds": 1351
+    }
+  },
+  "desktop": {
+    "gwangjinOverview": {
+      "viewport": {
+        "w": 1440,
+        "h": 900,
+        "dpr": 1
+      },
+      "camera": {
+        "zoom": 14,
+        "pitch": 52,
+        "bearing": -25,
+        "center": [
+          127.0699,
+          37.5407
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 115.375,
+        "w": 1440,
+        "h": 785
+      },
+      "counts": {
+        "receivedInState": 466,
+        "uniqueInState": 466,
+        "centersInsideViewportBounds": 442,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 500,
+            "uniqueGridIds": 442,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 500,
+            "uniqueGridIds": 442,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 3.788,
+        "cellApproxPx": 26.4,
+        "maxStores": 55,
+        "maxVirtualHeightUnits": 165,
+        "maxColumnApproxPx": 34.3,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "전체 외식 점포 밀집도 3D (소진공 2026-07) 100m 격자당 점포 수 · 가상 높이 비례 (466개 격자) 3 15 30 60 100+ * 3D 기둥은 점포수 × 3.0의 가상 시각화 배율 지표이며 실제 건축물 높이(m)가 아닙니다. 광역 줌에서는 개요 원형 레이어가 함께 표출됩니다.",
+        "steps": [
+          "3",
+          "15",
+          "30",
+          "60",
+          "100+"
+        ]
+      },
+      "hud": "📍 서울특별시 광진구 전체 외식업 밀집도 (100m 격자 466개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "capture": {
+        "file": "phase5c_vis_step2_comp_after_desktop_gwangjin_overview.png",
+        "bytes": 1584193
+      },
+      "fpsAnimating": {
+        "mode": "animating",
+        "durationTargetMs": 3000,
+        "measuredSpanMs": 3000.1,
+        "validIntervals": 180,
+        "discardedNonMonotonic": 0,
+        "fps": 60,
+        "avgMs": 16.67,
+        "p50Ms": 16.7,
+        "p95Ms": 16.8,
+        "p99Ms": 16.9,
+        "minMs": 16.4,
+        "maxMs": 16.9,
+        "intervalsOver22ms": 0,
+        "intervalsOver33ms": 0,
+        "mapRenderEvents": 181,
+        "mapRenderPerSec": 60.3,
+        "visibleAtStart": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 500,
+            "uniqueGridIds": 442,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 500,
+            "uniqueGridIds": 442,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "visibleAtEnd": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 525,
+            "uniqueGridIds": 466,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 525,
+            "uniqueGridIds": 466,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "cameraAtEnd": {
+          "zoom": 14,
+          "pitch": 52,
+          "bearing": 34.9
+        }
+      },
+      "fpsIdle": {
+        "mode": "idle",
+        "durationTargetMs": 2000,
+        "measuredSpanMs": 2000,
+        "validIntervals": 120,
+        "discardedNonMonotonic": 0,
+        "fps": 60,
+        "avgMs": 16.67,
+        "p50Ms": 16.7,
+        "p95Ms": 16.8,
+        "p99Ms": 16.9,
+        "minMs": 16.4,
+        "maxMs": 17,
+        "intervalsOver22ms": 0,
+        "intervalsOver33ms": 0,
+        "mapRenderEvents": 0,
+        "mapRenderPerSec": 0,
+        "visibleAtStart": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 525,
+            "uniqueGridIds": 466,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 525,
+            "uniqueGridIds": 466,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "visibleAtEnd": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 525,
+            "uniqueGridIds": 466,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 525,
+            "uniqueGridIds": 466,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "cameraAtEnd": {
+          "zoom": 14,
+          "pitch": 52,
+          "bearing": 35
+        }
+      }
+    },
+    "gwangjinDetail": {
+      "viewport": {
+        "w": 1440,
+        "h": 900,
+        "dpr": 1
+      },
+      "camera": {
+        "zoom": 15.6,
+        "pitch": 52,
+        "bearing": -25,
+        "center": [
+          127.096,
+          37.536
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 115.375,
+        "w": 1440,
+        "h": 785
+      },
+      "counts": {
+        "receivedInState": 466,
+        "uniqueInState": 466,
+        "centersInsideViewportBounds": 203,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 142,
+            "uniqueGridIds": 117,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 143,
+            "uniqueGridIds": 118,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 1.25,
+        "cellApproxPx": 80.02,
+        "maxStores": 55,
+        "maxVirtualHeightUnits": 165,
+        "maxColumnApproxPx": 104,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "전체 외식 점포 밀집도 3D (소진공 2026-07) 100m 격자당 점포 수 · 가상 높이 비례 (466개 격자) 3 15 30 60 100+ * 3D 기둥은 점포수 × 3.0의 가상 시각화 배율 지표이며 실제 건축물 높이(m)가 아닙니다. 광역 줌에서는 개요 원형 레이어가 함께 표출됩니다.",
+        "steps": [
+          "3",
+          "15",
+          "30",
+          "60",
+          "100+"
+        ]
+      },
+      "hud": "📍 서울특별시 광진구 전체 외식업 밀집도 (100m 격자 466개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "capture": {
+        "file": "phase5c_vis_step2_comp_after_desktop_gwangjin_detail.png",
+        "bytes": 737582
+      },
+      "fpsAnimating": {
+        "mode": "animating",
+        "durationTargetMs": 3000,
+        "measuredSpanMs": 3000,
+        "validIntervals": 180,
+        "discardedNonMonotonic": 0,
+        "fps": 60,
+        "avgMs": 16.67,
+        "p50Ms": 16.7,
+        "p95Ms": 16.8,
+        "p99Ms": 17,
+        "minMs": 16.3,
+        "maxMs": 17.1,
+        "intervalsOver22ms": 0,
+        "intervalsOver33ms": 0,
+        "mapRenderEvents": 181,
+        "mapRenderPerSec": 60.3,
+        "visibleAtStart": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 142,
+            "uniqueGridIds": 117,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 143,
+            "uniqueGridIds": 118,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "visibleAtEnd": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 114,
+            "uniqueGridIds": 88,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 114,
+            "uniqueGridIds": 88,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "cameraAtEnd": {
+          "zoom": 15.6,
+          "pitch": 52,
+          "bearing": 34.97
+        }
+      }
+    },
+    "gwangjinPopupClick": {
+      "method": "Input.dispatchMouseEvent(left click)",
+      "clickPoint": {
+        "gridId": "GRID_11215_127096_37536",
+        "layer": "density-grid-3d-columns",
+        "mapPoint": [
+          720.0000000016198,
+          392.4999999991901
+        ],
+        "viewportPoint": [
+          720.0000000016198,
+          507.8749999991901
+        ],
+        "offsetAboveBasePx": 0,
+        "hitProps": {
+          "grid_id": "GRID_11215_127096_37536",
+          "center_lon": 127.096,
+          "center_lat": 37.536,
+          "min_lon": 127.0955,
+          "min_lat": 37.53555,
+          "max_lon": 127.0965,
+          "max_lat": 37.53645,
+          "total_stores": 55,
+          "brand_stores": 17,
+          "top_category_name": "베이커리·디저트",
+          "column_height_m": 165,
+          "column_height_raw_m": 467.5
+        }
+      },
+      "opened": true,
+      "popup": {
+        "header": "서울특별시 광진구 100m 격자 셀 분석 [GRID_11215_127096_37536]",
+        "items": [
+          "총 외식업 점포:55개소",
+          "브랜드 연결 점포:17개소",
+          "최다 점포 업종:베이커리·디저트",
+          "3D 기둥 시각화 지수:165.0 pt (가상 배율: 점포수 × 3.0)"
+        ],
+        "sub": "* 3D 기둥 높이는 점포수 × 3.0의 가상 시각화 배율 지표이며 실제 건축물 높이(m)가 아닙니다. 본 격자는 소진공 2026-07 서울특별시 광진구 외식업 전체 점포 공간 수치이며, 공정위 전국 가맹사업 통계와 집계 단위가 다릅니다.",
+        "rect": {
+          "left": 600,
+          "top": 178.21875,
+          "right": 840,
+          "bottom": 495.375
+        },
+        "fullyInViewport": true
+      },
+      "match": {
+        "hitFeatureIsTarget": true,
+        "total_stores": {
+          "popup": 55,
+          "hitFeature": 55,
+          "api": 55,
+          "ok": true
+        },
+        "brand_stores": {
+          "popup": 17,
+          "hitFeature": 17,
+          "api": 17,
+          "ok": true
+        },
+        "top_category_name": {
+          "popup": "베이커리·디저트",
+          "hitFeature": "베이커리·디저트",
+          "api": "베이커리·디저트",
+          "ok": true
+        },
+        "gridIdShownInPopup": false
+      },
+      "capture": {
+        "file": "phase5c_vis_step2_comp_after_desktop_gwangjin_popup.png",
+        "bytes": 715526
+      }
+    },
+    "jejuOverview": {
+      "viewport": {
+        "w": 1440,
+        "h": 900,
+        "dpr": 1
+      },
+      "camera": {
+        "zoom": 8.735,
+        "pitch": 52,
+        "bearing": -25,
+        "center": [
+          126.56351,
+          33.63787
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 115.375,
+        "w": 1440,
+        "h": 785
+      },
+      "counts": {
+        "receivedInState": 1351,
+        "uniqueInState": 1351,
+        "centersInsideViewportBounds": 1351,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 1353,
+            "uniqueGridIds": 1351,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 1353,
+            "uniqueGridIds": 1351,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 152.991,
+        "cellApproxPx": 0.65,
+        "maxStores": 41,
+        "maxVirtualHeightUnits": 123,
+        "maxColumnApproxPx": 0.6,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "전체 외식 점포 밀집도 3D (소진공 2026-07) 100m 격자당 점포 수 · 가상 높이 비례 (1,351개 격자) 3 15 30 60 100+ * 3D 기둥은 점포수 × 3.0의 가상 시각화 배율 지표이며 실제 건축물 높이(m)가 아닙니다. 광역 줌에서는 개요 원형 레이어가 함께 표출됩니다.",
+        "steps": [
+          "3",
+          "15",
+          "30",
+          "60",
+          "100+"
+        ]
+      },
+      "hud": "📍 제주특별자치도 제주시 전체 외식업 밀집도 (100m 격자 1,351개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "capture": {
+        "file": "phase5c_vis_step2_comp_after_desktop_jeju_overview.png",
+        "bytes": 557207
+      },
+      "fpsAnimating": {
+        "mode": "animating",
+        "durationTargetMs": 3000,
+        "measuredSpanMs": 3000.1,
+        "validIntervals": 180,
+        "discardedNonMonotonic": 0,
+        "fps": 60,
+        "avgMs": 16.67,
+        "p50Ms": 16.7,
+        "p95Ms": 16.8,
+        "p99Ms": 17,
+        "minMs": 15.9,
+        "maxMs": 17.4,
+        "intervalsOver22ms": 0,
+        "intervalsOver33ms": 0,
+        "mapRenderEvents": 181,
+        "mapRenderPerSec": 60.3,
+        "visibleAtStart": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 1353,
+            "uniqueGridIds": 1351,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 1353,
+            "uniqueGridIds": 1351,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "visibleAtEnd": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 1353,
+            "uniqueGridIds": 1351,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 1353,
+            "uniqueGridIds": 1351,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "cameraAtEnd": {
+          "zoom": 8.735,
+          "pitch": 52,
+          "bearing": 34.77
+        }
+      },
+      "fpsIdle": {
+        "mode": "idle",
+        "durationTargetMs": 2000,
+        "measuredSpanMs": 2000.1,
+        "validIntervals": 120,
+        "discardedNonMonotonic": 0,
+        "fps": 60,
+        "avgMs": 16.67,
+        "p50Ms": 16.7,
+        "p95Ms": 16.8,
+        "p99Ms": 16.8,
+        "minMs": 16.5,
+        "maxMs": 16.9,
+        "intervalsOver22ms": 0,
+        "intervalsOver33ms": 0,
+        "mapRenderEvents": 0,
+        "mapRenderPerSec": 0,
+        "visibleAtStart": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 1353,
+            "uniqueGridIds": 1351,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 1353,
+            "uniqueGridIds": 1351,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "visibleAtEnd": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 1353,
+            "uniqueGridIds": 1351,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 1353,
+            "uniqueGridIds": 1351,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "cameraAtEnd": {
+          "zoom": 8.735,
+          "pitch": 52,
+          "bearing": 35
+        }
+      }
+    },
+    "jejuDetail": {
+      "viewport": {
+        "w": 1440,
+        "h": 900,
+        "dpr": 1
+      },
+      "camera": {
+        "zoom": 15.3,
+        "pitch": 52,
+        "bearing": -25,
+        "center": [
+          126.492,
+          33.487
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 115.375,
+        "w": 1440,
+        "h": 785
+      },
+      "counts": {
+        "receivedInState": 1351,
+        "uniqueInState": 1351,
+        "centersInsideViewportBounds": 279,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 260,
+            "uniqueGridIds": 219,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 261,
+            "uniqueGridIds": 220,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 1.618,
+        "cellApproxPx": 61.8,
+        "maxStores": 41,
+        "maxVirtualHeightUnits": 123,
+        "maxColumnApproxPx": 59.9,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "전체 외식 점포 밀집도 3D (소진공 2026-07) 100m 격자당 점포 수 · 가상 높이 비례 (1,351개 격자) 3 15 30 60 100+ * 3D 기둥은 점포수 × 3.0의 가상 시각화 배율 지표이며 실제 건축물 높이(m)가 아닙니다. 광역 줌에서는 개요 원형 레이어가 함께 표출됩니다.",
+        "steps": [
+          "3",
+          "15",
+          "30",
+          "60",
+          "100+"
+        ]
+      },
+      "hud": "📍 제주특별자치도 제주시 전체 외식업 밀집도 (100m 격자 1,351개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "capture": {
+        "file": "phase5c_vis_step2_comp_after_desktop_jeju_detail.png",
+        "bytes": 918514
+      },
+      "fpsAnimating": {
+        "mode": "animating",
+        "durationTargetMs": 3000,
+        "measuredSpanMs": 3000,
+        "validIntervals": 180,
+        "discardedNonMonotonic": 0,
+        "fps": 60,
+        "avgMs": 16.67,
+        "p50Ms": 16.7,
+        "p95Ms": 16.8,
+        "p99Ms": 16.9,
+        "minMs": 16.4,
+        "maxMs": 16.9,
+        "intervalsOver22ms": 0,
+        "intervalsOver33ms": 0,
+        "mapRenderEvents": 181,
+        "mapRenderPerSec": 60.3,
+        "visibleAtStart": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 260,
+            "uniqueGridIds": 219,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 261,
+            "uniqueGridIds": 220,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "visibleAtEnd": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 191,
+            "uniqueGridIds": 161,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 190,
+            "uniqueGridIds": 160,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "cameraAtEnd": {
+          "zoom": 15.3,
+          "pitch": 52,
+          "bearing": 34.98
+        }
+      }
+    },
+    "jejuPopupClick": {
+      "method": "Input.dispatchMouseEvent(left click)",
+      "clickPoint": {
+        "gridId": "GRID_50110_126492_33487",
+        "layer": "density-grid-3d-columns",
+        "mapPoint": [
+          719.9999999143135,
+          392.4999999772152
+        ],
+        "viewportPoint": [
+          719.9999999143135,
+          507.8749999772152
+        ],
+        "offsetAboveBasePx": 0,
+        "hitProps": {
+          "grid_id": "GRID_50110_126492_33487",
+          "center_lon": 126.492,
+          "center_lat": 33.487,
+          "min_lon": 126.4915,
+          "min_lat": 33.48655,
+          "max_lon": 126.4925,
+          "max_lat": 33.48745,
+          "total_stores": 41,
+          "brand_stores": 4,
+          "top_category_name": "베이커리·디저트",
+          "column_height_m": 123,
+          "column_height_raw_m": 348.5
+        }
+      },
+      "opened": true,
+      "popup": {
+        "header": "제주특별자치도 제주시 100m 격자 셀 분석 [GRID_50110_126492_33487]",
+        "items": [
+          "총 외식업 점포:41개소",
+          "브랜드 연결 점포:4개소",
+          "최다 점포 업종:베이커리·디저트",
+          "3D 기둥 시각화 지수:123.0 pt (가상 배율: 점포수 × 3.0)"
+        ],
+        "sub": "* 3D 기둥 높이는 점포수 × 3.0의 가상 시각화 배율 지표이며 실제 건축물 높이(m)가 아닙니다. 본 격자는 소진공 2026-07 제주특별자치도 제주시 외식업 전체 점포 공간 수치이며, 공정위 전국 가맹사업 통계와 집계 단위가 다릅니다.",
+        "rect": {
+          "left": 600,
+          "top": 158.21875,
+          "right": 840,
+          "bottom": 495.375
+        },
+        "fullyInViewport": true
+      },
+      "match": {
+        "hitFeatureIsTarget": true,
+        "total_stores": {
+          "popup": 41,
+          "hitFeature": 41,
+          "api": 41,
+          "ok": true
+        },
+        "brand_stores": {
+          "popup": 4,
+          "hitFeature": 4,
+          "api": 4,
+          "ok": true
+        },
+        "top_category_name": {
+          "popup": "베이커리·디저트",
+          "hitFeature": "베이커리·디저트",
+          "api": "베이커리·디저트",
+          "ok": true
+        },
+        "gridIdShownInPopup": false
+      },
+      "capture": {
+        "file": "phase5c_vis_step2_comp_after_desktop_jeju_popup.png",
+        "bytes": 871989
+      }
+    },
+    "nationwideEmpty": {
+      "viewport": {
+        "w": 1440,
+        "h": 900,
+        "dpr": 1
+      },
+      "camera": {
+        "zoom": 7,
+        "pitch": 20,
+        "bearing": -20,
+        "center": [
+          127.7669,
+          35.9078
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 115.375,
+        "w": 1440,
+        "h": 785
+      },
+      "counts": {
+        "receivedInState": 0,
+        "uniqueInState": 0,
+        "centersInsideViewportBounds": 0,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "visibility": "none"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "visibility": "none",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 495.289,
+        "cellApproxPx": 0.2,
+        "maxStores": 0,
+        "maxVirtualHeightUnits": 0,
+        "maxColumnApproxPx": 0,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "격자 레이어 비활성화 상세 시군구 선택 시 표출",
+        "steps": []
+      },
+      "hud": "📍 전국 모드 — 시군구를 선택하시면 100m 정밀 격자가 지도에 표출됩니다.",
+      "popupPresent": false,
+      "capture": {
+        "file": "phase5c_vis_step2_comp_after_desktop_nationwide_empty.png",
+        "bytes": 1023559
+      }
+    }
+  },
+  "mobile": {
+    "gwangjinOverview": {
+      "viewport": {
+        "w": 390,
+        "h": 844,
+        "dpr": 3
+      },
+      "camera": {
+        "zoom": 11.399,
+        "pitch": 52,
+        "bearing": -25,
+        "center": [
+          127.08545,
+          37.55094
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 109.953125,
+        "w": 390,
+        "h": 746
+      },
+      "counts": {
+        "receivedInState": 466,
+        "uniqueInState": 466,
+        "centersInsideViewportBounds": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 22.982,
+        "cellApproxPx": 4.35,
+        "maxStores": 55,
+        "maxVirtualHeightUnits": 165,
+        "maxColumnApproxPx": 5.7,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "3D 밀집도 (소진공 2026-07) 3 15 30 60 100+",
+        "steps": [
+          "3",
+          "15",
+          "30",
+          "60",
+          "100+"
+        ]
+      },
+      "hud": "📍 서울특별시 광진구 전체 외식업 밀집도 (100m 격자 466개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "filter": {
+        "sido": {
+          "w": 58,
+          "h": 28,
+          "left": 8,
+          "right": 66,
+          "text": "전국\n경기\n서울\n경남\n전남광주통합특별시\n경북\n부산\n충남\n인천\n강원특별자치도\n대구\n충북\n전북특별자치도\n대전\n제주\n울산\n세종"
+        },
+        "sigungu": {
+          "w": 72,
+          "h": 28,
+          "left": 68.4,
+          "right": 140.4,
+          "text": "시군구 전체 (시도 단위)\n서울특별시 강남구\n서울특별시 마포구\n서울특별시 송파구\n서울특별시 영등포구\n서울특별시 강서구\n서울특별시 서초구\n서울특별시 종로구\n서울특별시 중구\n서울특별시 관악구\n서울특별시 강동구\n서울특별시 광진구\n서울특별시 용산구\n서울특별시 동대문구\n서울특별시 성동구\n서울특별시 성북구\n서울특별시 구로구\n서울특별시 노원구\n서울특별시 은평구\n서울특별시 서대문구\n서울특별시 중랑구\n서울특별시 동작구\n서울특별시 양천구\n서울특별시 금천구\n서울특별시 강북구\n서울특별시 도봉구"
+        },
+        "year": {
+          "w": 68,
+          "h": 28,
+          "left": 145.6,
+          "right": 213.6,
+          "text": "최신(자동)\n2026년\n2025년\n2024년\n2023년"
+        },
+        "ftcBtn": {
+          "w": 154.8,
+          "h": 28,
+          "left": 227.2,
+          "right": 382,
+          "text": "공정위 2026 ↗"
+        }
+      },
+      "docScrollWidth": 390,
+      "capture": {
+        "file": "phase5c_vis_step2_comp_after_mobile_gwangjin_overview.png",
+        "bytes": 3081931
+      },
+      "fpsAnimating": {
+        "mode": "animating",
+        "durationTargetMs": 3000,
+        "measuredSpanMs": 3000.1,
+        "validIntervals": 180,
+        "discardedNonMonotonic": 0,
+        "fps": 60,
+        "avgMs": 16.67,
+        "p50Ms": 16.7,
+        "p95Ms": 16.9,
+        "p99Ms": 17.4,
+        "minMs": 15.3,
+        "maxMs": 17.9,
+        "intervalsOver22ms": 0,
+        "intervalsOver33ms": 0,
+        "mapRenderEvents": 181,
+        "mapRenderPerSec": 60.3,
+        "visibleAtStart": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "visibleAtEnd": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "cameraAtEnd": {
+          "zoom": 11.399,
+          "pitch": 52,
+          "bearing": 34.84
+        }
+      }
+    },
+    "gwangjinDetail": {
+      "viewport": {
+        "w": 390,
+        "h": 844,
+        "dpr": 3
+      },
+      "camera": {
+        "zoom": 15.6,
+        "pitch": 52,
+        "bearing": -25,
+        "center": [
+          127.096,
+          37.536
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 109.953125,
+        "w": 390,
+        "h": 746
+      },
+      "counts": {
+        "receivedInState": 466,
+        "uniqueInState": 466,
+        "centersInsideViewportBounds": 74,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 64,
+            "uniqueGridIds": 47,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 64,
+            "uniqueGridIds": 47,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 1.25,
+        "cellApproxPx": 80.02,
+        "maxStores": 55,
+        "maxVirtualHeightUnits": 165,
+        "maxColumnApproxPx": 104,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "3D 밀집도 (소진공 2026-07) 3 15 30 60 100+",
+        "steps": [
+          "3",
+          "15",
+          "30",
+          "60",
+          "100+"
+        ]
+      },
+      "hud": "📍 서울특별시 광진구 전체 외식업 밀집도 (100m 격자 466개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "fpsAnimating": {
+        "mode": "animating",
+        "durationTargetMs": 3000,
+        "measuredSpanMs": 3000.1,
+        "validIntervals": 180,
+        "discardedNonMonotonic": 0,
+        "fps": 60,
+        "avgMs": 16.67,
+        "p50Ms": 16.7,
+        "p95Ms": 16.8,
+        "p99Ms": 16.8,
+        "minMs": 16.5,
+        "maxMs": 16.8,
+        "intervalsOver22ms": 0,
+        "intervalsOver33ms": 0,
+        "mapRenderEvents": 181,
+        "mapRenderPerSec": 60.3,
+        "visibleAtStart": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 64,
+            "uniqueGridIds": 47,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 64,
+            "uniqueGridIds": 47,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "visibleAtEnd": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 30,
+            "uniqueGridIds": 26,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 33,
+            "uniqueGridIds": 29,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "cameraAtEnd": {
+          "zoom": 15.6,
+          "pitch": 52,
+          "bearing": 34.77
+        }
+      }
+    },
+    "gwangjinPopupTap": {
+      "method": "Input.dispatchTouchEvent(tap)",
+      "clickPoint": {
+        "gridId": "GRID_11215_127096_37536",
+        "layer": "density-grid-3d-columns",
+        "mapPoint": [
+          195,
+          372.9999999982955
+        ],
+        "viewportPoint": [
+          195,
+          482.9531249982955
+        ],
+        "offsetAboveBasePx": 0,
+        "hitProps": {
+          "grid_id": "GRID_11215_127096_37536",
+          "center_lon": 127.096,
+          "center_lat": 37.536,
+          "min_lon": 127.0955,
+          "min_lat": 37.53555,
+          "max_lon": 127.0965,
+          "max_lat": 37.53645,
+          "total_stores": 55,
+          "brand_stores": 17,
+          "top_category_name": "베이커리·디저트",
+          "column_height_m": 165,
+          "column_height_raw_m": 467.5
+        }
+      },
+      "opened": true,
+      "popup": {
+        "header": "서울특별시 광진구 100m 격자 셀 분석 [GRID_11215_127096_37536]",
+        "items": [
+          "총 외식업 점포:55개소",
+          "브랜드 연결 점포:17개소",
+          "최다 점포 업종:베이커리·디저트",
+          "3D 기둥 시각화 지수:165.0 pt (가상 배율: 점포수 × 3.0)"
+        ],
+        "sub": "* 3D 기둥 높이는 점포수 × 3.0의 가상 시각화 배율 지표이며 실제 건축물 높이(m)가 아닙니다. 본 격자는 소진공 2026-07 서울특별시 광진구 외식업 전체 점포 공간 수치이며, 공정위 전국 가맹사업 통계와 집계 단위가 다릅니다.",
+        "rect": {
+          "left": 75,
+          "top": 153.796875,
+          "right": 315,
+          "bottom": 470.953125
+        },
+        "fullyInViewport": true
+      },
+      "match": {
+        "hitFeatureIsTarget": true,
+        "total_stores": {
+          "popup": 55,
+          "hitFeature": 55,
+          "api": 55,
+          "ok": true
+        },
+        "brand_stores": {
+          "popup": 17,
+          "hitFeature": 17,
+          "api": 17,
+          "ok": true
+        },
+        "top_category_name": {
+          "popup": "베이커리·디저트",
+          "hitFeature": "베이커리·디저트",
+          "api": "베이커리·디저트",
+          "ok": true
+        },
+        "gridIdShownInPopup": false
+      },
+      "capture": {
+        "file": "phase5c_vis_step2_comp_after_mobile_gwangjin_popup.png",
+        "bytes": 1004057
+      }
+    },
+    "jejuOverview": {
+      "viewport": {
+        "w": 390,
+        "h": 844,
+        "dpr": 3
+      },
+      "camera": {
+        "zoom": 7.421,
+        "pitch": 52,
+        "bearing": -25,
+        "center": [
+          126.55833,
+          33.64712
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 109.953125,
+        "w": 390,
+        "h": 746
+      },
+      "counts": {
+        "receivedInState": 1351,
+        "uniqueInState": 1351,
+        "centersInsideViewportBounds": 1351,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 380.202,
+        "cellApproxPx": 0.26,
+        "maxStores": 41,
+        "maxVirtualHeightUnits": 123,
+        "maxColumnApproxPx": 0.3,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "3D 밀집도 (소진공 2026-07) 3 15 30 60 100+",
+        "steps": [
+          "3",
+          "15",
+          "30",
+          "60",
+          "100+"
+        ]
+      },
+      "hud": "📍 제주특별자치도 제주시 전체 외식업 밀집도 (100m 격자 1,351개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "capture": {
+        "file": "phase5c_vis_step2_comp_after_mobile_jeju_overview.png",
+        "bytes": 800394
+      },
+      "fpsAnimating": {
+        "mode": "animating",
+        "durationTargetMs": 3000,
+        "measuredSpanMs": 3000.1,
+        "validIntervals": 180,
+        "discardedNonMonotonic": 0,
+        "fps": 60,
+        "avgMs": 16.67,
+        "p50Ms": 16.7,
+        "p95Ms": 16.8,
+        "p99Ms": 17,
+        "minMs": 16.3,
+        "maxMs": 17.1,
+        "intervalsOver22ms": 0,
+        "intervalsOver33ms": 0,
+        "mapRenderEvents": 181,
+        "mapRenderPerSec": 60.3,
+        "visibleAtStart": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "visibleAtEnd": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        },
+        "cameraAtEnd": {
+          "zoom": 7.421,
+          "pitch": 52,
+          "bearing": 34.76
+        }
+      }
+    }
+  },
+  "finishedAt": "2026-10-15T05:03:50.840Z"
+}

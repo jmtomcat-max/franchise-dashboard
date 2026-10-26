@@ -1,0 +1,89 @@
+{
+  "stage": "PHASE_4_STAGE_4B",
+  "project_path": "D:/Franchise_Dashboard",
+  "evaluated_at": "2026-10-13T10:49:00+09:00",
+  "overall_verdict": "PASS",
+  "gate_approval_status": "READY_FOR_USER_REVIEW",
+  "next_stage_allowed": false,
+  "execution_constraints_maintained": {
+    "nationwide_v2_db_readonly": true,
+    "nationwide_v2_store_count_preserved": 735185,
+    "prior_assets_preserved": true,
+    "api_budget_observed": true,
+    "phase4c_started": false,
+    "threejs_ui_started": false
+  },
+  "source_data_reconciliation": {
+    "total_input_stores": 735185,
+    "unique_bizes_id_count": 735185,
+    "store_normalization_count": 735185,
+    "candidate_linked_stores": 168318,
+    "independent_unlinked_stores": 566890,
+    "multi_candidate_stores": 23,
+    "total_store_candidate_mappings": 735208,
+    "distinct_brand_candidates_count": 5062,
+    "official_verified_brands_count": 80,
+    "provisional_cluster_brands_count": 4982
+  },
+  "store_status_breakdown": {
+    "verified_auto": 32903,
+    "provisional": 117158,
+    "review_required": 18257,
+    "independent_store": 566056,
+    "rejected": 834
+  },
+  "quality_evaluation_summary": {
+    "sample_dataset_size": 1110,
+    "precision_auto_confirmed_pct": 100.0,
+    "recall_pct": 68.05,
+    "f1_score": 80.99,
+    "auto_link_ratio_pct": 66.4,
+    "review_required_ratio_pct": 28.56,
+    "confusion_matrix": {
+      "true_positives": 737,
+      "false_positives": 0,
+      "true_negatives": 27,
+      "false_negatives": 346
+    },
+    "target_precision_threshold_pct": 95.0,
+    "target_precision_met": true
+  },
+  "stage4a_reverification": {
+    "sample_brands_count": 37,
+    "sample_stores_count": 1110,
+    "naive_like_false_positive_share_pct": 47.84,
+    "heuristic_binary_false_positive_rate_pct": 56.67,
+    "heuristic_binary_precision_pct": 43.33,
+    "distinction_note": "Stage 4A metrics were heuristic baseline scores without human-verified gold ground-truth labels. Stage 4B established grounded ground-truth labels and achieved 100.0% precision on auto-confirmed stores."
+  },
+  "automated_tests_summary": {
+    "test_suite_file": "tests/test_phase4_stage4b.py",
+    "total_tests": 15,
+    "passed": 15,
+    "failed": 0,
+    "execution_time_seconds": 0.224
+  },
+  "performance_metrics": {
+    "total_runtime_seconds": 217.93,
+    "throughput_stores_per_sec": 3373.5,
+    "pass1_normalization_sec": 73.55,
+    "pass2_mapping_sec": 144.38
+  },
+  "deliverables_inventory": [
+    "docs/phase4/brand_matching_algorithm.md",
+    "docs/phase4/brand_candidate_data_contract.md",
+    "docs/phase4/official_brand_source_review.md",
+    "reports/phase4_stage4b_quality_report.md",
+    "reports/phase4_stage4b_execution_report.md",
+    "reports/phase4_stage4b_validation.json",
+    "data/brand_candidates_v1.sqlite3",
+    "src/stage4b/schema_stage4b.py",
+    "src/stage4b/normalizer.py",
+    "src/stage4b/brand_dictionary.py",
+    "src/stage4b/candidate_engine.py",
+    "src/stage4b/evaluator.py",
+    "src/stage4b/pipeline.py",
+    "tests/test_phase4_stage4b.py",
+    "run_stage4b.bat"
+  ]
+}

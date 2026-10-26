@@ -1,0 +1,35 @@
+[Unit]
+Description=Franchise Dashboard Backend API Service
+After=network.target
+
+[Service]
+Type=simple
+User=franchise
+Group=franchise
+WorkingDirectory=/opt/franchise-dashboard
+Environment="PYTHONPATH=/opt/franchise-dashboard"
+EnvironmentFile=-/opt/franchise-dashboard/.env.production
+ExecStart=/opt/franchise-dashboard/.venv/bin/uvicorn src.stage4e.api.main:app \
+    --host 127.0.0.1 \
+    --port 8000 \
+    --workers 2 \
+    --proxy-headers \
+    --forwarded-allow-ips=127.0.0.1 \
+    --log-config=/opt/franchise-dashboard/deploy/logging.conf
+Restart=always
+RestartSec=5s
+LimitNOFILE=65536
+
+# 보안 샌드박싱 (SQLite DB 읽기 전용 보호)
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+ReadOnlyPaths=/opt/franchise-dashboard/data
+ReadWritePaths=/var/log/franchise-dashboard
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=franchise-dashboard
+
+[Install]
+WantedBy=multi-user.target

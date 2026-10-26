@@ -1,0 +1,333 @@
+{
+  "testName": "Phase 5C-Vis Step 3 Remediation R2 In-Depth Verification",
+  "executionTimestamp": "2026-10-16T05:00:51.776Z",
+  "environment": {
+    "browser": {
+      "product": "Chrome/155.0.8059.81",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "devtoolsPort": 9246
+    }
+  },
+  "apiGroundTruth": {
+    "jeju_50110": {
+      "received": 1351,
+      "metaTotal": 1351,
+      "uniqueGridIds": 1351
+    },
+    "gwangjin_11215": {
+      "received": 466,
+      "metaTotal": 466,
+      "uniqueGridIds": 466
+    }
+  },
+  "stage1_keyboardAccessibility": {
+    "enterKeyCategorySelection": "PASS",
+    "spaceKeyCategorySelection": "PASS",
+    "verdict": "PASS"
+  },
+  "stage2_mobileRegionAndYearSelection": {
+    "gwangjinSelectPass": "PASS",
+    "yearOptionExists": true,
+    "selectedYearValue": "2023",
+    "yearSelectVerdict": "PASS",
+    "verdict": "PASS"
+  },
+  "stage3_touchPopupViewportFit": {
+    "touchCoordinates": {
+      "x": 204,
+      "y": 601
+    },
+    "targetCell": {
+      "lon": 127.096,
+      "lat": 37.536,
+      "stores": 55
+    },
+    "popupFound": true,
+    "inViewport": true,
+    "rect": {
+      "left": 87,
+      "right": 327,
+      "top": 288,
+      "bottom": 585,
+      "width": 240,
+      "height": 297
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "screenshot": "phase5c_vis_step3_remediation_r2_mobile_popup_in_viewport.png",
+    "verdict": "PASS"
+  },
+  "stage4_focusOrderAndIndicators": {
+    "tabSteps": [
+      {
+        "step": 1,
+        "tag": "SELECT",
+        "id": "sido-select",
+        "className": "region-select-dropdown",
+        "text": "전국 경기 서울 경남 전남광주통합특별",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(37, 98, 234)",
+        "boxShadow": "rgba(37, 99, 235, 0.298) 0px 0px 0px 2.97897px",
+        "hasIndicator": true
+      },
+      {
+        "step": 2,
+        "tag": "SELECT",
+        "id": "sigungu-select",
+        "className": "region-select-dropdown",
+        "text": "시군구 전체 (시도 단위) 서울특별시",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(36, 97, 229)",
+        "boxShadow": "rgba(37, 99, 235, 0.294) 0px 0px 0px 2.90783px",
+        "hasIndicator": true
+      },
+      {
+        "step": 3,
+        "tag": "SELECT",
+        "id": "ftc-year-select",
+        "className": "year-select-dropdown",
+        "text": "최신(자동) 2026년 2025년 2",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(37, 99, 235)",
+        "boxShadow": "rgba(37, 99, 235, 0.3) 0px 0px 0px 3px",
+        "hasIndicator": true
+      },
+      {
+        "step": 4,
+        "tag": "BUTTON",
+        "id": "",
+        "className": "provenance-tag tag-ftc ftc-drawer-btn ",
+        "text": "공정위 2023 ↗",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(73, 103, 190)",
+        "boxShadow": "rgba(37, 99, 235, 0.243) 0px 0px 0px 2.40572px",
+        "hasIndicator": true
+      },
+      {
+        "step": 5,
+        "tag": "BUTTON",
+        "id": "tab-CAT_MAJ_01",
+        "className": "category-tab-btn active ",
+        "text": "🍚 한식",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(37, 99, 234)",
+        "boxShadow": "rgba(37, 99, 235, 0.3) 0px 0.00701043px 0.0210313px 2.97897px",
+        "hasIndicator": true
+      },
+      {
+        "step": 6,
+        "tag": "BUTTON",
+        "id": "tab-CAT_MAJ_02",
+        "className": "category-tab-btn  ",
+        "text": "🥟 중식",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(35, 93, 220)",
+        "boxShadow": "rgba(37, 99, 235, 0.28) 0px 0px 0px 2.77344px",
+        "hasIndicator": true
+      },
+      {
+        "step": 7,
+        "tag": "BUTTON",
+        "id": "tab-CAT_MAJ_03",
+        "className": "category-tab-btn  ",
+        "text": "🍣 일식",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(35, 93, 220)",
+        "boxShadow": "rgba(37, 99, 235, 0.28) 0px 0px 0px 2.77447px",
+        "hasIndicator": true
+      },
+      {
+        "step": 8,
+        "tag": "BUTTON",
+        "id": "tab-CAT_MAJ_04",
+        "className": "category-tab-btn  ",
+        "text": "🍝 양식·세계음식",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(34, 88, 206)",
+        "boxShadow": "rgba(37, 99, 235, 0.26) 0px 0px 0px 2.55631px",
+        "hasIndicator": true
+      },
+      {
+        "step": 9,
+        "tag": "BUTTON",
+        "id": "tab-CAT_MAJ_05",
+        "className": "category-tab-btn  ",
+        "text": "🍗 치킨·패스트푸드",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(35, 93, 220)",
+        "boxShadow": "rgba(37, 99, 235, 0.28) 0px 0px 0px 2.77447px",
+        "hasIndicator": true
+      },
+      {
+        "step": 10,
+        "tag": "BUTTON",
+        "id": "tab-CAT_MAJ_06",
+        "className": "category-tab-btn  ",
+        "text": "🍢 분식·간편식",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(36, 97, 229)",
+        "boxShadow": "rgba(37, 99, 235, 0.294) 0px 0px 0px 2.90843px",
+        "hasIndicator": true
+      },
+      {
+        "step": 11,
+        "tag": "BUTTON",
+        "id": "tab-CAT_MAJ_07",
+        "className": "category-tab-btn  ",
+        "text": "☕ 카페·음료",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(36, 97, 229)",
+        "boxShadow": "rgba(37, 99, 235, 0.294) 0px 0px 0px 2.90783px",
+        "hasIndicator": true
+      },
+      {
+        "step": 12,
+        "tag": "BUTTON",
+        "id": "tab-CAT_MAJ_08",
+        "className": "category-tab-btn  ",
+        "text": "🥐 베이커리·디저트",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(35, 93, 221)",
+        "boxShadow": "rgba(37, 99, 235, 0.28) 0px 0px 0px 2.7755px",
+        "hasIndicator": true
+      },
+      {
+        "step": 13,
+        "tag": "BUTTON",
+        "id": "tab-CAT_MAJ_99",
+        "className": "category-tab-btn  unmapped-tab",
+        "text": "🔍 기타 외식 (미매핑)",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(35, 93, 220)",
+        "boxShadow": "rgba(37, 99, 235, 0.28) 0px 0px 0px 2.77447px",
+        "hasIndicator": true
+      },
+      {
+        "step": 14,
+        "tag": "CANVAS",
+        "id": "",
+        "className": "maplibregl-canvas",
+        "text": "",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(37, 99, 235)",
+        "boxShadow": "none",
+        "hasIndicator": true
+      },
+      {
+        "step": 15,
+        "tag": "BUTTON",
+        "id": "",
+        "className": "maplibregl-ctrl-zoom-in",
+        "text": "",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(37, 99, 235)",
+        "boxShadow": "rgb(0, 150, 255) 0px 0px 2px 2px",
+        "hasIndicator": true
+      },
+      {
+        "step": 16,
+        "tag": "BUTTON",
+        "id": "",
+        "className": "maplibregl-ctrl-zoom-out",
+        "text": "",
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "outlineColor": "rgb(37, 99, 235)",
+        "boxShadow": "rgb(0, 150, 255) 0px 0px 2px 2px",
+        "hasIndicator": true
+      }
+    ],
+    "allKeyControlsFound": true,
+    "orderPass": true,
+    "stepSequence": {
+      "sido": 1,
+      "sigungu": 2,
+      "year": 3,
+      "ftcBtn": 4,
+      "firstCategoryTab": 5
+    },
+    "allVisitedHaveIndicators": true,
+    "screenshot": "phase5c_vis_step3_remediation_r2_keyboard_focus_indicator.png",
+    "verdict": "PASS"
+  },
+  "stage5_prefersReducedMotion": {
+    "mediaQueryMatched": true,
+    "computedDuration": "1e-05s",
+    "parsedDurationSec": 0.00001,
+    "isDurationShortEnough": true,
+    "verdict": "PASS"
+  },
+  "stage6_2dModeResizePreservation": {
+    "pitchInitial2D": 0,
+    "pitchAfterResize1": 0,
+    "pitchAfterResize2": 0,
+    "is3DModeFlag": false,
+    "is2DPreserved": true,
+    "screenshot": "phase5c_vis_step3_remediation_r2_2d_mode_resize_preserved.png",
+    "verdict": "PASS"
+  },
+  "stage7_mobileJejuRenderingRecovery": {
+    "received": 1351,
+    "state": 1351,
+    "bbox": 1351,
+    "rendered": 1351,
+    "categoryThemeRendered": 1351,
+    "categoryLegendVisible": true,
+    "screenshots": [
+      "phase5c_vis_step3_remediation_r2_mobile_jeju_overview.png",
+      "phase5c_vis_step3_remediation_r2_mobile_category_theme.png"
+    ],
+    "verdict": "PASS"
+  },
+  "stage8_mutationSelfCheck": {
+    "intentionalMismatchCaught": true,
+    "caughtErrorMessage": "[Intentional Assertion Fail] Actual rendered count (1351) did not match fake expected count (9999)",
+    "bogusLayerCheckCaught": true,
+    "verdict": "PASS"
+  },
+  "stage9_desktopRegressionD1toD5": {
+    "d1Pass": "PASS",
+    "d2Pass": "PASS",
+    "d3Pass": "PASS",
+    "d4Pass": "PASS",
+    "d5Pass": "PASS",
+    "screenshots": [
+      "phase5c_vis_step3_remediation_r2_desktop_d1_jeju.png",
+      "phase5c_vis_step3_remediation_r2_desktop_d2_jeju_detail.png",
+      "phase5c_vis_step3_remediation_r2_desktop_d3_gwangjin.png",
+      "phase5c_vis_step3_remediation_r2_desktop_d4_gwangjin_detail.png",
+      "phase5c_vis_step3_remediation_r2_desktop_d5_nationwide.png"
+    ],
+    "verdict": "PASS"
+  },
+  "verdictSummary": {
+    "stage1_keyboardAccessibility": "PASS",
+    "stage2_mobileRegionAndYearSelection": "PASS",
+    "stage3_touchPopupViewportFit": "PASS",
+    "stage4_focusOrderAndIndicators": "PASS",
+    "stage5_prefersReducedMotion": "PASS",
+    "stage6_2dModeResizePreservation": "PASS",
+    "stage7_mobileJejuRenderingRecovery": "PASS",
+    "stage8_mutationSelfCheck": "PASS",
+    "stage9_desktopRegressionD1toD5": "PASS",
+    "finalVerdict": "PASS"
+  },
+  "finishedTimestamp": "2026-10-16T05:01:34.695Z"
+}

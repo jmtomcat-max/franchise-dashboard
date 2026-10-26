@@ -1,0 +1,186 @@
+{
+  "t1_desktop_gwangjin": {
+    "t1Metrics": {
+      "gridCount": 466,
+      "pitch": 51.99999999999999,
+      "bearing": -25,
+      "zoom": 16.5,
+      "center": [
+        127.0699,
+        37.5407
+      ],
+      "layerType": "fill-extrusion",
+      "layerVisibility": "visible",
+      "heightPaint": [
+        "get",
+        "column_height_m"
+      ],
+      "colorPaint": [
+        "interpolate",
+        [
+          "linear"
+        ],
+        [
+          "get",
+          "total_stores"
+        ],
+        3,
+        "#0284c7",
+        15,
+        "#2563eb",
+        30,
+        "#7c3aed",
+        60,
+        "#ea580c",
+        100,
+        "#dc2626"
+      ],
+      "opacityPaint": 0.88,
+      "renderedCount": 113,
+      "sourceFeaturesCount": 307,
+      "geomType": "Polygon",
+      "coordsCount": 5,
+      "sampleProps": {
+        "grid_id": "GRID_11215_127073_37537",
+        "center_lon": 127.073,
+        "center_lat": 37.537,
+        "min_lon": 127.07249999999999,
+        "min_lat": 37.53655,
+        "max_lon": 127.0735,
+        "max_lat": 37.53745,
+        "total_stores": 20,
+        "brand_stores": 7,
+        "top_category_name": "베이커리·디저트",
+        "column_height_m": 170
+      },
+      "heightMatches": true,
+      "legendTitle": "전체 외식 점포 밀집도 3D (소진공 2026-07)3D 밀집도 (소진공 2026-07)",
+      "legendSubtitle": "100m 격자당 점포 수 · 높이 비례 (466개 격자)",
+      "legendNotice": "* 3D 기둥 높이는 점포수 × 8.5m 시각화 배율이며 실제 건물 높이가 아닙니다. (점포 3개소 미만 제외)",
+      "legendSteps": [
+        "3",
+        "15",
+        "30",
+        "60",
+        "100+"
+      ],
+      "hudText": "📍 서울특별시 광진구 전체 외식업 밀집도 (100m 격자 466개소)|벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "gpuRenderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009A60) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    "popupMetrics": {
+      "header": "서울특별시 광진구 100m 격자 셀 분석 (3D 밀집도)",
+      "items": [
+        "총 외식업 점포:55개소",
+        "브랜드 연결 점포:17개소",
+        "최다 점포 업종:베이커리·디저트",
+        "3D 기둥 시각화 높이:약 467.5m (점포수 × 8.5m)"
+      ],
+      "sub": "* 3D 기둥 높이는 점포수 × 8.5m 시각화 배율이며 실제 건물 높이가 아닙니다. 본 격자는 소진공 2026-07 서울특별시 광진구 외식업 전체 점포 공간 수치이며, 공정위 전국 가맹사업 통계와 집계 단위가 다릅니다.",
+      "hasScaleFactorNotice": true,
+      "hasNotPhysicalBuilding": true,
+      "hasSedaProvenance": true,
+      "hasNoFtcStatsInGrid": true
+    },
+    "gwangjinFps": {
+      "fps": 60.6,
+      "frameCount": 122,
+      "durationMs": 2012,
+      "avgFrameTimeMs": 16.49,
+      "p95FrameTimeMs": 16.8,
+      "minFrameTimeMs": -4.7,
+      "maxFrameTimeMs": 17.3
+    },
+    "pass": true
+  },
+  "t2_desktop_jeju": {
+    "t2Metrics": {
+      "gridCount": 1351,
+      "sourceFeaturesCount": 2883,
+      "renderedCount": 1353,
+      "pitch": 51.99999999999999,
+      "bearing": -25,
+      "zoom": 8.734516718301235,
+      "center": [
+        126.56351181689956,
+        33.637871796485086
+      ],
+      "legendSubtitle": "100m 격자당 점포 수 · 높이 비례 (1,351개 격자)"
+    },
+    "jejuFps": {
+      "fps": 60.9,
+      "frameCount": 122,
+      "durationMs": 2003,
+      "avgFrameTimeMs": 16.42,
+      "p95FrameTimeMs": 16.8,
+      "minFrameTimeMs": -13.9,
+      "maxFrameTimeMs": 16.9
+    },
+    "pass": true
+  },
+  "t3_desktop_nationwide": {
+    "t3Metrics": {
+      "gridCount": 0,
+      "layerVisibility": "none",
+      "hasPopup": false,
+      "hudText": "📍전국 모드 — 시군구를 선택하시면 100m 정밀 격자가 지도에 표출됩니다.",
+      "legendText": "격자 레이어 비활성화상세 시군구 선택 시 표출",
+      "hasEmptyBadge": true,
+      "hasEmptyLegend": true
+    },
+    "pass": true
+  },
+  "t4_mobile": {
+    "t4Metrics": {
+      "docWidth": 390,
+      "winWidth": 390,
+      "hasHorizontalOverflow": false,
+      "sidoDimensions": {
+        "width": 58,
+        "height": 28
+      },
+      "sigunguDimensions": {
+        "width": 72,
+        "height": 28
+      },
+      "yearDimensions": {
+        "width": 68,
+        "height": 28
+      },
+      "ftcBtnDimensions": {
+        "width": 155,
+        "height": 28
+      },
+      "sidoOptions": [
+        "전국",
+        "경기",
+        "서울",
+        "경남",
+        "전남광주통합특별시"
+      ],
+      "yearOptions": [
+        "최신(자동)",
+        "2026년",
+        "2025년",
+        "2024년",
+        "2023년"
+      ],
+      "isDesktopFtcHidden": true,
+      "isMobileFtcVisible": true,
+      "mobileFtcText": "공정위 2026 ↗",
+      "mapHeight": 746,
+      "mapSharePercent": 88.4,
+      "pitch": 51.99999999999999,
+      "legendTitle": "3D 밀집도 (소진공 2026-07)"
+    },
+    "mobileFps": {
+      "fps": 60.4,
+      "frameCount": 121,
+      "durationMs": 2002,
+      "avgFrameTimeMs": 16.54,
+      "p95FrameTimeMs": 16.8,
+      "minFrameTimeMs": 1.8,
+      "maxFrameTimeMs": 16.9
+    },
+    "pass": true
+  }
+}

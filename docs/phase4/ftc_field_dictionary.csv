@@ -1,0 +1,33 @@
+field_name,korean_name,data_type,unit,is_nullable,is_pseudonymized,sample_value,description,mapping_target_table,stage4a_status
+jngBizCrtrYr,기준연도,VARCHAR(4),년,N,N,2024,가맹사업 데이터 기준연도,ftc_brand_candidates.crtr_yr,VERIFIED
+alsBrandMngNo,가명브랜드관리번호,VARCHAR(15),코드,N,Y,192408232424576,가명화된 브랜드 고유 식별번호 (15자리),ftc_brand_candidates.als_brand_mng_no,VERIFIED
+alsJnghqMngNo,가명가맹본부관리번호,VARCHAR(15),코드,N,Y,312418130429576,가명화된 가맹본부 고유 식별번호 (15자리),ftc_brand_candidates.als_jnghq_mng_no,VERIFIED
+jnghqRgnNm,가맹본부지역명,VARCHAR(50),지역명,Y,N,서울,가맹본부 소재지 시도명,ftc_brand_candidates.jnghq_rgn_nm,VERIFIED
+jngBizStrtYmd,가맹사업개시일자,VARCHAR(8),YYYYMMDD,Y,N,20150312,가맹사업 개시일자,ftc_brand_candidates.biz_strt_ymd,VERIFIED
+tpbizMclsfNm,업종중분류명,VARCHAR(50),업종명,N,N,한식,공정위 외식업종 분류 (한식/치킨/패스트푸드 등),ftc_brand_candidates.tpbiz_mclsf_nm,VERIFIED
+frcsCnt,가맹점수,INTEGER,개,N,N,103,해당 기준연도 전국 가맹점 점포 수,ftc_brand_candidates.frcs_cnt,VERIFIED
+dmsCnt,직영점수,INTEGER,개,N,N,2,해당 기준연도 전국 직영점 점포 수,ftc_brand_candidates.dms_cnt,VERIFIED
+prvyrFrcsCnt,전년도가맹점수,INTEGER,개,Y,N,98,직전 연도 전국 가맹점 점포 수,ftc_brand_candidates.prvyr_frcs_cnt,VERIFIED
+prvyrDmsCnt,전년도직영점수,INTEGER,개,Y,N,2,직전 연도 전국 직영점 점포 수,ftc_brand_candidates.prvyr_dms_cnt,VERIFIED
+jngBzmnJngAmt,가맹비(가입비),DECIMAL(15,2),천원,Y,N,11000.0,가맹점사업자 부담 가맹금 중 가입비,ftc_brand_candidates.jng_amt,VERIFIED
+jngBzmnEduAmt,교육비,DECIMAL(15,2),천원,Y,N,3300.0,가맹점사업자 부담 교육비,ftc_brand_candidates.edu_amt,VERIFIED
+jngBzmnGrnteAmt,보증금,DECIMAL(15,2),천원,Y,N,5000.0,가맹계약 이행보증금,ftc_brand_candidates.grnte_amt,VERIFIED
+jngBzmnEtcAmt,기타비용,DECIMAL(15,2),천원,Y,N,20000.0,인테리어 외 기타 초기 설비비용,ftc_brand_candidates.etc_amt,VERIFIED
+depstAmt,예치금액,DECIMAL(15,2),천원,Y,N,19300.0,가맹본부 예치금 총액,ftc_brand_candidates.depst_amt,VERIFIED
+unitAreaIntrrAmt,단위면적인테리어비용,DECIMAL(15,2),천원/평,Y,N,2200.0,3.3제곱미터(1평)당 인테리어 비용,ftc_brand_candidates.unit_area_intrr_amt,VERIFIED
+storCrtrArea,점포기준면적,DECIMAL(10,2),평,Y,N,30.0,가맹계약 표준 점포 기준면적(평),ftc_brand_candidates.stor_crtr_area,VERIFIED
+intrrAmt,인테리어총액,DECIMAL(15,2),천원,Y,N,66000.0,점포기준면적 기준 인테리어 총비용,ftc_brand_candidates.intrr_amt,VERIFIED
+fyr,결산회계연도,VARCHAR(4),년,Y,N,2023,매출액 산출 기준 회계연도,ftc_brand_candidates.fyr,VERIFIED
+avgSlsAmt,가맹점평균매출액,DECIMAL(15,2),천원,Y,N,115988.0,가맹점 연평균 매출액(천원),ftc_brand_candidates.avg_sls_amt,VERIFIED
+areaUnitAvgSlsAmt,면적단위평균매출액,DECIMAL(15,2),천원/평,Y,N,3866.0,가맹점 평당 연평균 매출액(천원/평),ftc_brand_candidates.area_unit_avg_sls_amt,VERIFIED
+resultCode,응답결과코드,VARCHAR(2),코드,N,N,00,공공데이터 API 결과코드 (00: 정상),ftc_raw_records.result_code,VERIFIED
+resultMsg,응답결과메시지,VARCHAR(100),텍스트,N,N,NORMAL SERVICE,API 응답 상태 메시지,ftc_raw_records.result_msg,VERIFIED
+numOfRows,페이지당행수,INTEGER,건,N,N,10,1회 요청 조회 행 수,ftc_raw_records.num_of_rows,VERIFIED
+pageNo,페이지번호,INTEGER,페이지,N,N,1,요청 페이지 번호,ftc_raw_records.page_no,VERIFIED
+totalCount,전체결과건수,INTEGER,건,N,N,6346,조건별 전체 레코드 수,ftc_raw_records.total_count,VERIFIED
+brandNm,브랜드명,VARCHAR(100),텍스트,-,-,UNAVAILABLE,공식 브랜드 평문 상호명 (API 미제공),-,UNAVAILABLE
+corpNm,가맹본부법인명,VARCHAR(100),텍스트,-,-,UNAVAILABLE,가맹본부 법인 상호 (API 미제공),-,UNAVAILABLE
+infoDisclosureNo,정보공개서등록번호,VARCHAR(30),코드,-,-,UNAVAILABLE,공정위 등록 정보공개서 번호 (API 미제공),-,UNAVAILABLE
+bizNo,사업자등록번호,VARCHAR(10),코드,-,-,UNAVAILABLE,가맹본부 사업자번호 (API 미제공),-,UNAVAILABLE
+ceoNm,대표자명,VARCHAR(50),이름,-,-,UNAVAILABLE,가맹본부 대표자 성명 (API 미제공),-,UNAVAILABLE
+detailAdr,본부상세주소,VARCHAR(200),주소,-,-,UNAVAILABLE,가맹본부 도로명/지번 주소 (API 미제공),-,UNAVAILABLE

@@ -1,0 +1,105 @@
+{
+  "passed": true,
+  "endpoints_tested": 12,
+  "endpoints_passed": 12,
+  "endpoints_failed": 0,
+  "avg_latency_ms": 24.5268333334631,
+  "results": [
+    {
+      "name": "1. 헬스체크 및 기본 메타데이터",
+      "path": "/",
+      "status_code": 200,
+      "elapsed_ms": 58.60519999987446,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "name": "2. 전국 시장 종합 대시보드 개요",
+      "path": "/api/v1/analytics/summary",
+      "status_code": 200,
+      "elapsed_ms": 12.629400000150781,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "name": "3. 16개 광역 시도 목록",
+      "path": "/api/v1/analytics/regions?region_type=SIDO&limit=20",
+      "status_code": 200,
+      "elapsed_ms": 13.247499999124557,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "name": "4. 서울특별시(11) 지역 상세 통계",
+      "path": "/api/v1/analytics/regions/11",
+      "status_code": 200,
+      "elapsed_ms": 12.75560000067344,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "name": "5. 48개 외식 중분류 및 통계",
+      "path": "/api/v1/analytics/categories",
+      "status_code": 200,
+      "elapsed_ms": 10.843100000784034,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "name": "6. 브랜드 검색 및 자동완성",
+      "path": "/api/v1/analytics/brands/search?limit=10",
+      "status_code": 200,
+      "elapsed_ms": 13.993799999298062,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "name": "7. 강남구 코엑스 BBOX 점포 GeoJSON 스트리밍",
+      "path": "/api/v1/spatial/stores/bbox?min_lon=127.055&min_lat=37.508&max_lon=127.062&max_lat=37.514",
+      "status_code": 200,
+      "elapsed_ms": 65.24840000201948,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "name": "8. 광진구 100m 정밀 밀집도 격자 (MapLibre fill-extrusion 3D 기둥)",
+      "path": "/api/v1/spatial/density/grid?sigungu_code=11215&limit=1500",
+      "status_code": 200,
+      "elapsed_ms": 17.510699999547796,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "name": "9. 상위 상권 핫스팟 클러스터 (Drone Flight Tour)",
+      "path": "/api/v1/spatial/hotspots",
+      "status_code": 200,
+      "elapsed_ms": 10.500199998205062,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "name": "10. 공정위 거시통계 및 감사 상태 (2023~2026 4개년)",
+      "path": "/api/v1/ftc/status",
+      "status_code": 200,
+      "elapsed_ms": 26.04069999870262,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "name": "11. 한식 업종 공정위 창업비용 벤치마크",
+      "path": "/api/v1/ftc/benchmark/latest?category_major_id=CAT_MAJ_01",
+      "status_code": 200,
+      "elapsed_ms": 30.570400002034148,
+      "result": "PASS",
+      "error": null
+    },
+    {
+      "name": "12. 한식 업종 다년도 거시 추세 (2023~2026 Trends)",
+      "path": "/api/v1/ftc/trends?category_major_id=CAT_MAJ_01",
+      "status_code": 200,
+      "elapsed_ms": 22.377000001142733,
+      "result": "PASS",
+      "error": null
+    }
+  ]
+}

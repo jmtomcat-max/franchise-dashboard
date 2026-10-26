@@ -1,0 +1,331 @@
+{
+  "timestamp": "2026-10-14T14:05:00+09:00",
+  "methodology_declaration": {
+    "warm_cache_evaluation": "검증 완료 (동일 파라미터 30회 연속 호출, N=30, p95 산출, SLA 50ms 미만 통과)",
+    "cold_cache_evaluation": "미검증 (서버 응답 내 캐시 식별 헤더 X-Cache 부재 및 외부 HTTP 레벨에서의 독립적 Cold 제어 불가로 정식 검증 배제. 1회 측정치에 대한 p95 표기 일체 배제)",
+    "http_gzip_evaluation": "미검증 / 미적용 (로컬 uvicorn 서버에 GZipMiddleware 미설치 확인. 실제 전송은 비압축 원본 JSON이며 Gzip 수치는 로컬 추정치임)"
+  },
+  "environment": {
+    "os": "Windows 11 Home",
+    "host": "127.0.0.1:8000 (Loopback)",
+    "server": "Uvicorn (FastAPI Single Process)",
+    "client": "Python urllib HTTP/1.1",
+    "gzip_middleware_active": false,
+    "content_encoding_verified": "none (uncompressed JSON transferred)",
+    "sqlite_mode": "WAL Mode (data/ftc_macro_statistics_v1.sqlite3 read-only URI)"
+  },
+  "endpoints": [
+    {
+      "id": "ftc_status",
+      "name": "공정위 적재 상태 메타데이터 (/status)",
+      "path": "/api/v1/ftc/status",
+      "cold_cache_miss_evaluation": {
+        "measurement_type": "단일 1회 호출 (참고치)",
+        "sample_count": 1,
+        "single_call_latency_ms": 4.04,
+        "mean_ms": null,
+        "median_ms": null,
+        "min_ms": null,
+        "max_ms": null,
+        "p95_ms": null,
+        "verification_status": "미검증 (N=1, 캐시 미적중 미확인)",
+        "note": "서버 기동 후 1회 호출 단일 측정치이며, 표본수 1개로 p95 산출이 수학적으로 불가하고 캐시 미적중 여부도 확인되지 않아 미검증으로 분류함."
+      },
+      "warm_cache_hit_evaluation": {
+        "measurement_type": "동일 파라미터 30회 연속 호출 (In-Memory 캐시 적중)",
+        "sample_count": 30,
+        "mean_ms": 4.04,
+        "median_ms": 4.04,
+        "p95_ms": 5.46,
+        "min_ms": 3.35,
+        "max_ms": 5.73,
+        "stdev_ms": 0.61,
+        "verification_status": "PASS (SLA 50ms 이하 충족)",
+        "note": "동일 파라미터 연속 호출로 In-Memory _CACHE_STORE 캐시 적중이 보장된 상태의 실측치임."
+      },
+      "http_transmission": {
+        "status_code": 200,
+        "content_encoding": "none (uncompressed)",
+        "content_type": "application/json",
+        "cache_control": "public, max-age=3600",
+        "actual_transferred_bytes": 808,
+        "local_gzip_estimated_bytes": 565,
+        "local_gzip_reduction_pct": 30.1,
+        "encoding_verified_note": "HTTP Content-Encoding 헤더 미반환 확인 (압축 없이 원시 JSON 바이트 전송됨. Gzip 수치는 Python gzip.compress 로컬 압축 추정치임)"
+      }
+    },
+    {
+      "id": "ftc_benchmark_single",
+      "name": "공정위 벤치마크 단일업종 한식 (/benchmark/latest?CAT_MAJ_01)",
+      "path": "/api/v1/ftc/benchmark/latest?category_major_id=CAT_MAJ_01",
+      "cold_cache_miss_evaluation": {
+        "measurement_type": "8개 업종별 최초 1회 호출 (미적중 추정, 참고치)",
+        "sample_count": 8,
+        "single_call_latency_ms": null,
+        "mean_ms": 15.57,
+        "median_ms": 12.26,
+        "min_ms": 7.89,
+        "max_ms": 41.31,
+        "p95_ms": null,
+        "verification_status": "미검증 (미적중 추정, 서버 캐시 상태 식별 헤더 부재)",
+        "note": "8개 대분류 업종별 최초 1회 호출 실측치이나, 서버 응답에 캐시 상태 헤더(X-Cache 등)가 부재하여 실제 캐시 미적중 여부가 검증되지 않은 '미적중 추정' 참고치임 (p95 표기 불가)."
+      },
+      "warm_cache_hit_evaluation": {
+        "measurement_type": "동일 파라미터 30회 연속 호출 (In-Memory 캐시 적중)",
+        "sample_count": 30,
+        "mean_ms": 5.39,
+        "median_ms": 5.31,
+        "p95_ms": 6.31,
+        "min_ms": 4.54,
+        "max_ms": 6.55,
+        "stdev_ms": 0.54,
+        "verification_status": "PASS (SLA 50ms 이하 충족)",
+        "note": "동일 파라미터 연속 호출로 In-Memory _CACHE_STORE 캐시 적중이 보장된 상태의 실측치임."
+      },
+      "http_transmission": {
+        "status_code": 200,
+        "content_encoding": "none (uncompressed)",
+        "content_type": "application/json",
+        "cache_control": "public, max-age=3600",
+        "actual_transferred_bytes": 2583,
+        "local_gzip_estimated_bytes": 1340,
+        "local_gzip_reduction_pct": 48.1,
+        "encoding_verified_note": "HTTP Content-Encoding 헤더 미반환 확인 (압축 없이 원시 JSON 바이트 전송됨. Gzip 수치는 Python gzip.compress 로컬 압축 추정치임)"
+      }
+    },
+    {
+      "id": "ftc_benchmark_multi",
+      "name": "공정위 벤치마크 복합업종 치킨 (/benchmark/latest?CAT_MAJ_05)",
+      "path": "/api/v1/ftc/benchmark/latest?category_major_id=CAT_MAJ_05",
+      "cold_cache_miss_evaluation": {
+        "measurement_type": "8개 업종별 최초 1회 호출 (미적중 추정, 참고치)",
+        "sample_count": 8,
+        "single_call_latency_ms": null,
+        "mean_ms": 15.57,
+        "median_ms": 12.26,
+        "min_ms": 7.89,
+        "max_ms": 41.31,
+        "p95_ms": null,
+        "verification_status": "미검증 (미적중 추정, 서버 캐시 상태 식별 헤더 부재)",
+        "note": "8개 대분류 업종별 최초 1회 호출 실측치이나, 서버 응답에 캐시 상태 헤더(X-Cache 등)가 부재하여 실제 캐시 미적중 여부가 검증되지 않은 '미적중 추정' 참고치임 (p95 표기 불가)."
+      },
+      "warm_cache_hit_evaluation": {
+        "measurement_type": "동일 파라미터 30회 연속 호출 (In-Memory 캐시 적중)",
+        "sample_count": 30,
+        "mean_ms": 5.83,
+        "median_ms": 5.96,
+        "p95_ms": 6.9,
+        "min_ms": 4.36,
+        "max_ms": 7.68,
+        "stdev_ms": 0.75,
+        "verification_status": "PASS (SLA 50ms 이하 충족)",
+        "note": "동일 파라미터 연속 호출로 In-Memory _CACHE_STORE 캐시 적중이 보장된 상태의 실측치임."
+      },
+      "http_transmission": {
+        "status_code": 200,
+        "content_encoding": "none (uncompressed)",
+        "content_type": "application/json",
+        "cache_control": "public, max-age=3600",
+        "actual_transferred_bytes": 2614,
+        "local_gzip_estimated_bytes": 1359,
+        "local_gzip_reduction_pct": 48.0,
+        "encoding_verified_note": "HTTP Content-Encoding 헤더 미반환 확인 (압축 없이 원시 JSON 바이트 전송됨. Gzip 수치는 Python gzip.compress 로컬 압축 추정치임)"
+      }
+    },
+    {
+      "id": "ftc_trends",
+      "name": "공정위 4개년 시계열 추세 한식 (/trends?CAT_MAJ_01)",
+      "path": "/api/v1/ftc/trends?category_major_id=CAT_MAJ_01",
+      "cold_cache_miss_evaluation": {
+        "measurement_type": "8개 업종별 최초 1회 호출 (미적중 추정, 참고치)",
+        "sample_count": 8,
+        "single_call_latency_ms": null,
+        "mean_ms": 8.04,
+        "median_ms": 8.31,
+        "min_ms": 4.08,
+        "max_ms": 10.87,
+        "p95_ms": null,
+        "verification_status": "미검증 (미적중 추정, 서버 캐시 상태 식별 헤더 부재)",
+        "note": "8개 대분류 업종별 최초 1회 호출 실측치이나, 서버 응답에 캐시 상태 헤더(X-Cache 등)가 부재하여 실제 캐시 미적중 여부가 검증되지 않은 '미적중 추정' 참고치임 (p95 표기 불가)."
+      },
+      "warm_cache_hit_evaluation": {
+        "measurement_type": "동일 파라미터 30회 연속 호출 (In-Memory 캐시 적중)",
+        "sample_count": 30,
+        "mean_ms": 5.85,
+        "median_ms": 5.78,
+        "p95_ms": 7.82,
+        "min_ms": 4.47,
+        "max_ms": 8.12,
+        "stdev_ms": 1.0,
+        "verification_status": "PASS (SLA 50ms 이하 충족)",
+        "note": "동일 파라미터 연속 호출로 In-Memory _CACHE_STORE 캐시 적중이 보장된 상태의 실측치임."
+      },
+      "http_transmission": {
+        "status_code": 200,
+        "content_encoding": "none (uncompressed)",
+        "content_type": "application/json",
+        "cache_control": "public, max-age=3600",
+        "actual_transferred_bytes": 2168,
+        "local_gzip_estimated_bytes": 1009,
+        "local_gzip_reduction_pct": 53.5,
+        "encoding_verified_note": "HTTP Content-Encoding 헤더 미반환 확인 (압축 없이 원시 JSON 바이트 전송됨. Gzip 수치는 Python gzip.compress 로컬 압축 추정치임)"
+      }
+    },
+    {
+      "id": "ftc_years",
+      "name": "공정위 이용 가능 연도 목록 (/years)",
+      "path": "/api/v1/ftc/years",
+      "cold_cache_miss_evaluation": {
+        "measurement_type": "단일 1회 호출 (참고치)",
+        "sample_count": 1,
+        "single_call_latency_ms": 4.1,
+        "mean_ms": null,
+        "median_ms": null,
+        "min_ms": null,
+        "max_ms": null,
+        "p95_ms": null,
+        "verification_status": "미검증 (N=1, 캐시 미적중 미확인)",
+        "note": "서버 기동 후 1회 호출 단일 측정치이며, 표본수 1개로 p95 산출이 수학적으로 불가하고 캐시 미적중 여부도 확인되지 않아 미검증으로 분류함."
+      },
+      "warm_cache_hit_evaluation": {
+        "measurement_type": "동일 파라미터 30회 연속 호출 (In-Memory 캐시 적중)",
+        "sample_count": 30,
+        "mean_ms": 4.95,
+        "median_ms": 4.55,
+        "p95_ms": 7.2,
+        "min_ms": 3.91,
+        "max_ms": 8.62,
+        "stdev_ms": 1.11,
+        "verification_status": "PASS (SLA 50ms 이하 충족)",
+        "note": "동일 파라미터 연속 호출로 In-Memory _CACHE_STORE 캐시 적중이 보장된 상태의 실측치임."
+      },
+      "http_transmission": {
+        "status_code": 200,
+        "content_encoding": "none (uncompressed)",
+        "content_type": "application/json",
+        "cache_control": "public, max-age=86400",
+        "actual_transferred_bytes": 675,
+        "local_gzip_estimated_bytes": 306,
+        "local_gzip_reduction_pct": 54.7,
+        "encoding_verified_note": "HTTP Content-Encoding 헤더 미반환 확인 (압축 없이 원시 JSON 바이트 전송됨. Gzip 수치는 Python gzip.compress 로컬 압축 추정치임)"
+      }
+    },
+    {
+      "id": "map_summary",
+      "name": "지도 점포 요약 통계 (기존 대시보드 /analytics/summary)",
+      "path": "/api/v1/analytics/summary",
+      "cold_cache_miss_evaluation": {
+        "measurement_type": "단일 1회 호출 (참고치)",
+        "sample_count": 1,
+        "single_call_latency_ms": 4.44,
+        "mean_ms": null,
+        "median_ms": null,
+        "min_ms": null,
+        "max_ms": null,
+        "p95_ms": null,
+        "verification_status": "미검증 (N=1, 캐시 미적중 미확인)",
+        "note": "서버 기동 후 1회 호출 단일 측정치이며, 표본수 1개로 p95 산출이 수학적으로 불가하고 캐시 미적중 여부도 확인되지 않아 미검증으로 분류함."
+      },
+      "warm_cache_hit_evaluation": {
+        "measurement_type": "동일 파라미터 30회 연속 호출 (In-Memory 캐시 적중)",
+        "sample_count": 30,
+        "mean_ms": 5.09,
+        "median_ms": 4.88,
+        "p95_ms": 6.92,
+        "min_ms": 3.62,
+        "max_ms": 9.87,
+        "stdev_ms": 1.26,
+        "verification_status": "PASS (SLA 50ms 이하 충족)",
+        "note": "동일 파라미터 연속 호출로 In-Memory _CACHE_STORE 캐시 적중이 보장된 상태의 실측치임."
+      },
+      "http_transmission": {
+        "status_code": 200,
+        "content_encoding": "none (uncompressed)",
+        "content_type": "application/json",
+        "cache_control": "none",
+        "actual_transferred_bytes": 1168,
+        "local_gzip_estimated_bytes": 707,
+        "local_gzip_reduction_pct": 39.5,
+        "encoding_verified_note": "HTTP Content-Encoding 헤더 미반환 확인 (압축 없이 원시 JSON 바이트 전송됨. Gzip 수치는 Python gzip.compress 로컬 압축 추정치임)"
+      }
+    },
+    {
+      "id": "map_grid",
+      "name": "광진구 100m 밀집 그리드 (기존 대시보드 /spatial/density/grid)",
+      "path": "/api/v1/spatial/density/grid?sigungu_code=11215&limit=1000",
+      "cold_cache_miss_evaluation": {
+        "measurement_type": "단일 1회 호출 (참고치)",
+        "sample_count": 1,
+        "single_call_latency_ms": 15.54,
+        "mean_ms": null,
+        "median_ms": null,
+        "min_ms": null,
+        "max_ms": null,
+        "p95_ms": null,
+        "verification_status": "미검증 (N=1, 캐시 미적중 미확인)",
+        "note": "서버 기동 후 1회 호출 단일 측정치이며, 표본수 1개로 p95 산출이 수학적으로 불가하고 캐시 미적중 여부도 확인되지 않아 미검증으로 분류함."
+      },
+      "warm_cache_hit_evaluation": {
+        "measurement_type": "동일 파라미터 30회 연속 호출 (In-Memory 캐시 적중)",
+        "sample_count": 30,
+        "mean_ms": 13.06,
+        "median_ms": 12.71,
+        "p95_ms": 15.46,
+        "min_ms": 11.02,
+        "max_ms": 15.62,
+        "stdev_ms": 1.39,
+        "verification_status": "PASS (SLA 50ms 이하 충족)",
+        "note": "동일 파라미터 연속 호출로 In-Memory _CACHE_STORE 캐시 적중이 보장된 상태의 실측치임."
+      },
+      "http_transmission": {
+        "status_code": 200,
+        "content_encoding": "none (uncompressed)",
+        "content_type": "application/json",
+        "cache_control": "none",
+        "actual_transferred_bytes": 121353,
+        "local_gzip_estimated_bytes": 9586,
+        "local_gzip_reduction_pct": 92.1,
+        "encoding_verified_note": "HTTP Content-Encoding 헤더 미반환 확인 (압축 없이 원시 JSON 바이트 전송됨. Gzip 수치는 Python gzip.compress 로컬 압축 추정치임)"
+      }
+    },
+    {
+      "id": "map_hotspots",
+      "name": "지도 핫스팟 상권 (기존 대시보드 /spatial/hotspots)",
+      "path": "/api/v1/spatial/hotspots",
+      "cold_cache_miss_evaluation": {
+        "measurement_type": "단일 1회 호출 (참고치)",
+        "sample_count": 1,
+        "single_call_latency_ms": 5.0,
+        "mean_ms": null,
+        "median_ms": null,
+        "min_ms": null,
+        "max_ms": null,
+        "p95_ms": null,
+        "verification_status": "미검증 (N=1, 캐시 미적중 미확인)",
+        "note": "서버 기동 후 1회 호출 단일 측정치이며, 표본수 1개로 p95 산출이 수학적으로 불가하고 캐시 미적중 여부도 확인되지 않아 미검증으로 분류함."
+      },
+      "warm_cache_hit_evaluation": {
+        "measurement_type": "동일 파라미터 30회 연속 호출 (In-Memory 캐시 적중)",
+        "sample_count": 30,
+        "mean_ms": 6.93,
+        "median_ms": 6.55,
+        "p95_ms": 9.76,
+        "min_ms": 4.15,
+        "max_ms": 10.96,
+        "stdev_ms": 1.79,
+        "verification_status": "PASS (SLA 50ms 이하 충족)",
+        "note": "동일 파라미터 연속 호출로 In-Memory _CACHE_STORE 캐시 적중이 보장된 상태의 실측치임."
+      },
+      "http_transmission": {
+        "status_code": 200,
+        "content_encoding": "none (uncompressed)",
+        "content_type": "application/json",
+        "cache_control": "none",
+        "actual_transferred_bytes": 4262,
+        "local_gzip_estimated_bytes": 1542,
+        "local_gzip_reduction_pct": 63.8,
+        "encoding_verified_note": "HTTP Content-Encoding 헤더 미반환 확인 (압축 없이 원시 JSON 바이트 전송됨. Gzip 수치는 Python gzip.compress 로컬 압축 추정치임)"
+      }
+    }
+  ]
+}

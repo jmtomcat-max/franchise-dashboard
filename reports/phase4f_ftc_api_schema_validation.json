@@ -1,0 +1,139 @@
+{
+  "validation_phase": "Phase 4F Preflight Check & Schema Verification (Corrected)",
+  "timestamp": "2026-10-13T08:15:00+00:00",
+  "target_api": {
+    "service_name": "공정거래위원회_(AI친화)가맹정보_브랜드 가맹사업자 통합정보 외식업종 현황 제공 서비스",
+    "endpoint_url": "https://apis.data.go.kr/1130000/FftcBrandFrcsBzmnIntgInfoEatoutTpbizStats2_Service/getBrandFrcsBzmnIntgInfoEatoutTpbiz2",
+    "http_status": 200,
+    "latency_ms": 598,
+    "result_code": "00",
+    "result_msg": "NORMAL SERVICE",
+    "total_count": 6346,
+    "items_returned": 5
+  },
+  "field_analysis_12": {
+    "평문 브랜드명": {
+      "present": false,
+      "matched_key": null,
+      "sample_value": null,
+      "note": "평문 브랜드명 필드 없음 (완전 배제됨)"
+    },
+    "가맹본부 법인명": {
+      "present": false,
+      "matched_key": null,
+      "sample_value": null,
+      "note": "가맹본부 법인명 필드 없음 (완전 배제됨)"
+    },
+    "사업자등록번호": {
+      "present": false,
+      "matched_key": null,
+      "sample_value": null,
+      "note": "사업자등록번호 필드 없음"
+    },
+    "정보공개서 등록번호": {
+      "present": false,
+      "matched_key": null,
+      "sample_value": null,
+      "note": "정보공개서 등록번호 필드 없음"
+    },
+    "브랜드 관리번호": {
+      "present": true,
+      "matched_key": "alsBrandMngNo",
+      "sample_value": "192408232424576",
+      "note": "alsBrandMngNo (가명브랜드관리번호, 15자리 익명 해시 식별자) 제공"
+    },
+    "가맹본부 관리번호": {
+      "present": true,
+      "matched_key": "alsJnghqMngNo",
+      "sample_value": "312418130429576",
+      "note": "alsJnghqMngNo (가명가맹본부관리번호, 15자리 익명 해시 식별자) 제공"
+    },
+    "가맹점 수": {
+      "present": true,
+      "matched_key": "frcsCnt",
+      "sample_value": "103",
+      "note": "frcsCnt (당해 가맹점수: 103), prvyrFrcsCnt (전년 가맹점수: 134) 제공"
+    },
+    "직영점 수": {
+      "present": true,
+      "matched_key": "dmsCnt",
+      "sample_value": "1",
+      "note": "dmsCnt (당해 직영점수: 1), prvyrDmsCnt (전년 직영점수: 2) 제공"
+    },
+    "평균 매출": {
+      "present": true,
+      "matched_key": "avgSlsAmt",
+      "sample_value": "115988",
+      "note": "avgSlsAmt (연간평균매출, 단위: 천원), areaUnitAvgSlsAmt (면적단위평균매출, 단위: 천원) 제공"
+    },
+    "가맹비·교육비·보증금·인테리어 비용": {
+      "present": true,
+      "matched_key": "jngBzmnJngAmt, jngBzmnEduAmt, jngBzmnGrnteAmt, intrrAmt",
+      "sample_value": {
+        "가맹비": "8800",
+        "교육비": "5500",
+        "보증금": "5000",
+        "인테리어": "49500",
+        "단위면적인테리어": "1650"
+      },
+      "note": "가맹비/교육비/보증금/인테리어비용 전수 제공 (단위: 천원)"
+    },
+    "기준연도": {
+      "present": true,
+      "matched_key": "jngBizCrtrYr",
+      "sample_value": "2024",
+      "note": "jngBizCrtrYr (가맹사업기준연도: 2024), fyr (사업연도: 2023) 제공"
+    },
+    "업종분류": {
+      "present": true,
+      "matched_key": "tpbizMclsfNm",
+      "sample_value": "한식",
+      "note": "tpbizMclsfNm (공정위 업종중분류명: '한식', '치킨', '커피', '제과제빵' 등) 제공"
+    }
+  },
+  "identification_verdict": {
+    "is_pseudonymized_only": true,
+    "has_plain_brand_name": false,
+    "has_corporate_name": false,
+    "has_business_reg_no": false,
+    "has_disclosure_reg_no": false,
+    "brand_identification_possible": false
+  },
+  "db_inventory_audit": {
+    "api_service_identical_to_stage4a": true,
+    "api_total_count_2024": 6346,
+    "stage4a_db_path": "data/brand_intelligence_stage4a.sqlite3",
+    "stage4a_ftc_raw_records_count": 40,
+    "stage4a_ftc_brand_candidates_count": 40,
+    "stage4a_is_sample_only": true,
+    "stage4e_db_path": "data/franchise_analytics_v1.sqlite3",
+    "stage4e_has_ftc_macro_table": false,
+    "full_ingestion_completed": false,
+    "uncollected_records_count": 6306
+  },
+  "scope_of_use": {
+    "allowed": [
+      "업종별 가맹점 수 집계",
+      "업종별 직영점 수 집계",
+      "평균 매출 및 면적단위(3.3㎡) 평균매출 집계",
+      "가맹비·교육비·보증금 집계",
+      "인테리어 비용 집계",
+      "기준연도별 가맹사업 통계 변화 추이 분석",
+      "Phase 6 공식 가맹산업 거시 벤치마크 지표 산출"
+    ],
+    "prohibited": [
+      "소진공(SEMAS) 73.5만 개 개별 점포와 1:1 직접 연결",
+      "가명 식별자를 통한 평문 브랜드명 식별/복원",
+      "72개 수동 검증 브랜드의 공식성 자동 판정",
+      "개별 브랜드 순위 또는 브랜드별 매출 표시"
+    ]
+  },
+  "final_conclusion": {
+    "code": "B",
+    "verdict_title": "B: 평문 브랜드 식별은 불가능하지만 업종별 거시 가맹통계로 활용 가능",
+    "description": "API 엔드포인트는 기존 Stage 4A와 동일하나, 기존 DB에는 40건 표본만 적재되어 있고 2024년 전체 6,346건은 미적재 상태임. 브랜드 개별 식별 가치는 없으나 업종별 평균 매출, 점포 수, 창업비용 등 외식산업 거시 벤치마크 통계 수집 가치는 명확히 존재함.",
+    "recommendation": "즉시 전수 수집하지 않고, 완전 격리 DB 설계 및 체크포인트 파이프라인 수립 후 사용자 별도 승인 하에 전수 수집 착수",
+    "next_action": "Phase 4F 거시 전수 수집 아키텍처 설계서 작성 완료 및 승인 대기"
+  },
+  "sample_response_file": "scratch/ftc_ai_friendly_sample_response.json"
+}

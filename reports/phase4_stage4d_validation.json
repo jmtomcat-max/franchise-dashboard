@@ -1,0 +1,181 @@
+{
+  "stage": "Phase 4 Stage 4D",
+  "audit_timestamp": "2026-10-13 13:17:19",
+  "overall_status": "PASS",
+  "execution_time_seconds": 11.78,
+  "check_summary": {
+    "total_checks": 11,
+    "passed": 11,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "check_id": "CHK_01_RAW_DB_IMMUTABILITY",
+      "description": "운영 원본 DB(nationwide_food_stores_v2.sqlite3) 점포수 보존 확인",
+      "expected": 735185,
+      "actual": 735185,
+      "status": "PASS"
+    },
+    {
+      "check_id": "CHK_02_BRAND_MASTER_IMMUTABILITY",
+      "description": "선행 브랜드 마스터(brand_master_v1.sqlite3) 건수 보존 확인",
+      "expected": {
+        "brands": 5063,
+        "links": 735208,
+        "unique_stores": 735185
+      },
+      "actual": {
+        "brands": 5063,
+        "links": 735208,
+        "unique_stores": 735185
+      },
+      "status": "PASS"
+    },
+    {
+      "check_id": "CHK_03_MAJOR_CATEGORIES_COUNT",
+      "description": "확정 8대 대분류 고유성 및 건수 일치 확인",
+      "expected": 8,
+      "actual": 8,
+      "status": "PASS"
+    },
+    {
+      "check_id": "CHK_04_MID_CATEGORIES_COUNT",
+      "description": "확정 48대 중분류 고유성 및 건수 일치 확인",
+      "expected": 48,
+      "actual": 48,
+      "status": "PASS"
+    },
+    {
+      "check_id": "CHK_05_SLOT_DISTRIBUTION",
+      "description": "8대 대분류별 중분류 슬롯(8/5/6/5/6/6/6/6) 일치 확인",
+      "expected": {
+        "CAT_MAJ_01": 8,
+        "CAT_MAJ_02": 5,
+        "CAT_MAJ_03": 6,
+        "CAT_MAJ_04": 5,
+        "CAT_MAJ_05": 6,
+        "CAT_MAJ_06": 6,
+        "CAT_MAJ_07": 6,
+        "CAT_MAJ_08": 6
+      },
+      "actual": {
+        "CAT_MAJ_01": 8,
+        "CAT_MAJ_02": 5,
+        "CAT_MAJ_03": 6,
+        "CAT_MAJ_04": 5,
+        "CAT_MAJ_05": 6,
+        "CAT_MAJ_06": 6,
+        "CAT_MAJ_07": 6,
+        "CAT_MAJ_08": 6
+      },
+      "status": "PASS"
+    },
+    {
+      "check_id": "CHK_06_SEMAS_COVERAGE",
+      "description": "소진공 I2 음식업 38개 소분류 등록 확인",
+      "expected": 38,
+      "actual": 38,
+      "status": "PASS"
+    },
+    {
+      "check_id": "CHK_07_BRAND_CATEGORY_MASTER",
+      "description": "브랜드 마스터 대표업종 5,063건 이관 일치 확인",
+      "expected": 5063,
+      "actual": 5063,
+      "status": "PASS"
+    },
+    {
+      "check_id": "CHK_08_STORE_CLASSIFICATION_TOTAL",
+      "description": "전국 점포 분류 테이블 고유 점포 수 735,185건 일치 확인",
+      "expected": 735185,
+      "actual": 735185,
+      "status": "PASS"
+    },
+    {
+      "check_id": "CHK_09_CATEGORY_LINKS_TOTAL",
+      "description": "점포-브랜드-업종 N:M 링크 735,208건 일치 확인",
+      "expected": 735208,
+      "actual": 735208,
+      "status": "PASS"
+    },
+    {
+      "check_id": "CHK_10_MULTI_BRAND_RECONCILIATION",
+      "description": "다중 브랜드 숍인숍(23건) 대사 공식 (고유점포 + 복수링크 = 총링크) 검증",
+      "expected": {
+        "multi_brand_stores": 23,
+        "formula": "735185 + 23 = 735208"
+      },
+      "actual": {
+        "multi_brand_stores": 23,
+        "reconciliation_passed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "check_id": "CHK_11_UNCLASSIFIED_STORES",
+      "description": "미분류(UNCLASSIFIED) 결측 점포 0건 검증",
+      "expected": 0,
+      "actual": 0,
+      "status": "PASS"
+    }
+  ],
+  "nationwide_category_distribution": [
+    {
+      "maj_id": "CAT_MAJ_01",
+      "maj_name": "한식",
+      "store_count": 358449,
+      "share_pct": 48.76
+    },
+    {
+      "maj_id": "CAT_MAJ_07",
+      "maj_name": "카페·음료",
+      "store_count": 121570,
+      "share_pct": 16.54
+    },
+    {
+      "maj_id": "CAT_MAJ_05",
+      "maj_name": "치킨·패스트푸드",
+      "store_count": 74374,
+      "share_pct": 10.12
+    },
+    {
+      "maj_id": "CAT_MAJ_06",
+      "maj_name": "분식·간편식",
+      "store_count": 46115,
+      "share_pct": 6.27
+    },
+    {
+      "maj_id": "CAT_MAJ_08",
+      "maj_name": "베이커리·디저트",
+      "store_count": 44418,
+      "share_pct": 6.04
+    },
+    {
+      "maj_id": "CAT_MAJ_04",
+      "maj_name": "양식·세계음식",
+      "store_count": 33263,
+      "share_pct": 4.52
+    },
+    {
+      "maj_id": "CAT_MAJ_02",
+      "maj_name": "중식",
+      "store_count": 32061,
+      "share_pct": 4.36
+    },
+    {
+      "maj_id": "CAT_MAJ_03",
+      "maj_name": "일식",
+      "store_count": 24935,
+      "share_pct": 3.39
+    }
+  ],
+  "classification_status_distribution": {
+    "AMBIGUOUS_REVIEW": 104060,
+    "CATEGORY_CONFIRMED": 48938,
+    "CATEGORY_PROVISIONAL": 582187
+  },
+  "category_divergence_metrics": {
+    "divergent_store_count": 15243,
+    "divergence_pct": 2.07
+  }
+}

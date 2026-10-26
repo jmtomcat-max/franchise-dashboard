@@ -1,0 +1,112 @@
+{
+  "initialState": [
+    {
+      "label": "3D",
+      "ariaLabel": "2D 평면 탑뷰로 전환",
+      "ariaPressed": "true",
+      "active": true
+    },
+    {
+      "label": "높이ON",
+      "ariaLabel": "기둥 높이 끄기 (평면 모드)",
+      "ariaPressed": "true",
+      "active": true
+    },
+    {
+      "label": "밀집도",
+      "ariaLabel": "8대 업종별 테마 색상으로 전환",
+      "ariaPressed": null,
+      "active": false
+    },
+    {
+      "label": "격자",
+      "ariaLabel": "3D 격자 숨기기",
+      "ariaPressed": "true",
+      "active": true
+    },
+    {
+      "label": "점포",
+      "ariaLabel": "개별 점포 숨기기",
+      "ariaPressed": "true",
+      "active": true
+    },
+    {
+      "label": "핫스팟",
+      "ariaLabel": "상권 핫스팟 패널 숨기기",
+      "ariaPressed": "true",
+      "active": true
+    },
+    {
+      "label": "리셋",
+      "ariaLabel": "선택 지역 전체 조망으로 시점 복귀",
+      "ariaPressed": null,
+      "active": false
+    }
+  ],
+  "toggles": {
+    "grid": {
+      "off": {
+        "ariaLabel": "3D 격자 표시",
+        "ariaPressed": "false",
+        "active": false,
+        "columnsVisibility": "none",
+        "overviewPointsVisibility": "none"
+      },
+      "restored": {
+        "ariaPressed": "true",
+        "active": true,
+        "columnsVisibility": "visible"
+      }
+    },
+    "stores": {
+      "off": {
+        "ariaLabel": "개별 점포 표시",
+        "ariaPressed": "false",
+        "active": false,
+        "layerVisibility": "none",
+        "hudStatus": "개별 점포 레이어 숨김",
+        "hudClass": "store-layer-status hidden"
+      },
+      "restored": {
+        "ariaPressed": "true",
+        "active": true,
+        "layerVisibility": "visible"
+      }
+    },
+    "hotspots": {
+      "off": {
+        "ariaLabel": "상권 핫스팟 패널 보기",
+        "ariaPressed": "false",
+        "active": false,
+        "panelExists": false,
+        "panelVisible": false
+      },
+      "restored": {
+        "ariaPressed": "true",
+        "active": true,
+        "panelExists": true,
+        "panelVisible": true
+      }
+    }
+  },
+  "allPassed": true,
+  "evaluation": {
+    "gridPass": true,
+    "storePass": true,
+    "hotspotPass": true,
+    "details": {
+      "gridOffVerified": true,
+      "gridRestoredVerified": true,
+      "storeOffVerified": true,
+      "storeRestoredVerified": true,
+      "hotspotOffVerified": true,
+      "hotspotRestoredVerified": true
+    }
+  },
+  "screenshots": [
+    "reports/phase6_step2_browser_toggle_grid_off.png",
+    "reports/phase6_step2_browser_toggle_store_off.png",
+    "reports/phase6_step2_browser_toggle_hotspot_off.png",
+    "reports/phase6_step2_browser_all_toggles_verified.png"
+  ]
+}

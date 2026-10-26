@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: franchise-dashboard
+    runtime: python
+    buildCommand: pip install -r requirements.txt && python scripts/restore_db.py
+    startCommand: uvicorn src.stage4e.api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: ALLOW_DEV_CORS
+        value: "0"

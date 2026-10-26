@@ -1,0 +1,303 @@
+{
+  "testName": "Phase 5C-Vis Step 3 Remediation Comprehensive Verification",
+  "executionTimestamp": "2026-10-16T02:45:36.038Z",
+  "environment": {
+    "browser": {
+      "product": "Chrome/155.0.8059.81",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "devtoolsPort": 9245
+    }
+  },
+  "apiGroundTruth": {
+    "jeju_50110": {
+      "received": 1351,
+      "metaTotal": 1351,
+      "uniqueGridIds": 1351
+    },
+    "gwangjin_11215": {
+      "received": 466,
+      "metaTotal": 466,
+      "uniqueGridIds": 466
+    }
+  },
+  "stageB_mobileFilterVerification": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "measuredTargetsCount": 13,
+    "allTargetsMeetMin44x44": true,
+    "targetDetails": [
+      {
+        "id": "sido-select",
+        "label": "시도 드롭다운",
+        "found": true,
+        "width": 58,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "sigungu-select",
+        "label": "시군구 드롭다운",
+        "found": true,
+        "width": 82,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "ftc-year-select",
+        "label": "공정위 연도 드롭다운",
+        "found": true,
+        "width": 100.2,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "ftc-drawer-btn",
+        "label": "공정위 통계 패널 버튼",
+        "found": true,
+        "width": 112.2,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "tab-CAT_MAJ_01",
+        "label": "🍚한식",
+        "found": true,
+        "width": 76.6,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "tab-CAT_MAJ_02",
+        "label": "🥟중식",
+        "found": true,
+        "width": 71.8,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "tab-CAT_MAJ_03",
+        "label": "🍣일식",
+        "found": true,
+        "width": 71.8,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "tab-CAT_MAJ_04",
+        "label": "🍝양식·세계음식",
+        "found": true,
+        "width": 118,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "tab-CAT_MAJ_05",
+        "label": "🍗치킨·패스트푸드",
+        "found": true,
+        "width": 128.6,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "tab-CAT_MAJ_06",
+        "label": "🍢분식·간편식",
+        "found": true,
+        "width": 107.4,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "tab-CAT_MAJ_07",
+        "label": "☕카페·음료",
+        "found": true,
+        "width": 96.8,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "tab-CAT_MAJ_08",
+        "label": "🥐베이커리·디저트",
+        "found": true,
+        "width": 128.6,
+        "height": 44,
+        "pass": true
+      },
+      {
+        "id": "tab-CAT_MAJ_99",
+        "label": "🔍기타 외식 (미매핑)",
+        "found": true,
+        "width": 138.8,
+        "height": 44,
+        "pass": true
+      }
+    ],
+    "overflowMetrics": {
+      "windowInnerWidth": 390,
+      "documentElementScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "filterBarScrollWidth": 390,
+      "filterBarClientWidth": 390,
+      "horizontalOverflowPx": 0,
+      "pass": true
+    },
+    "tabInteractions": {
+      "firstTabPass": true,
+      "midTabPass": true,
+      "lastTabPass": true
+    },
+    "screenshot": "phase5c_vis_step3_remediation_mobile_filter_touch_targets.png",
+    "overallVerdict": "PASS"
+  },
+  "stageC_mobileJejuRenderingRecovery": {
+    "apiReceivedCount": 1351,
+    "stateDataCount": 1351,
+    "centersInsideViewportBbox": 1351,
+    "overviewUniqueGridIds": 1351,
+    "overviewRenderedFeatures": 1351,
+    "camera": {
+      "zoom": 7.85,
+      "pitch": 52,
+      "bearing": -25,
+      "bounds": {
+        "west": 124.2472,
+        "east": 127.4722,
+        "south": 32.536,
+        "north": 36.414
+      }
+    },
+    "fullCountEquivalence": true,
+    "categoryThemeTest": {
+      "renderedUniqueGridIds": 1351,
+      "isCategoryLegendVisible": true,
+      "pass": true,
+      "screenshot": "phase5c_vis_step3_remediation_mobile_category_theme.png"
+    },
+    "screenshot": "phase5c_vis_step3_remediation_mobile_jeju_overview.png",
+    "overallVerdict": "PASS"
+  },
+  "stageD_mutationSelfCheck": {
+    "mutationTestDescription": "의도적으로 9,999개 기댓값 및 비존재 레이어 질의 시 검증 프레임워크가 정상적으로 실패를 포착하는지 확인",
+    "intentionalMismatchCaught": true,
+    "caughtErrorMessage": "[Intentional Assertion Fail] Actual rendered count (1351) did not match fake expected count (9999)",
+    "bogusLayerCaught": true,
+    "verdict": "PASS"
+  },
+  "stageE_desktopRegression": {
+    "d1JejuOverview": {
+      "pass": true,
+      "counts": {
+        "stateDataCount": 1351,
+        "centersInsideBbox": 1351,
+        "overviewRenderedFeatures": 1351,
+        "overviewUniqueGridIds": 1351,
+        "columnRenderedFeatures": 0,
+        "columnUniqueGridIds": 0,
+        "zoom": 8.76,
+        "pitch": 52,
+        "bearing": -25,
+        "bounds": {
+          "west": 123.9475,
+          "east": 127.642,
+          "south": 32.8092,
+          "north": 35.702
+        }
+      },
+      "screenshot": "phase5c_vis_step3_remediation_desktop_d1_jeju_overview.png"
+    },
+    "d2JejuDetail": {
+      "pass": true,
+      "counts": {
+        "stateDataCount": 1351,
+        "centersInsideBbox": 279,
+        "overviewRenderedFeatures": 0,
+        "overviewUniqueGridIds": 0,
+        "columnRenderedFeatures": 260,
+        "columnUniqueGridIds": 219,
+        "zoom": 15.3,
+        "pitch": 52,
+        "bearing": -25,
+        "bounds": {
+          "west": 126.464,
+          "east": 126.5036,
+          "south": 33.478,
+          "north": 33.5094
+        }
+      },
+      "screenshot": "phase5c_vis_step3_remediation_desktop_d2_jeju_detail.png"
+    },
+    "d3GwangjinOverview": {
+      "pass": true,
+      "counts": {
+        "stateDataCount": 466,
+        "centersInsideBbox": 466,
+        "overviewRenderedFeatures": 466,
+        "overviewUniqueGridIds": 466,
+        "columnRenderedFeatures": 483,
+        "columnUniqueGridIds": 466,
+        "zoom": 12.68,
+        "pitch": 52,
+        "bearing": -25,
+        "bounds": {
+          "west": 126.9134,
+          "east": 127.1574,
+          "south": 37.4978,
+          "north": 37.681
+        }
+      },
+      "screenshot": "phase5c_vis_step3_remediation_desktop_d3_gwangjin_overview.png"
+    },
+    "d4GwangjinDetail": {
+      "pass": true,
+      "counts": {
+        "stateDataCount": 466,
+        "centersInsideBbox": 203,
+        "overviewRenderedFeatures": 0,
+        "overviewUniqueGridIds": 0,
+        "columnRenderedFeatures": 141,
+        "columnUniqueGridIds": 117,
+        "zoom": 15.6,
+        "pitch": 52,
+        "bearing": -25,
+        "bounds": {
+          "west": 127.0732,
+          "east": 127.1055,
+          "south": 37.5291,
+          "north": 37.5533
+        }
+      },
+      "screenshot": "phase5c_vis_step3_remediation_desktop_d4_gwangjin_detail.png"
+    },
+    "d5NationwideEmpty": {
+      "pass": true,
+      "counts": {
+        "stateDataCount": 0,
+        "centersInsideBbox": 0,
+        "overviewRenderedFeatures": 0,
+        "overviewUniqueGridIds": 0,
+        "columnRenderedFeatures": 0,
+        "columnUniqueGridIds": 0,
+        "zoom": 7,
+        "pitch": 20,
+        "bearing": -20,
+        "bounds": {
+          "west": 122.6441,
+          "east": 131.7812,
+          "south": 33.3331,
+          "north": 39.0753
+        }
+      },
+      "screenshot": "phase5c_vis_step3_remediation_desktop_d5_nationwide_empty.png"
+    },
+    "overallVerdict": "PASS"
+  },
+  "verdictSummary": {
+    "stageB_mobileFilter44x44": "PASS",
+    "stageC_mobileJejuRendering": "PASS",
+    "stageD_mutationSelfCheck": "PASS",
+    "stageE_desktopRegression": "PASS",
+    "finalVerdict": "PASS"
+  },
+  "finishedTimestamp": "2026-10-16T02:46:03.272Z"
+}

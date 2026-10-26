@@ -1,0 +1,187 @@
+{
+  "timestamp": "2026-10-12 19:26:33",
+  "verdict": "PASS",
+  "preflight": {
+    "pass": true,
+    "errors": [],
+    "hashes": {
+      "gangnam": "fee3b58651cfed5c390c0b95db02b05ebe92df18619a06f4e399d429236f3a78",
+      "seoul": "60e561d39aa1fd8a254553a481c5aa93f5144ead2beb8561f8951a9470e66ba5",
+      "nationwide": "8294a0fe86ac4e0e4cb3aa5c38aa879675b1a93325da73edcb6e3c875086933d"
+    }
+  },
+  "migration": {
+    "migrated_count": 595453,
+    "quarantined_count": 0,
+    "already_completed": false
+  },
+  "supplementary": {
+    "total_raw": 160218,
+    "total_excluded": 20486,
+    "total_saved": 139732,
+    "failed_count": 0
+  },
+  "verification": {
+    "verdict": "PASS",
+    "total_stores": 735185,
+    "unique_stores": 735185,
+    "quarantined": 0,
+    "distinct_provinces": 16,
+    "distinct_districts": 256,
+    "missing_codes": [],
+    "coords_invalid": 0,
+    "months": [
+      "202606"
+    ],
+    "checklist": [
+      {
+        "item": "1. 256개 지역 수집 완료 여부",
+        "pass": true,
+        "detail": "256/256개 (누락: 0개)"
+      },
+      {
+        "item": "2. 지역별 API 원본 수신 건수 정상",
+        "pass": true,
+        "detail": "모든 페이지 정상 응답 수신"
+      },
+      {
+        "item": "3. 원본 - 제외 = 저장 계약 일치",
+        "pass": true,
+        "detail": "계약 위반 로그 0건"
+      },
+      {
+        "item": "4. DB 고유 점포 ID 중복 0건",
+        "pass": true,
+        "detail": "총 735,185건 / 고유 735,185건 (중복 0건)"
+      },
+      {
+        "item": "5. 요청 지역과 반환 지역코드 일치",
+        "pass": true,
+        "detail": "모든 수집 배치 코드 일치"
+      },
+      {
+        "item": "6. 지역별 점포수 합계와 전국 일치",
+        "pass": true,
+        "detail": "전국(735,185) == 지역합계(735,185)"
+      },
+      {
+        "item": "7. 좌표 누락 및 범위 이상 0건",
+        "pass": true,
+        "detail": "이상치 0건"
+      },
+      {
+        "item": "8. 데이터 기준월 단일성 (202606)",
+        "pass": true,
+        "detail": "기준월: ['202606']"
+      },
+      {
+        "item": "9. 기존 DB 3종 해시 불변성",
+        "pass": true,
+        "detail": "기존 강남, 서울, 전국 원본 해시 100% 보존"
+      },
+      {
+        "item": "10. 재실행 시 중복 방지 및 재개",
+        "pass": true,
+        "detail": "체크포인트 영구 보존"
+      }
+    ],
+    "province_summary": [
+      {
+        "sido_code": "41",
+        "sido_name": "경기도",
+        "districts": 47,
+        "stores": 163967
+      },
+      {
+        "sido_code": "11",
+        "sido_name": "서울특별시",
+        "districts": 25,
+        "stores": 124104
+      },
+      {
+        "sido_code": "48",
+        "sido_name": "경상남도",
+        "districts": 22,
+        "stores": 54296
+      },
+      {
+        "sido_code": "12",
+        "sido_name": "전남광주통합특별시",
+        "districts": 27,
+        "stores": 47522
+      },
+      {
+        "sido_code": "47",
+        "sido_name": "경상북도",
+        "districts": 23,
+        "stores": 46527
+      },
+      {
+        "sido_code": "26",
+        "sido_name": "부산광역시",
+        "districts": 16,
+        "stores": 45419
+      },
+      {
+        "sido_code": "44",
+        "sido_name": "충청남도",
+        "districts": 16,
+        "stores": 36002
+      },
+      {
+        "sido_code": "28",
+        "sido_name": "인천광역시",
+        "districts": 11,
+        "stores": 35521
+      },
+      {
+        "sido_code": "51",
+        "sido_name": "강원특별자치도",
+        "districts": 18,
+        "stores": 33314
+      },
+      {
+        "sido_code": "27",
+        "sido_name": "대구광역시",
+        "districts": 9,
+        "stores": 33083
+      },
+      {
+        "sido_code": "43",
+        "sido_name": "충청북도",
+        "districts": 14,
+        "stores": 27849
+      },
+      {
+        "sido_code": "52",
+        "sido_name": "전북특별자치도",
+        "districts": 15,
+        "stores": 27462
+      },
+      {
+        "sido_code": "30",
+        "sido_name": "대전광역시",
+        "districts": 5,
+        "stores": 21537
+      },
+      {
+        "sido_code": "50",
+        "sido_name": "제주특별자치도",
+        "districts": 2,
+        "stores": 16962
+      },
+      {
+        "sido_code": "31",
+        "sido_name": "울산광역시",
+        "districts": 5,
+        "stores": 16935
+      },
+      {
+        "sido_code": "36",
+        "sido_name": "세종특별자치시",
+        "districts": 1,
+        "stores": 4685
+      }
+    ]
+  }
+}

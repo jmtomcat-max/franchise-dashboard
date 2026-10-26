@@ -1,0 +1,104 @@
+{
+  "validation_phase": "Phase 5A-R3 Final",
+  "timestamp": "2026-10-13T07:46:15.743Z",
+  "tile_provider": "OpenStreetMap Standard (tile.openstreetmap.org)",
+  "tile_watermark_present": false,
+  "carto_light_all_removed": true,
+  "grid_cell_count": 466,
+  "grid_cell_target_match": true,
+  "source_features_count": 466,
+  "initial_hotspot_camera_applied": true,
+  "initial_hotspot_marker_created": true,
+  "initial_hotspot_name": "광진 건대입구 맛의거리",
+  "mapcontainer_calls_sethtml": false,
+  "mapcontainer_calls_innerhtml": false,
+  "app_uses_allsettled": true,
+  "mobile_verification": {
+    "viewport_size": "390x844",
+    "doc_scroll_width": 390,
+    "horizontal_scroll_px": 0,
+    "horizontal_scroll_zero": true,
+    "gis_logo_normal_size": true,
+    "gis_logo_width_px": 42,
+    "title_text": "외식 프랜차이즈 시장 분석 3D GIS 상황실",
+    "title_fully_displayed": true,
+    "subtitle_text": "Phase 5A 기본 지도 서비스 · 광진구 건대입구 중심 검증 뷰",
+    "subtitle_fully_displayed": true,
+    "api_status_text": "API 정상 연결",
+    "api_status_unclipped": true,
+    "refresh_button_text": "데이터 갱신",
+    "refresh_button_unclipped": true,
+    "ref_month_badge_text": "2026-07 기준",
+    "ref_month_badge_unclipped": true,
+    "mobile_rendered_density_features": 28,
+    "mobile_map_tiles_loaded": true
+  },
+  "ftc_kpi_correction": {
+    "original_label": "공인 가맹 브랜드 발견 점포 (공정위 공인 72개 가맹사업 브랜드 대상)",
+    "corrected_label": "주요 검증 브랜드 연결 점포 (수동 검증 목록 72개 브랜드 기준)",
+    "active_in_ui": true,
+    "kpi_cards": [
+      {
+        "label": "전국 외식업 총 점포 수",
+        "value": "735,185 개소",
+        "sub": "소진공 공공데이터 API 전수 대사 100%"
+      },
+      {
+        "label": "브랜드 점포 침투율",
+        "value": "22.89%",
+        "sub": "브랜드 연결 168,295 / 독립 566,890"
+      },
+      {
+        "label": "주요 검증 브랜드 연결 점포",
+        "value": "48,002 개소",
+        "sub": "수동 검증 목록 72개 브랜드 기준"
+      },
+      {
+        "label": "추출 브랜드 후보 총수",
+        "value": "5,062 개 브랜드",
+        "sub": "전국 점포수 10개 이상 동일 상호 기준"
+      }
+    ]
+  },
+  "sido12_formula": {
+    "num_districts": 27,
+    "raw_api_total": 55881,
+    "excluded_total": 8359,
+    "saved_total": 47522,
+    "actual_stores": 47522,
+    "formula_diff": 0,
+    "formula_match": true
+  },
+  "screenshots": {
+    "desktop": {
+      "file": "phase5_stage5a_desktop.png",
+      "size_bytes": 1479842,
+      "exists": true
+    },
+    "zoom_density": {
+      "file": "phase5_stage5a_zoom_density.png",
+      "size_bytes": 1489137,
+      "exists": true
+    },
+    "popup": {
+      "file": "phase5_stage5a_popup.png",
+      "size_bytes": 1490574,
+      "exists": true
+    },
+    "mobile": {
+      "file": "phase5_stage5a_mobile.png",
+      "size_bytes": 240429,
+      "exists": true
+    },
+    "mobile_summary": {
+      "file": "phase5_stage5a_mobile_summary.png",
+      "size_bytes": 116406,
+      "exists": true
+    },
+    "mobile_hotspots": {
+      "file": "phase5_stage5a_mobile_hotspots.png",
+      "size_bytes": 73264,
+      "exists": true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-10-16T02:35:00.000Z",
+  "protectedFiles": {
+    "collector.py": {
+      "length": 3780,
+      "lastWriteTime": "2026-10-12T12:08:51.1197692+09:00",
+      "sha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C"
+    },
+    "gangnam_food_stores.sqlite3": {
+      "length": 15831040,
+      "lastWriteTime": "2026-10-12T12:11:28.3408262+09:00",
+      "sha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78"
+    },
+    "run_gangnam.bat": {
+      "length": 66,
+      "lastWriteTime": "2026-10-12T12:08:51.1578428+09:00",
+      "sha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491"
+    }
+  },
+  "originalStep3Artifacts": {
+    "metricsJson": "reports/phase5c_vis_step3_metrics.json",
+    "executionReport": "reports/phase5c_vis_step3_execution_report.md",
+    "qualityReport": "reports/phase5c_vis_step3_quality_report.md"
+  },
+  "scopeFreeze": {
+    "slimMapRail": "FROZEN (유지 또는 제거는 별도 사용자 결정 사항)",
+    "mode2D": "FROZEN",
+    "hoverCard": "FROZEN",
+    "note": "이번 결함 수정(remediation) 과정에서 범위 밖 기능은 확장하거나 임의 삭제하지 않고 동결함"
+  }
+}

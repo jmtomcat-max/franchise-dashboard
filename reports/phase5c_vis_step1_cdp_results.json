@@ -1,0 +1,156 @@
+{
+  "t1_desktop_default": {
+    "mapRect": {
+      "width": 1440,
+      "height": 784.625,
+      "area": 1129860
+    },
+    "panelRects": [
+      {
+        "name": "summary",
+        "x1": 14,
+        "y1": 129.375,
+        "x2": 309,
+        "y2": 609.375,
+        "w": 295,
+        "h": 480,
+        "area": 141600
+      },
+      {
+        "name": "hotspots",
+        "x1": 1186,
+        "y1": 129.375,
+        "x2": 1426,
+        "y2": 369.375,
+        "w": 240,
+        "h": 240,
+        "area": 57600
+      },
+      {
+        "name": "ftc_trigger",
+        "x1": 1034.546875,
+        "y1": 129.375,
+        "x2": 1176,
+        "y2": 162.15625,
+        "w": 141.453125,
+        "h": 32.78125,
+        "area": 4637.01025390625
+      },
+      {
+        "name": "hud_badge",
+        "x1": 435.796875,
+        "y1": 131.375,
+        "x2": 1004.203125,
+        "y2": 163.28125,
+        "w": 568.40625,
+        "h": 31.90625,
+        "area": 18135.7119140625
+      },
+      {
+        "name": "legend",
+        "x1": 1206.25,
+        "y1": 758,
+        "x2": 1426,
+        "y2": 876,
+        "w": 219.75,
+        "h": 118,
+        "area": 25930.5
+      }
+    ],
+    "geometricOcclusionPct": 22.023809523809522,
+    "geometricVisiblePct": 77.97619047619048,
+    "samplingHitPct": 76.25,
+    "hitMapCount": 305,
+    "pass": true
+  },
+  "t2_drawer_interaction": {
+    "isOpen": true,
+    "drawerRect": {
+      "width": 420,
+      "height": 760.625,
+      "left": 1008,
+      "right": 1428
+    },
+    "openHitPct": 55.00000000000001,
+    "hitMapCount": 220,
+    "closedAfterBtn": true,
+    "closedAfterEsc": true,
+    "pass": true
+  },
+  "t3_collapse_and_hotspot": {
+    "summaryCollapsedHeight": 52,
+    "hotspotsCollapsedHeight": 52,
+    "collapsedVisibleArea": 91.25,
+    "hotspotClicked": true,
+    "pass": true
+  },
+  "t4_mobile": {
+    "mobDefaultMetrics": {
+      "docWidth": 390,
+      "bodyWidth": 390,
+      "winWidth": 390,
+      "hasHorizontalOverflow": false,
+      "overflowingEls": [
+        {
+          "tag": "BUTTON",
+          "className": "category-tab-btn  ",
+          "right": 401.625
+        },
+        {
+          "tag": "SPAN",
+          "className": "tab-name",
+          "right": 393.4375
+        },
+        {
+          "tag": "BUTTON",
+          "className": "category-tab-btn  ",
+          "right": 494.6875
+        },
+        {
+          "tag": "SPAN",
+          "className": "tab-icon",
+          "right": 429.640625
+        },
+        {
+          "tag": "SPAN",
+          "className": "tab-name",
+          "right": 486.5
+        }
+      ],
+      "mapHeight": 746,
+      "isFtcClosed": true,
+      "ftcTop": 844
+    },
+    "mobFtcOpenMetrics": {
+      "isOpen": true,
+      "sheetTop": 780,
+      "sheetHeight": 64,
+      "docWidth": 390,
+      "hasOverflow": false
+    },
+    "mobClosedAfterBtn": true,
+    "pass": true
+  },
+  "t5_regression": {
+    "jejuMetrics": {
+      "count": 1351,
+      "hudText": "📍 제주특별자치도 제주시 전체 외식업 밀집도 (100m 격자 1,351개소)|벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "sedaBadge": "소진공 2026-07 공간 전수"
+    },
+    "nationMetrics": {
+      "count": 0,
+      "emptyBadge": "📍전국 모드 — 시군구를 선택하시면 100m 정밀 격자가 지도에 표출됩니다.",
+      "summaryTitle": "전국 외식업 시장 분석"
+    },
+    "gwangjinMetrics": {
+      "count": 466,
+      "sedaTag": "소진공 2026-07 공간 전수",
+      "ftcTag": "공정위 2026년 등록 (2025년 결산) · 진행형 스냅샷",
+      "diffPills": [
+        "+0.64%p",
+        "+1.54%p"
+      ]
+    },
+    "pass": true
+  }
+}

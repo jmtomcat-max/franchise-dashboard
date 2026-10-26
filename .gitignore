@@ -1,0 +1,46 @@
+# Environment & Credentials
+.env
+*.env
+!.env.example
+
+# Binaries & Executables
+*.exe
+*.dll
+
+# Virtual Environments & Dependencies
+.venv/
+venv/
+env/
+node_modules/
+frontend/node_modules/
+
+# Python Cache & Testing
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Databases (Ignore large raw staging DBs over 100MB)
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+*.sqlite3.bak*
+data/*.sqlite3
+
+# Explicitly track essential runtime databases and compressed chunks
+!data/chunks/
+!data/chunks/*
+!data/ftc_macro_statistics_v1.sqlite3
+!gangnam_food_stores.sqlite3
+
+# Production Frontend Build (Track compiled dist for instant zero-build cloud startup)
+!frontend/dist/
+!frontend/dist/**
+
+# Temporary, Scratch & Workflow Logs
+scratch/
+test_*.json
+references/
+.agent-workflow/

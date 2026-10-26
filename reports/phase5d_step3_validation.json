@@ -1,0 +1,1775 @@
+{
+  "timestamp": "2026-10-19T02:10:55.614Z",
+  "phase": "Phase 5D Step 5D-3",
+  "testSuite": "Semantic Safety & Regression Verification Suite",
+  "protectedFileIntegrity": [
+    {
+      "file": "collector.py",
+      "sizeBytes": 3780,
+      "sha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+      "expectedSha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+      "mtime": "2026-10-12T03:08:51.120Z",
+      "match": true
+    },
+    {
+      "file": "gangnam_food_stores.sqlite3",
+      "sizeBytes": 15831040,
+      "sha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+      "expectedSha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+      "mtime": "2026-10-12T03:11:28.341Z",
+      "match": true
+    },
+    {
+      "file": "run_gangnam.bat",
+      "sizeBytes": 66,
+      "sha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+      "expectedSha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+      "mtime": "2026-10-12T03:08:51.158Z",
+      "match": true
+    }
+  ],
+  "scenarios": [
+    {
+      "scenarioId": 1,
+      "name": "실제 브랜드 선택 시 공정위 수치가 해당 브랜드 실적으로 표현되지 않음",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "actualRegionState": {
+        "sidoValue": "11",
+        "sidoText": "서울",
+        "sigunguValue": "11215",
+        "sigunguText": "서울특별시 광진구",
+        "sigunguDisabled": false,
+        "actualRegion": "서울 서울특별시 광진구"
+      },
+      "assertions": {
+        "regionIsGwangjin": true,
+        "brandCardFound": true,
+        "topBrandIdentified": "메가MGC커피",
+        "heroLabelIsNationwideMedian": true,
+        "disclaimerPresent": true,
+        "noFalseBrandAttribution": true,
+        "disclaimerActuallyVisible": true
+      },
+      "rawMeasurements": {
+        "brandData": {
+          "brandCardExists": true,
+          "brandRowCount": 5,
+          "topBrand": {
+            "name": "메가MGC커피",
+            "stores": "33개소",
+            "share": "(0.732%)"
+          },
+          "heroLabel": "전국 가맹본부 대표매출 (중앙값)",
+          "heroStat": "16,703만원 (1.67억원)",
+          "heroDisclaimer": "* 공정위 정기공시 전국 카페·음료 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+          "panelHeading": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)",
+          "erroneouslyClaimsBrand": false,
+          "hasBrandDisclaimer": true,
+          "heroLabelIsNationwideMedian": true
+        },
+        "disclaimerVis": {
+          "text": "* 공정위 정기공시 전국 카페·음료 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "elementRect": {
+            "left": 1036,
+            "top": 435,
+            "right": 1395,
+            "bottom": 471,
+            "width": 360,
+            "height": 36
+          },
+          "viewportRect": {
+            "width": 1440,
+            "height": 900
+          },
+          "visibleIntersectionRect": {
+            "left": 1036,
+            "top": 435,
+            "right": 1395,
+            "bottom": 471,
+            "width": 360,
+            "height": 36
+          },
+          "clippingAncestors": [
+            {
+              "tag": "div",
+              "className": "panel-body",
+              "overflow": "auto/auto",
+              "rect": {
+                "left": 1009,
+                "top": 240,
+                "right": 1427,
+                "bottom": 887,
+                "width": 418,
+                "height": 647
+              },
+              "intersectWithCurrent": {
+                "width": 360,
+                "height": 36
+              }
+            },
+            {
+              "tag": "aside",
+              "id": "ftc-benchmark-panel",
+              "className": "ftc-benchmark-panel drawer-open  mobile-collapsed",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 1008,
+                "top": 127,
+                "right": 1428,
+                "bottom": 888,
+                "width": 420,
+                "height": 761
+              },
+              "intersectWithCurrent": {
+                "width": 360,
+                "height": 36
+              }
+            },
+            {
+              "tag": "main",
+              "className": "dashboard-body",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 115,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 785
+              },
+              "intersectWithCurrent": {
+                "width": 360,
+                "height": 36
+              }
+            },
+            {
+              "tag": "div",
+              "className": "app-layout",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 0,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 900
+              },
+              "intersectWithCurrent": {
+                "width": 360,
+                "height": 36
+              }
+            }
+          ],
+          "viewportIntersection": true,
+          "notClippedByAncestor": true,
+          "inClosedDrawer": false,
+          "inCollapsedSheet": false,
+          "isActuallyVisible": true
+        }
+      },
+      "screenshot": "phase5d_step3_s1_brand_disclaimer_coexistence.png",
+      "pass": true
+    },
+    {
+      "scenarioId": 2,
+      "name": "지역 변경 후에도 공정위 수치가 전국 통계임을 첫 화면에서 확인 가능",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "actualRegionState": {
+        "sidoValue": "11",
+        "sidoText": "서울",
+        "sigunguValue": "11215",
+        "sigunguText": "서울특별시 광진구",
+        "sigunguDisabled": false,
+        "actualRegion": "서울 서울특별시 광진구"
+      },
+      "assertions": {
+        "regionIsGwangjin": true,
+        "firstScreenScrollZero": true,
+        "heroLabelNationwideVisible": true,
+        "disclaimerNationwideVisible": true,
+        "heroStatVisible": true
+      },
+      "rawMeasurements": {
+        "scrollY": 0,
+        "heroLabelVis": {
+          "text": "전국 가맹본부 대표매출 (중앙값)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "elementRect": {
+            "left": 1036,
+            "top": 377,
+            "right": 1186,
+            "bottom": 395,
+            "width": 150,
+            "height": 18
+          },
+          "viewportRect": {
+            "width": 1440,
+            "height": 900
+          },
+          "visibleIntersectionRect": {
+            "left": 1036,
+            "top": 377,
+            "right": 1186,
+            "bottom": 395,
+            "width": 150,
+            "height": 18
+          },
+          "clippingAncestors": [
+            {
+              "tag": "div",
+              "className": "panel-body",
+              "overflow": "auto/auto",
+              "rect": {
+                "left": 1009,
+                "top": 240,
+                "right": 1427,
+                "bottom": 887,
+                "width": 418,
+                "height": 647
+              },
+              "intersectWithCurrent": {
+                "width": 150,
+                "height": 18
+              }
+            },
+            {
+              "tag": "aside",
+              "id": "ftc-benchmark-panel",
+              "className": "ftc-benchmark-panel drawer-open  mobile-collapsed",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 1008,
+                "top": 127,
+                "right": 1428,
+                "bottom": 888,
+                "width": 420,
+                "height": 761
+              },
+              "intersectWithCurrent": {
+                "width": 150,
+                "height": 18
+              }
+            },
+            {
+              "tag": "main",
+              "className": "dashboard-body",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 115,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 785
+              },
+              "intersectWithCurrent": {
+                "width": 150,
+                "height": 18
+              }
+            },
+            {
+              "tag": "div",
+              "className": "app-layout",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 0,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 900
+              },
+              "intersectWithCurrent": {
+                "width": 150,
+                "height": 18
+              }
+            }
+          ],
+          "viewportIntersection": true,
+          "notClippedByAncestor": true,
+          "inClosedDrawer": false,
+          "inCollapsedSheet": false,
+          "isActuallyVisible": true
+        },
+        "heroDiscVis": {
+          "text": "* 공정위 정기공시 전국 치킨·패스트푸드 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "elementRect": {
+            "left": 1036,
+            "top": 435,
+            "right": 1395,
+            "bottom": 471,
+            "width": 360,
+            "height": 36
+          },
+          "viewportRect": {
+            "width": 1440,
+            "height": 900
+          },
+          "visibleIntersectionRect": {
+            "left": 1036,
+            "top": 435,
+            "right": 1395,
+            "bottom": 471,
+            "width": 360,
+            "height": 36
+          },
+          "clippingAncestors": [
+            {
+              "tag": "div",
+              "className": "panel-body",
+              "overflow": "auto/auto",
+              "rect": {
+                "left": 1009,
+                "top": 240,
+                "right": 1427,
+                "bottom": 887,
+                "width": 418,
+                "height": 647
+              },
+              "intersectWithCurrent": {
+                "width": 360,
+                "height": 36
+              }
+            },
+            {
+              "tag": "aside",
+              "id": "ftc-benchmark-panel",
+              "className": "ftc-benchmark-panel drawer-open  mobile-collapsed",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 1008,
+                "top": 127,
+                "right": 1428,
+                "bottom": 888,
+                "width": 420,
+                "height": 761
+              },
+              "intersectWithCurrent": {
+                "width": 360,
+                "height": 36
+              }
+            },
+            {
+              "tag": "main",
+              "className": "dashboard-body",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 115,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 785
+              },
+              "intersectWithCurrent": {
+                "width": 360,
+                "height": 36
+              }
+            },
+            {
+              "tag": "div",
+              "className": "app-layout",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 0,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 900
+              },
+              "intersectWithCurrent": {
+                "width": 360,
+                "height": 36
+              }
+            }
+          ],
+          "viewportIntersection": true,
+          "notClippedByAncestor": true,
+          "inClosedDrawer": false,
+          "inCollapsedSheet": false,
+          "isActuallyVisible": true
+        },
+        "heroStatVis": {
+          "text": "19,312만원 (1.93억원)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "elementRect": {
+            "left": 1036,
+            "top": 402,
+            "right": 1236,
+            "bottom": 426,
+            "width": 200,
+            "height": 24
+          },
+          "viewportRect": {
+            "width": 1440,
+            "height": 900
+          },
+          "visibleIntersectionRect": {
+            "left": 1036,
+            "top": 402,
+            "right": 1236,
+            "bottom": 426,
+            "width": 200,
+            "height": 24
+          },
+          "clippingAncestors": [
+            {
+              "tag": "div",
+              "className": "panel-body",
+              "overflow": "auto/auto",
+              "rect": {
+                "left": 1009,
+                "top": 240,
+                "right": 1427,
+                "bottom": 887,
+                "width": 418,
+                "height": 647
+              },
+              "intersectWithCurrent": {
+                "width": 200,
+                "height": 24
+              }
+            },
+            {
+              "tag": "aside",
+              "id": "ftc-benchmark-panel",
+              "className": "ftc-benchmark-panel drawer-open  mobile-collapsed",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 1008,
+                "top": 127,
+                "right": 1428,
+                "bottom": 888,
+                "width": 420,
+                "height": 761
+              },
+              "intersectWithCurrent": {
+                "width": 200,
+                "height": 24
+              }
+            },
+            {
+              "tag": "main",
+              "className": "dashboard-body",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 115,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 785
+              },
+              "intersectWithCurrent": {
+                "width": 200,
+                "height": 24
+              }
+            },
+            {
+              "tag": "div",
+              "className": "app-layout",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 0,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 900
+              },
+              "intersectWithCurrent": {
+                "width": 200,
+                "height": 24
+              }
+            }
+          ],
+          "viewportIntersection": true,
+          "notClippedByAncestor": true,
+          "inClosedDrawer": false,
+          "inCollapsedSheet": false,
+          "isActuallyVisible": true
+        }
+      },
+      "screenshot": "phase5d_step3_s2_regional_macro_benchmark.png",
+      "pass": true
+    },
+    {
+      "scenarioId": 3,
+      "name": "확정된 8대 대분류 각각에서 공정위 업종 매핑과 표시 제목 일치",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "assertions": {
+        "totalCategories": 8,
+        "matchedCategories": 8,
+        "allEightMatched": true
+      },
+      "rawMeasurements": {
+        "categoryResults": [
+          {
+            "catId": "CAT_MAJ_01",
+            "expectedName": "한식",
+            "badgeText": "🍚 한식",
+            "heroDiscText": "* 공정위 정기공시 전국 한식 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+            "heroStatText": "36,117만원 (3.61억원)",
+            "badgeMatches": true,
+            "discContainsName": true,
+            "hasValidStat": true,
+            "pass": true
+          },
+          {
+            "catId": "CAT_MAJ_02",
+            "expectedName": "중식",
+            "badgeText": "🥟 중식",
+            "heroDiscText": "* 공정위 정기공시 전국 중식 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+            "heroStatText": "41,233만원 (4.12억원)",
+            "badgeMatches": true,
+            "discContainsName": true,
+            "hasValidStat": true,
+            "pass": true
+          },
+          {
+            "catId": "CAT_MAJ_03",
+            "expectedName": "일식",
+            "badgeText": "🍣 일식",
+            "heroDiscText": "* 공정위 정기공시 전국 일식 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+            "heroStatText": "32,336만원 (3.23억원)",
+            "badgeMatches": true,
+            "discContainsName": true,
+            "hasValidStat": true,
+            "pass": true
+          },
+          {
+            "catId": "CAT_MAJ_04",
+            "expectedName": "양식·세계음식",
+            "badgeText": "🍝 양식·세계음식",
+            "heroDiscText": "* 공정위 정기공시 전국 양식·세계음식 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+            "heroStatText": "32,603만원 (3.26억원)",
+            "badgeMatches": true,
+            "discContainsName": true,
+            "hasValidStat": true,
+            "pass": true
+          },
+          {
+            "catId": "CAT_MAJ_05",
+            "expectedName": "치킨·패스트푸드",
+            "badgeText": "🍗 치킨·패스트푸드",
+            "heroDiscText": "* 공정위 정기공시 전국 치킨·패스트푸드 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+            "heroStatText": "19,312만원 (1.93억원)",
+            "badgeMatches": true,
+            "discContainsName": true,
+            "hasValidStat": true,
+            "pass": true
+          },
+          {
+            "catId": "CAT_MAJ_06",
+            "expectedName": "분식·간편식",
+            "badgeText": "🍢 분식·간편식",
+            "heroDiscText": "* 공정위 정기공시 전국 분식·간편식 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+            "heroStatText": "24,717만원 (2.47억원)",
+            "badgeMatches": true,
+            "discContainsName": true,
+            "hasValidStat": true,
+            "pass": true
+          },
+          {
+            "catId": "CAT_MAJ_07",
+            "expectedName": "카페·음료",
+            "badgeText": "☕ 카페·음료",
+            "heroDiscText": "* 공정위 정기공시 전국 카페·음료 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+            "heroStatText": "16,703만원 (1.67억원)",
+            "badgeMatches": true,
+            "discContainsName": true,
+            "hasValidStat": true,
+            "pass": true
+          },
+          {
+            "catId": "CAT_MAJ_08",
+            "expectedName": "베이커리·디저트",
+            "badgeText": "🥐 베이커리·디저트",
+            "heroDiscText": "* 공정위 정기공시 전국 베이커리·디저트 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+            "heroStatText": "17,499만원 (1.75억원)",
+            "badgeMatches": true,
+            "discContainsName": true,
+            "hasValidStat": true,
+            "pass": true
+          }
+        ]
+      },
+      "screenshot": "phase5d_step3_s3_8categories_mapping.png",
+      "pass": true
+    },
+    {
+      "scenarioId": 4,
+      "name": "전국·지역·브랜드·업종 선택 조합에서 데이터 출처와 모집단 분리",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "actualRegionState": {
+        "sidoValue": "11",
+        "sidoText": "서울",
+        "sigunguValue": "11215",
+        "sigunguText": "서울특별시 광진구",
+        "sigunguDisabled": false,
+        "actualRegion": "서울 서울특별시 광진구"
+      },
+      "assertions": {
+        "semasStoreDataPresent": true,
+        "provenanceBadgeIsFtcMacro": true,
+        "headingHasFranchisorBasis": true,
+        "sampleNoteHasBrandsCount": true,
+        "footerClarifiesNotStoreMetric": true
+      },
+      "rawMeasurements": {
+        "semasStoreData": {
+          "present": true,
+          "storeTotalText": "4,507 개소",
+          "penetrationText": "24.43%",
+          "regionalBrandsCount": 5
+        },
+        "ftcMacroData": {
+          "ftcBadge": "공정위 거시 공시",
+          "ftcHeading": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)",
+          "samplePill": "공시 표본 403개 브랜드 (유효 매출 기준)",
+          "sampleStrip": "전국 가맹사업망\n가맹 32,011개 · 직영 1,354개\n공시 표본 수\n총 635개 브랜드 (매출 0원: 204개)",
+          "footerMeta": "출처: 공정거래위원회 가맹사업정보제공시스템 (가맹본부 정기공시 정보공개서)\n집계단위: 전국 등록 가맹본부 거시 벤치마크 (개별 매장 실측치 아님)"
+        },
+        "provenanceBadgeMatches": true,
+        "headingClarifiesNationwideFranchisors": true,
+        "sampleSpecifiesBrandCount": true,
+        "footerClarifiesNotStoreMetric": true
+      },
+      "screenshot": "phase5d_step3_s4_source_segregation.png",
+      "pass": true
+    },
+    {
+      "scenarioId": 5,
+      "name": "데스크톱 1440×900 및 모바일 390×844에서 핵심 안내 미잘림·미숨김 보장",
+      "viewports": [
+        {
+          "width": 1440,
+          "height": 900
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "assertions": {
+        "desktopHeroLabelVisible": true,
+        "desktopHeroLabelNotClipped": true,
+        "desktopHeroDisclaimerVisible": true,
+        "desktopHeroDisclaimerNotClipped": true,
+        "mobilePeekTagVisible": true,
+        "mobilePeekSubRefVisible": true,
+        "mobileExpandedNoticeVisible": true,
+        "mobileExpandedStatVisible": true
+      },
+      "rawMeasurements": {
+        "desktop": {
+          "label": {
+            "text": "전국 가맹본부 대표매출 (중앙값)",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": 1,
+            "elementRect": {
+              "left": 1036,
+              "top": 378,
+              "right": 1186,
+              "bottom": 396,
+              "width": 150,
+              "height": 18
+            },
+            "viewportRect": {
+              "width": 1440,
+              "height": 900
+            },
+            "visibleIntersectionRect": {
+              "left": 1036,
+              "top": 378,
+              "right": 1186,
+              "bottom": 396,
+              "width": 150,
+              "height": 18
+            },
+            "clippingAncestors": [
+              {
+                "tag": "div",
+                "className": "panel-body",
+                "overflow": "auto/auto",
+                "rect": {
+                  "left": 1009,
+                  "top": 241,
+                  "right": 1427,
+                  "bottom": 887,
+                  "width": 418,
+                  "height": 646
+                },
+                "intersectWithCurrent": {
+                  "width": 150,
+                  "height": 18
+                }
+              },
+              {
+                "tag": "aside",
+                "id": "ftc-benchmark-panel",
+                "className": "ftc-benchmark-panel drawer-open  mobile-collapsed",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 1008,
+                  "top": 127,
+                  "right": 1428,
+                  "bottom": 888,
+                  "width": 420,
+                  "height": 761
+                },
+                "intersectWithCurrent": {
+                  "width": 150,
+                  "height": 18
+                }
+              },
+              {
+                "tag": "main",
+                "className": "dashboard-body",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 0,
+                  "top": 115,
+                  "right": 1440,
+                  "bottom": 900,
+                  "width": 1440,
+                  "height": 785
+                },
+                "intersectWithCurrent": {
+                  "width": 150,
+                  "height": 18
+                }
+              },
+              {
+                "tag": "div",
+                "className": "app-layout",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 0,
+                  "top": 0,
+                  "right": 1440,
+                  "bottom": 900,
+                  "width": 1440,
+                  "height": 900
+                },
+                "intersectWithCurrent": {
+                  "width": 150,
+                  "height": 18
+                }
+              }
+            ],
+            "viewportIntersection": true,
+            "notClippedByAncestor": true,
+            "inClosedDrawer": false,
+            "inCollapsedSheet": false,
+            "isActuallyVisible": true
+          },
+          "disc": {
+            "text": "* 공정위 정기공시 전국 한식 가맹본부 기준 거시 통계이며, 특정 브랜드나 개별 점포의 실적이 아닙니다.",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": 1,
+            "elementRect": {
+              "left": 1036,
+              "top": 436,
+              "right": 1395,
+              "bottom": 473,
+              "width": 360,
+              "height": 36
+            },
+            "viewportRect": {
+              "width": 1440,
+              "height": 900
+            },
+            "visibleIntersectionRect": {
+              "left": 1036,
+              "top": 436,
+              "right": 1395,
+              "bottom": 473,
+              "width": 360,
+              "height": 36
+            },
+            "clippingAncestors": [
+              {
+                "tag": "div",
+                "className": "panel-body",
+                "overflow": "auto/auto",
+                "rect": {
+                  "left": 1009,
+                  "top": 241,
+                  "right": 1427,
+                  "bottom": 887,
+                  "width": 418,
+                  "height": 646
+                },
+                "intersectWithCurrent": {
+                  "width": 360,
+                  "height": 36
+                }
+              },
+              {
+                "tag": "aside",
+                "id": "ftc-benchmark-panel",
+                "className": "ftc-benchmark-panel drawer-open  mobile-collapsed",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 1008,
+                  "top": 127,
+                  "right": 1428,
+                  "bottom": 888,
+                  "width": 420,
+                  "height": 761
+                },
+                "intersectWithCurrent": {
+                  "width": 360,
+                  "height": 36
+                }
+              },
+              {
+                "tag": "main",
+                "className": "dashboard-body",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 0,
+                  "top": 115,
+                  "right": 1440,
+                  "bottom": 900,
+                  "width": 1440,
+                  "height": 785
+                },
+                "intersectWithCurrent": {
+                  "width": 360,
+                  "height": 36
+                }
+              },
+              {
+                "tag": "div",
+                "className": "app-layout",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 0,
+                  "top": 0,
+                  "right": 1440,
+                  "bottom": 900,
+                  "width": 1440,
+                  "height": 900
+                },
+                "intersectWithCurrent": {
+                  "width": 360,
+                  "height": 36
+                }
+              }
+            ],
+            "viewportIntersection": true,
+            "notClippedByAncestor": true,
+            "inClosedDrawer": false,
+            "inCollapsedSheet": false,
+            "isActuallyVisible": true
+          }
+        },
+        "mobilePeek": {
+          "tag": {
+            "text": "공정위 전국",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": 1,
+            "elementRect": {
+              "left": 12,
+              "top": 796,
+              "right": 71,
+              "bottom": 816,
+              "width": 59,
+              "height": 20
+            },
+            "viewportRect": {
+              "width": 390,
+              "height": 844
+            },
+            "visibleIntersectionRect": {
+              "left": 12,
+              "top": 796,
+              "right": 71,
+              "bottom": 816,
+              "width": 59,
+              "height": 20
+            },
+            "clippingAncestors": [
+              {
+                "tag": "div",
+                "className": "mobile-summary-row",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 12,
+                  "top": 795,
+                  "right": 378,
+                  "bottom": 817,
+                  "width": 366,
+                  "height": 22
+                },
+                "intersectWithCurrent": {
+                  "width": 59,
+                  "height": 20
+                }
+              },
+              {
+                "tag": "aside",
+                "id": "ftc-benchmark-panel",
+                "className": "ftc-benchmark-panel drawer-open  mobile-collapsed",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 0,
+                  "top": 780,
+                  "right": 390,
+                  "bottom": 844,
+                  "width": 390,
+                  "height": 64
+                },
+                "intersectWithCurrent": {
+                  "width": 59,
+                  "height": 20
+                }
+              },
+              {
+                "tag": "main",
+                "className": "dashboard-body",
+                "overflow": "hidden/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 148,
+                  "right": 390,
+                  "bottom": 2510,
+                  "width": 390,
+                  "height": 2363
+                },
+                "intersectWithCurrent": {
+                  "width": 59,
+                  "height": 20
+                }
+              },
+              {
+                "tag": "div",
+                "className": "app-layout",
+                "overflow": "hidden/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 0,
+                  "right": 390,
+                  "bottom": 2510,
+                  "width": 390,
+                  "height": 2510
+                },
+                "intersectWithCurrent": {
+                  "width": 59,
+                  "height": 20
+                }
+              }
+            ],
+            "viewportIntersection": true,
+            "notClippedByAncestor": true,
+            "inClosedDrawer": false,
+            "inCollapsedSheet": false,
+            "isActuallyVisible": true
+          },
+          "kpi": {
+            "text": "중위 3.61억",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": 1,
+            "elementRect": {
+              "left": 118,
+              "top": 798,
+              "right": 173,
+              "bottom": 815,
+              "width": 55,
+              "height": 17
+            },
+            "viewportRect": {
+              "width": 390,
+              "height": 844
+            },
+            "visibleIntersectionRect": {
+              "left": 118,
+              "top": 798,
+              "right": 173,
+              "bottom": 815,
+              "width": 55,
+              "height": 17
+            },
+            "clippingAncestors": [
+              {
+                "tag": "div",
+                "className": "mobile-summary-row",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 12,
+                  "top": 795,
+                  "right": 378,
+                  "bottom": 817,
+                  "width": 366,
+                  "height": 22
+                },
+                "intersectWithCurrent": {
+                  "width": 55,
+                  "height": 17
+                }
+              },
+              {
+                "tag": "aside",
+                "id": "ftc-benchmark-panel",
+                "className": "ftc-benchmark-panel drawer-open  mobile-collapsed",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 0,
+                  "top": 780,
+                  "right": 390,
+                  "bottom": 844,
+                  "width": 390,
+                  "height": 64
+                },
+                "intersectWithCurrent": {
+                  "width": 55,
+                  "height": 17
+                }
+              },
+              {
+                "tag": "main",
+                "className": "dashboard-body",
+                "overflow": "hidden/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 148,
+                  "right": 390,
+                  "bottom": 2510,
+                  "width": 390,
+                  "height": 2363
+                },
+                "intersectWithCurrent": {
+                  "width": 55,
+                  "height": 17
+                }
+              },
+              {
+                "tag": "div",
+                "className": "app-layout",
+                "overflow": "hidden/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 0,
+                  "right": 390,
+                  "bottom": 2510,
+                  "width": 390,
+                  "height": 2510
+                },
+                "intersectWithCurrent": {
+                  "width": 55,
+                  "height": 17
+                }
+              }
+            ],
+            "viewportIntersection": true,
+            "notClippedByAncestor": true,
+            "inClosedDrawer": false,
+            "inCollapsedSheet": false,
+            "isActuallyVisible": true
+          },
+          "sub": {
+            "text": "(업종 참고치)",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": 1,
+            "elementRect": {
+              "left": 177,
+              "top": 799,
+              "right": 229,
+              "bottom": 814,
+              "width": 52,
+              "height": 15
+            },
+            "viewportRect": {
+              "width": 390,
+              "height": 844
+            },
+            "visibleIntersectionRect": {
+              "left": 177,
+              "top": 799,
+              "right": 229,
+              "bottom": 814,
+              "width": 52,
+              "height": 15
+            },
+            "clippingAncestors": [
+              {
+                "tag": "div",
+                "className": "mobile-summary-row",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 12,
+                  "top": 795,
+                  "right": 378,
+                  "bottom": 817,
+                  "width": 366,
+                  "height": 22
+                },
+                "intersectWithCurrent": {
+                  "width": 52,
+                  "height": 15
+                }
+              },
+              {
+                "tag": "aside",
+                "id": "ftc-benchmark-panel",
+                "className": "ftc-benchmark-panel drawer-open  mobile-collapsed",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 0,
+                  "top": 780,
+                  "right": 390,
+                  "bottom": 844,
+                  "width": 390,
+                  "height": 64
+                },
+                "intersectWithCurrent": {
+                  "width": 52,
+                  "height": 15
+                }
+              },
+              {
+                "tag": "main",
+                "className": "dashboard-body",
+                "overflow": "hidden/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 148,
+                  "right": 390,
+                  "bottom": 2510,
+                  "width": 390,
+                  "height": 2363
+                },
+                "intersectWithCurrent": {
+                  "width": 52,
+                  "height": 15
+                }
+              },
+              {
+                "tag": "div",
+                "className": "app-layout",
+                "overflow": "hidden/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 0,
+                  "right": 390,
+                  "bottom": 2510,
+                  "width": 390,
+                  "height": 2510
+                },
+                "intersectWithCurrent": {
+                  "width": 52,
+                  "height": 15
+                }
+              }
+            ],
+            "viewportIntersection": true,
+            "notClippedByAncestor": true,
+            "inClosedDrawer": false,
+            "inCollapsedSheet": false,
+            "isActuallyVisible": true
+          }
+        },
+        "mobileExp": {
+          "notice": {
+            "text": "📌\n공정위 정기공시 전국 가맹본부 거시 벤치마크 (개별 점포·특정 브랜드 실적 아님)",
+            "display": "flex",
+            "visibility": "visible",
+            "opacity": 1,
+            "elementRect": {
+              "left": 10,
+              "top": 296,
+              "right": 375,
+              "bottom": 335,
+              "width": 364,
+              "height": 39
+            },
+            "viewportRect": {
+              "width": 390,
+              "height": 844
+            },
+            "visibleIntersectionRect": {
+              "left": 10,
+              "top": 296,
+              "right": 375,
+              "bottom": 335,
+              "width": 364,
+              "height": 39
+            },
+            "clippingAncestors": [
+              {
+                "tag": "div",
+                "className": "panel-body",
+                "overflow": "auto/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 288,
+                  "right": 390,
+                  "bottom": 844,
+                  "width": 390,
+                  "height": 556
+                },
+                "intersectWithCurrent": {
+                  "width": 364,
+                  "height": 39
+                }
+              },
+              {
+                "tag": "aside",
+                "id": "ftc-benchmark-panel",
+                "className": "ftc-benchmark-panel drawer-open  mobile-expanded",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 0,
+                  "top": 244,
+                  "right": 390,
+                  "bottom": 844,
+                  "width": 390,
+                  "height": 600
+                },
+                "intersectWithCurrent": {
+                  "width": 364,
+                  "height": 39
+                }
+              },
+              {
+                "tag": "main",
+                "className": "dashboard-body",
+                "overflow": "hidden/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 148,
+                  "right": 390,
+                  "bottom": 2510,
+                  "width": 390,
+                  "height": 2363
+                },
+                "intersectWithCurrent": {
+                  "width": 364,
+                  "height": 39
+                }
+              },
+              {
+                "tag": "div",
+                "className": "app-layout",
+                "overflow": "hidden/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 0,
+                  "right": 390,
+                  "bottom": 2510,
+                  "width": 390,
+                  "height": 2510
+                },
+                "intersectWithCurrent": {
+                  "width": 364,
+                  "height": 39
+                }
+              }
+            ],
+            "viewportIntersection": true,
+            "notClippedByAncestor": true,
+            "inClosedDrawer": false,
+            "inCollapsedSheet": false,
+            "isActuallyVisible": true
+          },
+          "stat": {
+            "text": "36,117만원 (3.61억원)",
+            "display": "block",
+            "visibility": "visible",
+            "opacity": 1,
+            "elementRect": {
+              "left": 23,
+              "top": 488,
+              "right": 195,
+              "bottom": 510,
+              "width": 172,
+              "height": 21
+            },
+            "viewportRect": {
+              "width": 390,
+              "height": 844
+            },
+            "visibleIntersectionRect": {
+              "left": 23,
+              "top": 488,
+              "right": 195,
+              "bottom": 510,
+              "width": 172,
+              "height": 21
+            },
+            "clippingAncestors": [
+              {
+                "tag": "div",
+                "className": "panel-body",
+                "overflow": "auto/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 288,
+                  "right": 390,
+                  "bottom": 844,
+                  "width": 390,
+                  "height": 556
+                },
+                "intersectWithCurrent": {
+                  "width": 172,
+                  "height": 21
+                }
+              },
+              {
+                "tag": "aside",
+                "id": "ftc-benchmark-panel",
+                "className": "ftc-benchmark-panel drawer-open  mobile-expanded",
+                "overflow": "hidden/hidden",
+                "rect": {
+                  "left": 0,
+                  "top": 244,
+                  "right": 390,
+                  "bottom": 844,
+                  "width": 390,
+                  "height": 600
+                },
+                "intersectWithCurrent": {
+                  "width": 172,
+                  "height": 21
+                }
+              },
+              {
+                "tag": "main",
+                "className": "dashboard-body",
+                "overflow": "hidden/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 148,
+                  "right": 390,
+                  "bottom": 2510,
+                  "width": 390,
+                  "height": 2363
+                },
+                "intersectWithCurrent": {
+                  "width": 172,
+                  "height": 21
+                }
+              },
+              {
+                "tag": "div",
+                "className": "app-layout",
+                "overflow": "hidden/auto",
+                "rect": {
+                  "left": 0,
+                  "top": 0,
+                  "right": 390,
+                  "bottom": 2510,
+                  "width": 390,
+                  "height": 2510
+                },
+                "intersectWithCurrent": {
+                  "width": 172,
+                  "height": 21
+                }
+              }
+            ],
+            "viewportIntersection": true,
+            "notClippedByAncestor": true,
+            "inClosedDrawer": false,
+            "inCollapsedSheet": false,
+            "isActuallyVisible": true
+          }
+        }
+      },
+      "screenshots": [
+        "phase5d_step3_s5_desktop_not_clipped.png",
+        "phase5d_step3_s5_mobile_peek_visible.png",
+        "phase5d_step3_s5_mobile_expanded_visible.png"
+      ],
+      "pass": true
+    },
+    {
+      "scenarioId": 6,
+      "name": "모바일 가로 오버플로 0 및 키보드 접근성·패널 접기 유지",
+      "assertions": {
+        "zeroOverflowPassed": true,
+        "keyboardDrawerOpenEnter": true,
+        "keyboardDrawerCloseEsc": true,
+        "mobileEnterExpandSuccess": true,
+        "mobileEnterCollapseSuccess": true,
+        "panelCollapseToggle": true
+      },
+      "rawMeasurements": {
+        "overflowMeasurements": [
+          {
+            "state": "피크",
+            "docW": 390,
+            "bodyW": 390,
+            "panelRight": 390,
+            "zeroOverflow": true
+          },
+          {
+            "state": "확장",
+            "docW": 390,
+            "bodyW": 390,
+            "panelRight": 390,
+            "zeroOverflow": true
+          }
+        ],
+        "keyboard": {
+          "kbPanelOpen": true,
+          "kbPanelClosed": true,
+          "mobPanelExpanded": true,
+          "mobPanelCollapsed": true
+        },
+        "collapse": {
+          "collapseBtnFound": true,
+          "collapsedAfterClick": true,
+          "uncollapsedAfterSecondClick": true
+        }
+      },
+      "screenshot": "phase5d_step3_s6_overflow_and_keyboard.png",
+      "pass": true
+    },
+    {
+      "scenarioId": 7,
+      "name": "지도, 필터, 지역 브랜드 Top 5, 공정위 연도 선택 회귀 없음 확인",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "actualRegionState": {
+        "sidoValue": "11",
+        "sidoText": "서울",
+        "sigunguValue": "11215",
+        "sigunguText": "서울특별시 광진구",
+        "sigunguDisabled": false,
+        "actualRegion": "서울 서울특별시 광진구"
+      },
+      "assertions": {
+        "mapRendered": true,
+        "top5BrandsRendered": true,
+        "yearSelectionFunctional": true
+      },
+      "rawMeasurements": {
+        "mapEval": {
+          "mapFound": true,
+          "width": 1440,
+          "height": 785,
+          "rendered": true
+        },
+        "top5Eval": {
+          "cardFound": true,
+          "rowCount": 5,
+          "brands": [
+            {
+              "rank": "1",
+              "name": "메가MGC커피",
+              "stores": "33개소"
+            },
+            {
+              "rank": "2",
+              "name": "스타벅스",
+              "stores": "24개소"
+            },
+            {
+              "rank": "3",
+              "name": "컴포즈커피",
+              "stores": "22개소"
+            },
+            {
+              "rank": "4",
+              "name": "빽다방",
+              "stores": "18개소"
+            },
+            {
+              "rank": "5",
+              "name": "파리바게뜨",
+              "stores": "18개소"
+            }
+          ]
+        },
+        "year2025Eval": {
+          "badge": "2025년 등록 (2024년 결산)",
+          "selVal": "2025",
+          "stat": "20,171만원 (2.02억원)",
+          "updatedTo2025": true
+        }
+      },
+      "screenshot": "phase5d_step3_s7_map_filters_top5_regression.png",
+      "pass": true
+    },
+    {
+      "scenarioId": 8,
+      "name": "2026 진행형 스냅샷 경고가 호버 없이 유지됨",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "actualRegionState": {
+        "sidoValue": "00",
+        "sidoText": "전국",
+        "sigunguValue": "",
+        "sigunguText": "전국 단위 요약",
+        "sigunguDisabled": true,
+        "actualRegion": "전국"
+      },
+      "assertions": {
+        "regionIsNationwide": true,
+        "snapshotAlertPresent": true,
+        "exactWarningTextMatched": true,
+        "visibleWithoutHover": true
+      },
+      "rawMeasurements": {
+        "alertExists": true,
+        "badgeExists": true,
+        "alertText": "⚠️\n진행형 스냅샷: 2026년은 정기공시 진행 중(약 30% 미등록 결손)으로 2025년과 직접 비교가 불가합니다.",
+        "badgeText": "진행형 스냅샷",
+        "heroStat": "36,117만원 (3.61억원)",
+        "alertVis": {
+          "text": "⚠️\n진행형 스냅샷: 2026년은 정기공시 진행 중(약 30% 미등록 결손)으로 2025년과 직접 비교가 불가합니다.",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": 1,
+          "elementRect": {
+            "left": 1023,
+            "top": 253,
+            "right": 1408,
+            "bottom": 300,
+            "width": 386,
+            "height": 47
+          },
+          "viewportRect": {
+            "width": 1440,
+            "height": 900
+          },
+          "visibleIntersectionRect": {
+            "left": 1023,
+            "top": 253,
+            "right": 1408,
+            "bottom": 300,
+            "width": 386,
+            "height": 47
+          },
+          "clippingAncestors": [
+            {
+              "tag": "div",
+              "className": "panel-body",
+              "overflow": "auto/auto",
+              "rect": {
+                "left": 1009,
+                "top": 241,
+                "right": 1427,
+                "bottom": 887,
+                "width": 418,
+                "height": 646
+              },
+              "intersectWithCurrent": {
+                "width": 386,
+                "height": 47
+              }
+            },
+            {
+              "tag": "aside",
+              "id": "ftc-benchmark-panel",
+              "className": "ftc-benchmark-panel drawer-open  mobile-collapsed",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 1008,
+                "top": 127,
+                "right": 1428,
+                "bottom": 888,
+                "width": 420,
+                "height": 761
+              },
+              "intersectWithCurrent": {
+                "width": 386,
+                "height": 47
+              }
+            },
+            {
+              "tag": "main",
+              "className": "dashboard-body",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 115,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 785
+              },
+              "intersectWithCurrent": {
+                "width": 386,
+                "height": 47
+              }
+            },
+            {
+              "tag": "div",
+              "className": "app-layout",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 0,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 900
+              },
+              "intersectWithCurrent": {
+                "width": 386,
+                "height": 47
+              }
+            }
+          ],
+          "viewportIntersection": true,
+          "notClippedByAncestor": true,
+          "inClosedDrawer": false,
+          "inCollapsedSheet": false,
+          "isActuallyVisible": true
+        },
+        "badgeVis": {
+          "text": "진행형 스냅샷",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "elementRect": {
+            "left": 1232,
+            "top": 139,
+            "right": 1308,
+            "bottom": 162,
+            "width": 75,
+            "height": 23
+          },
+          "viewportRect": {
+            "width": 1440,
+            "height": 900
+          },
+          "visibleIntersectionRect": {
+            "left": 1232,
+            "top": 139,
+            "right": 1308,
+            "bottom": 162,
+            "width": 75,
+            "height": 23
+          },
+          "clippingAncestors": [
+            {
+              "tag": "aside",
+              "id": "ftc-benchmark-panel",
+              "className": "ftc-benchmark-panel drawer-open  mobile-collapsed",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 1008,
+                "top": 127,
+                "right": 1428,
+                "bottom": 888,
+                "width": 420,
+                "height": 761
+              },
+              "intersectWithCurrent": {
+                "width": 75,
+                "height": 23
+              }
+            },
+            {
+              "tag": "main",
+              "className": "dashboard-body",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 115,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 785
+              },
+              "intersectWithCurrent": {
+                "width": 75,
+                "height": 23
+              }
+            },
+            {
+              "tag": "div",
+              "className": "app-layout",
+              "overflow": "hidden/hidden",
+              "rect": {
+                "left": 0,
+                "top": 0,
+                "right": 1440,
+                "bottom": 900,
+                "width": 1440,
+                "height": 900
+              },
+              "intersectWithCurrent": {
+                "width": 75,
+                "height": 23
+              }
+            }
+          ],
+          "viewportIntersection": true,
+          "notClippedByAncestor": true,
+          "inClosedDrawer": false,
+          "inCollapsedSheet": false,
+          "isActuallyVisible": true
+        },
+        "hasExactWarning": true,
+        "isAlertVisibleWithoutHover": true
+      },
+      "screenshot": "phase5d_step3_s8_snapshot_warning_no_hover.png",
+      "pass": true
+    }
+  ],
+  "postIntegrity": [
+    {
+      "file": "collector.py",
+      "sizeBytes": 3780,
+      "sha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+      "expectedSha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+      "mtime": "2026-10-12T03:08:51.120Z",
+      "match": true
+    },
+    {
+      "file": "gangnam_food_stores.sqlite3",
+      "sizeBytes": 15831040,
+      "sha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+      "expectedSha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+      "mtime": "2026-10-12T03:11:28.341Z",
+      "match": true
+    },
+    {
+      "file": "run_gangnam.bat",
+      "sizeBytes": 66,
+      "sha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+      "expectedSha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+      "mtime": "2026-10-12T03:08:51.158Z",
+      "match": true
+    }
+  ],
+  "overallPass": true
+}

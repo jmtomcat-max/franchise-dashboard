@@ -1,0 +1,669 @@
+{
+  "testName": "Phase 5C-Vis Step 2 Mobile Jeju Overview Fix Verification",
+  "startedAt": "2026-10-16T00:31:08.874Z",
+  "environment": {
+    "browser": {
+      "product": "Chrome/155.0.8059.81",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "flags": [
+        "--headless=new",
+        "--enable-webgl",
+        "--ignore-gpu-blocklist"
+      ]
+    }
+  },
+  "api": {
+    "gwangjin": {
+      "sigungu_code": "11215",
+      "received": 466,
+      "metaTotal": 466,
+      "uniqueGridIds": 466
+    },
+    "jeju": {
+      "sigungu_code": "50110",
+      "received": 1351,
+      "metaTotal": 1351,
+      "uniqueGridIds": 1351
+    }
+  },
+  "mobileJejuOverview": {
+    "viewport": {
+      "w": 390,
+      "h": 844,
+      "dpr": 3
+    },
+    "camera": {
+      "zoom": 7.817,
+      "pitch": 52,
+      "bearing": -25,
+      "center": [
+        126.55382,
+        33.65518
+      ]
+    },
+    "canvasRect": {
+      "x": 0,
+      "y": 109.953125,
+      "w": 390,
+      "h": 746
+    },
+    "counts": {
+      "receivedInState": 1351,
+      "uniqueInState": 1351,
+      "centersInsideViewportBounds": 1351,
+      "rendered": {
+        "extrusionLayer": {
+          "renderedFeatureParts": 1353,
+          "uniqueGridIds": 1351,
+          "visibility": "visible"
+        },
+        "overviewLayer": {
+          "renderedFeatureParts": 1351,
+          "uniqueGridIds": 1351,
+          "visibility": "visible",
+          "opacityAtZoom": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            6,
+            0.9,
+            8,
+            0.88,
+            12,
+            0.85,
+            14,
+            0.4,
+            15.5,
+            0
+          ]
+        }
+      }
+    },
+    "scale": {
+      "metersPerPixel": 289.016,
+      "cellApproxPx": 0.35,
+      "maxStores": 41,
+      "maxVirtualHeightUnits": 123,
+      "maxColumnApproxPx": 0.3,
+      "heightExpr": [
+        "get",
+        "column_height_m"
+      ],
+      "colorExpr": [
+        "interpolate",
+        [
+          "linear"
+        ],
+        [
+          "get",
+          "total_stores"
+        ],
+        3,
+        "#0284c7",
+        15,
+        "#2563eb",
+        30,
+        "#7c3aed",
+        60,
+        "#ea580c",
+        100,
+        "#dc2626"
+      ]
+    },
+    "legend": {
+      "text": "3D 밀집도 (소진공 2026-07) 3 15 30 60 100+",
+      "steps": [
+        "3",
+        "15",
+        "30",
+        "60",
+        "100+"
+      ]
+    },
+    "hud": "📍 제주특별자치도 제주시 전체 외식업 밀집도 (100m 격자 1,351개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+    "capture": {
+      "file": "phase5c_vis_step2_mobile_jeju_overview_fixed.png",
+      "bytes": 987692
+    },
+    "pixelAnalysis": {
+      "imageWidth": 1170,
+      "imageHeight": 2532,
+      "jejuColoredDotPixelsFound": 4079,
+      "hasVisibleDistribution": true
+    },
+    "countsVerification": {
+      "apiReceivedCount": 1351,
+      "apiMetaTotalCount": 1351,
+      "uniqueGridInState": 1351,
+      "centersInsideViewportBounds": 1351,
+      "overviewLayerRenderedFeatures": 1351,
+      "overviewLayerUniqueGridIds": 1351,
+      "visualPixelDistributionFound": 4079,
+      "visualPixelCheck": "PASS",
+      "passCondition": "PASS"
+    }
+  },
+  "desktopRegression": {
+    "jejuOverview": {
+      "viewport": {
+        "w": 1440,
+        "h": 900,
+        "dpr": 1
+      },
+      "camera": {
+        "zoom": 7.817,
+        "pitch": 52,
+        "bearing": -25,
+        "center": [
+          126.55382,
+          33.65518
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 115.375,
+        "w": 1440,
+        "h": 785
+      },
+      "counts": {
+        "receivedInState": 1351,
+        "uniqueInState": 1351,
+        "centersInsideViewportBounds": 1351,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 1353,
+            "uniqueGridIds": 1351,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 1351,
+            "uniqueGridIds": 1351,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              6,
+              0.9,
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 289.016,
+        "cellApproxPx": 0.35,
+        "maxStores": 41,
+        "maxVirtualHeightUnits": 123,
+        "maxColumnApproxPx": 0.3,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "전체 외식 점포 밀집도 3D (소진공 2026-07) 100m 격자당 점포 수 · 가상 높이 비례 (1,351개 격자) 3 15 30 60 100+ * 3D 기둥은 점포수 × 3.0의 가상 시각화 배율 지표이며 실제 건축물 높이(m)가 아닙니다. 광역 줌에서는 개요 원형 레이어가 함께 표출됩니다.",
+        "steps": [
+          "3",
+          "15",
+          "30",
+          "60",
+          "100+"
+        ]
+      },
+      "hud": "📍 제주특별자치도 제주시 전체 외식업 밀집도 (100m 격자 1,351개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "capture": {
+        "file": "phase5c_vis_step2_desktop_jeju_overview_regression.png",
+        "bytes": 513136
+      }
+    },
+    "jejuDetail": {
+      "viewport": {
+        "w": 1440,
+        "h": 900,
+        "dpr": 1
+      },
+      "camera": {
+        "zoom": 15.3,
+        "pitch": 52,
+        "bearing": -25,
+        "center": [
+          126.492,
+          33.487
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 115.375,
+        "w": 1440,
+        "h": 785
+      },
+      "counts": {
+        "receivedInState": 1351,
+        "uniqueInState": 1351,
+        "centersInsideViewportBounds": 279,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 260,
+            "uniqueGridIds": 219,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 213,
+            "uniqueGridIds": 213,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              6,
+              0.9,
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 1.618,
+        "cellApproxPx": 61.8,
+        "maxStores": 41,
+        "maxVirtualHeightUnits": 123,
+        "maxColumnApproxPx": 59.9,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "전체 외식 점포 밀집도 3D (소진공 2026-07) 100m 격자당 점포 수 · 가상 높이 비례 (1,351개 격자) 3 15 30 60 100+ * 3D 기둥은 점포수 × 3.0의 가상 시각화 배율 지표이며 실제 건축물 높이(m)가 아닙니다. 광역 줌에서는 개요 원형 레이어가 함께 표출됩니다.",
+        "steps": [
+          "3",
+          "15",
+          "30",
+          "60",
+          "100+"
+        ]
+      },
+      "hud": "📍 제주특별자치도 제주시 전체 외식업 밀집도 (100m 격자 1,351개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "capture": {
+        "file": "phase5c_vis_step2_desktop_jeju_detail_regression.png",
+        "bytes": 899132
+      }
+    },
+    "gwangjinOverview": {
+      "viewport": {
+        "w": 1440,
+        "h": 900,
+        "dpr": 1
+      },
+      "camera": {
+        "zoom": 12.679,
+        "pitch": 52,
+        "bearing": -25,
+        "center": [
+          127.08577,
+          37.55039
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 115.375,
+        "w": 1440,
+        "h": 785
+      },
+      "counts": {
+        "receivedInState": 466,
+        "uniqueInState": 466,
+        "centersInsideViewportBounds": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              6,
+              0.9,
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 9.461,
+        "cellApproxPx": 10.57,
+        "maxStores": 55,
+        "maxVirtualHeightUnits": 165,
+        "maxColumnApproxPx": 13.7,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "전체 외식 점포 밀집도 3D (소진공 2026-07) 100m 격자당 점포 수 · 가상 높이 비례 (466개 격자) 3 15 30 60 100+ * 3D 기둥은 점포수 × 3.0의 가상 시각화 배율 지표이며 실제 건축물 높이(m)가 아닙니다. 광역 줌에서는 개요 원형 레이어가 함께 표출됩니다.",
+        "steps": [
+          "3",
+          "15",
+          "30",
+          "60",
+          "100+"
+        ]
+      },
+      "hud": "📍 서울특별시 광진구 전체 외식업 밀집도 (100m 격자 466개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "capture": {
+        "file": "phase5c_vis_step2_desktop_gwangjin_overview_regression.png",
+        "bytes": 1715713
+      }
+    },
+    "gwangjinDetail": {
+      "viewport": {
+        "w": 1440,
+        "h": 900,
+        "dpr": 1
+      },
+      "camera": {
+        "zoom": 15.6,
+        "pitch": 52,
+        "bearing": -25,
+        "center": [
+          127.096,
+          37.536
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 115.375,
+        "w": 1440,
+        "h": 785
+      },
+      "counts": {
+        "receivedInState": 466,
+        "uniqueInState": 466,
+        "centersInsideViewportBounds": 203,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 141,
+            "uniqueGridIds": 117,
+            "visibility": "visible"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 111,
+            "uniqueGridIds": 111,
+            "visibility": "visible",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              6,
+              0.9,
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 1.25,
+        "cellApproxPx": 80.02,
+        "maxStores": 55,
+        "maxVirtualHeightUnits": 165,
+        "maxColumnApproxPx": 104,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "전체 외식 점포 밀집도 3D (소진공 2026-07) 100m 격자당 점포 수 · 가상 높이 비례 (466개 격자) 3 15 30 60 100+ * 3D 기둥은 점포수 × 3.0의 가상 시각화 배율 지표이며 실제 건축물 높이(m)가 아닙니다. 광역 줌에서는 개요 원형 레이어가 함께 표출됩니다.",
+        "steps": [
+          "3",
+          "15",
+          "30",
+          "60",
+          "100+"
+        ]
+      },
+      "hud": "📍 서울특별시 광진구 전체 외식업 밀집도 (100m 격자 466개소) | 벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "capture": {
+        "file": "phase5c_vis_step2_desktop_gwangjin_detail_regression.png",
+        "bytes": 736294
+      }
+    },
+    "nationwideEmpty": {
+      "viewport": {
+        "w": 1440,
+        "h": 900,
+        "dpr": 1
+      },
+      "camera": {
+        "zoom": 7,
+        "pitch": 20,
+        "bearing": -20,
+        "center": [
+          127.7669,
+          35.9078
+        ]
+      },
+      "canvasRect": {
+        "x": 0,
+        "y": 115.375,
+        "w": 1440,
+        "h": 785
+      },
+      "counts": {
+        "receivedInState": 0,
+        "uniqueInState": 0,
+        "centersInsideViewportBounds": 0,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "visibility": "none"
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "visibility": "none",
+            "opacityAtZoom": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "zoom"
+              ],
+              6,
+              0.9,
+              8,
+              0.88,
+              12,
+              0.85,
+              14,
+              0.4,
+              15.5,
+              0
+            ]
+          }
+        }
+      },
+      "scale": {
+        "metersPerPixel": 495.289,
+        "cellApproxPx": 0.2,
+        "maxStores": 0,
+        "maxVirtualHeightUnits": 0,
+        "maxColumnApproxPx": 0,
+        "heightExpr": [
+          "get",
+          "column_height_m"
+        ],
+        "colorExpr": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "total_stores"
+          ],
+          3,
+          "#0284c7",
+          15,
+          "#2563eb",
+          30,
+          "#7c3aed",
+          60,
+          "#ea580c",
+          100,
+          "#dc2626"
+        ]
+      },
+      "legend": {
+        "text": "격자 레이어 비활성화 상세 시군구 선택 시 표출",
+        "steps": []
+      },
+      "hud": "📍 전국 모드 — 시군구를 선택하시면 100m 정밀 격자가 지도에 표출됩니다.",
+      "popupPresent": false,
+      "capture": {
+        "file": "phase5c_vis_step2_desktop_nationwide_empty_regression.png",
+        "bytes": 1023497
+      }
+    }
+  },
+  "runtimeErrors": [],
+  "finishedAt": "2026-10-16T00:31:31.223Z"
+}

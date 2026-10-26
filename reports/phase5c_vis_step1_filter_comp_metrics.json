@@ -1,0 +1,190 @@
+{
+  "timestamp": "2026-10-15T03:55:47.034Z",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "initialBounds": {
+    "viewportWidth": 390,
+    "viewportHeight": 844,
+    "scrollWidth": 390,
+    "filterBar": {
+      "sel": ".category-filter-bar",
+      "left": 0,
+      "right": 390,
+      "top": 42,
+      "bottom": 105.95,
+      "width": 390,
+      "height": 63.95,
+      "centerX": 195,
+      "centerY": 73.98,
+      "in390": true,
+      "visible": true
+    },
+    "regionContainer": {
+      "sel": ".region-selector-container",
+      "left": 8,
+      "right": 140,
+      "top": 45.19,
+      "bottom": 69.19,
+      "width": 132,
+      "height": 24,
+      "centerX": 74,
+      "centerY": 57.19,
+      "in390": true,
+      "visible": true
+    },
+    "sido": {
+      "sel": "#sido-select",
+      "left": 8,
+      "right": 66,
+      "top": 45.19,
+      "bottom": 69.19,
+      "width": 58,
+      "height": 24,
+      "centerX": 37,
+      "centerY": 57.19,
+      "in390": true,
+      "visible": true
+    },
+    "sigungu": {
+      "sel": "#sigungu-select",
+      "left": 68.39,
+      "right": 140.39,
+      "top": 45.19,
+      "bottom": 69.19,
+      "width": 72,
+      "height": 24,
+      "centerX": 104.39,
+      "centerY": 57.19,
+      "in390": true,
+      "visible": true
+    },
+    "yearContainer": {
+      "sel": ".year-selector-container",
+      "left": 145.59,
+      "right": 213.59,
+      "top": 45.19,
+      "bottom": 69.19,
+      "width": 68,
+      "height": 24,
+      "centerX": 179.59,
+      "centerY": 57.19,
+      "in390": true,
+      "visible": true
+    },
+    "yearSelect": {
+      "sel": "#ftc-year-select",
+      "left": 145.59,
+      "right": 213.59,
+      "top": 45.19,
+      "bottom": 69.19,
+      "width": 68,
+      "height": 24,
+      "centerX": 179.59,
+      "centerY": 57.19,
+      "in390": true,
+      "visible": true
+    },
+    "provenanceContainer": {
+      "sel": ".filter-provenance-tags",
+      "left": 227.19,
+      "right": 382,
+      "top": 45.19,
+      "bottom": 69.19,
+      "width": 154.81,
+      "height": 24,
+      "centerX": 304.59,
+      "centerY": 57.19,
+      "in390": true,
+      "visible": true
+    },
+    "ftcBtn": {
+      "sel": ".provenance-tag.tag-ftc.ftc-drawer-btn",
+      "left": 227.19,
+      "right": 382,
+      "top": 45.19,
+      "bottom": 69.19,
+      "width": 154.81,
+      "height": 24,
+      "centerX": 304.59,
+      "centerY": 57.19,
+      "in390": true,
+      "visible": true
+    },
+    "tabsContainer": {
+      "sel": ".category-tabs-container",
+      "left": 8,
+      "right": 382,
+      "top": 72.38,
+      "bottom": 101.77,
+      "width": 374,
+      "height": 29.39,
+      "centerX": 195,
+      "centerY": 87.07,
+      "in390": true,
+      "visible": true
+    },
+    "tabsScroll": {
+      "sel": ".category-tabs-scroll",
+      "left": 8,
+      "right": 382,
+      "top": 75.77,
+      "bottom": 101.77,
+      "width": 374,
+      "height": 26,
+      "centerX": 195,
+      "centerY": 88.77,
+      "in390": true,
+      "visible": true
+    },
+    "drawerOpen": false
+  },
+  "drawerTest": {
+    "clickCoordinates": {
+      "x": 304.59,
+      "y": 57.19
+    },
+    "drawerOpenedSuccessfully": true,
+    "drawerClosedSuccessfully": true
+  },
+  "yearSelectTest": {
+    "clickCoordinates": {
+      "x": 179.59,
+      "y": 57.19
+    },
+    "selectedYear": "2025",
+    "ftcBtnText": "공정위 2025년 등록 (2024년 결산) · 최신 완결 후보"
+  },
+  "categoryScrollTest": {
+    "preScrollMetrics": {
+      "tabsScrollLeft": 0,
+      "tabsScrollWidth": 806,
+      "tabsClientWidth": 374,
+      "filterBarScrollLeft": 0,
+      "filterInnerScrollLeft": 0,
+      "windowScrollX": 0,
+      "sidoLeft": 8,
+      "sigunguLeft": 68.390625,
+      "yearLeft": 145.59375,
+      "ftcLeft": 227.1875
+    },
+    "postScrollMetrics": {
+      "tabsScrollLeft": 140,
+      "tabsScrollWidth": 806,
+      "tabsClientWidth": 374,
+      "filterBarScrollLeft": 0,
+      "filterInnerScrollLeft": 0,
+      "windowScrollX": 0,
+      "scrollWidth": 390,
+      "viewportWidth": 390,
+      "sidoLeft": 8,
+      "sigunguLeft": 68.390625,
+      "yearLeft": 145.59375,
+      "ftcLeft": 227.1875
+    },
+    "categoryScrolledOnly": true,
+    "topControlsStationary": true,
+    "noPageHorizontalOverflow": true
+  }
+}

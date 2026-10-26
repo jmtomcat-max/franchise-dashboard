@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "tested_at": "2026-10-12 16:34:29",
+    "total_cases": 8
+  },
+  "results": [
+    {
+      "name": "전남광주통합특별시 전체 (시도단위)",
+      "divId": "ctprvnCd",
+      "key": "12",
+      "http_status": 200,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 55881,
+      "stdr_ym": "202606",
+      "signgu_cd": "12190",
+      "signgu_nm": "광양시",
+      "ctprvn_nm": "전남광주통합특별시"
+    },
+    {
+      "name": "전남광주통합특별시 서구 (확인코드 12240)",
+      "divId": "signguCd",
+      "key": "12240",
+      "http_status": 200,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 4679,
+      "stdr_ym": "202606",
+      "signgu_cd": "12240",
+      "signgu_nm": "서구",
+      "ctprvn_nm": "전남광주통합특별시"
+    },
+    {
+      "name": "전남광주통합특별시 동구 (확인코드 12210)",
+      "divId": "signguCd",
+      "key": "12210",
+      "http_status": 200,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 2647,
+      "stdr_ym": "202606",
+      "signgu_cd": "12210",
+      "signgu_nm": "동구",
+      "ctprvn_nm": "전남광주통합특별시"
+    },
+    {
+      "name": "전남광주통합특별시 북구 (확인코드 12300)",
+      "divId": "signguCd",
+      "key": "12300",
+      "http_status": 200,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 5755,
+      "stdr_ym": "202606",
+      "signgu_cd": "12300",
+      "signgu_nm": "북구",
+      "ctprvn_nm": "전남광주통합특별시"
+    },
+    {
+      "name": "전남광주통합특별시 광산구 (확인코드 12330)",
+      "divId": "signguCd",
+      "key": "12330",
+      "http_status": 200,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 5861,
+      "stdr_ym": "202606",
+      "signgu_cd": "12330",
+      "signgu_nm": "광산구",
+      "ctprvn_nm": "전남광주통합특별시"
+    },
+    {
+      "name": "전남광주통합특별시 목포시 (확인코드 12110)",
+      "divId": "signguCd",
+      "key": "12110",
+      "http_status": 200,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 4434,
+      "stdr_ym": "202606",
+      "signgu_cd": "12110",
+      "signgu_nm": "목포시",
+      "ctprvn_nm": "전남광주통합특별시"
+    },
+    {
+      "name": "전남광주통합특별시 여수시 (확인코드 12130)",
+      "divId": "signguCd",
+      "key": "12130",
+      "http_status": 200,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 6060,
+      "stdr_ym": "202606",
+      "signgu_cd": "12130",
+      "signgu_nm": "여수시",
+      "ctprvn_nm": "전남광주통합특별시"
+    },
+    {
+      "name": "전남광주통합특별시 순천시 (확인코드 12150)",
+      "divId": "signguCd",
+      "key": "12150",
+      "http_status": 200,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 4932,
+      "stdr_ym": "202606",
+      "signgu_cd": "12150",
+      "signgu_nm": "순천시",
+      "ctprvn_nm": "전남광주통합특별시"
+    }
+  ]
+}

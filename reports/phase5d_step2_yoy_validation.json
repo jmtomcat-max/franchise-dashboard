@@ -1,0 +1,1274 @@
+{
+  "timestamp": "2026-10-19T09:15:38.842Z",
+  "phase": "Phase 5D Step 2",
+  "iteration": 4,
+  "testSuite": "FTC YoY Auxiliary Comparison UI Verification Suite R4",
+  "protectedFileIntegrityPre": [
+    {
+      "file": "collector.py",
+      "sizeBytes": 3780,
+      "sha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+      "expectedSha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+      "mtime": "2026-10-12T03:08:51.120Z",
+      "match": true
+    },
+    {
+      "file": "gangnam_food_stores.sqlite3",
+      "sizeBytes": 15831040,
+      "sha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+      "expectedSha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+      "mtime": "2026-10-12T03:11:28.341Z",
+      "match": true
+    },
+    {
+      "file": "run_gangnam.bat",
+      "sizeBytes": 66,
+      "sha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+      "expectedSha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+      "mtime": "2026-10-12T03:08:51.158Z",
+      "match": true
+    }
+  ],
+  "scenarios": [
+    {
+      "scenarioId": 1,
+      "name": "데스크톱 1440×900 2024→2025 정상 전년비 보조 비교 UI 검증 (한식 CAT_MAJ_01)",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "assertions": {
+        "categoryTabClicked": true,
+        "blockFound": true,
+        "blockInViewport": true,
+        "noInternalClipping": true,
+        "titleMatch": true,
+        "statusBadgeMatch": true,
+        "sampleInfoMatch": true,
+        "cardsCount": 4,
+        "medianDiffAccurate": true,
+        "disclaimersPreserved": true
+      },
+      "clippingDetails": {
+        "found": true,
+        "isBlockInView": true,
+        "blockRect": {
+          "top": 395,
+          "bottom": 733,
+          "height": 338
+        },
+        "cards": [
+          {
+            "label": "중위매출",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "5% 절사평균",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "점포 가중평균 매출",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "가맹점 수",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          }
+        ],
+        "hasAnyClipping": false
+      },
+      "s1Data": {
+        "found": true,
+        "title": "2024년 대비 2025년 전년비 보조 비교",
+        "statusBadge": "최신 완결 후보 · 공식 마감 여부 미확인",
+        "sampleInfo": "표본: 2024년 2,340개사 → 2025년 2,532개사",
+        "cardsCount": 4,
+        "cards": [
+          {
+            "label": "중위매출",
+            "badge": "▲ + 증가",
+            "val24": "'24: 33,061만원",
+            "val25": "'25: 34,720만원",
+            "diffAmt": "+1,659만원",
+            "diffRate": "(+5.0%)",
+            "isBlocked": false,
+            "directionClass": "dir-up"
+          },
+          {
+            "label": "5% 절사평균",
+            "badge": "▲ + 증가",
+            "val24": "'24: 37,171만원",
+            "val25": "'25: 38,282만원",
+            "diffAmt": "+1,111만원",
+            "diffRate": "(+3.0%)",
+            "isBlocked": false,
+            "directionClass": "dir-up"
+          },
+          {
+            "label": "점포 가중평균 매출",
+            "badge": "▲ + 증가",
+            "val24": "'24: 36,039만원",
+            "val25": "'25: 39,945만원",
+            "diffAmt": "+3,905만원",
+            "diffRate": "(+10.8%)",
+            "isBlocked": false,
+            "directionClass": "dir-up"
+          },
+          {
+            "label": "가맹점 수",
+            "badge": "▲ + 증가",
+            "val24": "'24: 41,914개",
+            "val25": "'25: 43,566개",
+            "diffAmt": "+1,652개",
+            "diffRate": "(+3.9%)",
+            "isBlocked": false,
+            "directionClass": "dir-up"
+          }
+        ],
+        "captionLines": [
+          "* 2025년은 최신 완결 후보이며 공정위 공식 행정 마감 여부는 미확인 상태입니다.",
+          "* 2026년 진행형 스냅샷은 본 전년비 비교에서 전수 제외되었으며 전년과 직접 비교가 불가합니다.",
+          "* 공정위 전국 등록 가맹본부 거시 통계이며, 특정 브랜드 및 개별 가맹점의 실제 실적·수익률이 아닙니다."
+        ]
+      },
+      "screenshot": "phase5d_step2_s1_desktop_yoy.png",
+      "pass": true
+    },
+    {
+      "scenarioId": 2,
+      "name": "지표별 4대 방향성(증가/감소/변동 없음/비교 불가) 텍스트 및 부호 실측 검증",
+      "assertions": {
+        "realDecreaseVerified": true,
+        "noChangeCardVerified": true,
+        "blockedCardVerified": true,
+        "upCardVerified": true,
+        "downCardVerified": true,
+        "noRealDecreaseClipping": true,
+        "noVariationClipping": true,
+        "inView2A": true,
+        "inView2B": true
+      },
+      "liveCafeDecreaseData": [
+        {
+          "label": "중위매출",
+          "badge": "▼ - 감소",
+          "val24": "'24: 16,149만원",
+          "val25": "'25: 15,798만원",
+          "diffAmt": "-351만원",
+          "diffRate": "(-2.2%)",
+          "directionClass": "dir-down"
+        },
+        {
+          "label": "5% 절사평균",
+          "badge": "▲ + 증가",
+          "val24": "'24: 17,403만원",
+          "val25": "'25: 17,797만원",
+          "diffAmt": "+394만원",
+          "diffRate": "(+2.3%)",
+          "directionClass": "dir-up"
+        },
+        {
+          "label": "점포 가중평균 매출",
+          "badge": "▲ + 증가",
+          "val24": "'24: 23,310만원",
+          "val25": "'25: 25,075만원",
+          "diffAmt": "+1,765만원",
+          "diffRate": "(+7.6%)",
+          "directionClass": "dir-up"
+        },
+        {
+          "label": "가맹점 수",
+          "badge": "▼ - 감소",
+          "val24": "'24: 32,011개",
+          "val25": "'25: 30,308개",
+          "diffAmt": "-1,703개",
+          "diffRate": "(-5.3%)",
+          "directionClass": "dir-down"
+        }
+      ],
+      "mockVariationCards": [
+        {
+          "label": "중위매출",
+          "badge": "- 변동 없음",
+          "val24": "'24: 30,000만원",
+          "val25": "'25: 30,000만원",
+          "diffAmt": "0만원",
+          "diffRate": "(0.0%)",
+          "isBlocked": false,
+          "directionClass": "dir-same"
+        },
+        {
+          "label": "5% 절사평균",
+          "badge": "비교 불가",
+          "val24": "'24: 0만원",
+          "val25": "'25: 50,000만원",
+          "isBlocked": true,
+          "blockedText": "비교 불가 (기준값 0 이하)",
+          "directionClass": "dir-blocked"
+        },
+        {
+          "label": "점포 가중평균 매출",
+          "badge": "▲ + 증가",
+          "val24": "'24: 40,000만원",
+          "val25": "'25: 45,000만원",
+          "diffAmt": "+5,000만원",
+          "diffRate": "(+12.5%)",
+          "isBlocked": false,
+          "directionClass": "dir-up"
+        },
+        {
+          "label": "가맹점 수",
+          "badge": "▼ - 감소",
+          "val24": "'24: 1,000개",
+          "val25": "'25: 900개",
+          "diffAmt": "-100개",
+          "diffRate": "(-10.0%)",
+          "isBlocked": false,
+          "directionClass": "dir-down"
+        }
+      ],
+      "clipping2A": {
+        "found": true,
+        "isBlockInView": true,
+        "blockRect": {
+          "top": 394,
+          "bottom": 732,
+          "height": 338
+        },
+        "cards": [
+          {
+            "label": "중위매출",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "5% 절사평균",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "점포 가중평균 매출",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "가맹점 수",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          }
+        ],
+        "hasAnyClipping": false
+      },
+      "clipping2B": {
+        "found": true,
+        "isBlockInView": true,
+        "blockRect": {
+          "top": 395,
+          "bottom": 733,
+          "height": 338
+        },
+        "cards": [
+          {
+            "label": "중위매출",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "5% 절사평균",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "점포 가중평균 매출",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "가맹점 수",
+            "width": 177,
+            "height": 91,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          }
+        ],
+        "hasAnyClipping": false
+      },
+      "screenshots": [
+        "phase5d_step2_s2_real_decrease.png",
+        "phase5d_step2_s2_variations.png"
+      ],
+      "pass": true
+    },
+    {
+      "scenarioId": 3,
+      "name": "결손 데이터 주입 시 안전한 안내 배너 표출 검증 (2025 누락 및 빈 시계열)",
+      "assertions": {
+        "missing2025BannerDisplayed": true,
+        "missing2025TextMatch": true,
+        "emptySeriesBannerDisplayed": true,
+        "emptySeriesTextMatch": true
+      },
+      "s3AData": {
+        "blockFound": true,
+        "bannerFound": true,
+        "badgeText": "비교 불가",
+        "noticeText": "2024년 대비 2025년 전년비 보조 비교 불가 (2025년 비교 데이터 누락)"
+      },
+      "s3BData": {
+        "blockFound": true,
+        "bannerFound": true,
+        "badgeText": "비교 불가",
+        "noticeText": "2024년 대비 2025년 전년비 보조 비교 불가 (시계열 데이터 없음)"
+      },
+      "screenshots": [
+        "phase5d_step2_s3_missing_2025_banner.png",
+        "phase5d_step2_s3_empty_series_banner.png"
+      ],
+      "pass": true
+    },
+    {
+      "scenarioId": 4,
+      "name": "8대 외식 업종 전환 시 4개 지표 및 표본 수 입력 기대값 일치성 검증 (id=\"tab-CAT_MAJ_*\" 정밀 셀렉터 및 trends API 대조)",
+      "assertions": {
+        "all8CategoriesClicked": true,
+        "all8TabsActive": true,
+        "all8BlocksFound": true,
+        "all8CardsCount4": true,
+        "all8SampleCountsMatchExpected": true,
+        "all8MetricsMatchExpected": true
+      },
+      "categoriesTested": [
+        {
+          "cid": "CAT_MAJ_01",
+          "isTabActive": true,
+          "expectedSampleInfo": "표본: 2024년 2,340개사 → 2025년 2,532개사",
+          "actualSampleInfo": "표본: 2024년 2,340개사 → 2025년 2,532개사",
+          "sampleMatch": true,
+          "metricsMatch": true,
+          "categoryPassed": true,
+          "metricDetails": [
+            {
+              "id": "median_sales",
+              "label": "중위매출",
+              "expected": {
+                "val24": "'24: 33,061만원",
+                "val25": "'25: 34,720만원",
+                "diffAmt": "+1,659만원",
+                "diffRate": "(+5.0%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 33,061만원",
+                "val25": "'25: 34,720만원",
+                "diffAmt": "+1,659만원",
+                "diffRate": "(+5.0%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "trimmed_mean_5pct",
+              "label": "5% 절사평균",
+              "expected": {
+                "val24": "'24: 37,171만원",
+                "val25": "'25: 38,282만원",
+                "diffAmt": "+1,111만원",
+                "diffRate": "(+3.0%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 37,171만원",
+                "val25": "'25: 38,282만원",
+                "diffAmt": "+1,111만원",
+                "diffRate": "(+3.0%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "store_weighted_avg",
+              "label": "점포 가중평균 매출",
+              "expected": {
+                "val24": "'24: 36,039만원",
+                "val25": "'25: 39,945만원",
+                "diffAmt": "+3,905만원",
+                "diffRate": "(+10.8%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 36,039만원",
+                "val25": "'25: 39,945만원",
+                "diffAmt": "+3,905만원",
+                "diffRate": "(+10.8%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "total_franchise_stores",
+              "label": "가맹점 수",
+              "expected": {
+                "val24": "'24: 41,914개",
+                "val25": "'25: 43,566개",
+                "diffAmt": "+1,652개",
+                "diffRate": "(+3.9%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 41,914개",
+                "val25": "'25: 43,566개",
+                "diffAmt": "+1,652개",
+                "diffRate": "(+3.9%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            }
+          ]
+        },
+        {
+          "cid": "CAT_MAJ_02",
+          "isTabActive": true,
+          "expectedSampleInfo": "표본: 2024년 214개사 → 2025년 203개사",
+          "actualSampleInfo": "표본: 2024년 214개사 → 2025년 203개사",
+          "sampleMatch": true,
+          "metricsMatch": true,
+          "categoryPassed": true,
+          "metricDetails": [
+            {
+              "id": "median_sales",
+              "label": "중위매출",
+              "expected": {
+                "val24": "'24: 36,834만원",
+                "val25": "'25: 40,210만원",
+                "diffAmt": "+3,377만원",
+                "diffRate": "(+9.2%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 36,834만원",
+                "val25": "'25: 40,210만원",
+                "diffAmt": "+3,377만원",
+                "diffRate": "(+9.2%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "trimmed_mean_5pct",
+              "label": "5% 절사평균",
+              "expected": {
+                "val24": "'24: 44,259만원",
+                "val25": "'25: 45,483만원",
+                "diffAmt": "+1,224만원",
+                "diffRate": "(+2.8%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 44,259만원",
+                "val25": "'25: 45,483만원",
+                "diffAmt": "+1,224만원",
+                "diffRate": "(+2.8%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "store_weighted_avg",
+              "label": "점포 가중평균 매출",
+              "expected": {
+                "val24": "'24: 95,331만원",
+                "val25": "'25: 51,353만원",
+                "diffAmt": "-43,978만원",
+                "diffRate": "(-46.1%)",
+                "direction": "감소"
+              },
+              "actual": {
+                "val24": "'24: 95,331만원",
+                "val25": "'25: 51,353만원",
+                "diffAmt": "-43,978만원",
+                "diffRate": "(-46.1%)",
+                "badge": "▼ - 감소"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "total_franchise_stores",
+              "label": "가맹점 수",
+              "expected": {
+                "val24": "'24: 4,174개",
+                "val25": "'25: 4,017개",
+                "diffAmt": "-157개",
+                "diffRate": "(-3.8%)",
+                "direction": "감소"
+              },
+              "actual": {
+                "val24": "'24: 4,174개",
+                "val25": "'25: 4,017개",
+                "diffAmt": "-157개",
+                "diffRate": "(-3.8%)",
+                "badge": "▼ - 감소"
+              },
+              "allMatch": true
+            }
+          ]
+        },
+        {
+          "cid": "CAT_MAJ_03",
+          "isTabActive": true,
+          "expectedSampleInfo": "표본: 2024년 352개사 → 2025년 380개사",
+          "actualSampleInfo": "표본: 2024년 352개사 → 2025년 380개사",
+          "sampleMatch": true,
+          "metricsMatch": true,
+          "categoryPassed": true,
+          "metricDetails": [
+            {
+              "id": "median_sales",
+              "label": "중위매출",
+              "expected": {
+                "val24": "'24: 30,453만원",
+                "val25": "'25: 33,600만원",
+                "diffAmt": "+3,147만원",
+                "diffRate": "(+10.3%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 30,453만원",
+                "val25": "'25: 33,600만원",
+                "diffAmt": "+3,147만원",
+                "diffRate": "(+10.3%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "trimmed_mean_5pct",
+              "label": "5% 절사평균",
+              "expected": {
+                "val24": "'24: 36,825만원",
+                "val25": "'25: 40,173만원",
+                "diffAmt": "+3,347만원",
+                "diffRate": "(+9.1%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 36,825만원",
+                "val25": "'25: 40,173만원",
+                "diffAmt": "+3,347만원",
+                "diffRate": "(+9.1%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "store_weighted_avg",
+              "label": "점포 가중평균 매출",
+              "expected": {
+                "val24": "'24: 47,173만원",
+                "val25": "'25: 53,261만원",
+                "diffAmt": "+6,089만원",
+                "diffRate": "(+12.9%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 47,173만원",
+                "val25": "'25: 53,261만원",
+                "diffAmt": "+6,089만원",
+                "diffRate": "(+12.9%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "total_franchise_stores",
+              "label": "가맹점 수",
+              "expected": {
+                "val24": "'24: 4,661개",
+                "val25": "'25: 4,824개",
+                "diffAmt": "+163개",
+                "diffRate": "(+3.5%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 4,661개",
+                "val25": "'25: 4,824개",
+                "diffAmt": "+163개",
+                "diffRate": "(+3.5%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            }
+          ]
+        },
+        {
+          "cid": "CAT_MAJ_04",
+          "isTabActive": true,
+          "expectedSampleInfo": "표본: 2024년 333개사 → 2025년 344개사",
+          "actualSampleInfo": "표본: 2024년 333개사 → 2025년 344개사",
+          "sampleMatch": true,
+          "metricsMatch": true,
+          "categoryPassed": true,
+          "metricDetails": [
+            {
+              "id": "median_sales",
+              "label": "중위매출",
+              "expected": {
+                "val24": "'24: 29,326만원",
+                "val25": "'25: 31,489만원",
+                "diffAmt": "+2,163만원",
+                "diffRate": "(+7.4%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 29,326만원",
+                "val25": "'25: 31,489만원",
+                "diffAmt": "+2,163만원",
+                "diffRate": "(+7.4%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "trimmed_mean_5pct",
+              "label": "5% 절사평균",
+              "expected": {
+                "val24": "'24: 33,350만원",
+                "val25": "'25: 34,658만원",
+                "diffAmt": "+1,308만원",
+                "diffRate": "(+3.9%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 33,350만원",
+                "val25": "'25: 34,658만원",
+                "diffAmt": "+1,308만원",
+                "diffRate": "(+3.9%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "store_weighted_avg",
+              "label": "점포 가중평균 매출",
+              "expected": {
+                "val24": "'24: 35,313만원",
+                "val25": "'25: 35,451만원",
+                "diffAmt": "+137만원",
+                "diffRate": "(+0.4%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 35,313만원",
+                "val25": "'25: 35,451만원",
+                "diffAmt": "+137만원",
+                "diffRate": "(+0.4%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "total_franchise_stores",
+              "label": "가맹점 수",
+              "expected": {
+                "val24": "'24: 5,473개",
+                "val25": "'25: 5,489개",
+                "diffAmt": "+16개",
+                "diffRate": "(+0.3%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 5,473개",
+                "val25": "'25: 5,489개",
+                "diffAmt": "+16개",
+                "diffRate": "(+0.3%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            }
+          ]
+        },
+        {
+          "cid": "CAT_MAJ_05",
+          "isTabActive": true,
+          "expectedSampleInfo": "표본: 2024년 692개사 → 2025년 649개사",
+          "actualSampleInfo": "표본: 2024년 692개사 → 2025년 649개사",
+          "sampleMatch": true,
+          "metricsMatch": true,
+          "categoryPassed": true,
+          "metricDetails": [
+            {
+              "id": "median_sales",
+              "label": "중위매출",
+              "expected": {
+                "val24": "'24: 19,656만원",
+                "val25": "'25: 20,171만원",
+                "diffAmt": "+515만원",
+                "diffRate": "(+2.6%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 19,656만원",
+                "val25": "'25: 20,171만원",
+                "diffAmt": "+515만원",
+                "diffRate": "(+2.6%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "trimmed_mean_5pct",
+              "label": "5% 절사평균",
+              "expected": {
+                "val24": "'24: 20,925만원",
+                "val25": "'25: 22,862만원",
+                "diffAmt": "+1,936만원",
+                "diffRate": "(+9.3%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 20,925만원",
+                "val25": "'25: 22,862만원",
+                "diffAmt": "+1,936만원",
+                "diffRate": "(+9.3%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "store_weighted_avg",
+              "label": "점포 가중평균 매출",
+              "expected": {
+                "val24": "'24: 33,714만원",
+                "val25": "'25: 35,815만원",
+                "diffAmt": "+2,102만원",
+                "diffRate": "(+6.2%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 33,714만원",
+                "val25": "'25: 35,815만원",
+                "diffAmt": "+2,102만원",
+                "diffRate": "(+6.2%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "total_franchise_stores",
+              "label": "가맹점 수",
+              "expected": {
+                "val24": "'24: 43,304개",
+                "val25": "'25: 41,139개",
+                "diffAmt": "-2,165개",
+                "diffRate": "(-5.0%)",
+                "direction": "감소"
+              },
+              "actual": {
+                "val24": "'24: 43,304개",
+                "val25": "'25: 41,139개",
+                "diffAmt": "-2,165개",
+                "diffRate": "(-5.0%)",
+                "badge": "▼ - 감소"
+              },
+              "allMatch": true
+            }
+          ]
+        },
+        {
+          "cid": "CAT_MAJ_06",
+          "isTabActive": true,
+          "expectedSampleInfo": "표본: 2024년 358개사 → 2025년 341개사",
+          "actualSampleInfo": "표본: 2024년 358개사 → 2025년 341개사",
+          "sampleMatch": true,
+          "metricsMatch": true,
+          "categoryPassed": true,
+          "metricDetails": [
+            {
+              "id": "median_sales",
+              "label": "중위매출",
+              "expected": {
+                "val24": "'24: 20,705만원",
+                "val25": "'25: 21,725만원",
+                "diffAmt": "+1,020만원",
+                "diffRate": "(+4.9%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 20,705만원",
+                "val25": "'25: 21,725만원",
+                "diffAmt": "+1,020만원",
+                "diffRate": "(+4.9%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "trimmed_mean_5pct",
+              "label": "5% 절사평균",
+              "expected": {
+                "val24": "'24: 22,507만원",
+                "val25": "'25: 24,124만원",
+                "diffAmt": "+1,617만원",
+                "diffRate": "(+7.2%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 22,507만원",
+                "val25": "'25: 24,124만원",
+                "diffAmt": "+1,617만원",
+                "diffRate": "(+7.2%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "store_weighted_avg",
+              "label": "점포 가중평균 매출",
+              "expected": {
+                "val24": "'24: 24,794만원",
+                "val25": "'25: 25,443만원",
+                "diffAmt": "+649만원",
+                "diffRate": "(+2.6%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 24,794만원",
+                "val25": "'25: 25,443만원",
+                "diffAmt": "+649만원",
+                "diffRate": "(+2.6%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "total_franchise_stores",
+              "label": "가맹점 수",
+              "expected": {
+                "val24": "'24: 10,990개",
+                "val25": "'25: 11,150개",
+                "diffAmt": "+160개",
+                "diffRate": "(+1.5%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 10,990개",
+                "val25": "'25: 11,150개",
+                "diffAmt": "+160개",
+                "diffRate": "(+1.5%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            }
+          ]
+        },
+        {
+          "cid": "CAT_MAJ_07",
+          "isTabActive": true,
+          "expectedSampleInfo": "표본: 2024년 635개사 → 2025년 654개사",
+          "actualSampleInfo": "표본: 2024년 635개사 → 2025년 654개사",
+          "sampleMatch": true,
+          "metricsMatch": true,
+          "categoryPassed": true,
+          "metricDetails": [
+            {
+              "id": "median_sales",
+              "label": "중위매출",
+              "expected": {
+                "val24": "'24: 16,149만원",
+                "val25": "'25: 15,798만원",
+                "diffAmt": "-351만원",
+                "diffRate": "(-2.2%)",
+                "direction": "감소"
+              },
+              "actual": {
+                "val24": "'24: 16,149만원",
+                "val25": "'25: 15,798만원",
+                "diffAmt": "-351만원",
+                "diffRate": "(-2.2%)",
+                "badge": "▼ - 감소"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "trimmed_mean_5pct",
+              "label": "5% 절사평균",
+              "expected": {
+                "val24": "'24: 17,403만원",
+                "val25": "'25: 17,797만원",
+                "diffAmt": "+394만원",
+                "diffRate": "(+2.3%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 17,403만원",
+                "val25": "'25: 17,797만원",
+                "diffAmt": "+394만원",
+                "diffRate": "(+2.3%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "store_weighted_avg",
+              "label": "점포 가중평균 매출",
+              "expected": {
+                "val24": "'24: 23,310만원",
+                "val25": "'25: 25,075만원",
+                "diffAmt": "+1,765만원",
+                "diffRate": "(+7.6%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 23,310만원",
+                "val25": "'25: 25,075만원",
+                "diffAmt": "+1,765만원",
+                "diffRate": "(+7.6%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "total_franchise_stores",
+              "label": "가맹점 수",
+              "expected": {
+                "val24": "'24: 32,011개",
+                "val25": "'25: 30,308개",
+                "diffAmt": "-1,703개",
+                "diffRate": "(-5.3%)",
+                "direction": "감소"
+              },
+              "actual": {
+                "val24": "'24: 32,011개",
+                "val25": "'25: 30,308개",
+                "diffAmt": "-1,703개",
+                "diffRate": "(-5.3%)",
+                "badge": "▼ - 감소"
+              },
+              "allMatch": true
+            }
+          ]
+        },
+        {
+          "cid": "CAT_MAJ_08",
+          "isTabActive": true,
+          "expectedSampleInfo": "표본: 2024년 246개사 → 2025년 245개사",
+          "actualSampleInfo": "표본: 2024년 246개사 → 2025년 245개사",
+          "sampleMatch": true,
+          "metricsMatch": true,
+          "categoryPassed": true,
+          "metricDetails": [
+            {
+              "id": "median_sales",
+              "label": "중위매출",
+              "expected": {
+                "val24": "'24: 20,009만원",
+                "val25": "'25: 20,006만원",
+                "diffAmt": "-4만원",
+                "diffRate": "(-0.0%)",
+                "direction": "감소"
+              },
+              "actual": {
+                "val24": "'24: 20,009만원",
+                "val25": "'25: 20,006만원",
+                "diffAmt": "-4만원",
+                "diffRate": "(-0.0%)",
+                "badge": "▼ - 감소"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "trimmed_mean_5pct",
+              "label": "5% 절사평균",
+              "expected": {
+                "val24": "'24: 24,215만원",
+                "val25": "'25: 25,672만원",
+                "diffAmt": "+1,457만원",
+                "diffRate": "(+6.0%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 24,215만원",
+                "val25": "'25: 25,672만원",
+                "diffAmt": "+1,457만원",
+                "diffRate": "(+6.0%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "store_weighted_avg",
+              "label": "점포 가중평균 매출",
+              "expected": {
+                "val24": "'24: 35,026만원",
+                "val25": "'25: 38,540만원",
+                "diffAmt": "+3,514만원",
+                "diffRate": "(+10.0%)",
+                "direction": "증가"
+              },
+              "actual": {
+                "val24": "'24: 35,026만원",
+                "val25": "'25: 38,540만원",
+                "diffAmt": "+3,514만원",
+                "diffRate": "(+10.0%)",
+                "badge": "▲ + 증가"
+              },
+              "allMatch": true
+            },
+            {
+              "id": "total_franchise_stores",
+              "label": "가맹점 수",
+              "expected": {
+                "val24": "'24: 11,169개",
+                "val25": "'25: 8,681개",
+                "diffAmt": "-2,488개",
+                "diffRate": "(-22.3%)",
+                "direction": "감소"
+              },
+              "actual": {
+                "val24": "'24: 11,169개",
+                "val25": "'25: 8,681개",
+                "diffAmt": "-2,488개",
+                "diffRate": "(-22.3%)",
+                "badge": "▼ - 감소"
+              },
+              "allMatch": true
+            }
+          ]
+        }
+      ],
+      "screenshot": "phase5d_step2_s4_category_switching.png",
+      "pass": true
+    },
+    {
+      "scenarioId": 5,
+      "name": "데스크톱 1440×900 및 모바일 390×844 문서 가로 오버플로 0 종합 측정",
+      "measurements": {
+        "desktop": {
+          "docScrollWidth": 1440,
+          "bodyScrollWidth": 1440,
+          "viewport": 1440
+        },
+        "mobilePeek": {
+          "docScrollWidth": 390,
+          "bodyScrollWidth": 390,
+          "viewport": 390
+        },
+        "mobileExpanded": {
+          "docScrollWidth": 390,
+          "bodyScrollWidth": 390,
+          "viewport": 390
+        }
+      },
+      "screenshot": "phase5d_step2_s5_mobile_overflow0.png",
+      "pass": true
+    },
+    {
+      "scenarioId": 6,
+      "name": "모바일 390×844 단일 열 세로 배치 및 44px 이상 터치 영역, 내부 잘림 검증",
+      "assertions": {
+        "singleColumnLayout": true,
+        "cardsCount4": true,
+        "touchTargetMin44px": true,
+        "blockInViewport": true,
+        "noInternalClipping": true
+      },
+      "clippingDetails": {
+        "found": true,
+        "isBlockInView": true,
+        "blockRect": {
+          "top": 329,
+          "bottom": 804,
+          "height": 476
+        },
+        "cards": [
+          {
+            "label": "중위매출",
+            "width": 341,
+            "height": 74,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "5% 절사평균",
+            "width": 341,
+            "height": 74,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "점포 가중평균 매출",
+            "width": 341,
+            "height": 74,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          },
+          {
+            "label": "가맹점 수",
+            "width": 341,
+            "height": 74,
+            "isCardClipped": false,
+            "textClipped": false,
+            "hasClipping": false
+          }
+        ],
+        "hasAnyClipping": false
+      },
+      "layout": {
+        "found": true,
+        "gridColumns": "341.438px",
+        "isSingleColumn": true,
+        "cards": [
+          {
+            "label": "중위매출",
+            "width": 341,
+            "height": 74,
+            "meetsTouchTarget": true
+          },
+          {
+            "label": "5% 절사평균",
+            "width": 341,
+            "height": 74,
+            "meetsTouchTarget": true
+          },
+          {
+            "label": "점포 가중평균 매출",
+            "width": 341,
+            "height": 74,
+            "meetsTouchTarget": true
+          },
+          {
+            "label": "가맹점 수",
+            "width": 341,
+            "height": 74,
+            "meetsTouchTarget": true
+          }
+        ]
+      },
+      "screenshot": "phase5d_step2_s6_mobile_touch_targets.png",
+      "pass": true
+    },
+    {
+      "scenarioId": 7,
+      "name": "접기/펼치기, 연도 선택, Escape 단축키 키보드 접근성(Enter/Escape) 및 회귀 검증",
+      "assertions": {
+        "collapseToggleEnterWorks": true,
+        "uncollapseEnterWorks": true,
+        "barChartYearSelectionEnterWorks": true,
+        "escapeKeyClosesDrawer": true
+      },
+      "keyboardDetails": {
+        "collapseFocused": true,
+        "isCollapsed": true,
+        "uncollapseFocused": true,
+        "isUncollapsed": true,
+        "yearBarFocused": true,
+        "selectedYearResult": {
+          "yearText": "2025",
+          "ariaPressed": "true",
+          "isSelected": true
+        },
+        "isDrawerClosed": true
+      },
+      "screenshot": "phase5d_step2_s7_keyboard_interactions.png",
+      "pass": true
+    },
+    {
+      "scenarioId": 8,
+      "name": "보호 파일 3종 무결성(SHA-256) 사후 보존 검증",
+      "files": [
+        {
+          "file": "collector.py",
+          "sizeBytes": 3780,
+          "sha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+          "expectedSha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+          "mtime": "2026-10-12T03:08:51.120Z",
+          "match": true
+        },
+        {
+          "file": "gangnam_food_stores.sqlite3",
+          "sizeBytes": 15831040,
+          "sha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+          "expectedSha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+          "mtime": "2026-10-12T03:11:28.341Z",
+          "match": true
+        },
+        {
+          "file": "run_gangnam.bat",
+          "sizeBytes": 66,
+          "sha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+          "expectedSha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+          "mtime": "2026-10-12T03:08:51.158Z",
+          "match": true
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "protectedFileIntegrityPost": [
+    {
+      "file": "collector.py",
+      "sizeBytes": 3780,
+      "sha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+      "expectedSha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+      "mtime": "2026-10-12T03:08:51.120Z",
+      "match": true
+    },
+    {
+      "file": "gangnam_food_stores.sqlite3",
+      "sizeBytes": 15831040,
+      "sha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+      "expectedSha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+      "mtime": "2026-10-12T03:11:28.341Z",
+      "match": true
+    },
+    {
+      "file": "run_gangnam.bat",
+      "sizeBytes": 66,
+      "sha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+      "expectedSha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+      "mtime": "2026-10-12T03:08:51.158Z",
+      "match": true
+    }
+  ],
+  "overallPass": true
+}

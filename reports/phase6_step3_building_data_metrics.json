@@ -1,0 +1,245 @@
+{
+  "metadata": {
+    "step": "Phase 6 Step 6-3",
+    "title": "3D 건물 데이터 타당성 검증 정량 평가 메트릭",
+    "evaluated_at": "2026-10-20T04:17:31.431Z",
+    "evaluator": "Antigravity Implementation Agent",
+    "reproducible_command": "node scratch/phase6_step3/reproduce_analysis.mjs",
+    "decision_status": "DECISION_FINALIZED_HOLD",
+    "review_status": "CHANGES_REQUESTED_CLOSED",
+    "evidence_status": "PARTIALLY_UNVERIFIED_ASSUMPTIONS",
+    "status_description": "의사결정 완료 / 조사 근거 일부 미검증 (사용자 정책 결정으로 종료, 보고서 전체 PASS 미표시, 국토부 SHP 식별자·라이선스 및 수치는 미검증 가정으로 유지)"
+  },
+  "final_verdict": "HOLD",
+  "verdict_summary": {
+    "candidate_evaluated": "OpenStreetMap 표본 실측 및 Overture Maps Buildings / 국토교통부 검토",
+    "osm_sample_verdict": "REJECT (OSM 3개 표본 실측 결과 92.08% 결측 및 비수도권 점포 88% 미포함)",
+    "overture_verdict": "HOLD (배포 테마 전체 ODbL v1.0 단일 라이선스 적용에 따른 Share-Alike 전염성 위험 및 한국 피처 실제 커버리지 미검증)",
+    "molit_verdict": "HOLD (전국 18.5GB 원시 SHP 전수 다운로드는 불승인되었으며, 원시 SHP 자체의 라이선스 및 데이터 정합성은 다운로드 실측 전까지 미검증 상태. 향후 3개 최소 표본 영역 선행 검증 후 확장 여부 판단)",
+    "recommended_direction": "Step 6-4 건물 레이어 직접 코딩을 배제하고, Phase 6 MVP는 격자+점포 체제로 확정 유지. 국토교통부 데이터는 향후 별도 단계에서 3개 최소 표본(강남/광진/제주)만 선행 검증 추진 (HOLD)",
+    "monthly_cost_breakdown_usd": {
+      "cloudflare_r2_recommended": {
+        "free_tier_status": "Free Tier 완전 포함 (스토리지 10GB/월 및 Class B 요청 1,000만 회/월 무료 한도 이내)",
+        "storage_cost_usd": 0,
+        "egress_transfer_cost_usd": 0,
+        "get_request_cost_usd": 0,
+        "monthly_etl_compute_cost_usd": 2.45,
+        "monthly_total_calculated_usd": 2.45,
+        "monthly_total_range_usd": "$2.45/월 (Free Tier 적용 시 연산비만 발생, 유료 종량제 시 $3.38/월)",
+        "annual_total_calculated_usd": 29.4,
+        "annual_cost_usd": "$29.40/년 (Free Tier 기준, 유료 시 $40 ~ $54/년)"
+      },
+      "aws_s3_standard": {
+        "storage_cost_usd": 0.04,
+        "egress_transfer_cost_usd": 21.25,
+        "get_request_cost_usd": 1,
+        "monthly_etl_compute_cost_usd": 2.45,
+        "monthly_total_calculated_usd": 24.74,
+        "monthly_total_range_usd": "$24.50 ~ $35.00/월",
+        "annual_total_calculated_usd": 296.88,
+        "annual_cost_usd": "$295 ~ $420/년"
+      }
+    },
+    "update_cycle_and_etl_cost": {
+      "upstream_update_frequency": "월간 (매월 말일 국토교통부 GIS건물통합정보 갱신 공시 기준)",
+      "batch_etl_frequency": "월 1회 오프라인 배치",
+      "etl_compute_cost_usd": "AWS c6i.xlarge 스팟 인스턴스(시간당 약 $0.068) 36시간 가동 기준 월 약 $2.45"
+    },
+    "rendering_fps_estimate": {
+      "geometry_model": "뷰포트(1km*1km) 내 건물 400동(22삼각형/동) + 격자 60개(20삼각형) + 점포 200개 = 약 10,400 삼각형, 30,000 vertices",
+      "desktop_high_end": "55 - 60 FPS (RTX 3060 / Apple M1 이상, 이론적 버텍스 모델 기준)",
+      "mobile_and_integrated": "30 - 45 FPS (모바일 브라우저 및 내장 그래픽, 100m 격자 동시 노출 시 z-fighting/부하 주의)",
+      "measurement_status": "성능 미검증 (실제 모바일 기기에서의 100m 격자+건물 동시 렌더링 실측은 차기 타일 로드 단계 필수 조건)"
+    }
+  },
+  "overall_summary_metrics": {
+    "total_sample_buildings": 960,
+    "total_sample_stores": 1193,
+    "weighted_height_levels_missing_pct": 92.08,
+    "weighted_store_contained_pct": 67.48,
+    "weighted_store_within_15m_pct": 75.1,
+    "overall_distance_metrics_meters": {
+      "mean": 19.52,
+      "median": 0,
+      "p90": 83.02
+    }
+  },
+  "sample_measurements": {
+    "gangnam_coex": {
+      "sample_id": "gangnam_coex",
+      "region_id": "REG_SEOUL_GANGNAM_COEX",
+      "name_ko": "서울 강남구 코엑스/삼성동 상권",
+      "bbox": [
+        127.055,
+        37.508,
+        127.062,
+        37.514
+      ],
+      "buildings": {
+        "total_count": 280,
+        "osm_ways_count": 280,
+        "osm_relations_count": 0,
+        "analysis_scope": "전수 수집된 OSM way 건물(960개) 대상 정밀 기하/속성 분석 완료 (relation은 광진구 1건 복합몰로 전체 지표에 미치는 영향 0.1% 미만 확인)",
+        "valid_count": 280,
+        "invalid_count": 0,
+        "duplicate_count": 0,
+        "closed_rings_rate_pct": 100,
+        "positive_area_rate_pct": 100,
+        "simple_polygon_rate_pct": 100,
+        "valid_geometry_rate_pct": 100
+      },
+      "attribute_completeness": {
+        "has_height_count": 31,
+        "has_height_pct": 11.07,
+        "has_levels_count": 39,
+        "has_levels_pct": 13.93,
+        "has_either_count": 39,
+        "has_either_pct": 13.93,
+        "missing_both_count": 241,
+        "missing_both_pct": 86.07
+      },
+      "store_spatial_matching": {
+        "total_stores_in_bbox": 456,
+        "contained_inside_polygon": 415,
+        "contained_inside_pct": 91.01,
+        "within_15m_tolerance": 452,
+        "within_15m_tolerance_pct": 99.12,
+        "outside_tolerance": 4,
+        "outside_tolerance_pct": 0.88,
+        "distance_metrics_meters": {
+          "mean": 0.71,
+          "median": 0,
+          "p90": 0
+        }
+      }
+    },
+    "gwangjin_konkuk": {
+      "sample_id": "gwangjin_konkuk",
+      "region_id": "REG_SEOUL_GWANGJIN_KONKUK",
+      "name_ko": "서울 광진구 건대입구역 맛의거리 상권",
+      "bbox": [
+        127.067,
+        37.538,
+        127.073,
+        37.543
+      ],
+      "buildings": {
+        "total_count": 586,
+        "osm_ways_count": 586,
+        "osm_relations_count": 1,
+        "analysis_scope": "전수 수집된 OSM way 건물(960개) 대상 정밀 기하/속성 분석 완료 (relation은 광진구 1건 복합몰로 전체 지표에 미치는 영향 0.1% 미만 확인)",
+        "valid_count": 586,
+        "invalid_count": 0,
+        "duplicate_count": 0,
+        "closed_rings_rate_pct": 100,
+        "positive_area_rate_pct": 100,
+        "simple_polygon_rate_pct": 100,
+        "valid_geometry_rate_pct": 100
+      },
+      "attribute_completeness": {
+        "has_height_count": 8,
+        "has_height_pct": 1.37,
+        "has_levels_count": 36,
+        "has_levels_pct": 6.14,
+        "has_either_count": 36,
+        "has_either_pct": 6.14,
+        "missing_both_count": 550,
+        "missing_both_pct": 93.86
+      },
+      "store_spatial_matching": {
+        "total_stores_in_bbox": 423,
+        "contained_inside_polygon": 352,
+        "contained_inside_pct": 83.22,
+        "within_15m_tolerance": 397,
+        "within_15m_tolerance_pct": 93.85,
+        "outside_tolerance": 26,
+        "outside_tolerance_pct": 6.15,
+        "distance_metrics_meters": {
+          "mean": 2.52,
+          "median": 0,
+          "p90": 10.16
+        }
+      }
+    },
+    "jeju_yeon_dong": {
+      "sample_id": "jeju_yeon_dong",
+      "region_id": "REG_JEJU_YEON_DONG",
+      "name_ko": "제주 제주시 신제주 연동 상권",
+      "bbox": [
+        126.485,
+        33.487,
+        126.492,
+        33.493
+      ],
+      "buildings": {
+        "total_count": 94,
+        "osm_ways_count": 94,
+        "osm_relations_count": 0,
+        "analysis_scope": "전수 수집된 OSM way 건물(960개) 대상 정밀 기하/속성 분석 완료 (relation은 광진구 1건 복합몰로 전체 지표에 미치는 영향 0.1% 미만 확인)",
+        "valid_count": 94,
+        "invalid_count": 0,
+        "duplicate_count": 0,
+        "closed_rings_rate_pct": 100,
+        "positive_area_rate_pct": 100,
+        "simple_polygon_rate_pct": 100,
+        "valid_geometry_rate_pct": 100
+      },
+      "attribute_completeness": {
+        "has_height_count": 0,
+        "has_height_pct": 0,
+        "has_levels_count": 1,
+        "has_levels_pct": 1.06,
+        "has_either_count": 1,
+        "has_either_pct": 1.06,
+        "missing_both_count": 93,
+        "missing_both_pct": 98.94
+      },
+      "store_spatial_matching": {
+        "total_stores_in_bbox": 314,
+        "contained_inside_polygon": 38,
+        "contained_inside_pct": 12.1,
+        "within_15m_tolerance": 47,
+        "within_15m_tolerance_pct": 14.97,
+        "outside_tolerance": 267,
+        "outside_tolerance_pct": 85.03,
+        "distance_metrics_meters": {
+          "mean": 69.75,
+          "median": 62.6,
+          "p90": 140.01
+        }
+      }
+    }
+  },
+  "data_sources_specification": {
+    "overture_maps": {
+      "provider": "Overture Maps Foundation (Linux Foundation)",
+      "theme": "Buildings",
+      "official_guide_url": "https://docs.overturemaps.org/guides/buildings/",
+      "east_asia_source_reference": "https://zenodo.org/records/8174931 (Global Building Morphology Dataset)",
+      "license": "ODbL v1.0 (배포 테마 전체에 Open Database License 단일 적용)",
+      "korea_coverage_status": "공간정보관리법 제16조 국외반출 규제로 MS 오픈데이터셋 제외, Overture 릴리스 내 한국 피처의 실제 커버리지 및 층수 유효율은 직접 릴리스 다운로드 실측 필요 (미검증)",
+      "relation_building_count_in_samples": {
+        "gangnam_coex": 0,
+        "gwangjin_konkuk": 1,
+        "jeju_yeon_dong": 0
+      }
+    },
+    "molit_building_master": {
+      "official_title": "국가중점데이터 건물통합정보 (국가공간정보센터 파일데이터)",
+      "portal_reference": "국가공간정보포털(nsdi.go.kr) 연속주제도 \"건물통합정보\" (고유식별: LARD_UPIS_MQ_SHP_11 등) 및 공공데이터포털(data.go.kr)",
+      "building_register_api": "공공데이터포털 국토교통부_건축HUB_건축물대장정보 (https://www.data.go.kr/data/15134735/openapi.do, 이용허락범위: 제한 없음)",
+      "license": "연속주제도 원시 SHP: 라이선스 미검증 (확인 전), 건축HUB API: 이용허락범위 제한 없음",
+      "download_approval_status": "전국 18.5GB 원시 SHP 전수 다운로드 불승인 (향후 강남/광진/제주 3개 최소 표본 선행 검증 로드맵 확정)",
+      "update_cycle": "월간 (매월 말일 신규 구축분 반영)",
+      "nationwide_coverage": "전국 739만 동 (2023년 말 기준 국토교통부 공식 통계: 7,391,084동) 전수 포괄",
+      "raw_shp_size": "전국 250개 시군구 합계 약 18.5 GB (시군구당 평균 74 MB 관측치 가정, 불확실성 범위: 16 ~ 22 GB)",
+      "pmtiles_size": "압축 벡터타일 약 1.6 ~ 1.8 GB (gzip 압축률 약 90% 적용)",
+      "etl_time_estimate": "250개 시군구 * 8.5분 = 2,125분 (약 35.4시간 ~ 36시간, 4코어 병렬 시 약 9시간)"
+    },
+    "vworld_3d_api": {
+      "official_title": "브이월드 3D 건물 지도 서비스 (국토교통부 / 공간정보산업진흥원)",
+      "portal_url": "https://www.vworld.kr/dev/v4dv_opapiabout_s001.do",
+      "terms": "일일 20,000건 인증키 쿼터 제한, 원시 3D 데이터 추출/오프라인 호스팅 불가, 공공누리 제1유형"
+    }
+  }
+}

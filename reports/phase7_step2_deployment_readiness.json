@@ -1,0 +1,56 @@
+{
+  "phase": "Phase 7 Step 7-2",
+  "overall_status": "PASS_WITH_DECISIONS_REQUIRED",
+  "recommended_deployment": "single_server_reverse_proxy",
+  "alternative_deployment": "split_static_frontend_and_api_server",
+  "local_production": {
+    "status": "PASS",
+    "frontend_url": "http://127.0.0.1:4173/",
+    "frontend_status_code": 200,
+    "api_url": "http://127.0.0.1:8000/",
+    "api_status_code": 200,
+    "build_artifacts_bytes": {
+      "html": 668,
+      "css": 130111,
+      "javascript": 1046827
+    }
+  },
+  "validation": {
+    "python_version": "3.12.7",
+    "preflight": "PASS",
+    "tests_passed": 82,
+    "tests_expected": 82,
+    "tests_elapsed_seconds": 20.39,
+    "api_smoke_passed": 12,
+    "api_smoke_expected": 12,
+    "api_average_latency_ms": 22.9,
+    "frontend_build": "PASS"
+  },
+  "brand_master": {
+    "size_bytes_before": 200921088,
+    "size_bytes_after": 200921088,
+    "integrity_before": "ok",
+    "integrity_after": "ok",
+    "brands_before": 5063,
+    "brands_after": 5063,
+    "links_before": 735208,
+    "links_after": 735208,
+    "reviews_before": 2,
+    "reviews_after": 2,
+    "unchanged": true
+  },
+  "protected_files": {
+    "collector.py": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+    "gangnam_food_stores.sqlite3": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+    "run_gangnam.bat": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+    "all_matched": true
+  },
+  "risks": {
+    "cors": "HIGH_UNTIL_RESTRICTED",
+    "sqlite_single_host": "ACCEPTED_FOR_MVP",
+    "external_maplibre_css_cdn": "AVAILABILITY_DEPENDENCY",
+    "backup_restore_drill": "REQUIRED_BEFORE_EXTERNAL_DEPLOYMENT",
+    "tls_and_domain": "USER_DECISION_REQUIRED"
+  },
+  "external_changes_performed": false
+}

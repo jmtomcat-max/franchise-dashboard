@@ -1,0 +1,1730 @@
+{
+  "database_info": {
+    "path": "D:\\Franchise_Dashboard\\data\\ftc_macro_statistics_v1.sqlite3",
+    "size_bytes": 31907840,
+    "size_mb": 30.43
+  },
+  "year_execution_summary": {
+    "2023": {
+      "pre_total_count": 6151,
+      "post_total_count": 6151,
+      "total_pages_expected": 62,
+      "total_pages_succeeded": 62,
+      "total_pages_failed_or_retry": 0,
+      "raw_pages_saved": 62,
+      "clean_records_saved": 6151,
+      "last_page_no": 62,
+      "last_page_items": 51,
+      "audit_status": "COMPLETED",
+      "started_at": "2026-10-13 08:49:48",
+      "completed_at": "2026-10-13 08:50:38"
+    },
+    "2024": {
+      "pre_total_count": 6346,
+      "post_total_count": 6346,
+      "total_pages_expected": 64,
+      "total_pages_succeeded": 64,
+      "total_pages_failed_or_retry": 0,
+      "raw_pages_saved": 64,
+      "clean_records_saved": 6346,
+      "last_page_no": 64,
+      "last_page_items": 46,
+      "audit_status": "COMPLETED",
+      "started_at": "2026-10-13 08:50:38",
+      "completed_at": "2026-10-13 08:51:27"
+    },
+    "2025": {
+      "pre_total_count": 6519,
+      "post_total_count": 6519,
+      "total_pages_expected": 66,
+      "total_pages_succeeded": 66,
+      "total_pages_failed_or_retry": 0,
+      "raw_pages_saved": 66,
+      "clean_records_saved": 6519,
+      "last_page_no": 66,
+      "last_page_items": 19,
+      "audit_status": "COMPLETED",
+      "started_at": "2026-10-13 08:51:28",
+      "completed_at": "2026-10-13 08:52:26"
+    },
+    "2026": {
+      "pre_total_count": 4521,
+      "post_total_count": 4521,
+      "total_pages_expected": 46,
+      "total_pages_succeeded": 46,
+      "total_pages_failed_or_retry": 0,
+      "raw_pages_saved": 46,
+      "clean_records_saved": 4521,
+      "last_page_no": 46,
+      "last_page_items": 21,
+      "audit_status": "COMPLETED",
+      "started_at": "2026-10-13 08:52:26",
+      "completed_at": "2026-10-13 08:53:05"
+    }
+  },
+  "candidate_key_audit": {
+    "2023": {
+      "후보 1 (연도+브랜드)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no",
+        "total_records": 6151,
+        "distinct_keys": 6127,
+        "duplicate_keys": 24,
+        "duplicate_records": 48,
+        "is_unique": false
+      },
+      "후보 2 (연도+브랜드+본부)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, als_jnghq_mng_no",
+        "total_records": 6151,
+        "distinct_keys": 6151,
+        "duplicate_keys": 0,
+        "duplicate_records": 0,
+        "is_unique": true
+      },
+      "후보 3 (연도+브랜드+업종)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, tpbiz_mclsf_nm",
+        "total_records": 6151,
+        "distinct_keys": 6128,
+        "duplicate_keys": 23,
+        "duplicate_records": 46,
+        "is_unique": false
+      },
+      "후보 4 (연도+브랜드+본부+업종)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, als_jnghq_mng_no, tpbiz_mclsf_nm",
+        "total_records": 6151,
+        "distinct_keys": 6151,
+        "duplicate_keys": 0,
+        "duplicate_records": 0,
+        "is_unique": true
+      }
+    },
+    "2024": {
+      "후보 1 (연도+브랜드)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no",
+        "total_records": 6346,
+        "distinct_keys": 6322,
+        "duplicate_keys": 24,
+        "duplicate_records": 48,
+        "is_unique": false
+      },
+      "후보 2 (연도+브랜드+본부)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, als_jnghq_mng_no",
+        "total_records": 6346,
+        "distinct_keys": 6346,
+        "duplicate_keys": 0,
+        "duplicate_records": 0,
+        "is_unique": true
+      },
+      "후보 3 (연도+브랜드+업종)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, tpbiz_mclsf_nm",
+        "total_records": 6346,
+        "distinct_keys": 6322,
+        "duplicate_keys": 24,
+        "duplicate_records": 48,
+        "is_unique": false
+      },
+      "후보 4 (연도+브랜드+본부+업종)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, als_jnghq_mng_no, tpbiz_mclsf_nm",
+        "total_records": 6346,
+        "distinct_keys": 6346,
+        "duplicate_keys": 0,
+        "duplicate_records": 0,
+        "is_unique": true
+      }
+    },
+    "2025": {
+      "후보 1 (연도+브랜드)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no",
+        "total_records": 6519,
+        "distinct_keys": 6518,
+        "duplicate_keys": 1,
+        "duplicate_records": 2,
+        "is_unique": false
+      },
+      "후보 2 (연도+브랜드+본부)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, als_jnghq_mng_no",
+        "total_records": 6519,
+        "distinct_keys": 6519,
+        "duplicate_keys": 0,
+        "duplicate_records": 0,
+        "is_unique": true
+      },
+      "후보 3 (연도+브랜드+업종)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, tpbiz_mclsf_nm",
+        "total_records": 6519,
+        "distinct_keys": 6518,
+        "duplicate_keys": 1,
+        "duplicate_records": 2,
+        "is_unique": false
+      },
+      "후보 4 (연도+브랜드+본부+업종)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, als_jnghq_mng_no, tpbiz_mclsf_nm",
+        "total_records": 6519,
+        "distinct_keys": 6519,
+        "duplicate_keys": 0,
+        "duplicate_records": 0,
+        "is_unique": true
+      }
+    },
+    "2026": {
+      "후보 1 (연도+브랜드)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no",
+        "total_records": 4521,
+        "distinct_keys": 4515,
+        "duplicate_keys": 6,
+        "duplicate_records": 12,
+        "is_unique": false
+      },
+      "후보 2 (연도+브랜드+본부)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, als_jnghq_mng_no",
+        "total_records": 4521,
+        "distinct_keys": 4521,
+        "duplicate_keys": 0,
+        "duplicate_records": 0,
+        "is_unique": true
+      },
+      "후보 3 (연도+브랜드+업종)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, tpbiz_mclsf_nm",
+        "total_records": 4521,
+        "distinct_keys": 4515,
+        "duplicate_keys": 6,
+        "duplicate_records": 12,
+        "is_unique": false
+      },
+      "후보 4 (연도+브랜드+본부+업종)": {
+        "fields": "jng_biz_crtr_yr, als_brand_mng_no, als_jnghq_mng_no, tpbiz_mclsf_nm",
+        "total_records": 4521,
+        "distinct_keys": 4521,
+        "duplicate_keys": 0,
+        "duplicate_records": 0,
+        "is_unique": true
+      }
+    }
+  },
+  "fingerprint_audit": {
+    "2023": {
+      "total_records": 6151,
+      "distinct_fingerprints": 6151,
+      "duplicate_fingerprints": 0,
+      "is_unique": true
+    },
+    "2024": {
+      "total_records": 6346,
+      "distinct_fingerprints": 6346,
+      "duplicate_fingerprints": 0,
+      "is_unique": true
+    },
+    "2025": {
+      "total_records": 6519,
+      "distinct_fingerprints": 6519,
+      "duplicate_fingerprints": 0,
+      "is_unique": true
+    },
+    "2026": {
+      "total_records": 4521,
+      "distinct_fingerprints": 4521,
+      "duplicate_fingerprints": 0,
+      "is_unique": true
+    }
+  },
+  "field_quality_audit": {
+    "2023": {
+      "total_records": 6151,
+      "null_brand_id": 0,
+      "null_hq_id": 0,
+      "null_tpbiz": 0,
+      "negative_frcs_cnt": 0,
+      "negative_dms_cnt": 0,
+      "null_avg_sls_amt": 292,
+      "negative_avg_sls_amt": 0,
+      "zero_avg_sls_amt": 2354,
+      "valid_positive_sls_amt": 3505,
+      "min_avg_sls_amt": 0.0,
+      "max_avg_sls_amt": 6654152.0
+    },
+    "2024": {
+      "total_records": 6346,
+      "null_brand_id": 0,
+      "null_hq_id": 0,
+      "null_tpbiz": 0,
+      "negative_frcs_cnt": 0,
+      "negative_dms_cnt": 0,
+      "null_avg_sls_amt": 275,
+      "negative_avg_sls_amt": 0,
+      "zero_avg_sls_amt": 2127,
+      "valid_positive_sls_amt": 3944,
+      "min_avg_sls_amt": 0.0,
+      "max_avg_sls_amt": 629689648.0
+    },
+    "2025": {
+      "total_records": 6519,
+      "null_brand_id": 0,
+      "null_hq_id": 0,
+      "null_tpbiz": 0,
+      "negative_frcs_cnt": 0,
+      "negative_dms_cnt": 0,
+      "null_avg_sls_amt": 172,
+      "negative_avg_sls_amt": 0,
+      "zero_avg_sls_amt": 2157,
+      "valid_positive_sls_amt": 4190,
+      "min_avg_sls_amt": 0.0,
+      "max_avg_sls_amt": 41174356.0
+    },
+    "2026": {
+      "total_records": 4521,
+      "null_brand_id": 0,
+      "null_hq_id": 0,
+      "null_tpbiz": 0,
+      "negative_frcs_cnt": 0,
+      "negative_dms_cnt": 0,
+      "null_avg_sls_amt": 147,
+      "negative_avg_sls_amt": 0,
+      "zero_avg_sls_amt": 1299,
+      "valid_positive_sls_amt": 3075,
+      "min_avg_sls_amt": 0.0,
+      "max_avg_sls_amt": 6026517.0
+    }
+  },
+  "startup_cost_audit": {
+    "2023": {
+      "total_records": 6151,
+      "exact_matches": 5874,
+      "mismatches": 269,
+      "null_diffs": 8,
+      "match_rate_pct": 95.62,
+      "min_diff": -99000.0,
+      "max_diff": 119230.0,
+      "is_empirically_verified": false
+    },
+    "2024": {
+      "total_records": 6346,
+      "exact_matches": 6095,
+      "mismatches": 247,
+      "null_diffs": 4,
+      "match_rate_pct": 96.11,
+      "min_diff": -118800.0,
+      "max_diff": 127800.0,
+      "is_empirically_verified": false
+    },
+    "2025": {
+      "total_records": 6519,
+      "exact_matches": 6314,
+      "mismatches": 203,
+      "null_diffs": 2,
+      "match_rate_pct": 96.89,
+      "min_diff": -99000.0,
+      "max_diff": 265500.0,
+      "is_empirically_verified": false
+    },
+    "2026": {
+      "total_records": 4521,
+      "exact_matches": 4392,
+      "mismatches": 126,
+      "null_diffs": 3,
+      "match_rate_pct": 97.21,
+      "min_diff": -300000.0,
+      "max_diff": 70500.0,
+      "is_empirically_verified": false
+    }
+  },
+  "tpbiz_distribution": {
+    "2023": [
+      {
+        "tpbiz": "한식",
+        "records": 2148,
+        "franchise_stores": 37977,
+        "pct": 34.92
+      },
+      {
+        "tpbiz": "기타 외식",
+        "records": 916,
+        "franchise_stores": 20335,
+        "pct": 14.89
+      },
+      {
+        "tpbiz": "커피",
+        "records": 573,
+        "franchise_stores": 25521,
+        "pct": 9.32
+      },
+      {
+        "tpbiz": "치킨",
+        "records": 412,
+        "franchise_stores": 29220,
+        "pct": 6.7
+      },
+      {
+        "tpbiz": "분식",
+        "records": 373,
+        "franchise_stores": 12357,
+        "pct": 6.06
+      },
+      {
+        "tpbiz": "일식",
+        "records": 337,
+        "franchise_stores": 3880,
+        "pct": 5.48
+      },
+      {
+        "tpbiz": "주점",
+        "records": 308,
+        "franchise_stores": 8989,
+        "pct": 5.01
+      },
+      {
+        "tpbiz": "중식",
+        "records": 204,
+        "franchise_stores": 3469,
+        "pct": 3.32
+      },
+      {
+        "tpbiz": "제과제빵",
+        "records": 192,
+        "franchise_stores": 8649,
+        "pct": 3.12
+      },
+      {
+        "tpbiz": "서양식",
+        "records": 173,
+        "franchise_stores": 2712,
+        "pct": 2.81
+      },
+      {
+        "tpbiz": "피자",
+        "records": 161,
+        "franchise_stores": 8267,
+        "pct": 2.62
+      },
+      {
+        "tpbiz": "기타 외국식",
+        "records": 147,
+        "franchise_stores": 1814,
+        "pct": 2.39
+      },
+      {
+        "tpbiz": "패스트푸드",
+        "records": 99,
+        "franchise_stores": 4757,
+        "pct": 1.61
+      },
+      {
+        "tpbiz": "음료 (커피 외)",
+        "records": 69,
+        "franchise_stores": 2596,
+        "pct": 1.12
+      },
+      {
+        "tpbiz": "아이스크림/빙수",
+        "records": 39,
+        "franchise_stores": 1060,
+        "pct": 0.63
+      }
+    ],
+    "2024": [
+      {
+        "tpbiz": "한식",
+        "records": 2340,
+        "franchise_stores": 41914,
+        "pct": 36.87
+      },
+      {
+        "tpbiz": "기타 외식",
+        "records": 844,
+        "franchise_stores": 19059,
+        "pct": 13.3
+      },
+      {
+        "tpbiz": "커피",
+        "records": 571,
+        "franchise_stores": 29539,
+        "pct": 9.0
+      },
+      {
+        "tpbiz": "치킨",
+        "records": 436,
+        "franchise_stores": 29843,
+        "pct": 6.87
+      },
+      {
+        "tpbiz": "분식",
+        "records": 358,
+        "franchise_stores": 10990,
+        "pct": 5.64
+      },
+      {
+        "tpbiz": "일식",
+        "records": 352,
+        "franchise_stores": 4661,
+        "pct": 5.55
+      },
+      {
+        "tpbiz": "주점",
+        "records": 332,
+        "franchise_stores": 9612,
+        "pct": 5.23
+      },
+      {
+        "tpbiz": "중식",
+        "records": 214,
+        "franchise_stores": 4174,
+        "pct": 3.37
+      },
+      {
+        "tpbiz": "제과제빵",
+        "records": 202,
+        "franchise_stores": 8941,
+        "pct": 3.18
+      },
+      {
+        "tpbiz": "서양식",
+        "records": 181,
+        "franchise_stores": 2941,
+        "pct": 2.85
+      },
+      {
+        "tpbiz": "피자",
+        "records": 157,
+        "franchise_stores": 7896,
+        "pct": 2.47
+      },
+      {
+        "tpbiz": "기타 외국식",
+        "records": 152,
+        "franchise_stores": 2532,
+        "pct": 2.4
+      },
+      {
+        "tpbiz": "패스트푸드",
+        "records": 99,
+        "franchise_stores": 5565,
+        "pct": 1.56
+      },
+      {
+        "tpbiz": "음료 (커피 외)",
+        "records": 64,
+        "franchise_stores": 2472,
+        "pct": 1.01
+      },
+      {
+        "tpbiz": "아이스크림/빙수",
+        "records": 44,
+        "franchise_stores": 2228,
+        "pct": 0.69
+      }
+    ],
+    "2025": [
+      {
+        "tpbiz": "한식",
+        "records": 2532,
+        "franchise_stores": 43566,
+        "pct": 38.84
+      },
+      {
+        "tpbiz": "기타 외식",
+        "records": 826,
+        "franchise_stores": 18147,
+        "pct": 12.67
+      },
+      {
+        "tpbiz": "커피",
+        "records": 594,
+        "franchise_stores": 28352,
+        "pct": 9.11
+      },
+      {
+        "tpbiz": "치킨",
+        "records": 399,
+        "franchise_stores": 28591,
+        "pct": 6.12
+      },
+      {
+        "tpbiz": "일식",
+        "records": 380,
+        "franchise_stores": 4824,
+        "pct": 5.83
+      },
+      {
+        "tpbiz": "주점",
+        "records": 345,
+        "franchise_stores": 9735,
+        "pct": 5.29
+      },
+      {
+        "tpbiz": "분식",
+        "records": 341,
+        "franchise_stores": 11150,
+        "pct": 5.23
+      },
+      {
+        "tpbiz": "중식",
+        "records": 203,
+        "franchise_stores": 4017,
+        "pct": 3.11
+      },
+      {
+        "tpbiz": "제과제빵",
+        "records": 197,
+        "franchise_stores": 5263,
+        "pct": 3.02
+      },
+      {
+        "tpbiz": "서양식",
+        "records": 183,
+        "franchise_stores": 3222,
+        "pct": 2.81
+      },
+      {
+        "tpbiz": "기타 외국식",
+        "records": 161,
+        "franchise_stores": 2267,
+        "pct": 2.47
+      },
+      {
+        "tpbiz": "피자",
+        "records": 154,
+        "franchise_stores": 7017,
+        "pct": 2.36
+      },
+      {
+        "tpbiz": "패스트푸드",
+        "records": 96,
+        "franchise_stores": 5531,
+        "pct": 1.47
+      },
+      {
+        "tpbiz": "음료 (커피 외)",
+        "records": 60,
+        "franchise_stores": 1956,
+        "pct": 0.92
+      },
+      {
+        "tpbiz": "아이스크림/빙수",
+        "records": 48,
+        "franchise_stores": 3418,
+        "pct": 0.74
+      }
+    ],
+    "2026": [
+      {
+        "tpbiz": "한식",
+        "records": 1858,
+        "franchise_stores": 29557,
+        "pct": 41.1
+      },
+      {
+        "tpbiz": "기타 외식",
+        "records": 520,
+        "franchise_stores": 10396,
+        "pct": 11.5
+      },
+      {
+        "tpbiz": "커피",
+        "records": 403,
+        "franchise_stores": 12192,
+        "pct": 8.91
+      },
+      {
+        "tpbiz": "치킨",
+        "records": 274,
+        "franchise_stores": 14637,
+        "pct": 6.06
+      },
+      {
+        "tpbiz": "일식",
+        "records": 258,
+        "franchise_stores": 3317,
+        "pct": 5.71
+      },
+      {
+        "tpbiz": "주점",
+        "records": 242,
+        "franchise_stores": 4863,
+        "pct": 5.35
+      },
+      {
+        "tpbiz": "분식",
+        "records": 220,
+        "franchise_stores": 7179,
+        "pct": 4.87
+      },
+      {
+        "tpbiz": "중식",
+        "records": 143,
+        "franchise_stores": 1791,
+        "pct": 3.16
+      },
+      {
+        "tpbiz": "제과제빵",
+        "records": 142,
+        "franchise_stores": 2332,
+        "pct": 3.14
+      },
+      {
+        "tpbiz": "서양식",
+        "records": 119,
+        "franchise_stores": 1316,
+        "pct": 2.63
+      },
+      {
+        "tpbiz": "피자",
+        "records": 117,
+        "franchise_stores": 4143,
+        "pct": 2.59
+      },
+      {
+        "tpbiz": "기타 외국식",
+        "records": 102,
+        "franchise_stores": 1340,
+        "pct": 2.26
+      },
+      {
+        "tpbiz": "패스트푸드",
+        "records": 59,
+        "franchise_stores": 2635,
+        "pct": 1.31
+      },
+      {
+        "tpbiz": "음료 (커피 외)",
+        "records": 35,
+        "franchise_stores": 1481,
+        "pct": 0.77
+      },
+      {
+        "tpbiz": "아이스크림/빙수",
+        "records": 29,
+        "franchise_stores": 448,
+        "pct": 0.64
+      }
+    ]
+  },
+  "rgn_distribution": {
+    "2023": [
+      {
+        "region": "서울",
+        "records": 2044,
+        "pct": 33.23
+      },
+      {
+        "region": "경기",
+        "records": 1624,
+        "pct": 26.4
+      },
+      {
+        "region": "부산",
+        "records": 443,
+        "pct": 7.2
+      },
+      {
+        "region": "대구",
+        "records": 413,
+        "pct": 6.71
+      },
+      {
+        "region": "인천",
+        "records": 295,
+        "pct": 4.8
+      },
+      {
+        "region": "경남",
+        "records": 193,
+        "pct": 3.14
+      },
+      {
+        "region": "경북",
+        "records": 170,
+        "pct": 2.76
+      },
+      {
+        "region": "대전",
+        "records": 156,
+        "pct": 2.54
+      },
+      {
+        "region": "충북",
+        "records": 142,
+        "pct": 2.31
+      },
+      {
+        "region": "충남",
+        "records": 142,
+        "pct": 2.31
+      },
+      {
+        "region": "광주",
+        "records": 141,
+        "pct": 2.29
+      },
+      {
+        "region": "전북",
+        "records": 134,
+        "pct": 2.18
+      },
+      {
+        "region": "울산",
+        "records": 82,
+        "pct": 1.33
+      },
+      {
+        "region": "강원",
+        "records": 68,
+        "pct": 1.11
+      },
+      {
+        "region": "전남",
+        "records": 40,
+        "pct": 0.65
+      },
+      {
+        "region": "제주",
+        "records": 36,
+        "pct": 0.59
+      },
+      {
+        "region": "세종",
+        "records": 28,
+        "pct": 0.46
+      }
+    ],
+    "2024": [
+      {
+        "region": "서울",
+        "records": 2055,
+        "pct": 32.38
+      },
+      {
+        "region": "경기",
+        "records": 1644,
+        "pct": 25.91
+      },
+      {
+        "region": "부산",
+        "records": 455,
+        "pct": 7.17
+      },
+      {
+        "region": "대구",
+        "records": 415,
+        "pct": 6.54
+      },
+      {
+        "region": "인천",
+        "records": 390,
+        "pct": 6.15
+      },
+      {
+        "region": "경남",
+        "records": 182,
+        "pct": 2.87
+      },
+      {
+        "region": "충북",
+        "records": 177,
+        "pct": 2.79
+      },
+      {
+        "region": "경북",
+        "records": 175,
+        "pct": 2.76
+      },
+      {
+        "region": "대전",
+        "records": 166,
+        "pct": 2.62
+      },
+      {
+        "region": "충남",
+        "records": 152,
+        "pct": 2.4
+      },
+      {
+        "region": "전북",
+        "records": 138,
+        "pct": 2.17
+      },
+      {
+        "region": "광주",
+        "records": 137,
+        "pct": 2.16
+      },
+      {
+        "region": "울산",
+        "records": 82,
+        "pct": 1.29
+      },
+      {
+        "region": "강원",
+        "records": 67,
+        "pct": 1.06
+      },
+      {
+        "region": "전남",
+        "records": 46,
+        "pct": 0.72
+      },
+      {
+        "region": "제주",
+        "records": 40,
+        "pct": 0.63
+      },
+      {
+        "region": "세종",
+        "records": 25,
+        "pct": 0.39
+      }
+    ],
+    "2025": [
+      {
+        "region": "서울",
+        "records": 2020,
+        "pct": 30.99
+      },
+      {
+        "region": "경기",
+        "records": 1731,
+        "pct": 26.55
+      },
+      {
+        "region": "대구",
+        "records": 471,
+        "pct": 7.23
+      },
+      {
+        "region": "부산",
+        "records": 469,
+        "pct": 7.19
+      },
+      {
+        "region": "인천",
+        "records": 379,
+        "pct": 5.81
+      },
+      {
+        "region": "경남",
+        "records": 208,
+        "pct": 3.19
+      },
+      {
+        "region": "경북",
+        "records": 176,
+        "pct": 2.7
+      },
+      {
+        "region": "충북",
+        "records": 172,
+        "pct": 2.64
+      },
+      {
+        "region": "충남",
+        "records": 170,
+        "pct": 2.61
+      },
+      {
+        "region": "대전",
+        "records": 159,
+        "pct": 2.44
+      },
+      {
+        "region": "전북",
+        "records": 149,
+        "pct": 2.29
+      },
+      {
+        "region": "광주",
+        "records": 139,
+        "pct": 2.13
+      },
+      {
+        "region": "울산",
+        "records": 97,
+        "pct": 1.49
+      },
+      {
+        "region": "전남",
+        "records": 60,
+        "pct": 0.92
+      },
+      {
+        "region": "강원",
+        "records": 58,
+        "pct": 0.89
+      },
+      {
+        "region": "제주",
+        "records": 38,
+        "pct": 0.58
+      },
+      {
+        "region": "세종",
+        "records": 23,
+        "pct": 0.35
+      }
+    ],
+    "2026": [
+      {
+        "region": "경기",
+        "records": 1227,
+        "pct": 27.14
+      },
+      {
+        "region": "서울",
+        "records": 1075,
+        "pct": 23.78
+      },
+      {
+        "region": "대구",
+        "records": 390,
+        "pct": 8.63
+      },
+      {
+        "region": "부산",
+        "records": 377,
+        "pct": 8.34
+      },
+      {
+        "region": "인천",
+        "records": 193,
+        "pct": 4.27
+      },
+      {
+        "region": "경남",
+        "records": 189,
+        "pct": 4.18
+      },
+      {
+        "region": "전북",
+        "records": 150,
+        "pct": 3.32
+      },
+      {
+        "region": "충북",
+        "records": 147,
+        "pct": 3.25
+      },
+      {
+        "region": "경북",
+        "records": 145,
+        "pct": 3.21
+      },
+      {
+        "region": "충남",
+        "records": 139,
+        "pct": 3.07
+      },
+      {
+        "region": "대전",
+        "records": 132,
+        "pct": 2.92
+      },
+      {
+        "region": "광주",
+        "records": 102,
+        "pct": 2.26
+      },
+      {
+        "region": "울산",
+        "records": 81,
+        "pct": 1.79
+      },
+      {
+        "region": "전남",
+        "records": 60,
+        "pct": 1.33
+      },
+      {
+        "region": "강원",
+        "records": 55,
+        "pct": 1.22
+      },
+      {
+        "region": "제주",
+        "records": 36,
+        "pct": 0.8
+      },
+      {
+        "region": "세종",
+        "records": 23,
+        "pct": 0.51
+      }
+    ]
+  },
+  "id_stability_audit": {
+    "2023->2024": {
+      "prior_year": "2023",
+      "current_year": "2024",
+      "prior_total": 6127,
+      "current_total": 6322,
+      "common_surviving": 4990,
+      "persistence_rate_pct": 81.44,
+      "new_entries": 1332,
+      "exits": 1137,
+      "reappearing": 0,
+      "hq_changed": 374,
+      "hq_change_rate_pct": 7.49
+    },
+    "2024->2025": {
+      "prior_year": "2024",
+      "current_year": "2025",
+      "prior_total": 6322,
+      "current_total": 6518,
+      "common_surviving": 5252,
+      "persistence_rate_pct": 83.07,
+      "new_entries": 1266,
+      "exits": 1070,
+      "reappearing": 160,
+      "hq_changed": 5252,
+      "hq_change_rate_pct": 100.0
+    },
+    "2025->2026": {
+      "prior_year": "2025",
+      "current_year": "2026",
+      "prior_total": 6518,
+      "current_total": 4515,
+      "common_surviving": 3753,
+      "persistence_rate_pct": 57.58,
+      "new_entries": 762,
+      "exits": 2765,
+      "reappearing": 114,
+      "hq_changed": 161,
+      "hq_change_rate_pct": 4.29
+    },
+    "2023->2026 (4-Year Panel)": {
+      "prior_year": "2023",
+      "current_year": "2026",
+      "prior_total": 6127,
+      "current_total": 4515,
+      "common_surviving": 2692,
+      "persistence_rate_pct": 43.94,
+      "new_entries": 1823,
+      "exits": 3435,
+      "reappearing": 0,
+      "hq_changed": 2691,
+      "hq_change_rate_pct": 99.96
+    },
+    "balanced_4_year_panel": {
+      "surviving_all_4_years": 2504,
+      "pct_of_2023_cohort": 40.87,
+      "pct_of_2026_cohort": 55.46
+    }
+  },
+  "industry_macro_summary": {
+    "2023": [
+      {
+        "tpbiz": "기타 외국식",
+        "records": 147,
+        "frcs_cnt": 1814,
+        "brand_simple_avg_sls": 392605.12,
+        "store_weighted_avg_sls": 304775.18,
+        "median_sls": 306199.0,
+        "valid_sls_count": 80,
+        "denom_weighted_sls": 1696
+      },
+      {
+        "tpbiz": "기타 외식",
+        "records": 916,
+        "frcs_cnt": 20335,
+        "brand_simple_avg_sls": 304014.76,
+        "store_weighted_avg_sls": 310219.98,
+        "median_sls": 244634.0,
+        "valid_sls_count": 586,
+        "denom_weighted_sls": 19191
+      },
+      {
+        "tpbiz": "분식",
+        "records": 373,
+        "frcs_cnt": 12357,
+        "brand_simple_avg_sls": 218343.15,
+        "store_weighted_avg_sls": 236601.82,
+        "median_sls": 184033.0,
+        "valid_sls_count": 236,
+        "denom_weighted_sls": 11291
+      },
+      {
+        "tpbiz": "서양식",
+        "records": 173,
+        "frcs_cnt": 2712,
+        "brand_simple_avg_sls": 358604.34,
+        "store_weighted_avg_sls": 350645.13,
+        "median_sls": 265813.0,
+        "valid_sls_count": 99,
+        "denom_weighted_sls": 2404
+      },
+      {
+        "tpbiz": "아이스크림/빙수",
+        "records": 39,
+        "frcs_cnt": 1060,
+        "brand_simple_avg_sls": 168579.44,
+        "store_weighted_avg_sls": 310683.79,
+        "median_sls": 142376.0,
+        "valid_sls_count": 18,
+        "denom_weighted_sls": 946
+      },
+      {
+        "tpbiz": "음료 (커피 외)",
+        "records": 69,
+        "frcs_cnt": 2596,
+        "brand_simple_avg_sls": 165338.85,
+        "store_weighted_avg_sls": 194320.97,
+        "median_sls": 143333.0,
+        "valid_sls_count": 41,
+        "denom_weighted_sls": 2487
+      },
+      {
+        "tpbiz": "일식",
+        "records": 337,
+        "frcs_cnt": 3880,
+        "brand_simple_avg_sls": 431916.86,
+        "store_weighted_avg_sls": 432232.52,
+        "median_sls": 312778.0,
+        "valid_sls_count": 173,
+        "denom_weighted_sls": 3492
+      },
+      {
+        "tpbiz": "제과제빵",
+        "records": 192,
+        "frcs_cnt": 8649,
+        "brand_simple_avg_sls": 296840.65,
+        "store_weighted_avg_sls": 497381.34,
+        "median_sls": 186264.0,
+        "valid_sls_count": 105,
+        "denom_weighted_sls": 8535
+      },
+      {
+        "tpbiz": "주점",
+        "records": 308,
+        "frcs_cnt": 8989,
+        "brand_simple_avg_sls": 351523.6,
+        "store_weighted_avg_sls": 305004.65,
+        "median_sls": 294000.0,
+        "valid_sls_count": 173,
+        "denom_weighted_sls": 8320
+      },
+      {
+        "tpbiz": "중식",
+        "records": 204,
+        "frcs_cnt": 3469,
+        "brand_simple_avg_sls": 503124.5,
+        "store_weighted_avg_sls": 477910.19,
+        "median_sls": 383068.0,
+        "valid_sls_count": 110,
+        "denom_weighted_sls": 3154
+      },
+      {
+        "tpbiz": "치킨",
+        "records": 412,
+        "frcs_cnt": 29220,
+        "brand_simple_avg_sls": 189804.99,
+        "store_weighted_avg_sls": 299086.23,
+        "median_sls": 155192.0,
+        "valid_sls_count": 280,
+        "denom_weighted_sls": 28459
+      },
+      {
+        "tpbiz": "커피",
+        "records": 573,
+        "frcs_cnt": 25521,
+        "brand_simple_avg_sls": 178335.22,
+        "store_weighted_avg_sls": 224214.21,
+        "median_sls": 151691.0,
+        "valid_sls_count": 311,
+        "denom_weighted_sls": 24954
+      },
+      {
+        "tpbiz": "패스트푸드",
+        "records": 99,
+        "frcs_cnt": 4757,
+        "brand_simple_avg_sls": 292097.47,
+        "store_weighted_avg_sls": 561901.46,
+        "median_sls": 195783.0,
+        "valid_sls_count": 55,
+        "denom_weighted_sls": 4479
+      },
+      {
+        "tpbiz": "피자",
+        "records": 161,
+        "frcs_cnt": 8267,
+        "brand_simple_avg_sls": 253645.7,
+        "store_weighted_avg_sls": 285436.04,
+        "median_sls": 208620.0,
+        "valid_sls_count": 117,
+        "denom_weighted_sls": 8013
+      },
+      {
+        "tpbiz": "한식",
+        "records": 2148,
+        "frcs_cnt": 37977,
+        "brand_simple_avg_sls": 375513.78,
+        "store_weighted_avg_sls": 324602.19,
+        "median_sls": 298016.0,
+        "valid_sls_count": 1121,
+        "denom_weighted_sls": 34406
+      }
+    ],
+    "2024": [
+      {
+        "tpbiz": "기타 외국식",
+        "records": 152,
+        "frcs_cnt": 2532,
+        "brand_simple_avg_sls": 357790.1,
+        "store_weighted_avg_sls": 384351.79,
+        "median_sls": 296069.0,
+        "valid_sls_count": 91,
+        "denom_weighted_sls": 2336
+      },
+      {
+        "tpbiz": "기타 외식",
+        "records": 844,
+        "frcs_cnt": 19059,
+        "brand_simple_avg_sls": 338726.78,
+        "store_weighted_avg_sls": 305780.5,
+        "median_sls": 276651.0,
+        "valid_sls_count": 597,
+        "denom_weighted_sls": 18037
+      },
+      {
+        "tpbiz": "분식",
+        "records": 358,
+        "frcs_cnt": 10990,
+        "brand_simple_avg_sls": 242125.77,
+        "store_weighted_avg_sls": 247940.79,
+        "median_sls": 207050.5,
+        "valid_sls_count": 244,
+        "denom_weighted_sls": 10206
+      },
+      {
+        "tpbiz": "서양식",
+        "records": 181,
+        "frcs_cnt": 2941,
+        "brand_simple_avg_sls": 370891.65,
+        "store_weighted_avg_sls": 327059.29,
+        "median_sls": 290744.0,
+        "valid_sls_count": 111,
+        "denom_weighted_sls": 2797
+      },
+      {
+        "tpbiz": "아이스크림/빙수",
+        "records": 44,
+        "frcs_cnt": 2228,
+        "brand_simple_avg_sls": 173352.67,
+        "store_weighted_avg_sls": 427357.39,
+        "median_sls": 159182.0,
+        "valid_sls_count": 24,
+        "denom_weighted_sls": 2145
+      },
+      {
+        "tpbiz": "음료 (커피 외)",
+        "records": 64,
+        "frcs_cnt": 2472,
+        "brand_simple_avg_sls": 181296.07,
+        "store_weighted_avg_sls": 208967.58,
+        "median_sls": 161917.0,
+        "valid_sls_count": 44,
+        "denom_weighted_sls": 2407
+      },
+      {
+        "tpbiz": "일식",
+        "records": 352,
+        "frcs_cnt": 4661,
+        "brand_simple_avg_sls": 445298.77,
+        "store_weighted_avg_sls": 471726.26,
+        "median_sls": 304526.0,
+        "valid_sls_count": 207,
+        "denom_weighted_sls": 4232
+      },
+      {
+        "tpbiz": "제과제빵",
+        "records": 202,
+        "frcs_cnt": 8941,
+        "brand_simple_avg_sls": 286864.49,
+        "store_weighted_avg_sls": 319863.08,
+        "median_sls": 203823.0,
+        "valid_sls_count": 128,
+        "denom_weighted_sls": 5441
+      },
+      {
+        "tpbiz": "주점",
+        "records": 332,
+        "frcs_cnt": 9612,
+        "brand_simple_avg_sls": 370616.6,
+        "store_weighted_avg_sls": 323798.44,
+        "median_sls": 314474.0,
+        "valid_sls_count": 196,
+        "denom_weighted_sls": 9301
+      },
+      {
+        "tpbiz": "중식",
+        "records": 214,
+        "frcs_cnt": 4174,
+        "brand_simple_avg_sls": 5366257.31,
+        "store_weighted_avg_sls": 953306.77,
+        "median_sls": 368338.0,
+        "valid_sls_count": 129,
+        "denom_weighted_sls": 3887
+      },
+      {
+        "tpbiz": "치킨",
+        "records": 436,
+        "frcs_cnt": 29843,
+        "brand_simple_avg_sls": 206772.96,
+        "store_weighted_avg_sls": 311682.2,
+        "median_sls": 179624.5,
+        "valid_sls_count": 316,
+        "denom_weighted_sls": 28248
+      },
+      {
+        "tpbiz": "커피",
+        "records": 571,
+        "frcs_cnt": 29539,
+        "brand_simple_avg_sls": 222609.51,
+        "store_weighted_avg_sls": 235124.13,
+        "median_sls": 161490.0,
+        "valid_sls_count": 359,
+        "denom_weighted_sls": 28737
+      },
+      {
+        "tpbiz": "패스트푸드",
+        "records": 99,
+        "frcs_cnt": 5565,
+        "brand_simple_avg_sls": 337682.22,
+        "store_weighted_avg_sls": 569758.78,
+        "median_sls": 216434.5,
+        "valid_sls_count": 54,
+        "denom_weighted_sls": 4668
+      },
+      {
+        "tpbiz": "피자",
+        "records": 157,
+        "frcs_cnt": 7896,
+        "brand_simple_avg_sls": 256763.55,
+        "store_weighted_avg_sls": 285949.86,
+        "median_sls": 224509.0,
+        "valid_sls_count": 113,
+        "denom_weighted_sls": 7168
+      },
+      {
+        "tpbiz": "한식",
+        "records": 2340,
+        "frcs_cnt": 41914,
+        "brand_simple_avg_sls": 414718.22,
+        "store_weighted_avg_sls": 360391.18,
+        "median_sls": 330611.0,
+        "valid_sls_count": 1331,
+        "denom_weighted_sls": 37789
+      }
+    ],
+    "2025": [
+      {
+        "tpbiz": "기타 외국식",
+        "records": 161,
+        "frcs_cnt": 2267,
+        "brand_simple_avg_sls": 369348.7,
+        "store_weighted_avg_sls": 332905.57,
+        "median_sls": 342294.0,
+        "valid_sls_count": 105,
+        "denom_weighted_sls": 2100
+      },
+      {
+        "tpbiz": "기타 외식",
+        "records": 826,
+        "frcs_cnt": 18147,
+        "brand_simple_avg_sls": 349899.51,
+        "store_weighted_avg_sls": 318235.54,
+        "median_sls": 276414.5,
+        "valid_sls_count": 596,
+        "denom_weighted_sls": 17275
+      },
+      {
+        "tpbiz": "분식",
+        "records": 341,
+        "frcs_cnt": 11150,
+        "brand_simple_avg_sls": 253440.63,
+        "store_weighted_avg_sls": 254433.45,
+        "median_sls": 217250.0,
+        "valid_sls_count": 236,
+        "denom_weighted_sls": 10467
+      },
+      {
+        "tpbiz": "서양식",
+        "records": 183,
+        "frcs_cnt": 3222,
+        "brand_simple_avg_sls": 363599.93,
+        "store_weighted_avg_sls": 369194.7,
+        "median_sls": 300334.5,
+        "valid_sls_count": 120,
+        "denom_weighted_sls": 3088
+      },
+      {
+        "tpbiz": "아이스크림/빙수",
+        "records": 48,
+        "frcs_cnt": 3418,
+        "brand_simple_avg_sls": 208363.73,
+        "store_weighted_avg_sls": 464869.75,
+        "median_sls": 180654.0,
+        "valid_sls_count": 30,
+        "denom_weighted_sls": 3285
+      },
+      {
+        "tpbiz": "음료 (커피 외)",
+        "records": 60,
+        "frcs_cnt": 1956,
+        "brand_simple_avg_sls": 176339.69,
+        "store_weighted_avg_sls": 221349.11,
+        "median_sls": 170849.5,
+        "valid_sls_count": 42,
+        "denom_weighted_sls": 1929
+      },
+      {
+        "tpbiz": "일식",
+        "records": 380,
+        "frcs_cnt": 4824,
+        "brand_simple_avg_sls": 508291.2,
+        "store_weighted_avg_sls": 532612.58,
+        "median_sls": 336000.0,
+        "valid_sls_count": 247,
+        "denom_weighted_sls": 4519
+      },
+      {
+        "tpbiz": "제과제빵",
+        "records": 197,
+        "frcs_cnt": 5263,
+        "brand_simple_avg_sls": 297864.73,
+        "store_weighted_avg_sls": 334957.86,
+        "median_sls": 211103.5,
+        "valid_sls_count": 132,
+        "denom_weighted_sls": 5175
+      },
+      {
+        "tpbiz": "주점",
+        "records": 345,
+        "frcs_cnt": 9735,
+        "brand_simple_avg_sls": 385832.66,
+        "store_weighted_avg_sls": 310770.92,
+        "median_sls": 302787.0,
+        "valid_sls_count": 205,
+        "denom_weighted_sls": 9257
+      },
+      {
+        "tpbiz": "중식",
+        "records": 203,
+        "frcs_cnt": 4017,
+        "brand_simple_avg_sls": 490637.15,
+        "store_weighted_avg_sls": 513526.35,
+        "median_sls": 402103.5,
+        "valid_sls_count": 128,
+        "denom_weighted_sls": 3721
+      },
+      {
+        "tpbiz": "치킨",
+        "records": 399,
+        "frcs_cnt": 28591,
+        "brand_simple_avg_sls": 219700.92,
+        "store_weighted_avg_sls": 329671.66,
+        "median_sls": 183151.5,
+        "valid_sls_count": 302,
+        "denom_weighted_sls": 27358
+      },
+      {
+        "tpbiz": "커피",
+        "records": 594,
+        "frcs_cnt": 28352,
+        "brand_simple_avg_sls": 196200.57,
+        "store_weighted_avg_sls": 252796.27,
+        "median_sls": 156960.0,
+        "valid_sls_count": 383,
+        "denom_weighted_sls": 27785
+      },
+      {
+        "tpbiz": "패스트푸드",
+        "records": 96,
+        "frcs_cnt": 5531,
+        "brand_simple_avg_sls": 356159.05,
+        "store_weighted_avg_sls": 606921.47,
+        "median_sls": 236275.0,
+        "valid_sls_count": 55,
+        "denom_weighted_sls": 4684
+      },
+      {
+        "tpbiz": "피자",
+        "records": 154,
+        "frcs_cnt": 7017,
+        "brand_simple_avg_sls": 310978.04,
+        "store_weighted_avg_sls": 301003.37,
+        "median_sls": 222658.0,
+        "valid_sls_count": 116,
+        "denom_weighted_sls": 6754
+      },
+      {
+        "tpbiz": "한식",
+        "records": 2532,
+        "frcs_cnt": 43566,
+        "brand_simple_avg_sls": 450832.77,
+        "store_weighted_avg_sls": 399445.82,
+        "median_sls": 347197.0,
+        "valid_sls_count": 1493,
+        "denom_weighted_sls": 39537
+      }
+    ],
+    "2026": [
+      {
+        "tpbiz": "기타 외국식",
+        "records": 102,
+        "frcs_cnt": 1340,
+        "brand_simple_avg_sls": 390591.12,
+        "store_weighted_avg_sls": 357052.66,
+        "median_sls": 328623.0,
+        "valid_sls_count": 69,
+        "denom_weighted_sls": 1200
+      },
+      {
+        "tpbiz": "기타 외식",
+        "records": 520,
+        "frcs_cnt": 10396,
+        "brand_simple_avg_sls": 339651.61,
+        "store_weighted_avg_sls": 333782.35,
+        "median_sls": 278128.0,
+        "valid_sls_count": 399,
+        "denom_weighted_sls": 9961
+      },
+      {
+        "tpbiz": "분식",
+        "records": 220,
+        "frcs_cnt": 7179,
+        "brand_simple_avg_sls": 279538.41,
+        "store_weighted_avg_sls": 263666.82,
+        "median_sls": 247174.0,
+        "valid_sls_count": 147,
+        "denom_weighted_sls": 6675
+      },
+      {
+        "tpbiz": "서양식",
+        "records": 119,
+        "frcs_cnt": 1316,
+        "brand_simple_avg_sls": 406754.79,
+        "store_weighted_avg_sls": 334949.92,
+        "median_sls": 322232.0,
+        "valid_sls_count": 81,
+        "denom_weighted_sls": 1231
+      },
+      {
+        "tpbiz": "아이스크림/빙수",
+        "records": 29,
+        "frcs_cnt": 448,
+        "brand_simple_avg_sls": 164855.83,
+        "store_weighted_avg_sls": 162714.27,
+        "median_sls": 167404.0,
+        "valid_sls_count": 23,
+        "denom_weighted_sls": 416
+      },
+      {
+        "tpbiz": "음료 (커피 외)",
+        "records": 35,
+        "frcs_cnt": 1481,
+        "brand_simple_avg_sls": 192746.0,
+        "store_weighted_avg_sls": 241171.08,
+        "median_sls": 190221.0,
+        "valid_sls_count": 25,
+        "denom_weighted_sls": 1452
+      },
+      {
+        "tpbiz": "일식",
+        "records": 258,
+        "frcs_cnt": 3317,
+        "brand_simple_avg_sls": 506159.72,
+        "store_weighted_avg_sls": 642682.71,
+        "median_sls": 323361.5,
+        "valid_sls_count": 178,
+        "denom_weighted_sls": 3129
+      },
+      {
+        "tpbiz": "제과제빵",
+        "records": 142,
+        "frcs_cnt": 2332,
+        "brand_simple_avg_sls": 276324.67,
+        "store_weighted_avg_sls": 226086.79,
+        "median_sls": 177646.0,
+        "valid_sls_count": 96,
+        "denom_weighted_sls": 2238
+      },
+      {
+        "tpbiz": "주점",
+        "records": 242,
+        "frcs_cnt": 4863,
+        "brand_simple_avg_sls": 343411.95,
+        "store_weighted_avg_sls": 282646.92,
+        "median_sls": 285020.0,
+        "valid_sls_count": 149,
+        "denom_weighted_sls": 4524
+      },
+      {
+        "tpbiz": "중식",
+        "records": 143,
+        "frcs_cnt": 1791,
+        "brand_simple_avg_sls": 499473.87,
+        "store_weighted_avg_sls": 415843.22,
+        "median_sls": 412334.0,
+        "valid_sls_count": 89,
+        "denom_weighted_sls": 1644
+      },
+      {
+        "tpbiz": "치킨",
+        "records": 274,
+        "frcs_cnt": 14637,
+        "brand_simple_avg_sls": 213900.6,
+        "store_weighted_avg_sls": 305794.14,
+        "median_sls": 172284.0,
+        "valid_sls_count": 216,
+        "denom_weighted_sls": 14418
+      },
+      {
+        "tpbiz": "커피",
+        "records": 403,
+        "frcs_cnt": 12192,
+        "brand_simple_avg_sls": 220002.57,
+        "store_weighted_avg_sls": 270138.88,
+        "median_sls": 166491.0,
+        "valid_sls_count": 276,
+        "denom_weighted_sls": 11958
+      },
+      {
+        "tpbiz": "패스트푸드",
+        "records": 59,
+        "frcs_cnt": 2635,
+        "brand_simple_avg_sls": 314737.71,
+        "store_weighted_avg_sls": 516130.76,
+        "median_sls": 228807.5,
+        "valid_sls_count": 38,
+        "denom_weighted_sls": 2570
+      },
+      {
+        "tpbiz": "피자",
+        "records": 117,
+        "frcs_cnt": 4143,
+        "brand_simple_avg_sls": 291779.69,
+        "store_weighted_avg_sls": 257327.21,
+        "median_sls": 238550.0,
+        "valid_sls_count": 85,
+        "denom_weighted_sls": 4017
+      },
+      {
+        "tpbiz": "한식",
+        "records": 1858,
+        "frcs_cnt": 29557,
+        "brand_simple_avg_sls": 437251.23,
+        "store_weighted_avg_sls": 395702.93,
+        "median_sls": 361174.5,
+        "valid_sls_count": 1204,
+        "denom_weighted_sls": 27187
+      }
+    ]
+  },
+  "version_string_2026": "2026년 공정위 등록 기준 스냅샷 (수집시각: 2026-10-13 08:53:05, 확정모수: 4521건)",
+  "table_row_counts": {
+    "ftc_brand_macro_records": 23537,
+    "ftc_id_stability_metrics": 4,
+    "ftc_industry_macro_summary": 60,
+    "ftc_ingestion_audit_logs": 4,
+    "ftc_ingestion_checkpoints": 238,
+    "ftc_key_validation_log": 16,
+    "ftc_raw_api_responses": 238,
+    "ftc_tpbiz_domain_survey": 60,
+    "sqlite_sequence": 8
+  }
+}

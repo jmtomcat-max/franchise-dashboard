@@ -1,0 +1,117 @@
+{
+  "stage": "PHASE_4_STAGE_4A",
+  "project_path": "D:/Franchise_Dashboard",
+  "evaluated_at": "2026-10-13T10:15:00+09:00",
+  "overall_verdict": "PASS",
+  "gate_approval_status": "READY_FOR_USER_REVIEW",
+  "next_stage_allowed": false,
+  "execution_constraints_maintained": {
+    "nationwide_v2_db_readonly": true,
+    "nationwide_v2_store_count_preserved": 735185,
+    "api_hardcoding_prevented": true,
+    "api_key_masked_in_all_outputs": true,
+    "api_call_budget_limit": 30,
+    "api_calls_actually_made": 15,
+    "api_call_budget_exceeded": false,
+    "paid_apis_used": false,
+    "arbitrary_brand_confirmation_prevented": true,
+    "phase4b_development_started": false,
+    "threejs_ui_started": false
+  },
+  "database_integrity_verification": {
+    "nationwide_v2_db_path": "data/nationwide_food_stores_v2.sqlite3",
+    "sqlite_integrity_check": "ok",
+    "total_stores": 735185,
+    "unique_bizes_id_ratio": 1.0,
+    "data_stdr_ym": "202606",
+    "dashboard_region_codes_count": 256
+  },
+  "ftc_api_empirical_verification": {
+    "portal_data_id": "15165094",
+    "service_name": "(AI친화)가맹정보_브랜드 가맹사업자 통합정보 외식업종 현황 제공 서비스",
+    "endpoint_url": "https://apis.data.go.kr/1130000/FftcBrandFrcsBzmnIntgInfoEatoutTpbizStats2_Service/getBrandFrcsBzmnIntgInfoEatoutTpbiz2",
+    "auth_status": "VERIFIED_ACTIVE",
+    "swagger_extracted": true,
+    "tested_scenarios_count": 9,
+    "tested_years": ["2024", "2023", "2020", "2017", "2099"],
+    "records_2024_total_count": 6346,
+    "records_2023_total_count": 6151,
+    "records_2020_total_count": 4058,
+    "records_2017_total_count": 3435,
+    "last_page_tested": {
+      "page_no": 635,
+      "num_of_rows": 10,
+      "items_returned": 6
+    }
+  },
+  "brand_identity_analysis": {
+    "decision_branch": "BRANCH_C",
+    "decision_rationale": "FTC API does not provide plain text brand names (brandNm) or company names (corpNm). Only 15-digit pseudonymized management numbers (alsBrandMngNo, alsJnghqMngNo) are provided.",
+    "field_availability": {
+      "brand_name": "UNAVAILABLE",
+      "corp_name": "UNAVAILABLE",
+      "info_disclosure_no": "UNAVAILABLE",
+      "als_brand_mng_no": "VERIFIED_PSEUDONYMIZED",
+      "als_jnghq_mng_no": "VERIFIED_PSEUDONYMIZED"
+    },
+    "key_relationship_verified": "1:N (One franchisor HQ manages multiple brands)",
+    "layer_strategy": "DUAL_TRACK_SEPARATION (Spatial store layer independent from macro FTC financial statistics)"
+  },
+  "store_brand_matching_experiments": {
+    "target_brands_count": 37,
+    "categories_covered": 8,
+    "sample_stores_tested": 1110,
+    "breakdown": {
+      "exact_match": 81,
+      "normalized_match": 325,
+      "ambiguous_match": 173,
+      "false_positive_suspect": 531
+    },
+    "labeled_subset_size": 937,
+    "true_positives": 406,
+    "false_positives": 531,
+    "raw_keyword_precision_rate_pct": 43.33,
+    "core_finding": "Naive LIKE queries cause 56.67% false positive rate. Strict suffix extraction, negative keywords, and 10+ store clustering are mandatory for Phase 4B."
+  },
+  "unit_metric_specifications": {
+    "currency_metrics": "THOUSAND_KRW (천원, 1,000 KRW)",
+    "area_metrics": "PYEONG (평, 3.3 sqm)",
+    "unit_area_currency": "THOUSAND_KRW_PER_PYEONG (천원/평)",
+    "verified_consistency": "intrrAmt == storCrtrArea * unitAreaIntrrAmt"
+  },
+  "stage4a_database_summary": {
+    "db_path": "data/brand_intelligence_stage4a.sqlite3",
+    "table_counts": {
+      "api_sources": 1,
+      "ftc_raw_records": 40,
+      "ftc_brand_candidates": 40,
+      "brand_identity_proposals": 0,
+      "store_brand_match_samples": 1110,
+      "data_quality_results": 3,
+      "pipeline_runs": 2
+    }
+  },
+  "automated_tests_summary": {
+    "test_suite_file": "tests/test_phase4_stage4a.py",
+    "total_tests": 14,
+    "passed": 14,
+    "failed": 0,
+    "errors": 0,
+    "execution_time_seconds": 0.867
+  },
+  "deliverables_inventory": [
+    "docs/phase4/ftc_api_contract.md",
+    "docs/phase4/ftc_field_dictionary.csv",
+    "docs/phase4/brand_identity_strategy.md",
+    "docs/phase4/phase4b_handoff_contract.md",
+    "docs/phase4/phase4_dependency_matrix.md",
+    "data/brand_intelligence_stage4a.sqlite3",
+    "src/stage4a/schema_stage4a.py",
+    "src/stage4a/ftc_api_client.py",
+    "src/stage4a/run_stage4a_ingestion.py",
+    "src/stage4a/brand_matcher_experiment.py",
+    "tests/test_phase4_stage4a.py",
+    "reports/phase4_stage4a_validation.json",
+    "reports/phase4_stage4a_report.md"
+  ]
+}

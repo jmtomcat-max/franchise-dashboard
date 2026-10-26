@@ -1,0 +1,140 @@
+{
+  "phase": "Phase 7",
+  "step": "Step 7-3",
+  "task_name": "단일 서버 Reverse Proxy 배포 사양 및 운영 설정 확정",
+  "status": "PASS",
+  "iteration": 8,
+  "timestamp": "2026-10-21T11:53:00+09:00",
+  "architecture": {
+    "model": "Single Server + Reverse Proxy (Same-Origin)",
+    "rationale": "약 747MB SQLite 서비스 DB군과 정적 React 번들을 단일 호스트에서 제공하여 네트워크 복잡성, CORS 이슈, 클라우드 운영 비용을 최소화함"
+  },
+  "server_specification": {
+    "recommended_os": "Ubuntu 22.04 LTS 또는 24.04 LTS (x86_64 / arm64)",
+    "minimum_specs": {
+      "vcpu": 2,
+      "ram_gb": 4,
+      "disk_gb": 30,
+      "disk_type": "SSD / NVMe"
+    },
+    "recommended_specs": {
+      "vcpu": 4,
+      "ram_gb": 8,
+      "disk_gb": 50,
+      "disk_type": "NVMe"
+    },
+    "ports": {
+      "inbound_public": [80, 443],
+      "inbound_admin": [22],
+      "internal_loopback": [8000]
+    }
+  },
+  "components": {
+    "process_manager": {
+      "tool": "systemd",
+      "template": "deploy/franchise-dashboard.service",
+      "user": "franchise",
+      "app_dir": "/opt/franchise-dashboard",
+      "workers": 2,
+      "loopback_binding": "127.0.0.1:8000",
+      "restart_policy": "always (RestartSec=5s)",
+      "logging_integration": "StandardOutput=journal, StandardError=journal (journald 단일 수집기 통합으로 멀티워커 파일 잠금 충돌 원천 방지)"
+    },
+    "reverse_proxy": {
+      "primary": "Nginx (deploy/nginx.conf)",
+      "bootstrap_template": "deploy/nginx-bootstrap.conf",
+      "alternative": "Caddy (deploy/Caddyfile)",
+      "tls_ssl": "Nginx: HTTP 부트스트랩(deploy/nginx-bootstrap.conf) -> Certbot Webroot 발급(--deploy-hook 'systemctl reload nginx') -> HTTPS 활성화 2단계 전환 및 자동 갱신 리로드 보장, Caddy: 도메인 지정 시 내장 ACME 자동 발급",
+      "routing": {
+        "frontend_spa": "/ (root: frontend/dist, try_files $uri $uri/ /index.html)",
+        "api_proxy": "/api/ -> http://127.0.0.1:8000",
+        "health_check": "/healthz -> http://127.0.0.1:8000/api/health",
+        "cache_control": "/assets/ -> max-age=31536000, immutable"
+      },
+      "security_headers_inheritance": "Nginx add_header 상속 규칙에 대응하여 server 블록뿐만 아니라 location /assets/ 및 location / 블록 내에 보안 헤더 4종(X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Referrer-Policy)을 모두 명시 적용",
+      "permissions": "setup_server.sh를 통해 www-data/caddy 그룹 추가 및 frontend/dist 읽기/탐색 권한(755) 보장"
+    },
+    "databases": {
+      "engine": "SQLite 3",
+      "total_service_databases": 3,
+      "total_size_bytes": 747288624,
+      "items": [
+        {
+          "filename": "franchise_analytics_v1.sqlite3",
+          "size_bytes": 514043904,
+          "description": "전국 73.5만 점포 전수 공간 분석 및 16개 시도/256개 시군구 통계 DB",
+          "mode": "read-only (mode=ro)",
+          "integrity": "ok"
+        },
+        {
+          "filename": "ftc_macro_statistics_v1.sqlite3",
+          "size_bytes": 32325632,
+          "description": "공정거래위원회 4개년(2023~2026) 거시통계 및 창업비용 벤치마크 DB",
+          "mode": "read-only (mode=ro)",
+          "integrity": "ok"
+        },
+        {
+          "filename": "brand_master_v1.sqlite3",
+          "size_bytes": 200921088,
+          "description": "5,063개 브랜드 마스터 및 대사 DB",
+          "mode": "read-only (mode=ro)",
+          "integrity": "ok"
+        }
+      ],
+      "backup_tool": "scripts/backup_production_db.py",
+      "backup_features": [
+        "서비스 DB 3종 전체 SQLite Online Backup API 무락 일관성 복제",
+        "SHA-256 체크섬 파일 생성",
+        "PRAGMA integrity_check 및 샘플 레코드 수 자동 검증",
+        "보존 주기 기본 7일 및 --retention-days >= 1 유효성 사전 검증 (신규 백업 삭제 방지)",
+        "회귀 테스트 완료 (tests/test_phase7_backup_retention.py)"
+      ]
+    },
+    "frontend_assets": {
+      "cdn_decoupled": true,
+      "same_origin_routing": "frontend/.env.production(VITE_API_URL=) 및 api.js 방어로 프로덕션 빌드 시 루프백 주소 원천 차단 및 상대경로('') 100% 강제",
+      "maplibre_css_bundling": "maplibre-gl/dist/maplibre-gl.css 로컬 임포트 완료 (unpkg 외부 링크 전면 제거)",
+      "build_status": "PASS",
+      "entrypoint_check": "HTTP 200"
+    }
+  },
+  "security_baseline": {
+    "cors": {
+      "production": "동일 출처 전용 (CORS_ORIGINS 미지정 시 교차 출처 전면 차단, 지정 시 화이트리스트만 허용)",
+      "development": "로컬 프론트엔드 포트(5173, 4173) 자동 허용 (run_backend.bat/ps1에 ALLOW_DEV_CORS=1 기본 주입)"
+    },
+    "sandbox": "systemd ReadOnlyPaths=/opt/franchise-dashboard/data",
+    "secrets": "SERVICE_KEY 불필요(저장소 및 프로덕션 배포 파일 배제)"
+  },
+  "verification_results": {
+    "python_version": "3.12.7",
+    "preflight_check": "PASS",
+    "pytest_suite": "82/82 PASS",
+    "backup_retention_regression_test": "3/3 PASS (tests/test_phase7_backup_retention.py)",
+    "smoke_suite": "12/12 PASS",
+    "strict_template_parser_validation": {
+      "status": "PASS",
+      "script": "scripts/verify_deployment_templates.py",
+      "nginx_ast_tokenizer_v2": "PASS (nginx.conf 71개 + nginx-bootstrap.conf 12개 = 총 83개 지시어 전수 검증, 지시어별 최소 인수 개수 검증, 세미콜론 종결 강제, 블록 중첩 검증 완료)",
+      "caddy_token_whitelist_v2": "PASS (34개 토큰 화이트리스트 검사 완료, 미등록 키워드/오타 차단 검증)",
+      "systemd_unit_parser_v2": "PASS (3개 필수 섹션 및 20개 Key=Value 검증 완료)",
+      "logging_conf_parser": "PASS (StreamHandler/journald 단일 수집기 확인, RotatingFileHandler 제거 확인)",
+      "python_syntax": "PASS (ast.parse 검증 완료)"
+    },
+    "cors_verification": {
+      "prod_untrusted_origin": "Blocked (No header)",
+      "prod_trusted_whitelist": "Allowed",
+      "dev_localhost_5173": "Allowed"
+    },
+    "default_production_build": "PASS (번들 내 127.0.0.1:8000 절대경로 0건)",
+    "local_production_validation": {
+      "status": "PASS",
+      "frontend_entrypoint": "HTTP 200",
+      "api_health": "HTTP 200",
+      "same_origin_api_proxy": "HTTP 200 (JSON payload verified)"
+    },
+    "multi_db_backup_test": "PASS (3종 DB 일괄 백업 및 무결성 ok 확인)",
+    "protected_files_hashes_verified": true,
+    "unexecuted_due_to_sandbox_scope": "실제 Linux OS(Ubuntu VM) 프로비저닝 및 Nginx/systemd 라이브 데몬 구동 (외부 배포/결제 금지 제약에 따라 정밀 템플릿 파서 검증 및 로컬 프록시 에뮬레이션 단계까지만 수행)"
+  }
+}

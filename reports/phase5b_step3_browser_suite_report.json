@@ -1,0 +1,92 @@
+{
+  "timestamp": "2026-10-14T12:39:00+0900",
+  "test_results": {
+    "test_1_desktop_baseline": {
+      "status": "PASS",
+      "details": {
+        "hudText": "📍 광진구 전체 외식업 밀집도 (100m 격자)|벤치마크 대상: 🍚 한식 (전국 공정위)",
+        "hasLegend": true,
+        "modePillText": "자동 판정",
+        "headlineSales": "36,117만원 (3.61억원)",
+        "chartBarsCount": 4,
+        "statCardsCount": 4,
+        "hotspotsCount": 5
+      },
+      "initial_url": "http://127.0.0.1:8000/api/v1/ftc/benchmark/latest?category_major_id=CAT_MAJ_01",
+      "no_year_sent": true
+    },
+    "test_2_zero_ftc_during_map_interaction": {
+      "status": "PASS",
+      "ftc_calls_during_interaction": 0
+    },
+    "test_3_gis_map_regression": {
+      "status": "PASS",
+      "osm_tile_count": 241,
+      "popup_verified": {
+        "hasPopup": true,
+        "text": "광진구 100m 격자 셀 분석 (전체 점포 기준)총 외식업 점포:45개소브랜드 연결 점포:11개소최다 점포 업종:베이커리·디저트* 본 격자는 소진공 광진구 전체 점포 수치이며, 공정위 전국 브랜드 거시 통계와 집계 단위가 다릅니다.×",
+        "hasNotice": true,
+        "hasStoreCount": true
+      },
+      "hotspot_camera_moved": true
+    },
+    "test_4_manual_category_year": {
+      "status": "PASS",
+      "details": {
+        "modePillText": "직접 지정",
+        "selectValue": "2024",
+        "hudText": "📍 광진구 전체 외식업 밀집도 (100m 격자)|벤치마크 대상: 🍗 치킨·패스트푸드 (전국 공정위)",
+        "headlineNum": "19,656만원 (1.97억원)"
+      },
+      "year_2024_sent": true
+    },
+    "test_5_mobile_overflow_390x844": {
+      "status": "PASS",
+      "details": {
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowPixels": 0,
+        "headlineRight": 199,
+        "lastBarRight": 360,
+        "legendRight": 382
+      }
+    },
+    "test_6_mobile_gestures": {
+      "status": "PASS",
+      "swipe_up_expanded": true,
+      "swipe_down_collapsed": true,
+      "tap_expanded": true,
+      "last_bar_on_screen": true
+    },
+    "test_7_keyboard_navigation": {
+      "status": "PASS",
+      "enter_key_year": "2025",
+      "space_key_year": "2024"
+    },
+    "test_8_fallback_reproduction": {
+      "status": "PASS",
+      "details": {
+        "hasBanner": true,
+        "bannerText": "⚠️2026년 등록 데이터 부재로 이전 이용 가능 연도인 2025년 실적으로 원자적 대체 표출 중※ 분모·분자 혼합 없이 2025년 단일 연도 기준으로 제공됩니다.",
+        "hasPill": true,
+        "pillText": "⚠️ 2025년 대체 표출",
+        "headlineNum": "34,720만원 (3.47억원)"
+      }
+    },
+    "test_9_retry_button_network": {
+      "status": "PASS",
+      "no_data_card_verified": {
+        "hasNoDataCard": true,
+        "msg": "요청하신 연도(2099)에 해당하는 공정위 등록 데이터가 존재하지 않습니다. 사용자가 지정한 연도는 다른 연도로 자동 대체되지 않습니다.",
+        "hasResetBtn": true
+      },
+      "error_card_verified": {
+        "hasApiErrorCard": true,
+        "errorMsg": "FTC Upstream Timeout",
+        "hasRetryBtn": true
+      },
+      "retry_network_dispatched": true
+    }
+  }
+}

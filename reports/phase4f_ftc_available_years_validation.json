@@ -1,0 +1,176 @@
+{
+  "validation_phase": "Phase 4F FTC API Available Years Empirical Probe",
+  "timestamp": "2026-10-13T08:33:00+00:00",
+  "target_api": {
+    "service_name": "공정거래위원회_(AI친화)가맹정보_브랜드 가맹사업자 통합정보 외식업종 현황 제공 서비스",
+    "endpoint_url": "https://apis.data.go.kr/1130000/FftcBrandFrcsBzmnIntgInfoEatoutTpbizStats2_Service/getBrandFrcsBzmnIntgInfoEatoutTpbiz2",
+    "auth_status": "AUTHENTICATED_AND_MASKED"
+  },
+  "probe_results_by_year": {
+    "2023": {
+      "jngBizCrtrYr_param": "2023",
+      "http_status": 200,
+      "latency_ms": 789,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 6151,
+      "items_returned": 1,
+      "data_status": "AVAILABLE_WITH_DATA",
+      "record_jngBizCrtrYr": "2023",
+      "record_fyr": "2022",
+      "record_prvyrFyr": "2021",
+      "sample_record": {
+        "alsBrandMngNo": "192408232424576",
+        "alsJnghqMngNo": "312418130429576",
+        "jnghqRgnNm": "서울",
+        "tpbizMclsfNm": "한식",
+        "frcsCnt": "134",
+        "dmsCnt": "2",
+        "avgSlsAmt": "127721",
+        "depstAmt": "19300",
+        "intrrAmt": "49500"
+      }
+    },
+    "2024": {
+      "jngBizCrtrYr_param": "2024",
+      "http_status": 200,
+      "latency_ms": 421,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 6346,
+      "items_returned": 1,
+      "data_status": "AVAILABLE_WITH_DATA",
+      "record_jngBizCrtrYr": "2024",
+      "record_fyr": "2023",
+      "record_prvyrFyr": "2022",
+      "sample_record": {
+        "alsBrandMngNo": "192408232424576",
+        "alsJnghqMngNo": "312418130429576",
+        "jnghqRgnNm": "서울",
+        "tpbizMclsfNm": "한식",
+        "frcsCnt": "103",
+        "dmsCnt": "1",
+        "avgSlsAmt": "115988",
+        "depstAmt": "19300",
+        "intrrAmt": "49500"
+      }
+    },
+    "2025": {
+      "jngBizCrtrYr_param": "2025",
+      "http_status": 200,
+      "latency_ms": 423,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 6519,
+      "items_returned": 1,
+      "data_status": "AVAILABLE_WITH_DATA",
+      "record_jngBizCrtrYr": "2025",
+      "record_fyr": "2024",
+      "record_prvyrFyr": "2023",
+      "sample_record": {
+        "alsBrandMngNo": "192408232424576",
+        "alsJnghqMngNo": "682318130489576",
+        "jnghqRgnNm": "서울",
+        "tpbizMclsfNm": "한식",
+        "frcsCnt": "63",
+        "dmsCnt": "1",
+        "avgSlsAmt": "124178",
+        "depstAmt": "19300",
+        "intrrAmt": "49500"
+      }
+    },
+    "2026": {
+      "jngBizCrtrYr_param": "2026",
+      "http_status": 200,
+      "latency_ms": 394,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 4521,
+      "items_returned": 1,
+      "data_status": "AVAILABLE_WITH_DATA",
+      "record_jngBizCrtrYr": "2026",
+      "record_fyr": "2025",
+      "record_prvyrFyr": "2024",
+      "sample_record": {
+        "alsBrandMngNo": "192408232424576",
+        "alsJnghqMngNo": "682318130489576",
+        "jnghqRgnNm": "서울",
+        "tpbizMclsfNm": "한식",
+        "frcsCnt": "50",
+        "dmsCnt": "1",
+        "avgSlsAmt": "127849",
+        "depstAmt": "19300",
+        "intrrAmt": "49500"
+      }
+    },
+    "2027": {
+      "jngBizCrtrYr_param": "2027",
+      "http_status": 200,
+      "latency_ms": 462,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 0,
+      "items_returned": 0,
+      "data_status": "NO_DATA (NORMAL SERVICE BUT 0 RECORDS)",
+      "record_jngBizCrtrYr": null,
+      "record_fyr": null,
+      "record_prvyrFyr": null,
+      "sample_record": null
+    }
+  },
+  "terminology_distinction": {
+    "jngBizCrtrYr": {
+      "korean_name": "가맹사업 기준연도",
+      "definition": "공정거래위원회 정보공개서 정기변경등록 및 공시 기준연도",
+      "example": "2025 (2025년 기준 정보공개서 등록분)"
+    },
+    "fyr": {
+      "korean_name": "재무 사업연도",
+      "definition": "가맹본부 및 가맹점의 실제 재무제표 결산 및 매출 발생 회계연도",
+      "formula": "fyr = jngBizCrtrYr - 1",
+      "example": "2024 (2024년 1월 1일 ~ 12월 31일 실적)"
+    },
+    "prvyrFyr": {
+      "korean_name": "전년 재무 사업연도",
+      "definition": "직전 회계연도 (재무 비교 기준연도)",
+      "formula": "prvyrFyr = fyr - 1",
+      "example": "2023"
+    },
+    "ui_presentation_rule": "대시보드 UI 및 보고서에는 'YYYY년 공정위 등록 기준 (YYYY-1년 재무 실적)'으로 병기하여 사용자의 시점 오인을 원천 방지함"
+  },
+  "key_findings": {
+    "latest_available_year_with_data": "2026 (4,521건 최신 제공 스냅샷)",
+    "latest_complete_candidate_year": "2025 (6,519건 최신 완결 후보 연도)",
+    "year_2024_status": "이전 연도 (6,346건, 2023년 재무실적)",
+    "error_differentiation": {
+      "invalid_year_error": "API 오류(HTTP 에러 또는 비정상 코드)가 아니라 정상 서비스(resultCode 00)로 totalCount 0 반환",
+      "future_year_2027": "정상 응답하나 데이터 0건 (NO_DATA)"
+    }
+  },
+  "collection_scope_proposals": {
+    "proposal_1_latest_single_year": {
+      "recommended_target": "2025년 (6,519건)",
+      "alternative_target": "2026년 (4,521건)",
+      "rationale": "2025년은 전체 6,519개 외식 브랜드가 등록된 최신 완결 후보 연도이며, 2026년은 최신 제공 스냅샷임."
+    },
+    "proposal_2_multi_year_trend": {
+      "scope": "2023년 ~ 2026년 (4개 연도 시계열)",
+      "total_records": 23537,
+      "total_pages": 238,
+      "pages_by_year": {
+        "2023": 62,
+        "2024": 64,
+        "2025": 66,
+        "2026": 46
+      },
+      "records_by_year": {
+        "2023": 6151,
+        "2024": 6346,
+        "2025": 6519,
+        "2026": 4521
+      },
+      "estimated_collection_time": "약 3분 30초 ~ 4분 (0.25초 딜레이 적용 시)",
+      "value_add": "외식업 8대 대분류별 4개년 매출 변동 추이, 가맹점수 증감률, 인테리어 비용 상승률 등 다년도 시계열 거시 벤치마크 완결"
+    }
+  }
+}

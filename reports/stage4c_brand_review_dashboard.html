@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 4C 브랜드 마스터 & 심사 대시보드</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --border: #334155;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary: #38bdf8;
+    --success: #4ade80;
+    --warning: #facc15;
+    --danger: #f87171;
+    --purple: #c084fc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); padding: 24px; line-height: 1.5; }
+  .container { max-width: 1400px; margin: 0 auto; }
+  header { margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+  h1 { font-size: 24px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+  .subtitle { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
+  .grid-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+  .stat-value { font-size: 26px; font-weight: 700; color: var(--text); margin-top: 4px; }
+  .badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .badge-success { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+  .badge-warning { background: rgba(250, 204, 21, 0.15); color: var(--warning); }
+  .badge-danger { background: rgba(248, 113, 113, 0.15); color: var(--danger); }
+  .badge-primary { background: rgba(56, 189, 248, 0.15); color: var(--primary); }
+  .badge-purple { background: rgba(192, 132, 252, 0.15); color: var(--purple); }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { background: #131d31; color: var(--text-muted); font-weight: 600; }
+  tr:hover { background: rgba(255, 255, 255, 0.02); }
+  .section-title { font-size: 18px; color: var(--text); margin-bottom: 12px; font-weight: 600; }
+  .mb-8 { margin-bottom: 32px; }
+  .num { text-align: right; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Franchise Dashboard &mdash; Stage 4C 브랜드 마스터 심사 대시보드</h1>
+    <div class="subtitle">5,062개 브랜드 후보 전환 &middot; 735,185개 전국 점포 3축 상태 모델 &middot; 80개 공인 브랜드 전수 조사 근거</div>
+  </header>
+
+  <!-- KPI 요약 카드 -->
+  <div class="grid-stats">
+    <div class="card">
+      <div class="stat-label">전국 점포 (고유)</div>
+      <div class="stat-value">735,185</div>
+      <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">총 연결 링크: 735,208</div>
+    </div>
+    <div class="card">
+      <div class="stat-label">총 등록 브랜드</div>
+      <div class="stat-value">5,062</div>
+      <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">공인 전수조사: 80개 &middot; 클러스터: 4,982개</div>
+    </div>
+    <div class="card">
+      <div class="stat-label">승인 완료 브랜드</div>
+      <div class="stat-value" style="color: var(--success);">79</div>
+      <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">공식 가맹/직영 검증 완료</div>
+    </div>
+    <div class="card">
+      <div class="stat-label">검토 대기 브랜드 (Pending)</div>
+      <div class="stat-value" style="color: var(--warning);">4,984</div>
+      <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">우선순위 큐 관리 중</div>
+    </div>
+    <div class="card">
+      <div class="stat-label">고신뢰 자동 매칭 점포</div>
+      <div class="stat-value" style="color: var(--primary);">32,903</div>
+      <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">정밀도 99.63% (오탐 억제)</div>
+    </div>
+    <div class="card">
+      <div class="stat-label">미매칭 독립 점포</div>
+      <div class="stat-value" style="color: var(--text-muted);">566,056</div>
+      <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">객관적 독립 운영 판단 보류</div>
+    </div>
+  </div>
+
+  <!-- 80개 공인 브랜드 전수 조사 결과 -->
+  <div class="card mb-8">
+    <div class="section-title">1. 공인 80개 브랜드 전수 조사 및 공식성 근거 (Census 80 Brands)</div>
+    <div style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">
+      공정위 가맹사업정보제공시스템 및 DART 기업공시를 전수 대조하여 '가맹사업(FRANCHISE_CONFIRMED: 72개)', '100% 직영(BRAND_CONFIRMED: 7개)', '근거 부족(UNVERIFIED: 1개)'으로 분리 판정하였습니다.
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>브랜드 ID</th>
+          <th>표준 브랜드명</th>
+          <th>대분류</th>
+          <th>브랜드 공식성</th>
+          <th>운영 주체 (법인명)</th>
+          <th>근거 등급</th>
+          <th>가맹사업</th>
+          <th class="num">점포수</th>
+          <th>심사 상태</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td><code>BRD_CAF_0004</code></td>
+          <td><strong>메가MGC커피</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)앤하우스</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">4,178</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_BKR_0001</code></td>
+          <td><strong>파리바게뜨</strong></td>
+          <td>베이커리·디저트</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)파리크라상</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">3,402</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CAF_0005</code></td>
+          <td><strong>컴포즈커피</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)컴포즈커피</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">3,000</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CAF_0002</code></td>
+          <td><strong>이디야커피</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)이디야</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">2,262</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CAF_0001</code></td>
+          <td><strong>스타벅스</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-primary">BRAND_CONFIRMED (직영)</span></td>
+          <td>(주)에스씨케이컴퍼니 (구 스타벅스코리아)</td>
+          <td><span class="badge badge-purple">B_CORPORATE_VERIFIED</span></td>
+          <td>100% 직영</td>
+          <td class="num">2,152</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0002</code></td>
+          <td><strong>bbq치킨</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)제너시스비비큐</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">2,017</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0003</code></td>
+          <td><strong>bhc치킨</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)비에이치씨</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">2,013</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CAF_0006</code></td>
+          <td><strong>빽다방</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)더본코리아</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">1,819</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_BKR_0003</code></td>
+          <td><strong>배스킨라빈스</strong></td>
+          <td>베이커리·디저트</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>비알코리아(주)</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">1,745</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0004</code></td>
+          <td><strong>맘스터치</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)맘스터치앤컴퍼니</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">1,563</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CAF_0003</code></td>
+          <td><strong>투썸플레이스</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)투썸플레이스</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">1,560</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0001</code></td>
+          <td><strong>본죽</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)본아이에프</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">1,540</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0001</code></td>
+          <td><strong>교촌치킨</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)교촌에프앤비</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">1,388</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CAF_0007</code></td>
+          <td><strong>더벤티</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)에스앤씨컴퍼니</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">1,333</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_BKR_0002</code></td>
+          <td><strong>뚜레쥬르</strong></td>
+          <td>베이커리·디저트</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>씨제이푸드빌(주)</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">1,286</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0011</code></td>
+          <td><strong>처갓집양념치킨</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)한국일오삼</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">1,281</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0008</code></td>
+          <td><strong>굽네치킨</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)지앤푸드</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">1,227</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0006</code></td>
+          <td><strong>롯데리아</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>롯데지알에스(주)</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">1,207</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0012</code></td>
+          <td><strong>네네치킨</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)혜인식품</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">816</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0004</code></td>
+          <td><strong>한솥도시락</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)한솥</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">799</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0009</code></td>
+          <td><strong>노랑통닭</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)노랑푸드</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">746</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0010</code></td>
+          <td><strong>푸라닭</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)아이더스코리아</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">724</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_SNK_0001</code></td>
+          <td><strong>김가네김밥</strong></td>
+          <td>분식·간편식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)김가네</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">709</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_SNK_0003</code></td>
+          <td><strong>동대문엽기떡볶이</strong></td>
+          <td>분식·간편식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)핫시즈너</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">702</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0013</code></td>
+          <td><strong>써브웨이</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>써브웨이인터내셔날비엔씨</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">682</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_SNK_0004</code></td>
+          <td><strong>신전떡볶이</strong></td>
+          <td>분식·간편식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)신전푸드시스</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">643</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0014</code></td>
+          <td><strong>프랭크버거</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)에프앤비씨</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">505</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_BKR_0005</code></td>
+          <td><strong>던킨</strong></td>
+          <td>베이커리·디저트</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>비알코리아(주)</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">450</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_BKR_0004</code></td>
+          <td><strong>설빙</strong></td>
+          <td>베이커리·디저트</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)설빙</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">429</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_SNK_0007</code></td>
+          <td><strong>고봉민김밥인</strong></td>
+          <td>분식·간편식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)케이비엠</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">413</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0012</code></td>
+          <td><strong>명륜진사갈비</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)명륜당</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">407</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0005</code></td>
+          <td><strong>버거킹</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)비케이알</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">405</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CAF_0010</code></td>
+          <td><strong>할리스</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)케이지에프앤비</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">405</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_BKR_0008</code></td>
+          <td><strong>디저트39</strong></td>
+          <td>베이커리·디저트</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)에스엠씨인터내셔널</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">403</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0002</code></td>
+          <td><strong>본도시락</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)본아이에프</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">402</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CAF_0011</code></td>
+          <td><strong>파스쿠찌</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)파리크라상</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">386</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CAF_0008</code></td>
+          <td><strong>공차</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>공차코리아(주)</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">377</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_BKR_0007</code></td>
+          <td><strong>와플대학</strong></td>
+          <td>베이커리·디저트</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)와플대학</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">340</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHN_0006</code></td>
+          <td><strong>교동짬뽕</strong></td>
+          <td>중식</td>
+          <td><span class="badge badge-danger">UNVERIFIED (근거부족)</span></td>
+          <td>복수 개인/법인 분산 (단일 본부 없음)</td>
+          <td><span class="badge badge-purple">D_DEFICIENT</span></td>
+          <td>미확인</td>
+          <td class="num">335</td>
+          <td><span class="badge badge-success">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHN_0001</code></td>
+          <td><strong>홍콩반점0410</strong></td>
+          <td>중식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)더본코리아</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">313</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_SNK_0008</code></td>
+          <td><strong>청년다방</strong></td>
+          <td>분식·간편식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)한경기획</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">294</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CAF_0012</code></td>
+          <td><strong>커피빈</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-primary">BRAND_CONFIRMED (직영)</span></td>
+          <td>(주)커피빈코리아</td>
+          <td><span class="badge badge-purple">B_CORPORATE_VERIFIED</span></td>
+          <td>100% 직영</td>
+          <td class="num">291</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0015</code></td>
+          <td><strong>노브랜드버거</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)신세계푸드</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">261</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0006</code></td>
+          <td><strong>두찜</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)기영에프앤비</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">241</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_SNK_0010</code></td>
+          <td><strong>배떡</strong></td>
+          <td>분식·간편식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)어메이징에프앤비</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">209</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_JPN_0005</code></td>
+          <td><strong>역전우동0410</strong></td>
+          <td>일식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)더본코리아</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">204</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0010</code></td>
+          <td><strong>채선당</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)채선당</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">199</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHN_0003</code></td>
+          <td><strong>보배반점</strong></td>
+          <td>중식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)보배에프앤비</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">187</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_JPN_0004</code></td>
+          <td><strong>백소정</strong></td>
+          <td>일식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)백소정</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">179</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_SNK_0009</code></td>
+          <td><strong>두끼</strong></td>
+          <td>분식·간편식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)다른</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">174</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0013</code></td>
+          <td><strong>백채김치찌개</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)심플에프앤비</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">161</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_JPN_0001</code></td>
+          <td><strong>미소야</strong></td>
+          <td>일식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)보우앤파트너스</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">156</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHN_0007</code></td>
+          <td><strong>이비가짬뽕</strong></td>
+          <td>중식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)이비가푸드</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">129</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_WST_0002</code></td>
+          <td><strong>애슐리퀸즈</strong></td>
+          <td>양식·세계음식</td>
+          <td><span class="badge badge-primary">BRAND_CONFIRMED (직영)</span></td>
+          <td>(주)이랜드이츠</td>
+          <td><span class="badge badge-purple">B_CORPORATE_VERIFIED</span></td>
+          <td>100% 직영</td>
+          <td class="num">125</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_SNK_0006</code></td>
+          <td><strong>바르다김선생</strong></td>
+          <td>분식·간편식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)죠스푸드</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">120</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_WST_0005</code></td>
+          <td><strong>롤링파스타</strong></td>
+          <td>양식·세계음식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)더본코리아</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">117</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0005</code></td>
+          <td><strong>하남돼지집</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)하남에프앤비</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">116</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CAF_0009</code></td>
+          <td><strong>폴바셋</strong></td>
+          <td>카페·음료</td>
+          <td><span class="badge badge-primary">BRAND_CONFIRMED (직영)</span></td>
+          <td>(주)엠즈씨드</td>
+          <td><span class="badge badge-purple">B_CORPORATE_VERIFIED</span></td>
+          <td>100% 직영</td>
+          <td class="num">113</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHN_0004</code></td>
+          <td><strong>탕화쿵푸마라탕</strong></td>
+          <td>중식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)탕화쿵푸</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">110</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_JPN_0002</code></td>
+          <td><strong>아비꼬</strong></td>
+          <td>일식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)쿠도에프앤비</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">108</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHK_0007</code></td>
+          <td><strong>맥도날드</strong></td>
+          <td>치킨·패스트푸드</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>한국맥도날드(유)</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">101</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_SNK_0002</code></td>
+          <td><strong>죠스떡볶이</strong></td>
+          <td>분식·간편식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)죠스푸드</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">101</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_SNK_0005</code></td>
+          <td><strong>신참떡볶이</strong></td>
+          <td>분식·간편식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)신참에프앤비</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">99</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_BKR_0006</code></td>
+          <td><strong>크리스피크림도넛</strong></td>
+          <td>베이커리·디저트</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>롯데지알에스(주)</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">99</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_WST_0008</code></td>
+          <td><strong>미스사이공</strong></td>
+          <td>양식·세계음식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)엠에스씨푸드</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">94</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_WST_0007</code></td>
+          <td><strong>포메인</strong></td>
+          <td>양식·세계음식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)데일리킹</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">93</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0008</code></td>
+          <td><strong>놀부부대찌개</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)놀부</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">91</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_JPN_0003</code></td>
+          <td><strong>쿠우쿠우</strong></td>
+          <td>일식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)쿠우쿠우</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">91</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHN_0005</code></td>
+          <td><strong>라화쿵부</strong></td>
+          <td>중식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)천향록</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">88</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_WST_0001</code></td>
+          <td><strong>아웃백스테이크하우스</strong></td>
+          <td>양식·세계음식</td>
+          <td><span class="badge badge-primary">BRAND_CONFIRMED (직영)</span></td>
+          <td>(주)비케이알 / 아웃백스테이크하우스코리아</td>
+          <td><span class="badge badge-purple">B_CORPORATE_VERIFIED</span></td>
+          <td>100% 직영</td>
+          <td class="num">88</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_CHN_0002</code></td>
+          <td><strong>짬뽕지존</strong></td>
+          <td>중식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)짬뽕지존</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">72</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0007</code></td>
+          <td><strong>놀부보쌈</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)놀부</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">58</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_JPN_0006</code></td>
+          <td><strong>상무초밥</strong></td>
+          <td>일식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)상무</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">54</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0011</code></td>
+          <td><strong>새마을식당</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)더본코리아</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">52</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_WST_0004</code></td>
+          <td><strong>서가앤쿡</strong></td>
+          <td>양식·세계음식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)에스앤에스컴퍼니</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">44</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0003</code></td>
+          <td><strong>본설렁탕</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)본아이에프</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">29</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_WST_0006</code></td>
+          <td><strong>매드포갈릭</strong></td>
+          <td>양식·세계음식</td>
+          <td><span class="badge badge-primary">BRAND_CONFIRMED (직영)</span></td>
+          <td>엠에프지코리아(주)</td>
+          <td><span class="badge badge-purple">B_CORPORATE_VERIFIED</span></td>
+          <td>100% 직영</td>
+          <td class="num">22</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_JPN_0007</code></td>
+          <td><strong>토끼정</strong></td>
+          <td>일식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)에스에이치인터내셔널</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">12</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_WST_0003</code></td>
+          <td><strong>빕스</strong></td>
+          <td>양식·세계음식</td>
+          <td><span class="badge badge-primary">BRAND_CONFIRMED (직영)</span></td>
+          <td>씨제이푸드빌(주)</td>
+          <td><span class="badge badge-purple">B_CORPORATE_VERIFIED</span></td>
+          <td>100% 직영</td>
+          <td class="num">9</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+        <tr>
+          <td><code>BRD_KOR_0009</code></td>
+          <td><strong>원할머니보쌈</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-success">FRANCHISE_CONFIRMED</span></td>
+          <td>(주)원앤원</td>
+          <td><span class="badge badge-purple">A_OFFICIAL_REGISTRATION</span></td>
+          <td>가맹사업</td>
+          <td class="num">5</td>
+          <td><span class="badge badge-success">APPROVED</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 우선순위 상위 50개 검토 대기 큐 -->
+  <div class="card mb-8">
+    <div class="section-title">2. 우선순위 검토 대기 브랜드 큐 (Top 50 Pending Brands by Priority)</div>
+    <div style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">
+      전국 점포 수 규모, 충돌 위험도(짧은 단어/동음이의어), 업종 모호성을 종합 반영한 <code>review_priority_score</code> 순위표입니다.
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>우선순위 점수</th>
+          <th>브랜드 ID</th>
+          <th>표준 브랜드명</th>
+          <th>대분류</th>
+          <th>공식성 상태</th>
+          <th>근거 등급</th>
+          <th class="num">전국 점포수</th>
+          <th>심사 상태</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td><strong style="color: var(--primary);">67.67</strong></td>
+          <td><code>CLUS_소담</code></td>
+          <td><strong>소담</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">184</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">66.88</strong></td>
+          <td><code>CLUS_소풍</code></td>
+          <td><strong>소풍</strong></td>
+          <td>기타 간이</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">153</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">65.49</strong></td>
+          <td><code>CLUS_다온</code></td>
+          <td><strong>다온</strong></td>
+          <td>비알코올 </td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">111</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">65.13</strong></td>
+          <td><code>CLUS_하루</code></td>
+          <td><strong>하루</strong></td>
+          <td>일식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">102</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">64.91</strong></td>
+          <td><code>CLUS_북경</code></td>
+          <td><strong>북경</strong></td>
+          <td>중식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">97</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">64.78</strong></td>
+          <td><code>CLUS_명가</code></td>
+          <td><strong>명가</strong></td>
+          <td>기타 간이</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">94</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">64.68</strong></td>
+          <td><code>CLUS_마실</code></td>
+          <td><strong>마실</strong></td>
+          <td>비알코올 </td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">92</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">64.29</strong></td>
+          <td><code>CLUS_풍경</code></td>
+          <td><strong>풍경</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">84</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">64.19</strong></td>
+          <td><code>CLUS_미가</code></td>
+          <td><strong>미가</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">82</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">64.08</strong></td>
+          <td><code>CLUS_정원</code></td>
+          <td><strong>정원</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">80</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">64.03</strong></td>
+          <td><code>CLUS_집밥</code></td>
+          <td><strong>집밥</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">79</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">64.03</strong></td>
+          <td><code>CLUS_정담</code></td>
+          <td><strong>정담</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">79</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">63.98</strong></td>
+          <td><code>CLUS_토담</code></td>
+          <td><strong>토담</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">78</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">63.92</strong></td>
+          <td><code>CLUS_봄봄</code></td>
+          <td><strong>봄봄</strong></td>
+          <td>비알코올 </td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">77</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">63.81</strong></td>
+          <td><code>CLUS_다올</code></td>
+          <td><strong>다올</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">75</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">63.63</strong></td>
+          <td><code>CLUS_미담</code></td>
+          <td><strong>미담</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">72</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">63.57</strong></td>
+          <td><code>CLUS_뜨락</code></td>
+          <td><strong>뜨락</strong></td>
+          <td>비알코올 </td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">71</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">63.51</strong></td>
+          <td><code>CLUS_마루</code></td>
+          <td><strong>마루</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">70</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">63.13</strong></td>
+          <td><code>CLUS_봄날</code></td>
+          <td><strong>봄날</strong></td>
+          <td>비알코올 </td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">64</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.85</strong></td>
+          <td><code>CLUS_온담</code></td>
+          <td><strong>온담</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">60</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.78</strong></td>
+          <td><code>CLUS_한끼</code></td>
+          <td><strong>한끼</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">59</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.78</strong></td>
+          <td><code>CLUS_청담</code></td>
+          <td><strong>청담</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">59</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.63</strong></td>
+          <td><code>CLUS_밥집</code></td>
+          <td><strong>밥집</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">57</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.56</strong></td>
+          <td><code>CLUS_라온</code></td>
+          <td><strong>라온</strong></td>
+          <td>동남아시아</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">56</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.56</strong></td>
+          <td><code>CLUS_마당</code></td>
+          <td><strong>마당</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">56</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.48</strong></td>
+          <td><code>CLUS_도담</code></td>
+          <td><strong>도담</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">55</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.4</strong></td>
+          <td><code>CLUS_미락</code></td>
+          <td><strong>미락</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">54</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.24</strong></td>
+          <td><code>CLUS_담소</code></td>
+          <td><strong>담소</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">52</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.08</strong></td>
+          <td><code>CLUS_도원</code></td>
+          <td><strong>도원</strong></td>
+          <td>중식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">50</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.08</strong></td>
+          <td><code>CLUS_대가</code></td>
+          <td><strong>대가</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">50</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.08</strong></td>
+          <td><code>CLUS_초원</code></td>
+          <td><strong>초원</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">50</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">62.08</strong></td>
+          <td><code>CLUS_오늘</code></td>
+          <td><strong>오늘</strong></td>
+          <td>기타 간이</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">50</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.99</strong></td>
+          <td><code>CLUS_미소</code></td>
+          <td><strong>미소</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">49</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.99</strong></td>
+          <td><code>CLUS_이삭</code></td>
+          <td><strong>이삭</strong></td>
+          <td>기타 간이</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">49</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.9</strong></td>
+          <td><code>CLUS_소반</code></td>
+          <td><strong>소반</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">48</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.9</strong></td>
+          <td><code>CLUS_다담</code></td>
+          <td><strong>다담</strong></td>
+          <td>비알코올 </td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">48</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.9</strong></td>
+          <td><code>CLUS_그집</code></td>
+          <td><strong>그집</strong></td>
+          <td>서양식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">48</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.63</strong></td>
+          <td><code>CLUS_맛집</code></td>
+          <td><strong>맛집</strong></td>
+          <td>기타 간이</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">45</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.63</strong></td>
+          <td><code>CLUS_핵밥</code></td>
+          <td><strong>핵밥</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">45</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.53</strong></td>
+          <td><code>CLUS_다원</code></td>
+          <td><strong>다원</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">44</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.33</strong></td>
+          <td><code>CLUS_다락</code></td>
+          <td><strong>다락</strong></td>
+          <td>비알코올 </td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">42</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.33</strong></td>
+          <td><code>CLUS_대박</code></td>
+          <td><strong>대박</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">42</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.23</strong></td>
+          <td><code>CLUS_예원</code></td>
+          <td><strong>예원</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">41</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.23</strong></td>
+          <td><code>CLUS_해담</code></td>
+          <td><strong>해담</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">41</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.23</strong></td>
+          <td><code>CLUS_장강</code></td>
+          <td><strong>장강</strong></td>
+          <td>중식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">41</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.23</strong></td>
+          <td><code>CLUS_밥심</code></td>
+          <td><strong>밥심</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">41</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.13</strong></td>
+          <td><code>CLUS_본가</code></td>
+          <td><strong>본가</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">40</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.13</strong></td>
+          <td><code>CLUS_감탄</code></td>
+          <td><strong>감탄</strong></td>
+          <td>기타 간이</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">40</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.13</strong></td>
+          <td><code>CLUS_백돈</code></td>
+          <td><strong>백돈</strong></td>
+          <td>일식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">40</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--primary);">61.02</strong></td>
+          <td><code>CLUS_식껍</code></td>
+          <td><strong>식껍</strong></td>
+          <td>한식</td>
+          <td><span class="badge badge-warning">UNVERIFIED</span></td>
+          <td><span class="badge badge-purple">C_STATISTICAL_CLUSTER</span></td>
+          <td class="num">39</td>
+          <td><span class="badge badge-warning">PENDING</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 독립 품질 평가 감사 요약 -->
+  <div class="card">
+    <div class="section-title">3. 독립 품질 평가 감사 증빙 (Data Quality Audits)</div>
+    <table>
+      <thead>
+        <tr>
+          <th>지표명</th>
+          <th>측정값</th>
+          <th>목표 기준</th>
+          <th>95% 신뢰구간 (Wilson)</th>
+          <th>감사 판정</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td><strong>FALSE_SPLIT_COUNT</strong></td>
+          <td>0.00</td>
+          <td>0.0</td>
+          <td>-</td>
+          <td><span class="badge badge-success">PASS</span></td>
+          <td style="color: var(--text-muted);">잘못된 브랜드 분할 건수</td>
+        </tr>
+        <tr>
+          <td><strong>FALSE_MERGE_COUNT</strong></td>
+          <td>0.00</td>
+          <td>0.0</td>
+          <td>-</td>
+          <td><span class="badge badge-success">PASS</span></td>
+          <td style="color: var(--text-muted);">잘못된 브랜드 병합 건수</td>
+        </tr>
+        <tr>
+          <td><strong>REVIEW_REQUIRED_RATIO</strong></td>
+          <td>2.69</td>
+          <td>-</td>
+          <td>-</td>
+          <td><span class="badge badge-primary">INFO</span></td>
+          <td style="color: var(--text-muted);">전체 표본 중 안전 격리 검토 필요 비율</td>
+        </tr>
+        <tr>
+          <td><strong>UNMATCHED_RATIO</strong></td>
+          <td>45.00</td>
+          <td>-</td>
+          <td>-</td>
+          <td><span class="badge badge-primary">INFO</span></td>
+          <td style="color: var(--text-muted);">전체 표본 중 미매칭 비율</td>
+        </tr>
+        <tr>
+          <td><strong>AUTO_MATCH_RATIO</strong></td>
+          <td>52.31</td>
+          <td>-</td>
+          <td>-</td>
+          <td><span class="badge badge-primary">INFO</span></td>
+          <td style="color: var(--text-muted);">전체 표본 중 자동 확정 비율</td>
+        </tr>
+        <tr>
+          <td><strong>NEGATIVE_SAMPLES_COUNT</strong></td>
+          <td>235.00</td>
+          <td>200.0</td>
+          <td>-</td>
+          <td><span class="badge badge-success">PASS</span></td>
+          <td style="color: var(--text-muted);">검증된 비소속 음성 표본 수 (최소 200건 요건)</td>
+        </tr>
+        <tr>
+          <td><strong>INDEPENDENT_F1_SCORE</strong></td>
+          <td>97.31</td>
+          <td>75.0</td>
+          <td>-</td>
+          <td><span class="badge badge-success">PASS</span></td>
+          <td style="color: var(--text-muted);">정밀도와 재현율 조화 평균</td>
+        </tr>
+        <tr>
+          <td><strong>INDEPENDENT_RECALL</strong></td>
+          <td>95.09</td>
+          <td>65.0</td>
+          <td>[91.92%, 97.05%]</td>
+          <td><span class="badge badge-success">PASS</span></td>
+          <td style="color: var(--text-muted);">독립 계층 표본 참 브랜드 재현율</td>
+        </tr>
+        <tr>
+          <td><strong>INDEPENDENT_PRECISION</strong></td>
+          <td>99.63</td>
+          <td>95.0</td>
+          <td>[97.95%, 99.94%]</td>
+          <td><span class="badge badge-success">PASS</span></td>
+          <td style="color: var(--text-muted);">독립 계층 표본 자동 확정 정밀도</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

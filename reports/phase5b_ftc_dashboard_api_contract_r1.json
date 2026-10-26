@@ -1,0 +1,431 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "contract_version": "1.0.0-r1",
+  "phase": "Phase 5B R1",
+  "title": "공정거래위원회 거시통계 지도·대시보드 통합 읽기 API 계약서 (R1 정정본)",
+  "generated_at": "2026-10-13T18:56:00+09:00",
+  "base_path": "/api/v1/ftc",
+  "data_sources": {
+    "analytics_db": "data/franchise_analytics_v1.sqlite3 (mode=ro)",
+    "ftc_macro_db": "data/ftc_macro_statistics_v1.sqlite3 (mode=ro)"
+  },
+  "global_principles": {
+    "latest_data_rule": "기본 기준연도는 데이터가 존재하는 최신 기준연도인 2026년 스냅샷 설정",
+    "status_terminology": {
+      "year_2026": "수집 시점 기준 최신 제공 스냅샷이며 향후 모수가 변동될 수 있음",
+      "year_2025": "최신 완결 후보 연도이며 공식 마감 여부는 확인되지 않음"
+    },
+    "no_year_mixing": "단일 응답 및 단일 위젯 내 서로 다른 연도의 분모·분자 혼합 절대 금지. 특정 지표 결측(NULL) 시에도 다른 연도 혼합 금지",
+    "fallback_policy": {
+      "default_query": "기본 최신연도 조회 시 매핑된 업종 전체가 2026년에 부재할 때만 위젯 전체를 2025년으로 원자적 대체",
+      "explicit_query": "사용자가 연도를 직접 명시한 경우 다른 연도로 자동 대체하지 않으며 데이터 부재 시 NO_DATA_FOR_REQUESTED_YEAR 반환"
+    },
+    "mapping_governance": {
+      "status": "PROPOSED_FOR_APPROVAL",
+      "note": "config/food_category_taxonomy_v1.json 8대 대분류 체계 기준이며 공정위 15개 업종 연계는 대분류 수준의 승인 대기 제안(PROPOSED_FOR_APPROVAL) 상태임"
+    },
+    "sales_status_separation": "매출은 양수(>0), 0원(=0), 결측(NULL) 3분류 엄격 분리",
+    "representative_metrics": "대표값 1순위는 중앙값(Median), 2순위는 5% 절사평균(Trimmed Mean)",
+    "panel_status": "존속 브랜드 균형 패널은 생존편향 방지를 위해 비활성화 상태 유지",
+    "performance_targets": {
+      "cache_hit_latency_p95": "<= 50ms",
+      "cache_miss_latency_p95": "<= 200ms",
+      "payload_size_gzip": "<= 10KB",
+      "map_fps_impact": "기존 지도 FPS 유의미한 저하 없음"
+    }
+  },
+  "endpoints": [
+    {
+      "name": "get_ftc_status",
+      "path": "/api/v1/ftc/status",
+      "method": "GET",
+      "summary": "공정위 거시통계 최신 적재 상태 및 메타데이터 조회",
+      "description": "대시보드 헤더 및 벤치마크 패널에 표출할 최신 기준연도, 회계연도, 수집 시각, 확정 모수, 버전 문자열을 반환합니다.",
+      "parameters": [],
+      "cache_policy": {
+        "cache_control": "public, max-age=3600",
+        "in_memory_cached": true,
+        "invalidation_trigger": "수집 배치 실행 및 스냅샷 변경 시"
+      },
+      "db_query_outline": "SELECT jng_biz_crtr_yr, post_total_count, completed_at FROM ftc_ingestion_audit_logs WHERE status = 'COMPLETED' ORDER BY jng_biz_crtr_yr DESC LIMIT 1;",
+      "responses": {
+        "200": {
+          "description": "정상 응답 (실제 DB 조회값 반영)",
+          "example": {
+            "status": "SUCCESS",
+            "data": {
+              "latest_benchmark_year": "2026",
+              "financial_year": "2025",
+              "display_label": "2026년 공정위 등록 기준 · 2025 회계연도 실적",
+              "snapshot_status": "LATEST_PROVIDED_SNAPSHOT",
+              "is_snapshot": true,
+              "collected_at": "2026-10-13 08:53:05",
+              "total_records": 4521,
+              "total_brands": 4515,
+              "total_franchise_stores": 97627,
+              "total_direct_stores": 4317,
+              "available_years": ["2026", "2025", "2024", "2023"],
+              "version_string": "2026년 공정위 등록 기준 스냅샷 (수집시각: 2026-10-13 08:53:05, 확정모수: 4521건)",
+              "macro_notice": "수집 시점 기준 최신 제공 스냅샷이며 향후 모수가 변동될 수 있습니다."
+            },
+            "meta": {
+              "timestamp": "2026-10-13T18:56:00+09:00"
+            }
+          }
+        },
+        "500": {
+          "description": "DB 또는 내부 서버 오류",
+          "example": {
+            "status": "ERROR",
+            "error_code": "ERR_FTC_STATUS_FAILED",
+            "message": "공정위 메타데이터 조회 중 오류가 발생했습니다."
+          }
+        }
+      }
+    },
+    {
+      "name": "get_latest_benchmark",
+      "path": "/api/v1/ftc/benchmark/latest",
+      "method": "GET",
+      "summary": "업종별 공정위 거시 벤치마크 조회",
+      "description": "8대 대분류 ID에 대응하는 벤치마크(표본수, 매출 대표값, 창업비용 구성, 품질 안내)를 반환합니다. 기본 조회 시 2026년 부재 시 2025년으로 원자적 대체합니다.",
+      "parameters": [
+        {
+          "name": "category_major_id",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "enum": ["CAT_MAJ_01", "CAT_MAJ_02", "CAT_MAJ_03", "CAT_MAJ_04", "CAT_MAJ_05", "CAT_MAJ_06", "CAT_MAJ_07", "CAT_MAJ_08"]
+          },
+          "description": "8대 대분류 코드 (CAT_MAJ_01 한식 ~ CAT_MAJ_08 베이커리·디저트)"
+        },
+        {
+          "name": "year",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "default": "2026",
+            "enum": ["2026", "2025", "2024", "2023"]
+          },
+          "description": "기준연도 수동 지정 (기본값: 2026). 명시적 지정 시 자동 대체되지 않음."
+        }
+      ],
+      "cache_policy": {
+        "cache_control": "public, max-age=3600",
+        "in_memory_cached": true
+      },
+      "db_query_outline": "단일 업종 매핑 시 ftc_industry_macro_summary 조회. 복수 업종 매핑 시 ftc_industry_macro_summary 분자·분모 SUM 재계산 및 ftc_brand_macro_records에서 중앙값/절사평균 산출.",
+      "responses": {
+        "200_normal": {
+          "description": "2026년 정상 조회 응답 (실제 DB 조회값 100% 반영)",
+          "example": {
+            "status": "SUCCESS",
+            "data": {
+              "benchmark_year": "2026",
+              "financial_year": "2025",
+              "display_label": "2026년 공정위 등록 기준 · 2025 회계연도 실적",
+              "is_fallback_applied": false,
+              "fallback_reason": null,
+              "category_major_id": "CAT_MAJ_01",
+              "category_major_name": "한식",
+              "mapped_ftc_categories": ["한식"],
+              "mapping_type": "ONE_TO_ONE",
+              "mapping_status": "PROPOSED_FOR_APPROVAL",
+              "sample_metrics": {
+                "total_brand_records": 1858,
+                "sales_positive_records": 1204,
+                "sales_zero_records": 584,
+                "sales_null_records": 70,
+                "total_franchise_stores": 29557,
+                "total_direct_stores": 1248
+              },
+              "sales_benchmarks": {
+                "median_sales_thousand_krw": 361174.5,
+                "trimmed_mean_5pct_thousand_krw": 394210.78,
+                "store_weighted_avg_thousand_krw": 395702.93,
+                "simple_avg_positive_thousand_krw": 437251.23,
+                "all_records_avg_thousand_krw": 294435.39,
+                "recommended_primary_metric": "median_sales_thousand_krw",
+                "recommended_secondary_metric": "trimmed_mean_5pct_thousand_krw",
+                "weighted_avg_denominator_stores": 27187
+              },
+              "startup_cost_components": {
+                "reported_deposit_amount": {
+                  "median_thousand_krw": 13800.0,
+                  "mean_thousand_krw": 15592.25,
+                  "valid_count": 1855,
+                  "field_note": "공정위 원본 depstAmt 값이며 구성항목 합계와 항상 일치하지 않습니다."
+                },
+                "franchise_fee_jng_amt": {
+                  "median_thousand_krw": 5500.0,
+                  "mean_thousand_krw": 8191.43,
+                  "valid_count": 1855
+                },
+                "education_fee_edu_amt": {
+                  "median_thousand_krw": 3300.0,
+                  "mean_thousand_krw": 4464.25,
+                  "valid_count": 1855
+                },
+                "guarantee_fee_grnte_amt": {
+                  "median_thousand_krw": 2000.0,
+                  "mean_thousand_krw": 3211.46,
+                  "valid_count": 1855
+                },
+                "interior_cost_intrr_amt": {
+                  "median_thousand_krw": 44000.0,
+                  "mean_thousand_krw": 48542.13,
+                  "valid_count": 1856
+                },
+                "interior_cost_per_pyeong_3_3sqm": {
+                  "median_thousand_krw": 1760.0,
+                  "mean_thousand_krw": 1761.3,
+                  "valid_count": 1856
+                },
+                "tentative_derived_sum": {
+                  "median_thousand_krw": 133400.0,
+                  "mean_thousand_krw": 147690.85,
+                  "valid_count": 1858,
+                  "is_official_stat": false,
+                  "disclaimer": "본 합계는 공정위 공인 공식 총창업비용이 아니며 원본 항목(예치금+기타+인테리어)을 합산한 잠정 파생 지표입니다."
+                }
+              },
+              "quality_notices": [
+                {
+                  "type": "SNAPSHOT_NOTICE",
+                  "badge": "최신 제공 스냅샷",
+                  "message": "수집 시점 기준 최신 제공 스냅샷이며 향후 모수가 변동될 수 있습니다."
+                },
+                {
+                  "type": "ZERO_SALES_NOTICE",
+                  "badge": "매출 0원 공시 31.4%",
+                  "message": "전체 브랜드 중 584개(31.4%)가 매출 0원으로 공시되어 있어 단순평균 대신 중앙값(Median) 지표를 확인하십시오."
+                }
+              ]
+            },
+            "meta": {
+              "calculation_method": "Actual DB values from ftc_industry_macro_summary and ftc_brand_macro_records",
+              "timestamp": "2026-10-13T18:56:00+09:00"
+            }
+          }
+        },
+        "200_fallback": {
+          "description": "2026년 미존재 시 2025년 대체 응답 (실제 DB 조회값 반영)",
+          "example": {
+            "status": "SUCCESS",
+            "data": {
+              "benchmark_year": "2025",
+              "financial_year": "2024",
+              "display_label": "2025년 공정위 등록 기준 · 2024 회계연도 실적",
+              "is_fallback_applied": true,
+              "fallback_reason": "2026년 등록 데이터 부재로 최신 완결 후보 연도인 2025년 실적으로 원자적 대체 표출 중",
+              "category_major_id": "CAT_MAJ_01",
+              "category_major_name": "한식",
+              "sample_metrics": {
+                "total_brand_records": 2532,
+                "sales_positive_records": 1493,
+                "sales_zero_records": 967,
+                "sales_null_records": 72,
+                "total_franchise_stores": 43566,
+                "total_direct_stores": 1899
+              },
+              "sales_benchmarks": {
+                "median_sales_thousand_krw": 347197.0,
+                "trimmed_mean_5pct_thousand_krw": 382823.8,
+                "store_weighted_avg_thousand_krw": 399445.82,
+                "simple_avg_positive_thousand_krw": 450832.77,
+                "all_records_avg_thousand_krw": 273615.17,
+                "weighted_avg_denominator_stores": 39537
+              },
+              "quality_notices": [
+                {
+                  "type": "FALLBACK_NOTICE",
+                  "badge": "2025년 대체 표시",
+                  "message": "2026년 스냅샷 미등록으로 2025년 실적으로 일괄 전환되었습니다 (최신 완결 후보 연도이며 공식 마감 여부는 확인되지 않음)."
+                }
+              ]
+            },
+            "meta": {
+              "timestamp": "2026-10-13T18:56:00+09:00"
+            }
+          }
+        },
+        "400": {
+          "description": "잘못된 파라미터 또는 매핑 불가 업종 요청",
+          "example": {
+            "status": "UNMAPPED_CATEGORY",
+            "error_code": "ERR_CATEGORY_UNMAPPED",
+            "message": "선택하신 업종은 공정위 거시통계와 배타적 매핑이 불가합니다 (상태: UNMAPPED_REVIEW)."
+          }
+        },
+        "404": {
+          "description": "사용자가 직접 요청한 연도에 데이터가 없는 경우",
+          "example": {
+            "status": "NO_DATA",
+            "error_code": "NO_DATA_FOR_REQUESTED_YEAR",
+            "message": "요청하신 연도(2027)에 해당하는 공정위 등록 데이터가 존재하지 않습니다. 사용자가 지정한 연도는 다른 연도로 자동 대체되지 않습니다.",
+            "requested_year": "2027"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_multi_year_trends",
+      "path": "/api/v1/ftc/trends",
+      "method": "GET",
+      "summary": "업종별 4개년(2023~2026) 다년도 거시 추세 조회",
+      "description": "선택한 8대 대분류에 대응하는 2023~2026년 전체 모집단 시계열 추세(표본수, 중앙값, 5% 절사평균, 가중평균)를 반환합니다.",
+      "parameters": [
+        {
+          "name": "category_major_id",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "8대 대분류 ID"
+        }
+      ],
+      "cache_policy": {
+        "cache_control": "public, max-age=3600",
+        "in_memory_cached": true
+      },
+      "db_query_outline": "SELECT jng_biz_crtr_yr, record_count, sum_frcs_cnt, sum_dms_cnt, median_sls_amt, trimmed_mean_sls_5pct, store_weighted_avg_sls_amt, brand_simple_avg_sls_amt, denom_store_weighted_sls FROM ftc_industry_macro_summary WHERE tpbiz_mclsf_nm = '한식' ORDER BY jng_biz_crtr_yr ASC;",
+      "responses": {
+        "200": {
+          "description": "정상 추세 응답 (실제 DB 조회값 100% 반영)",
+          "example": {
+            "status": "SUCCESS",
+            "data": {
+              "category_major_id": "CAT_MAJ_01",
+              "category_major_name": "한식",
+              "trend_mode": "FULL_POPULATION_CROSS_SECTIONAL",
+              "balanced_panel_active": false,
+              "panel_inactive_reason": "존속 브랜드 균형 패널은 생존편향 위험으로 인해 비활성화 상태 유지",
+              "yearly_series": [
+                {
+                  "benchmark_year": "2023",
+                  "financial_year": "2022",
+                  "is_snapshot": false,
+                  "sample_count": 2148,
+                  "total_franchise_stores": 37977,
+                  "total_direct_stores": 1660,
+                  "median_sales_thousand_krw": 298016.0,
+                  "trimmed_mean_5pct_thousand_krw": 330650.4,
+                  "store_weighted_avg_thousand_krw": 324602.19,
+                  "simple_avg_thousand_krw": 375513.78,
+                  "denom_stores": 34406
+                },
+                {
+                  "benchmark_year": "2024",
+                  "financial_year": "2023",
+                  "is_snapshot": false,
+                  "sample_count": 2340,
+                  "total_franchise_stores": 41914,
+                  "total_direct_stores": 1798,
+                  "median_sales_thousand_krw": 330611.0,
+                  "trimmed_mean_5pct_thousand_krw": 371714.33,
+                  "store_weighted_avg_thousand_krw": 360391.18,
+                  "simple_avg_thousand_krw": 414718.22,
+                  "denom_stores": 37789
+                },
+                {
+                  "benchmark_year": "2025",
+                  "financial_year": "2024",
+                  "is_snapshot": false,
+                  "sample_count": 2532,
+                  "total_franchise_stores": 43566,
+                  "total_direct_stores": 1899,
+                  "median_sales_thousand_krw": 347197.0,
+                  "trimmed_mean_5pct_thousand_krw": 382823.8,
+                  "store_weighted_avg_thousand_krw": 399445.82,
+                  "simple_avg_thousand_krw": 450832.77,
+                  "denom_stores": 39537
+                },
+                {
+                  "benchmark_year": "2026",
+                  "financial_year": "2025",
+                  "is_snapshot": true,
+                  "snapshot_badge": "최신 제공 스냅샷",
+                  "sample_count": 1858,
+                  "total_franchise_stores": 29557,
+                  "total_direct_stores": 1248,
+                  "median_sales_thousand_krw": 361174.5,
+                  "trimmed_mean_5pct_thousand_krw": 394210.78,
+                  "store_weighted_avg_thousand_krw": 395702.93,
+                  "simple_avg_thousand_krw": 437251.23,
+                  "denom_stores": 27187
+                }
+              ],
+              "macro_guidance": "금액 지표는 물가변동 미반영 명목금액이며, 2026년은 수집 시점의 최신 제공 스냅샷으로 이전 연도와 모집단이 달라, 점포 수 차이를 산업 성장·감소로 직접 해석할 수 없습니다."
+            },
+            "meta": {
+              "timestamp": "2026-10-13T18:56:00+09:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "get_available_years",
+      "path": "/api/v1/ftc/years",
+      "method": "GET",
+      "summary": "수동 연도 선택용 연도 메타 목록 조회",
+      "description": "사용자가 연도를 수동으로 변경할 때 사용할 연도 목록과 기본값 정보를 제공합니다.",
+      "parameters": [],
+      "cache_policy": {
+        "cache_control": "public, max-age=86400",
+        "in_memory_cached": true
+      },
+      "responses": {
+        "200": {
+          "description": "정상 응답",
+          "example": {
+            "status": "SUCCESS",
+            "data": [
+              {
+                "benchmark_year": "2026",
+                "financial_year": "2025",
+                "is_default": true,
+                "is_snapshot": true,
+                "label": "2026년 공정위 등록 (최신 스냅샷)"
+              },
+              {
+                "benchmark_year": "2025",
+                "financial_year": "2024",
+                "is_default": false,
+                "is_snapshot": false,
+                "label": "2025년 공정위 등록 (최신 완결 후보)"
+              },
+              {
+                "benchmark_year": "2024",
+                "financial_year": "2023",
+                "is_default": false,
+                "is_snapshot": false,
+                "label": "2024년 공정위 등록 (2023 실적)"
+              },
+              {
+                "benchmark_year": "2023",
+                "financial_year": "2022",
+                "is_default": false,
+                "is_snapshot": false,
+                "label": "2023년 공정위 등록 (2022 실적)"
+              }
+            ],
+            "meta": {
+              "timestamp": "2026-10-13T18:56:00+09:00"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "error_codes": {
+    "ERR_FTC_STATUS_FAILED": "공정위 상태 메타 조회 실패",
+    "ERR_CATEGORY_UNMAPPED": "8대 대분류와 공정위 업종 간 배타적 매핑 불가 (상태: UNMAPPED_REVIEW)",
+    "NO_DATA_FOR_REQUESTED_YEAR": "사용자가 직접 요청한 연도에 해당하는 공정위 등록 데이터 부재 (자동 대체 불가)",
+    "ERR_INVALID_YEAR": "지원되지 않는 기준연도 형식 요청",
+    "ERR_DB_CONNECTION": "공정위 데이터베이스 읽기 연결 실패"
+  }
+}

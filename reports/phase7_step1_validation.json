@@ -1,0 +1,247 @@
+{
+  "phase": "Phase 7 Step 7-1",
+  "task_description": "실행환경 표준화 및 통합 스모크 테스트 (Codex 검토 Iteration 3 반영)",
+  "timestamp": "2026-10-20T15:00:00+09:00",
+  "overall_status": "PASS",
+  "runtime": {
+    "python": {
+      "version": "3.12.7",
+      "executable": "D:\\Franchise_Dashboard\\.venv\\Scripts\\python.exe",
+      "venv_path": "D:\\Franchise_Dashboard\\.venv",
+      "status": "PASS"
+    },
+    "node": {
+      "version": "v23.4.0",
+      "status": "PASS"
+    }
+  },
+  "preflight_check": {
+    "status": "PASS",
+    "python_version_check": "PASS (Python 3.12.7)",
+    "dependencies_check": {
+      "status": "PASS",
+      "packages": ["fastapi", "uvicorn", "pydantic", "httpx", "pytest"]
+    },
+    "databases_check": {
+      "status": "PASS",
+      "databases": [
+        {
+          "name": "franchise_analytics_v1.sqlite3",
+          "size_bytes": 514043904,
+          "size_mb": 490.2,
+          "check_method": "PRAGMA quick_check",
+          "check_result": "ok",
+          "connection_uri": "file:///D:/Franchise_Dashboard/data/franchise_analytics_v1.sqlite3?mode=ro",
+          "status": "PASS",
+          "verified_tables": 7
+        },
+        {
+          "name": "ftc_macro_statistics_v1.sqlite3",
+          "size_bytes": 32325632,
+          "size_mb": 30.8,
+          "check_method": "PRAGMA integrity_check",
+          "check_result": "ok",
+          "connection_uri": "file:///D:/Franchise_Dashboard/data/ftc_macro_statistics_v1.sqlite3?mode=ro",
+          "status": "PASS",
+          "verified_tables": 3,
+          "years": ["2023", "2024", "2025", "2026"]
+        },
+        {
+          "name": "brand_master_v1.sqlite3",
+          "size_bytes": 200921088,
+          "size_mb": 191.6,
+          "check_method": "PRAGMA integrity_check",
+          "check_result": "ok",
+          "connection_uri": "file:///D:/Franchise_Dashboard/data/brand_master_v1.sqlite3?mode=ro",
+          "status": "PASS",
+          "verified_tables": 5,
+          "brands_count": 5063,
+          "links_count": 735208,
+          "reviews_count": 2
+        }
+      ]
+    },
+    "frontend_env_check": {
+      "status": "PASS",
+      "env_file": true,
+      "vite_api_url_verified": "http://127.0.0.1:8000",
+      "checked_against": "frontend/src/services/api.js requirement (VITE_API_URL)",
+      "node_modules": true
+    },
+    "protected_files_check": {
+      "status": "PASS",
+      "files": [
+        {
+          "file": "collector.py",
+          "expected_sha256": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+          "matched": true
+        },
+        {
+          "file": "gangnam_food_stores.sqlite3",
+          "expected_sha256": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+          "matched": true
+        },
+        {
+          "file": "run_gangnam.bat",
+          "expected_sha256": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+          "matched": true
+        }
+      ]
+    }
+  },
+  "smoke_test": {
+    "status": "PASS",
+    "total_endpoints": 12,
+    "passed_endpoints": 12,
+    "failed_endpoints": 0,
+    "in_memory_latency_avg_ms": 28.7,
+    "live_latency_avg_ms": 766.4,
+    "endpoints": [
+      { "id": 1, "path": "/", "status_code": 200, "latency_ms": 77.2, "result": "PASS" },
+      { "id": 2, "path": "/api/v1/analytics/summary", "status_code": 200, "latency_ms": 15.2, "result": "PASS" },
+      { "id": 3, "path": "/api/v1/analytics/regions?region_type=SIDO&limit=20", "status_code": 200, "latency_ms": 18.5, "result": "PASS" },
+      { "id": 4, "path": "/api/v1/analytics/regions/11", "status_code": 200, "latency_ms": 15.5, "result": "PASS" },
+      { "id": 5, "path": "/api/v1/analytics/categories", "status_code": 200, "latency_ms": 17.8, "result": "PASS" },
+      { "id": 6, "path": "/api/v1/analytics/brands/search?limit=10", "status_code": 200, "latency_ms": 20.5, "result": "PASS" },
+      { "id": 7, "path": "/api/v1/spatial/stores/bbox", "status_code": 200, "latency_ms": 68.2, "result": "PASS" },
+      { "id": 8, "path": "/api/v1/spatial/density/grid?sigungu_code=11215&limit=1500", "status_code": 200, "latency_ms": 16.8, "result": "PASS" },
+      { "id": 9, "path": "/api/v1/spatial/hotspots", "status_code": 200, "latency_ms": 10.9, "result": "PASS" },
+      { "id": 10, "path": "/api/v1/ftc/status", "status_code": 200, "latency_ms": 22.4, "result": "PASS" },
+      { "id": 11, "path": "/api/v1/ftc/benchmark/latest?category_major_id=CAT_MAJ_01", "status_code": 200, "latency_ms": 35.5, "result": "PASS" },
+      { "id": 12, "path": "/api/v1/ftc/trends?category_major_id=CAT_MAJ_01", "status_code": 200, "latency_ms": 25.3, "result": "PASS" }
+    ]
+  },
+  "test_suite": {
+    "status": "PASS",
+    "python_executable": "D:\\Franchise_Dashboard\\.venv\\Scripts\\python.exe",
+    "isolation_protection": {
+      "enabled": true,
+      "method": "tests/test_phase4_stage4c.py isolates record_brand_review using a temporary database copy via db_path parameter, guaranteeing zero writes to production data/brand_master_v1.sqlite3; run_tests.py runs cleanly without copying or restoring production DB.",
+      "verified_immutability": true
+    },
+    "dynamic_counting": {
+      "method": "parse_pytest_summary() parses actual passed, failed, skipped regex counts directly from pytest output",
+      "shortfall_protection": "Fails (exit 1) if actual_passed < expected_count or failed > 0"
+    },
+    "total_expected_tests": 82,
+    "total_actual_passed": 82,
+    "total_actual_failed": 0,
+    "total_actual_skipped": 0,
+    "all_passed": true,
+    "total_elapsed_seconds": 31.99,
+    "suites": [
+      {
+        "id": "stage4_abc",
+        "name": "Phase 4 Stage 4A~4C (브랜드 수집/정규화/분류 테스트 40개)",
+        "files": ["tests/test_phase4_stage4a.py", "tests/test_phase4_stage4b.py", "tests/test_phase4_stage4c.py"],
+        "expected_count": 40,
+        "actual_passed": 40,
+        "actual_failed": 0,
+        "actual_skipped": 0,
+        "passed": true,
+        "elapsed_seconds": 5.08
+      },
+      {
+        "id": "stage4_d",
+        "name": "Phase 4 Stage 4D (분류체계 마스터 및 SQL 뷰 테스트 11개)",
+        "files": ["tests/test_phase4_stage4d.py"],
+        "expected_count": 11,
+        "actual_passed": 11,
+        "actual_failed": 0,
+        "actual_skipped": 0,
+        "passed": true,
+        "elapsed_seconds": 16.26
+      },
+      {
+        "id": "stage4_e",
+        "name": "Phase 4 Stage 4E (분석 DB 및 핵심 API 테스트 15개)",
+        "files": ["tests/test_phase4_stage4e.py"],
+        "expected_count": 15,
+        "actual_passed": 15,
+        "actual_failed": 0,
+        "actual_skipped": 0,
+        "passed": true,
+        "elapsed_seconds": 7.70
+      },
+      {
+        "id": "phase5b",
+        "name": "Phase 5B Step 1~2 (공정위 거시통계 및 벤치마크 API 테스트 16개)",
+        "files": ["tests/test_phase5b_step1.py", "tests/test_phase5b_step2_supplement.py"],
+        "expected_count": 16,
+        "actual_passed": 16,
+        "actual_failed": 0,
+        "actual_skipped": 0,
+        "passed": true,
+        "elapsed_seconds": 2.95
+      }
+    ]
+  },
+  "frontend_build": {
+    "status": "PASS",
+    "build_tool": "vite v5.4.21",
+    "build_duration_seconds": 4.04,
+    "exit_code": 0,
+    "artifacts": {
+      "html": { "file": "dist/index.html", "size_bytes": 668, "gzip_bytes": 466 },
+      "css": { "file": "dist/assets/index-BpXN-xr5.css", "size_bytes": 130111, "gzip_bytes": 20356 },
+      "js": { "file": "dist/assets/index-Cv1fum3t.js", "size_bytes": 1046827, "gzip_bytes": 290625 }
+    }
+  },
+  "brand_master_integrity": {
+    "status": "PASS",
+    "database": "data/brand_master_v1.sqlite3",
+    "file_size_bytes": 200921088,
+    "pragma_integrity_check": "ok",
+    "brands_count": 5063,
+    "store_brand_links_count": 735208,
+    "reviews_count": 2,
+    "isolation_verification": {
+      "finding": "test_10 in test_phase4_stage4c.py originally wrote to the default production DB path",
+      "resolution": [
+        "1. tests/test_phase4_stage4c.py test_10 creates a temporary SQLite file copy and passes db_path=tmp_db_path to record_brand_review",
+        "2. scripts/run_tests.py removes all copy/restore logic of the production database",
+        "3. Production database data/brand_master_v1.sqlite3 remains 100% read-only across all 82 tests",
+        "4. Exact verification after all 82 tests: reviews=2, brands=5063, links=735208, BRD_KOR_0001 updated_at='2026-10-14 14:48:01', integrity=ok"
+      ],
+      "verified_immutability": true
+    }
+  },
+  "browser_verification": {
+    "status": "PASS",
+    "all_passed": true,
+    "tested_url": "http://127.0.0.1:5173",
+    "evaluation": {
+      "gridPass": true,
+      "storePass": true,
+      "hotspotPass": true,
+      "details": {
+        "gridOffVerified": true,
+        "gridRestoredVerified": true,
+        "storeOffVerified": true,
+        "storeRestoredVerified": true,
+        "hotspotOffVerified": true,
+        "hotspotRestoredVerified": true
+      }
+    },
+    "toggles": {
+      "grid": {
+        "off": { "ariaPressed": "false", "columnsVisibility": "none", "overviewPointsVisibility": "none" },
+        "restored": { "ariaPressed": "true", "columnsVisibility": "visible" }
+      },
+      "stores": {
+        "off": { "ariaPressed": "false", "layerVisibility": "none", "hudStatus": "개별 점포 레이어 숨김" },
+        "restored": { "ariaPressed": "true", "layerVisibility": "visible" }
+      },
+      "hotspots": {
+        "off": { "ariaPressed": "false", "panelVisible": false },
+        "restored": { "ariaPressed": "true", "panelVisible": true }
+      }
+    },
+    "screenshots": [
+      "reports/phase6_step2_browser_toggle_grid_off.png",
+      "reports/phase6_step2_browser_toggle_store_off.png",
+      "reports/phase6_step2_browser_toggle_hotspot_off.png",
+      "reports/phase6_step2_browser_all_toggles_verified.png"
+    ]
+  }
+}

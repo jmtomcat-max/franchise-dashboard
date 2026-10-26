@@ -1,0 +1,879 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+/* =========================================================================
+   CINEMATIC INTRO OVERLAY (Staggered Paragraph Reveal & Dashboard Focus)
+   ========================================================================= */
+
+.cinematic-intro-root {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: #050505;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Pretendard", sans-serif;
+  overflow: hidden;
+  user-select: none;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinematic-intro-root.stage-0,
+.cinematic-intro-root.stage-1,
+.cinematic-intro-root.stage-2,
+.cinematic-intro-root.stage-3 {
+  cursor: pointer; /* 단락 전개 중 클릭 시 즉시 최종 대시보드 버튼으로 이동 */
+}
+
+.cinematic-intro-root.is-entering {
+  animation: cinematicFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cinematic-intro-root.is-closing {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+@keyframes cinematicFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 1. 배경 비디오 캔버스 */
+.cinematic-video-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.cinematic-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: contrast(1.03) brightness(1.0);
+  transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 영상 종료 후(stage >= 1) 은은하게 스며드는 다크 글래스 백드롭 */
+.cinematic-backdrop-dim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(5, 5, 5, 0) 0%, rgba(5, 5, 5, 0.25) 100%);
+  opacity: 0;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.cinematic-backdrop-dim.active {
+  opacity: 1;
+  background: 
+    radial-gradient(circle at center, rgba(5, 5, 5, 0.42) 0%, rgba(5, 5, 5, 0.78) 70%, rgba(5, 5, 5, 0.94) 100%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.7) 0%, rgba(5, 5, 5, 0.2) 30%, rgba(5, 5, 5, 0.85) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* 미세 디지털 스캔라인 텍스처 */
+.cinematic-grid-scanline {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 4px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* 2. 상단 유틸리티 바 */
+.cinematic-top-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.8rem 2.75rem;
+}
+
+.cinematic-brand-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.4rem 0.95rem;
+  background: rgba(18, 18, 22, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s ease;
+}
+
+.brand-dot-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #f59e0b;
+  box-shadow: 0 0 10px #f59e0b;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+}
+
+.brand-code {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cinematic-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cinematic-replay-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  border-radius: 9999px;
+  color: #fef08a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: replayFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes replayFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cinematic-replay-button:hover {
+  background: rgba(245, 158, 11, 0.3);
+  border-color: rgba(245, 158, 11, 0.7);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.replay-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.cinematic-skip-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 1.05rem;
+  background: rgba(24, 24, 27, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinematic-skip-button:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(245, 158, 11, 0.5);
+  color: #fef3c7;
+  transform: translateY(-1px);
+}
+
+.skip-key-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.35rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* 3. 재생 중 초박형 진행 바 */
+.cinematic-progress-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 15;
+  overflow: hidden;
+}
+
+.cinematic-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24, #ffffff);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.8);
+  transition: width 0.1s linear;
+}
+
+/* 4. 중앙 시네마틱 콘텐츠 레이아웃 */
+.cinematic-hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* 글자 뒤편 볼류메트릭 골드 방사형 광원 */
+.cinematic-volumetric-glow {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 700px;
+  height: 440px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(217, 119, 6, 0.08) 50%, transparent 75%);
+  filter: blur(55px);
+  pointer-events: none;
+  z-index: -1;
+  animation: glowPulse 4s infinite ease-in-out alternate;
+}
+
+@keyframes glowPulse {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+/* =========================================================================
+   단락별 순차 리빌 애니메이션 (Staggered Paragraph Animations)
+   ========================================================================= */
+
+.paragraph-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 제1단락: 메인 슬로건 */
+.animate-p1 {
+  animation: revealParagraph 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* 제2단락: 설명 및 피처 칩 */
+.animate-p2 {
+  animation: revealParagraph 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  margin-top: 1.25rem;
+}
+
+/* 제3단락: 대시보드 중심 액션 버튼 */
+.animate-p3 {
+  animation: revealSpringUp 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  margin-top: 2.25rem;
+}
+
+@keyframes revealParagraph {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes revealSpringUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* [제1단락 내부 스타일] */
+.cinematic-eyebrow-wrapper {
+  margin-bottom: 1.25rem;
+}
+
+.cinematic-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 1.2rem;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  border-radius: 9999px;
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.eyebrow-spark {
+  color: #fbbf24;
+  font-size: 0.85rem;
+}
+
+.eyebrow-text {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #fef08a;
+  text-transform: uppercase;
+}
+
+.eyebrow-divider {
+  width: 1px;
+  height: 10px;
+  background: rgba(245, 158, 11, 0.4);
+}
+
+.eyebrow-metric {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 메인 헤드라인 타이포그래피 ("Beyond Sight, Into Space") */
+.cinematic-main-title {
+  margin: 0;
+  font-size: clamp(3.2rem, 7vw, 6.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+}
+
+.title-word {
+  display: inline-block;
+}
+
+.title-beyond {
+  color: #ffffff;
+  font-weight: 900;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
+}
+
+.title-sight {
+  background-image: linear-gradient(180deg, #ffffff 30%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
+}
+
+.title-into {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 700;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
+}
+
+.title-space {
+  background-image: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 40px rgba(245, 158, 11, 0.65));
+  font-weight: 900;
+}
+
+.mobile-break {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-break {
+    display: inline;
+  }
+}
+
+/* [제2단락 내부 스타일] */
+.cinematic-subtitle-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cinematic-tagline-en {
+  margin: 0;
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(253, 230, 138, 0.95);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  text-align: center;
+}
+
+.cinematic-desc-ko {
+  margin: 0.85rem auto 0 auto;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(240, 240, 245, 0.95);
+  max-width: 760px;
+  text-align: center;
+  text-wrap: balance;
+  word-break: keep-all;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+.cinematic-desc-ko strong {
+  color: #ffffff;
+  font-weight: 700;
+  border-bottom: 1.5px solid rgba(245, 158, 11, 0.7);
+  padding-bottom: 2px;
+}
+
+/* 피처 칩 목록 */
+.cinematic-feature-chips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.feature-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(18, 18, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.78rem;
+  color: rgba(244, 244, 245, 0.9);
+}
+
+.chip-icon {
+  font-size: 0.85rem;
+}
+
+/* =========================================================================
+   [제3단락 스타일] ★ 종합 대시보드 홈 메인 강조 (Hero Primary Button) ★
+   ========================================================================= */
+
+.cinematic-actions-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.35rem;
+}
+
+.double-bezel-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.double-bezel-btn:active {
+  transform: scale(0.97);
+}
+
+/* ★ 1순위 메인 강조 버튼: 종합 대시보드 홈 ★ */
+.dashboard-hero-btn {
+  gap: 1.4rem;
+  padding: 0.9rem 1.1rem 0.9rem 1.85rem;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 55%, #b45309 100%);
+  box-shadow: 
+    0 0 0 1px rgba(254, 240, 138, 0.55),
+    0 14px 45px -5px rgba(245, 158, 11, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  color: #000000;
+  position: relative;
+  overflow: visible;
+}
+
+/* 대시보드 버튼 외곽 비콘 펄스 글로우 */
+.dashboard-hero-btn::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #fbbf24, #d97706);
+  z-index: -1;
+  opacity: 0.45;
+  filter: blur(8px);
+  animation: beaconPulse 2.4s infinite ease-in-out;
+}
+
+@keyframes beaconPulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.03); }
+}
+
+.dashboard-hero-btn:hover {
+  box-shadow: 
+    0 0 0 2px rgba(254, 240, 138, 0.8),
+    0 18px 55px -4px rgba(245, 158, 11, 0.85),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.dashboard-hero-btn .btn-main-label {
+  color: #000000;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.dashboard-hero-btn .btn-sub-label {
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 600;
+  font-size: 0.74rem;
+  letter-spacing: 0.01em;
+}
+
+.dashboard-hero-btn .btn-circle-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #000000;
+  color: #fbbf24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dashboard-hero-btn:hover .btn-circle-arrow {
+  transform: rotate(45deg) scale(1.1);
+  background: #111111;
+  color: #fef08a;
+}
+
+/* 2순위 보조 버튼: 3D 상권 공간 지도 */
+.map-sub-btn {
+  gap: 1.15rem;
+  padding: 0.8rem 0.95rem 0.8rem 1.6rem;
+  background: rgba(18, 18, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 10px 30px -5px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #ffffff;
+}
+
+.map-sub-btn:hover {
+  background: rgba(28, 28, 34, 0.85);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 
+    0 14px 40px -4px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(245, 158, 11, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.map-sub-btn .btn-main-label {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+}
+
+.map-sub-btn .btn-sub-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  font-size: 0.71rem;
+  letter-spacing: 0.02em;
+}
+
+.map-sub-btn .btn-circle-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+}
+
+.map-sub-btn:hover .btn-circle-arrow {
+  background: rgba(245, 158, 11, 0.25);
+  color: #fbbf24;
+  transform: rotate(45deg) scale(1.08);
+}
+
+.btn-label-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* 6. 하단 상태 바 */
+.cinematic-bottom-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 2.75rem;
+}
+
+.cinematic-play-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hint-icon {
+  font-size: 0.8rem;
+}
+
+.cinematic-dont-show-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  transition: color 0.2s ease;
+  animation: revealParagraph 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cinematic-dont-show-label:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.cinematic-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkbox-custom-box {
+  width: 17px;
+  height: 17px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.cinematic-checkbox:checked + .checkbox-custom-box {
+  background: #f59e0b;
+  border-color: #f59e0b;
+}
+
+.cinematic-checkbox:checked + .checkbox-custom-box::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid #000000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.cinematic-meta-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.05em;
+}
+
+.meta-divider {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================================
+   시네마틱 영상 재생 대기 애플 스타일 대형 'CLICK' 캡슐 버튼
+   - 사용자 피드백: 약 3배 확대, 볼드(Bold) 강조, 애플 사이트 시네마틱 스타일
+   - 소재: 초정밀 프로스테드 아크릴 (blur 36px + saturate 200%)
+   - 테두리: 세련된 2px 화이트 글래스 림라이트
+   ========================================================================= */
+
+.cinematic-start-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  animation: overlayFadeIn 0.35s ease-out both;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cinematic-click-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.2rem, 2vw, 1.8rem);
+  padding: clamp(1.2rem, 2.2vw, 1.85rem) clamp(3.2rem, 5.5vw, 5.8rem);
+  min-height: clamp(80px, 11vh, 110px);
+  background: rgba(255, 255, 255, 0.17);
+  border: 2px solid rgba(255, 255, 255, 0.42);
+  border-radius: 9999px;
+  color: #ffffff;
+  cursor: pointer;
+  backdrop-filter: blur(36px) saturate(200%);
+  -webkit-backdrop-filter: blur(36px) saturate(200%);
+  box-shadow: 
+    0 18px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.55);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  animation: pillFloatIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) both;
+  user-select: none;
+}
+
+@keyframes pillFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cinematic-click-pill:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.65),
+    0 0 30px rgba(255, 255, 255, 0.25),
+    inset 0 2px 3px rgba(255, 255, 255, 0.75);
+  transform: scale(1.06);
+}
+
+.cinematic-click-pill:active {
+  transform: scale(0.97);
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.cinematic-click-icon {
+  width: clamp(26px, 3.4vw, 38px);
+  height: clamp(26px, 3.4vw, 38px);
+  color: #ffffff;
+  fill: currentColor;
+  margin-left: -3px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cinematic-click-pill:hover .cinematic-click-icon {
+  transform: scale(1.15);
+}
+
+.cinematic-click-text {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Plus Jakarta Sans", Roboto, sans-serif;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+/* 모바일 및 소형 뷰포트 최적화 */
+@media (max-width: 768px) {
+  .cinematic-top-bar {
+    padding: 1.25rem 1.5rem;
+  }
+  .cinematic-brand-chip {
+    padding: 0.35rem 0.75rem;
+  }
+  .brand-code {
+    font-size: 0.65rem;
+  }
+  .cinematic-actions-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.85rem;
+  }
+  .double-bezel-btn {
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .cinematic-bottom-bar {
+    padding: 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .cinematic-meta-right {
+    font-size: 0.68rem;
+  }
+}

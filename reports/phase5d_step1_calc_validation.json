@@ -1,0 +1,780 @@
+{
+  "timestamp": "2026-10-19T09:13:11.009Z",
+  "phase": "Phase 5D Step 1 (FTC YoY Calculation Contract)",
+  "all_passed": true,
+  "tests": [
+    {
+      "id": "T-01",
+      "name": "CAT_MAJ_01 수치 및 포맷팅 일치 검증",
+      "passed": true,
+      "details": {
+        "calcSummary": {
+          "isAvailable": true,
+          "sample2024": 2340,
+          "sample2025": 2532,
+          "metrics": [
+            {
+              "label": "중위매출",
+              "val2024": "33,061만원",
+              "val2025": "34,720만원",
+              "diffAmount": "+1,659만원",
+              "diffRate": "+5.0%",
+              "direction": "증가",
+              "expectedUnit": "thousand_krw"
+            },
+            {
+              "label": "5% 절사평균",
+              "val2024": "37,171만원",
+              "val2025": "38,282만원",
+              "diffAmount": "+1,111만원",
+              "diffRate": "+3.0%",
+              "direction": "증가",
+              "expectedUnit": "thousand_krw"
+            },
+            {
+              "label": "점포 가중평균 매출",
+              "val2024": "36,039만원",
+              "val2025": "39,945만원",
+              "diffAmount": "+3,905만원",
+              "diffRate": "+10.8%",
+              "direction": "증가",
+              "expectedUnit": "thousand_krw"
+            },
+            {
+              "label": "가맹점 수",
+              "val2024": "41,914개",
+              "val2025": "43,566개",
+              "diffAmount": "+1,652개",
+              "diffRate": "+3.9%",
+              "direction": "증가",
+              "expectedUnit": "stores"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "T-02",
+      "name": "8대 전 업종 API 데이터 전년비 계산 성공",
+      "passed": true,
+      "details": {
+        "catCount": 8,
+        "sample": {
+          "catId": "CAT_MAJ_01",
+          "catName": "한식",
+          "isAvailable": true,
+          "sample2024": 2340,
+          "sample2025": 2532,
+          "metrics": [
+            {
+              "id": "median_sales",
+              "label": "중위매출",
+              "diffAmount": "+1,659만원",
+              "diffRate": "+5.0%",
+              "direction": "증가"
+            },
+            {
+              "id": "trimmed_mean_5pct",
+              "label": "5% 절사평균",
+              "diffAmount": "+1,111만원",
+              "diffRate": "+3.0%",
+              "direction": "증가"
+            },
+            {
+              "id": "store_weighted_avg",
+              "label": "점포 가중평균 매출",
+              "diffAmount": "+3,905만원",
+              "diffRate": "+10.8%",
+              "direction": "증가"
+            },
+            {
+              "id": "total_franchise_stores",
+              "label": "가맹점 수",
+              "diffAmount": "+1,652개",
+              "diffRate": "+3.9%",
+              "direction": "증가"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "T-03",
+      "name": "기준값 0 시 안전한 비교 불가 분기 동작",
+      "passed": true,
+      "details": {
+        "median_sales": {
+          "id": "median_sales",
+          "key": "median_sales_thousand_krw",
+          "expectedUnit": "thousand_krw",
+          "label": "중위매출",
+          "unitType": "currency",
+          "unitLabel": "만원",
+          "val2024": 0,
+          "val2025": 250000,
+          "formatted2024": "0만원",
+          "formatted2025": "25,000만원",
+          "diffAmount": null,
+          "diffRatePct": null,
+          "diffAmountText": "비교 불가",
+          "diffRateText": "비교 불가",
+          "direction": "비교 불가",
+          "directionSign": "",
+          "isCalculable": false,
+          "reason": "기준값 0 이하"
+        },
+        "total_franchise_stores": {
+          "id": "total_franchise_stores",
+          "key": "total_franchise_stores",
+          "expectedUnit": "stores",
+          "label": "가맹점 수",
+          "unitType": "count",
+          "unitLabel": "개",
+          "val2024": 0,
+          "val2025": 15,
+          "formatted2024": "0개",
+          "formatted2025": "15개",
+          "diffAmount": null,
+          "diffRatePct": null,
+          "diffAmountText": "비교 불가",
+          "diffRateText": "비교 불가",
+          "direction": "비교 불가",
+          "directionSign": "",
+          "isCalculable": false,
+          "reason": "기준값 0 이하"
+        },
+        "trimmed_mean_5pct": {
+          "id": "trimmed_mean_5pct",
+          "key": "trimmed_mean_5pct_thousand_krw",
+          "expectedUnit": "thousand_krw",
+          "label": "5% 절사평균",
+          "unitType": "currency",
+          "unitLabel": "만원",
+          "val2024": 100000,
+          "val2025": 110000,
+          "formatted2024": "10,000만원",
+          "formatted2025": "11,000만원",
+          "diffAmount": 10000,
+          "diffRatePct": 10,
+          "diffAmountText": "+1,000만원",
+          "diffRateText": "+10.0%",
+          "direction": "증가",
+          "directionSign": "+",
+          "isCalculable": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "T-04",
+      "name": "2024 또는 2025 누락 시 안전한 미표시 분기 동작",
+      "passed": true,
+      "details": {
+        "missing2025Reason": "2025년 비교 데이터 누락",
+        "missing2024Reason": "2024년 기준 데이터 누락"
+      }
+    },
+    {
+      "id": "T-05",
+      "name": "Null / 빈 배열 / Undefined 입력 안전 방어",
+      "passed": true,
+      "details": {
+        "calcNull": {
+          "isAvailable": false,
+          "reason": "시계열 데이터 없음",
+          "baseYear": "2024",
+          "targetYear": "2025",
+          "baseYearRecord": null,
+          "targetYearRecord": null,
+          "baseYearSampleCount": null,
+          "targetYearSampleCount": null,
+          "statusNotice2025": "최신 완결 후보 · 공식 마감 여부 미확인",
+          "statusNotice2026": "진행형 스냅샷 · 전년 직접 비교 불가",
+          "disclaimer": "공정거래위원회 가맹사업정보제공시스템 전국 등록 거시 통계 기준 (소상공인진흥공단 지역 점포 통계와 별개 모집단)",
+          "metrics": []
+        },
+        "calcEmpty": {
+          "isAvailable": false,
+          "reason": "시계열 데이터 없음",
+          "baseYear": "2024",
+          "targetYear": "2025",
+          "baseYearRecord": null,
+          "targetYearRecord": null,
+          "baseYearSampleCount": null,
+          "targetYearSampleCount": null,
+          "statusNotice2025": "최신 완결 후보 · 공식 마감 여부 미확인",
+          "statusNotice2026": "진행형 스냅샷 · 전년 직접 비교 불가",
+          "disclaimer": "공정거래위원회 가맹사업정보제공시스템 전국 등록 거시 통계 기준 (소상공인진흥공단 지역 점포 통계와 별개 모집단)",
+          "metrics": []
+        }
+      }
+    },
+    {
+      "id": "T-06",
+      "name": "2026년 스냅샷 수치/표본 완전 배제 확인",
+      "passed": true,
+      "details": {
+        "baseYear": "2024",
+        "targetYear": "2025",
+        "targetYearSampleCount": 2532,
+        "excluded2026Sample": 1858
+      }
+    },
+    {
+      "id": "T-07",
+      "name": "증가/감소/변동 없음 텍스트 및 부호 식별성 검증",
+      "passed": true,
+      "details": {
+        "decrease": {
+          "id": "median_sales",
+          "key": "median_sales_thousand_krw",
+          "expectedUnit": "thousand_krw",
+          "label": "중위매출",
+          "unitType": "currency",
+          "unitLabel": "만원",
+          "val2024": 300000,
+          "val2025": 270000,
+          "formatted2024": "30,000만원",
+          "formatted2025": "27,000만원",
+          "diffAmount": -30000,
+          "diffRatePct": -10,
+          "diffAmountText": "-3,000만원",
+          "diffRateText": "-10.0%",
+          "direction": "감소",
+          "directionSign": "-",
+          "isCalculable": true,
+          "reason": null
+        },
+        "noChange": {
+          "id": "trimmed_mean_5pct",
+          "key": "trimmed_mean_5pct_thousand_krw",
+          "expectedUnit": "thousand_krw",
+          "label": "5% 절사평균",
+          "unitType": "currency",
+          "unitLabel": "만원",
+          "val2024": 300000,
+          "val2025": 300000,
+          "formatted2024": "30,000만원",
+          "formatted2025": "30,000만원",
+          "diffAmount": 0,
+          "diffRatePct": 0,
+          "diffAmountText": "0만원",
+          "diffRateText": "0.0%",
+          "direction": "변동 없음",
+          "directionSign": "",
+          "isCalculable": true,
+          "reason": null
+        },
+        "increase": {
+          "id": "store_weighted_avg",
+          "key": "store_weighted_avg_thousand_krw",
+          "expectedUnit": "thousand_krw",
+          "label": "점포 가중평균 매출",
+          "unitType": "currency",
+          "unitLabel": "만원",
+          "val2024": 300000,
+          "val2025": 330000,
+          "formatted2024": "30,000만원",
+          "formatted2025": "33,000만원",
+          "diffAmount": 30000,
+          "diffRatePct": 10,
+          "diffAmountText": "+3,000만원",
+          "diffRateText": "+10.0%",
+          "direction": "증가",
+          "directionSign": "+",
+          "isCalculable": true,
+          "reason": null
+        },
+        "decreaseStores": {
+          "id": "total_franchise_stores",
+          "key": "total_franchise_stores",
+          "expectedUnit": "stores",
+          "label": "가맹점 수",
+          "unitType": "count",
+          "unitLabel": "개",
+          "val2024": 500,
+          "val2025": 450,
+          "formatted2024": "500개",
+          "formatted2025": "450개",
+          "diffAmount": -50,
+          "diffRatePct": -10,
+          "diffAmountText": "-50개",
+          "diffRateText": "-10.0%",
+          "direction": "감소",
+          "directionSign": "-",
+          "isCalculable": true,
+          "reason": null
+        }
+      }
+    },
+    {
+      "id": "T-08",
+      "name": "보호 파일 3종 SHA-256 100% 불변 검증",
+      "passed": true,
+      "details": {
+        "baseline": {
+          "collector.py": {
+            "sha256": "341bac12bb0af58dcbdebba9459033521f27df9817e35bad8b21a4d07ba3369c",
+            "size_bytes": 3780,
+            "mtime_iso": "2026-10-12T03:08:51.119769+00:00"
+          },
+          "gangnam_food_stores.sqlite3": {
+            "sha256": "fee3b58651cfed5c390c0b95db02b05ebe92df18619a06f4e399d429236f3a78",
+            "size_bytes": 15831040,
+            "mtime_iso": "2026-10-12T03:11:28.340826+00:00"
+          },
+          "run_gangnam.bat": {
+            "sha256": "0582c3a1ae53450ddc482e9bf538510780ca2f14d44e987cc753d4e12c816491",
+            "size_bytes": 66,
+            "mtime_iso": "2026-10-12T03:08:51.157843+00:00"
+          }
+        },
+        "current": {
+          "collector.py": "341bac12bb0af58dcbdebba9459033521f27df9817e35bad8b21a4d07ba3369c",
+          "gangnam_food_stores.sqlite3": "fee3b58651cfed5c390c0b95db02b05ebe92df18619a06f4e399d429236f3a78",
+          "run_gangnam.bat": "0582c3a1ae53450ddc482e9bf538510780ca2f14d44e987cc753d4e12c816491"
+        }
+      }
+    },
+    {
+      "id": "T-09-A",
+      "name": "잘못된 expectedUnit 지정 시 단위 불일치 차단",
+      "passed": true,
+      "details": {
+        "isCalculable": false,
+        "reason": "단위 불일치",
+        "diffAmount": null,
+        "diffRatePct": null,
+        "diffAmountText": "비교 불가",
+        "diffRateText": "비교 불가",
+        "direction": "비교 불가",
+        "directionSign": ""
+      }
+    },
+    {
+      "id": "T-09-B",
+      "name": "정상 expectedUnit 지정 시 계산 통과 및 델타 산출",
+      "passed": true,
+      "details": {
+        "isCalculable": true,
+        "reason": null,
+        "diffAmount": 2000,
+        "diffRatePct": 6.666666666666667,
+        "diffAmountText": "+200만원",
+        "diffRateText": "+6.7%",
+        "direction": "증가",
+        "directionSign": "+"
+      }
+    },
+    {
+      "id": "T-09-C",
+      "name": "레코드 명시적 단위 메타데이터 충돌 차단 (unit 및 unit_type 2024·2025 양측 검증)",
+      "passed": true,
+      "details": {
+        "res9C1": {
+          "isCalculable": false,
+          "reason": "단위 불일치",
+          "diffAmount": null,
+          "diffRatePct": null,
+          "diffAmountText": "비교 불가",
+          "diffRateText": "비교 불가",
+          "direction": "비교 불가",
+          "directionSign": ""
+        },
+        "res9C2": {
+          "isCalculable": false,
+          "reason": "단위 불일치",
+          "diffAmount": null,
+          "diffRatePct": null,
+          "diffAmountText": "비교 불가",
+          "diffRateText": "비교 불가",
+          "direction": "비교 불가",
+          "directionSign": ""
+        },
+        "res9C3": {
+          "isCalculable": false,
+          "reason": "단위 불일치",
+          "diffAmount": null,
+          "diffRatePct": null,
+          "diffAmountText": "비교 불가",
+          "diffRateText": "비교 불가",
+          "direction": "비교 불가",
+          "directionSign": ""
+        },
+        "res9C4": {
+          "isCalculable": false,
+          "reason": "단위 불일치",
+          "diffAmount": null,
+          "diffRatePct": null,
+          "diffAmountText": "비교 불가",
+          "diffRateText": "비교 불가",
+          "direction": "비교 불가",
+          "directionSign": ""
+        },
+        "res9C5": {
+          "isCalculable": false,
+          "reason": "단위 불일치",
+          "diffAmount": null,
+          "diffRatePct": null,
+          "diffAmountText": "비교 불가",
+          "diffRateText": "비교 불가",
+          "direction": "비교 불가",
+          "directionSign": ""
+        },
+        "res9C6": {
+          "isCalculable": false,
+          "reason": "단위 불일치",
+          "diffAmount": null,
+          "diffRatePct": null,
+          "diffAmountText": "비교 불가",
+          "diffRateText": "비교 불가",
+          "direction": "비교 불가",
+          "directionSign": ""
+        }
+      }
+    },
+    {
+      "id": "T-09-D",
+      "name": "2024 또는 2025 객체 내 지표 키 누락 차단",
+      "passed": true,
+      "details": {
+        "res9D1": {
+          "isCalculable": false,
+          "reason": "필드 키 누락",
+          "diffAmount": null,
+          "diffRatePct": null,
+          "diffAmountText": "비교 불가",
+          "diffRateText": "비교 불가",
+          "direction": "비교 불가",
+          "directionSign": ""
+        },
+        "res9D2": {
+          "isCalculable": false,
+          "reason": "필드 키 누락",
+          "diffAmount": null,
+          "diffRatePct": null,
+          "diffAmountText": "비교 불가",
+          "diffRateText": "비교 불가",
+          "direction": "비교 불가",
+          "directionSign": ""
+        }
+      }
+    },
+    {
+      "id": "T-09-E",
+      "name": "빈문자열·문자열숫자·불리언·NaN·±Infinity·null·undefined 차단",
+      "passed": true,
+      "details": {
+        "testedCount": 22,
+        "failures": []
+      }
+    },
+    {
+      "id": "T-09-F",
+      "name": "2024 기준값 0 및 음수 차단 (분모 0 나눗셈 방지)",
+      "passed": true,
+      "details": {
+        "testedCount": 4,
+        "failures": []
+      }
+    }
+  ],
+  "categorySummaries": [
+    {
+      "catId": "CAT_MAJ_01",
+      "catName": "한식",
+      "isAvailable": true,
+      "sample2024": 2340,
+      "sample2025": 2532,
+      "metrics": [
+        {
+          "id": "median_sales",
+          "label": "중위매출",
+          "diffAmount": "+1,659만원",
+          "diffRate": "+5.0%",
+          "direction": "증가"
+        },
+        {
+          "id": "trimmed_mean_5pct",
+          "label": "5% 절사평균",
+          "diffAmount": "+1,111만원",
+          "diffRate": "+3.0%",
+          "direction": "증가"
+        },
+        {
+          "id": "store_weighted_avg",
+          "label": "점포 가중평균 매출",
+          "diffAmount": "+3,905만원",
+          "diffRate": "+10.8%",
+          "direction": "증가"
+        },
+        {
+          "id": "total_franchise_stores",
+          "label": "가맹점 수",
+          "diffAmount": "+1,652개",
+          "diffRate": "+3.9%",
+          "direction": "증가"
+        }
+      ]
+    },
+    {
+      "catId": "CAT_MAJ_02",
+      "catName": "중식",
+      "isAvailable": true,
+      "sample2024": 214,
+      "sample2025": 203,
+      "metrics": [
+        {
+          "id": "median_sales",
+          "label": "중위매출",
+          "diffAmount": "+3,377만원",
+          "diffRate": "+9.2%",
+          "direction": "증가"
+        },
+        {
+          "id": "trimmed_mean_5pct",
+          "label": "5% 절사평균",
+          "diffAmount": "+1,224만원",
+          "diffRate": "+2.8%",
+          "direction": "증가"
+        },
+        {
+          "id": "store_weighted_avg",
+          "label": "점포 가중평균 매출",
+          "diffAmount": "-43,978만원",
+          "diffRate": "-46.1%",
+          "direction": "감소"
+        },
+        {
+          "id": "total_franchise_stores",
+          "label": "가맹점 수",
+          "diffAmount": "-157개",
+          "diffRate": "-3.8%",
+          "direction": "감소"
+        }
+      ]
+    },
+    {
+      "catId": "CAT_MAJ_03",
+      "catName": "일식",
+      "isAvailable": true,
+      "sample2024": 352,
+      "sample2025": 380,
+      "metrics": [
+        {
+          "id": "median_sales",
+          "label": "중위매출",
+          "diffAmount": "+3,147만원",
+          "diffRate": "+10.3%",
+          "direction": "증가"
+        },
+        {
+          "id": "trimmed_mean_5pct",
+          "label": "5% 절사평균",
+          "diffAmount": "+3,347만원",
+          "diffRate": "+9.1%",
+          "direction": "증가"
+        },
+        {
+          "id": "store_weighted_avg",
+          "label": "점포 가중평균 매출",
+          "diffAmount": "+6,089만원",
+          "diffRate": "+12.9%",
+          "direction": "증가"
+        },
+        {
+          "id": "total_franchise_stores",
+          "label": "가맹점 수",
+          "diffAmount": "+163개",
+          "diffRate": "+3.5%",
+          "direction": "증가"
+        }
+      ]
+    },
+    {
+      "catId": "CAT_MAJ_04",
+      "catName": "양식·세계음식",
+      "isAvailable": true,
+      "sample2024": 333,
+      "sample2025": 344,
+      "metrics": [
+        {
+          "id": "median_sales",
+          "label": "중위매출",
+          "diffAmount": "+2,163만원",
+          "diffRate": "+7.4%",
+          "direction": "증가"
+        },
+        {
+          "id": "trimmed_mean_5pct",
+          "label": "5% 절사평균",
+          "diffAmount": "+1,308만원",
+          "diffRate": "+3.9%",
+          "direction": "증가"
+        },
+        {
+          "id": "store_weighted_avg",
+          "label": "점포 가중평균 매출",
+          "diffAmount": "+137만원",
+          "diffRate": "+0.4%",
+          "direction": "증가"
+        },
+        {
+          "id": "total_franchise_stores",
+          "label": "가맹점 수",
+          "diffAmount": "+16개",
+          "diffRate": "+0.3%",
+          "direction": "증가"
+        }
+      ]
+    },
+    {
+      "catId": "CAT_MAJ_05",
+      "catName": "치킨·패스트푸드",
+      "isAvailable": true,
+      "sample2024": 692,
+      "sample2025": 649,
+      "metrics": [
+        {
+          "id": "median_sales",
+          "label": "중위매출",
+          "diffAmount": "+515만원",
+          "diffRate": "+2.6%",
+          "direction": "증가"
+        },
+        {
+          "id": "trimmed_mean_5pct",
+          "label": "5% 절사평균",
+          "diffAmount": "+1,936만원",
+          "diffRate": "+9.3%",
+          "direction": "증가"
+        },
+        {
+          "id": "store_weighted_avg",
+          "label": "점포 가중평균 매출",
+          "diffAmount": "+2,102만원",
+          "diffRate": "+6.2%",
+          "direction": "증가"
+        },
+        {
+          "id": "total_franchise_stores",
+          "label": "가맹점 수",
+          "diffAmount": "-2,165개",
+          "diffRate": "-5.0%",
+          "direction": "감소"
+        }
+      ]
+    },
+    {
+      "catId": "CAT_MAJ_06",
+      "catName": "분식·간편식",
+      "isAvailable": true,
+      "sample2024": 358,
+      "sample2025": 341,
+      "metrics": [
+        {
+          "id": "median_sales",
+          "label": "중위매출",
+          "diffAmount": "+1,020만원",
+          "diffRate": "+4.9%",
+          "direction": "증가"
+        },
+        {
+          "id": "trimmed_mean_5pct",
+          "label": "5% 절사평균",
+          "diffAmount": "+1,617만원",
+          "diffRate": "+7.2%",
+          "direction": "증가"
+        },
+        {
+          "id": "store_weighted_avg",
+          "label": "점포 가중평균 매출",
+          "diffAmount": "+649만원",
+          "diffRate": "+2.6%",
+          "direction": "증가"
+        },
+        {
+          "id": "total_franchise_stores",
+          "label": "가맹점 수",
+          "diffAmount": "+160개",
+          "diffRate": "+1.5%",
+          "direction": "증가"
+        }
+      ]
+    },
+    {
+      "catId": "CAT_MAJ_07",
+      "catName": "카페·음료",
+      "isAvailable": true,
+      "sample2024": 635,
+      "sample2025": 654,
+      "metrics": [
+        {
+          "id": "median_sales",
+          "label": "중위매출",
+          "diffAmount": "-351만원",
+          "diffRate": "-2.2%",
+          "direction": "감소"
+        },
+        {
+          "id": "trimmed_mean_5pct",
+          "label": "5% 절사평균",
+          "diffAmount": "+394만원",
+          "diffRate": "+2.3%",
+          "direction": "증가"
+        },
+        {
+          "id": "store_weighted_avg",
+          "label": "점포 가중평균 매출",
+          "diffAmount": "+1,765만원",
+          "diffRate": "+7.6%",
+          "direction": "증가"
+        },
+        {
+          "id": "total_franchise_stores",
+          "label": "가맹점 수",
+          "diffAmount": "-1,703개",
+          "diffRate": "-5.3%",
+          "direction": "감소"
+        }
+      ]
+    },
+    {
+      "catId": "CAT_MAJ_08",
+      "catName": "베이커리·디저트",
+      "isAvailable": true,
+      "sample2024": 246,
+      "sample2025": 245,
+      "metrics": [
+        {
+          "id": "median_sales",
+          "label": "중위매출",
+          "diffAmount": "-4만원",
+          "diffRate": "-0.0%",
+          "direction": "감소"
+        },
+        {
+          "id": "trimmed_mean_5pct",
+          "label": "5% 절사평균",
+          "diffAmount": "+1,457만원",
+          "diffRate": "+6.0%",
+          "direction": "증가"
+        },
+        {
+          "id": "store_weighted_avg",
+          "label": "점포 가중평균 매출",
+          "diffAmount": "+3,514만원",
+          "diffRate": "+10.0%",
+          "direction": "증가"
+        },
+        {
+          "id": "total_franchise_stores",
+          "label": "가맹점 수",
+          "diffAmount": "-2,488개",
+          "diffRate": "-22.3%",
+          "direction": "감소"
+        }
+      ]
+    }
+  ]
+}

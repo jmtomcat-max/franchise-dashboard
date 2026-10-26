@@ -1,0 +1,552 @@
+{
+  "metadata": {
+    "taxonomy_version": "v1.0.0-stage4d",
+    "updated_at": "2026-10-13",
+    "project": "Franchise Dashboard (외식 프랜차이즈 3D GIS 대시보드)",
+    "scope": "대한민국 외식업 표준 8대 대분류 및 48대 중분류 체계",
+    "major_category_count": 8,
+    "mid_category_count": 48,
+    "immutable_id_rule": "CAT_MAJ_xx / CAT_MID_xxyy",
+    "notes": "AGENTS.md 제2조에 정의된 8개 대분류별 중분류 개수(8/5/6/5/6/6/6/6=48개)를 엄격히 유지하며, 소진공 I2 38개 소분류와 1:1 및 1:N 매핑을 지원합니다."
+  },
+  "major_categories": [
+    {
+      "category_maj_id": "CAT_MAJ_01",
+      "category_maj_name": "한식",
+      "slot_count": 8,
+      "display_order": 1,
+      "description": "전통 및 현대 한국 음식점, 탕/찌개, 고기구이, 족발/보쌈 등 8개 중분류"
+    },
+    {
+      "category_maj_id": "CAT_MAJ_02",
+      "category_maj_name": "중식",
+      "slot_count": 5,
+      "display_order": 2,
+      "description": "중국 요리, 짬뽕/짜장, 마라탕, 딤섬, 양꼬치 등 5개 중분류"
+    },
+    {
+      "category_maj_id": "CAT_MAJ_03",
+      "category_maj_name": "일식",
+      "slot_count": 6,
+      "display_order": 3,
+      "description": "초밥/회, 돈가스/카레, 라멘/우동, 덮밥/가정식, 이자카야 등 6개 중분류"
+    },
+    {
+      "category_maj_id": "CAT_MAJ_04",
+      "category_maj_name": "양식·세계음식",
+      "slot_count": 5,
+      "display_order": 4,
+      "description": "파스타/스테이크, 패밀리레스토랑, 아시안/베트남, 뷔페, 기타 세계음식 등 5개 중분류"
+    },
+    {
+      "category_maj_id": "CAT_MAJ_05",
+      "category_maj_name": "치킨·패스트푸드",
+      "slot_count": 6,
+      "display_order": 5,
+      "description": "치킨, 버거, 피자, 토스트/샌드위치, 샐러드/포케 등 6개 중분류"
+    },
+    {
+      "category_maj_id": "CAT_MAJ_06",
+      "category_maj_name": "분식·간편식",
+      "slot_count": 6,
+      "display_order": 6,
+      "description": "떡볶이/튀김, 김밥/종합분식, 만두, 도시락/간편식, 죽전문 등 6개 중분류"
+    },
+    {
+      "category_maj_id": "CAT_MAJ_07",
+      "category_maj_name": "카페·음료",
+      "slot_count": 6,
+      "display_order": 7,
+      "description": "커피전문점, 저가/테이크아웃커피, 음료/버블티/주스, 차/전통찻집, 디저트카페 등 6개 중분류"
+    },
+    {
+      "category_maj_id": "CAT_MAJ_08",
+      "category_maj_name": "베이커리·디저트",
+      "slot_count": 6,
+      "display_order": 8,
+      "description": "제과/베이커리, 도넛/와플, 아이스크림/빙수, 케이크/타르트, 떡/전통디저트 등 6개 중분류"
+    }
+  ],
+  "mid_categories": [
+    {
+      "category_mid_id": "CAT_MID_0101",
+      "category_maj_id": "CAT_MAJ_01",
+      "category_mid_name": "고기구이/육류",
+      "category_mid_name_en": "Korean BBQ & Meat",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "돼지고기 구이, 삼겹살, 소고기 갈비, 곱창구이, 막창",
+      "semas_primary_scls": ["I20107", "I20108", "I20109"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0102",
+      "category_maj_id": "CAT_MAJ_01",
+      "category_mid_name": "찌개/탕/국",
+      "category_mid_name_en": "Stew, Soup & Hot Pot",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "김치찌개, 된장찌개, 순댓국, 설렁탕, 갈비탕, 감자탕, 부대찌개",
+      "semas_primary_scls": ["I20102"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0103",
+      "category_maj_id": "CAT_MAJ_01",
+      "category_mid_name": "백반/한정식",
+      "category_mid_name_en": "Traditional Set Meal & Rice",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "가정식 백반, 쌈밥, 보리밥, 한정식, 비빔밥, 한식 도시락",
+      "semas_primary_scls": ["I20101"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0104",
+      "category_maj_id": "CAT_MAJ_01",
+      "category_mid_name": "족발/보쌈",
+      "category_mid_name_en": "Pork Trotters & Boiled Pork",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "족발, 불족발, 보쌈, 마늘보쌈",
+      "semas_primary_scls": ["I20103"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0105",
+      "category_maj_id": "CAT_MAJ_01",
+      "category_mid_name": "국수/면류",
+      "category_mid_name_en": "Korean Noodles",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "잔치국수, 칼국수, 수제비, 냉면, 밀면, 콩국수",
+      "semas_primary_scls": ["I20105", "I20106"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0106",
+      "category_maj_id": "CAT_MAJ_01",
+      "category_mid_name": "닭/오리요리",
+      "category_mid_name_en": "Chicken & Duck Stews/Roasts",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "찜닭, 닭볶음탕, 삼계탕, 닭갈비, 오리구이",
+      "semas_primary_scls": ["I20110"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0107",
+      "category_maj_id": "CAT_MAJ_01",
+      "category_mid_name": "해산물/회",
+      "category_mid_name_en": "Seafood & Sashimi",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "활어회, 횟집, 아구찜, 해물탕, 생선구이, 조개구이, 복어",
+      "semas_primary_scls": ["I20111", "I20112", "I20113"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0108",
+      "category_maj_id": "CAT_MAJ_01",
+      "category_mid_name": "전/부침/기타한식",
+      "category_mid_name_en": "Pancake & Other Korean",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "파전, 빈대떡, 모듬전, 육전, 기타 전통한식",
+      "semas_primary_scls": ["I20104", "I20199"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0201",
+      "category_maj_id": "CAT_MAJ_02",
+      "category_mid_name": "일반중식/짜장·짬뽕",
+      "category_mid_name_en": "Chinese Cuisine & Noodles",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "짜장면, 짬뽕, 탕수육, 볶음밥, 라조기, 유린기",
+      "semas_primary_scls": ["I20201"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0202",
+      "category_maj_id": "CAT_MAJ_02",
+      "category_mid_name": "마라탕/훠궈",
+      "category_mid_name_en": "Malatang & Hotpot",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "마라탕, 마라샹궈, 꿔바로우, 훠궈샤브",
+      "semas_primary_scls": ["I20202"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0203",
+      "category_maj_id": "CAT_MAJ_02",
+      "category_mid_name": "딤섬/만두",
+      "category_mid_name_en": "Dim Sum & Chinese Dumplings",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "샤오롱바오, 하가우, 딤섬, 군만두 전문",
+      "semas_primary_scls": ["I20201"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0204",
+      "category_maj_id": "CAT_MAJ_02",
+      "category_mid_name": "양꼬치/중식구이",
+      "category_mid_name_en": "Lamb Skewers & Chinese BBQ",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "양꼬치, 양갈비, 마라구이",
+      "semas_primary_scls": ["I20201"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0205",
+      "category_maj_id": "CAT_MAJ_02",
+      "category_mid_name": "중식주점/기타중식",
+      "category_mid_name_en": "Chinese Bistro & Other",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "중식포차, 캐주얼 차이니즈 비스트로, 퓨전 중식",
+      "semas_primary_scls": ["I20201"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0301",
+      "category_maj_id": "CAT_MAJ_03",
+      "category_mid_name": "돈가스/카레",
+      "category_mid_name_en": "Tonkatsu & Japanese Curry",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "등심돈카츠, 치즈카츠, 일본식 카레라이스",
+      "semas_primary_scls": ["I20302"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0302",
+      "category_maj_id": "CAT_MAJ_03",
+      "category_mid_name": "초밥/회",
+      "category_mid_name_en": "Sushi & Sashimi",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "모듬초밥, 회전초밥, 사시미, 후토마키",
+      "semas_primary_scls": ["I20301"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0303",
+      "category_maj_id": "CAT_MAJ_03",
+      "category_mid_name": "라멘/소바/우동",
+      "category_mid_name_en": "Ramen, Soba & Udon",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "돈코츠라멘, 미소라멘, 마제소바, 붓가케우동, 메밀소바",
+      "semas_primary_scls": ["I20303"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0304",
+      "category_maj_id": "CAT_MAJ_03",
+      "category_mid_name": "덮밥/가정식",
+      "category_mid_name_en": "Donburi & Japanese Home Meal",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "규동, 가츠동, 사케동, 일본식 정식/가정식",
+      "semas_primary_scls": ["I20302"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0305",
+      "category_maj_id": "CAT_MAJ_03",
+      "category_mid_name": "이자카야/꼬치구이",
+      "category_mid_name_en": "Izakaya & Yakitori",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "야키토리, 오코노미야키, 쿠시카츠, 이자카야 안주요리",
+      "semas_primary_scls": ["I20399"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0306",
+      "category_maj_id": "CAT_MAJ_03",
+      "category_mid_name": "기타일식",
+      "category_mid_name_en": "Other Japanese",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "샤브샤브/스키야키 전문, 기타 일본 요리",
+      "semas_primary_scls": ["I20399"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0401",
+      "category_maj_id": "CAT_MAJ_04",
+      "category_mid_name": "파스타/스테이크",
+      "category_mid_name_en": "Pasta & Steak",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "토마토/크림/오일 파스타, 리조또, 티본/안심 스테이크",
+      "semas_primary_scls": ["I20402"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0402",
+      "category_maj_id": "CAT_MAJ_04",
+      "category_mid_name": "패밀리레스토랑/경양식",
+      "category_mid_name_en": "Family Restaurant & Western Casual",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "경양식 돈까스, 함박스테이크, 오므라이스, 패밀리 다이닝",
+      "semas_primary_scls": ["I20401", "I20403"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0403",
+      "category_maj_id": "CAT_MAJ_04",
+      "category_mid_name": "베트남/아시안",
+      "category_mid_name_en": "Vietnamese & Pan-Asian",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "쌀국수, 분짜, 반미, 팟타이, 나시고렝",
+      "semas_primary_scls": ["I20501", "I20599"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0404",
+      "category_maj_id": "CAT_MAJ_04",
+      "category_mid_name": "뷔페/샐러드바",
+      "category_mid_name_en": "Buffet & Salad Bar",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "호텔뷔페, 패밀리 샐러드바, 프리미엄 씨푸드 뷔페",
+      "semas_primary_scls": ["I20702"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0405",
+      "category_maj_id": "CAT_MAJ_04",
+      "category_mid_name": "기타세계음식",
+      "category_mid_name_en": "Other Global Cuisine",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "타코/멕시칸, 인도 커리, 지중해식, 브런치",
+      "semas_primary_scls": ["I20601", "I20499"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0501",
+      "category_maj_id": "CAT_MAJ_05",
+      "category_mid_name": "치킨",
+      "category_mid_name_en": "Fried Chicken",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "후라이드치킨, 양념치킨, 간장치킨, 오븐구이, 옛날통닭",
+      "semas_primary_scls": ["I21006"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0502",
+      "category_maj_id": "CAT_MAJ_05",
+      "category_mid_name": "버거",
+      "category_mid_name_en": "Burgers",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "햄버거, 수제버거, 치즈버거, 감자튀김",
+      "semas_primary_scls": ["I21004"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0503",
+      "category_maj_id": "CAT_MAJ_05",
+      "category_mid_name": "피자",
+      "category_mid_name_en": "Pizza",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "팬피자, 화덕피자, 치즈크러스트, 1인 피자",
+      "semas_primary_scls": ["I21003"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0504",
+      "category_maj_id": "CAT_MAJ_05",
+      "category_mid_name": "토스트/샌드위치",
+      "category_mid_name_en": "Toast & Sandwiches",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "에그토스트, 이삭토스트, 클럽샌드위치, 서브웨이 샌드위치",
+      "semas_primary_scls": ["I21005"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0505",
+      "category_maj_id": "CAT_MAJ_05",
+      "category_mid_name": "샐러드/포케",
+      "category_mid_name_en": "Salad & Poke Bowl",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "닭가슴살 샐러드, 연어 포케, 그릭요거트 볼",
+      "semas_primary_scls": ["I21005"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0506",
+      "category_maj_id": "CAT_MAJ_05",
+      "category_mid_name": "기타패스트푸드",
+      "category_mid_name_en": "Other Fast Food",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "타코, 케밥, 핫도그, 핑거푸드",
+      "semas_primary_scls": ["I21099"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0601",
+      "category_maj_id": "CAT_MAJ_06",
+      "category_mid_name": "떡볶이/튀김",
+      "category_mid_name_en": "Tteokbokki & Tempura",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "국물떡볶이, 로제떡볶이, 즉석떡볶이, 모둠튀김, 순대",
+      "semas_primary_scls": ["I21007"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0602",
+      "category_maj_id": "CAT_MAJ_06",
+      "category_mid_name": "김밥/종합분식",
+      "category_mid_name_en": "Gimbap & General Bunsik",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "참치김밥, 돈가스김밥, 라면, 우동, 종합 분식",
+      "semas_primary_scls": ["I21007"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0603",
+      "category_maj_id": "CAT_MAJ_06",
+      "category_mid_name": "만두/스낵",
+      "category_mid_name_en": "Dumplings & Snacks",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "고기만두, 김치만두, 찐빵, 호떡",
+      "semas_primary_scls": ["I21007"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0604",
+      "category_maj_id": "CAT_MAJ_06",
+      "category_mid_name": "도시락/간편식",
+      "category_mid_name_en": "Dosirak & Ready Meal",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "한솥도시락, 본도시락, 주먹밥, 간편 덮밥",
+      "semas_primary_scls": ["I21007", "I20101"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0605",
+      "category_maj_id": "CAT_MAJ_06",
+      "category_mid_name": "죽전문",
+      "category_mid_name_en": "Porridge Specialties",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "전복죽, 쇠고기야채죽, 호박죽, 팥죽 (본죽 등)",
+      "semas_primary_scls": ["I20101", "I21007"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0606",
+      "category_maj_id": "CAT_MAJ_06",
+      "category_mid_name": "기타분식",
+      "category_mid_name_en": "Other Bunsik",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "학교앞 분식, 길거리 간식류",
+      "semas_primary_scls": ["I21099"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0701",
+      "category_maj_id": "CAT_MAJ_07",
+      "category_mid_name": "커피전문점",
+      "category_mid_name_en": "Specialty Coffee",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "에스프레소, 아메리카노, 카페라떼, 콜드브루 (스타벅스, 투썸, 이디야)",
+      "semas_primary_scls": ["I21201"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0702",
+      "category_maj_id": "CAT_MAJ_07",
+      "category_mid_name": "저가커피/테이크아웃",
+      "category_mid_name_en": "Value Coffee & Takeout",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "대용량 아메리카노, 빽스치노 (메가커피, 컴포즈, 빽다방, 더벤티)",
+      "semas_primary_scls": ["I21201"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0703",
+      "category_maj_id": "CAT_MAJ_07",
+      "category_mid_name": "음료/버블티/주스",
+      "category_mid_name_en": "Bubble Tea & Fresh Juice",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "타피오카 밀크티, 생과일주스, 스무디 (공차, 쥬씨)",
+      "semas_primary_scls": ["I21201"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0704",
+      "category_maj_id": "CAT_MAJ_07",
+      "category_mid_name": "차/전통찻집",
+      "category_mid_name_en": "Tea House & Herbal Tea",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "쌍화차, 대추차, 홍차, 녹차 전문점",
+      "semas_primary_scls": ["I21201"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0705",
+      "category_maj_id": "CAT_MAJ_07",
+      "category_mid_name": "디저트카페",
+      "category_mid_name_en": "Dessert Cafe",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "크로플, 팬케이크, 파르페와 음료 결합 카페",
+      "semas_primary_scls": ["I21201"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0706",
+      "category_maj_id": "CAT_MAJ_07",
+      "category_mid_name": "무인/기타카페",
+      "category_mid_name_en": "Unmanned & Other Cafe",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "24시 무인카페, 로봇카페, 보드게임/북카페",
+      "semas_primary_scls": ["I21201"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0801",
+      "category_maj_id": "CAT_MAJ_08",
+      "category_mid_name": "제과/베이커리",
+      "category_mid_name_en": "Bakery & Bread",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "식빵, 바게트, 크루아상, 페이스트리, 소금빵 (파리바게뜨, 뚜레쥬르)",
+      "semas_primary_scls": ["I21001"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0802",
+      "category_maj_id": "CAT_MAJ_08",
+      "category_mid_name": "도넛/와플",
+      "category_mid_name_en": "Donut & Waffle",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "글레이즈드 도넛, 찹쌀도넛, 벨기에 와플 (던킨, 크리스피크림, 와플대학)",
+      "semas_primary_scls": ["I21001"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0803",
+      "category_maj_id": "CAT_MAJ_08",
+      "category_mid_name": "아이스크림/빙수",
+      "category_mid_name_en": "Ice Cream & Shaved Ice",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "프리미엄 아이스크림, 눈꽃빙수, 젤라토 (배스킨라빈스, 설빙)",
+      "semas_primary_scls": ["I21008"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0804",
+      "category_maj_id": "CAT_MAJ_08",
+      "category_mid_name": "케이크/타르트",
+      "category_mid_name_en": "Cake & Pastry Dessert",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "생크림케이크, 타르트, 마카롱, 휘낭시에, 롤케이크",
+      "semas_primary_scls": ["I21001"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0805",
+      "category_maj_id": "CAT_MAJ_08",
+      "category_mid_name": "떡/한과",
+      "category_mid_name_en": "Rice Cake & Traditional Confectionery",
+      "spec_status": "CONFIRMED_BY_SEMAS_DIRECT",
+      "is_confirmed": 1,
+      "representative_menu": "시루떡, 백설기, 인절미, 약과, 강정",
+      "semas_primary_scls": ["I21002"]
+    },
+    {
+      "category_mid_id": "CAT_MID_0806",
+      "category_maj_id": "CAT_MAJ_08",
+      "category_mid_name": "기타디저트",
+      "category_mid_name_en": "Other Desserts",
+      "spec_status": "CANDIDATE_CONSENSUS",
+      "is_confirmed": 0,
+      "representative_menu": "탕후루, 추로스, 붕어빵, 호두과자 전문",
+      "semas_primary_scls": ["I21099"]
+    }
+  ]
+}

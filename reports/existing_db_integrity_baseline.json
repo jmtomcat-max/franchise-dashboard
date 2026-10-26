@@ -1,0 +1,209 @@
+{
+  "gangnam_food_stores.sqlite3": {
+    "size_bytes": 15831040,
+    "sha256": "fee3b58651cfed5c390c0b95db02b05ebe92df18619a06f4e399d429236f3a78",
+    "tables": {
+      "stores": {
+        "count": 11296,
+        "columns": [
+          "bizes_id",
+          "name",
+          "middle_code",
+          "small_code",
+          "province",
+          "district",
+          "dong",
+          "address",
+          "lat",
+          "lon",
+          "raw_json"
+        ]
+      },
+      "progress": {
+        "count": 13,
+        "columns": [
+          "page",
+          "source_month",
+          "collected_at"
+        ]
+      }
+    },
+    "sample": {
+      "bizes_id": "MA010120220801046576",
+      "name": "한국관",
+      "middle_code": "I201",
+      "small_code": "I20107",
+      "province": "서울특별시",
+      "district": "강남구",
+      "dong": "대치2동",
+      "address": "서울특별시 강남구 삼성로82길 20",
+      "lat": 37.5052278237677,
+      "lon": 127.059364878501,
+      "raw_json": "{\"bizesId\": \"MA010120220801046576\", \"bizesNm\": \"한국관\", \"brchNm\": \"\", \"indsLclsCd\": \"I2\", \"indsLclsNm\": \"음식\", \"indsMclsCd\": \"I201\", \"indsMclsNm\": \"한식\", \"indsSclsCd\": \"I20107\", \"indsSclsNm\": \"돼지고기 구이/찜\", \"ksicCd\": \"I56113\", \"ksicNm\": \"한식 육류 요리 전문점\", \"ctprvnCd\": \"11\", \"ctprvnNm\": \"서울특별시\", \"signguCd\": \"11680\", \"signguNm\": \"강남구\", \"adongCd\": \"11680610\", \"adongNm\": \"대치2동\", \"ldongCd\": \"1168010600\", \"ldongNm\": \"대치동\", \"lnoCd\": \"1168010600109550000\", \"plotSctCd\": \"1\", \"plotSctNm\": \"대지\", \"lnoMnno\": 955, \"lnoSlno\": \"\", \"lnoAdr\": \"서울특별시 강남구 대치동 955\", \"rdnmCd\": \"116804166429\", \"rdnm\": \"서울특별시 강남구 삼성로82길\", \"bldMnno\": 20, \"bldSlno\": \"\", \"bldMngNo\": \"1168010600109550000028193\", \"bldNm\": \"\", \"rdnmAdr\": \"서울특별시 강남구 삼성로82길 20\", \"oldZipcd\": \"135847\", \"newZipcd\": \"06184\", \"dongNo\": \"\", \"flrNo\": \"1\", \"hoNo\": \"\", \"lon\": 127.059364878501, \"lat\": 37.5052278237677}"
+    }
+  },
+  "data\\seoul_food_stores.sqlite3": {
+    "size_bytes": 184496128,
+    "sha256": "60e561d39aa1fd8a254553a481c5aa93f5144ead2beb8561f8951a9470e66ba5",
+    "tables": {
+      "stores": {
+        "count": 124104,
+        "columns": [
+          "bizes_id",
+          "name",
+          "middle_code",
+          "small_code",
+          "province",
+          "district",
+          "dong",
+          "address",
+          "lat",
+          "lon",
+          "raw_json",
+          "created_at",
+          "updated_at"
+        ]
+      },
+      "progress": {
+        "count": 152,
+        "columns": [
+          "district_code",
+          "page",
+          "source_month",
+          "total_api_count",
+          "raw_count",
+          "excluded_count",
+          "saved_count",
+          "status",
+          "collected_at"
+        ]
+      },
+      "collection_batches": {
+        "count": 1,
+        "columns": [
+          "batch_id",
+          "source_month",
+          "started_at",
+          "completed_at",
+          "status"
+        ]
+      },
+      "sqlite_sequence": {
+        "count": 1,
+        "columns": [
+          "name",
+          "seq"
+        ]
+      },
+      "integrity_issues": {
+        "count": 0,
+        "columns": [
+          "id",
+          "district_code",
+          "page",
+          "bizes_id",
+          "issue_type",
+          "details",
+          "created_at"
+        ]
+      }
+    },
+    "sample": {
+      "bizes_id": "MA010120220800028476",
+      "name": "좋아좋아분식",
+      "middle_code": "I210",
+      "small_code": "I21007",
+      "province": "서울특별시",
+      "district": "종로구",
+      "dong": "창신3동",
+      "address": "서울특별시 종로구 낙산길 196",
+      "lat": 37.5813225220668,
+      "lon": 127.012068454071,
+      "raw_json": "{\"bizesId\": \"MA010120220800028476\", \"bizesNm\": \"좋아좋아분식\", \"brchNm\": \"\", \"indsLclsCd\": \"I2\", \"indsLclsNm\": \"음식\", \"indsMclsCd\": \"I210\", \"indsMclsNm\": \"기타 간이\", \"indsSclsCd\": \"I21007\", \"indsSclsNm\": \"김밥/만두/분식\", \"ksicCd\": \"I56194\", \"ksicNm\": \"김밥 및 기타 간이 음식점업\", \"ctprvnCd\": \"11\", \"ctprvnNm\": \"서울특별시\", \"signguCd\": \"11110\", \"signguNm\": \"종로구\", \"adongCd\": \"11110690\", \"adongNm\": \"창신3동\", \"ldongCd\": \"1111017400\", \"ldongNm\": \"창신동\", \"lnoCd\": \"1111017400107030000\", \"plotSctCd\": \"1\", \"plotSctNm\": \"대지\", \"lnoMnno\": 703, \"lnoSlno\": \"\", \"lnoAdr\": \"서울특별시 종로구 창신동 703\", \"rdnmCd\": \"111104100020\", \"rdnm\": \"서울특별시 종로구 낙산길\", \"bldMnno\": 196, \"bldSlno\": \"\", \"bldMngNo\": \"1111017400107030000003053\", \"bldNm\": \"창신쌍용2차\", \"rdnmAdr\": \"서울특별시 종로구 낙산길 196\", \"oldZipcd\": \"110543\", \"newZipcd\": \"03092\", \"dongNo\": \"\", \"flrNo\": \"\", \"hoNo\": \"\", \"lon\": 127.012068454071, \"lat\": 37.5813225220668}",
+      "created_at": "2026-10-12 04:23:48",
+      "updated_at": "2026-10-12 04:23:48"
+    }
+  },
+  "data\\nationwide_food_stores.sqlite3": {
+    "size_bytes": 909389824,
+    "sha256": "8294a0fe86ac4e0e4cb3aa5c38aa879675b1a93325da73edcb6e3c875086933d",
+    "tables": {
+      "stores": {
+        "count": 595453,
+        "columns": [
+          "bizes_id",
+          "name",
+          "middle_code",
+          "small_code",
+          "province",
+          "district",
+          "dong",
+          "address",
+          "lat",
+          "lon",
+          "raw_json",
+          "created_at",
+          "updated_at"
+        ]
+      },
+      "progress": {
+        "count": 835,
+        "columns": [
+          "district_code",
+          "page",
+          "source_month",
+          "total_api_count",
+          "raw_count",
+          "excluded_count",
+          "saved_count",
+          "status",
+          "collected_at"
+        ]
+      },
+      "collection_batches": {
+        "count": 1,
+        "columns": [
+          "batch_id",
+          "source_month",
+          "started_at",
+          "completed_at",
+          "status"
+        ]
+      },
+      "sqlite_sequence": {
+        "count": 2,
+        "columns": [
+          "name",
+          "seq"
+        ]
+      },
+      "integrity_issues": {
+        "count": 2,
+        "columns": [
+          "id",
+          "district_code",
+          "page",
+          "bizes_id",
+          "issue_type",
+          "details",
+          "created_at"
+        ]
+      }
+    },
+    "sample": {
+      "bizes_id": "MA010120220800028476",
+      "name": "좋아좋아분식",
+      "middle_code": "I210",
+      "small_code": "I21007",
+      "province": "서울특별시",
+      "district": "종로구",
+      "dong": "창신3동",
+      "address": "서울특별시 종로구 낙산길 196",
+      "lat": 37.5813225220668,
+      "lon": 127.012068454071,
+      "raw_json": "{\"bizesId\": \"MA010120220800028476\", \"bizesNm\": \"좋아좋아분식\", \"brchNm\": \"\", \"indsLclsCd\": \"I2\", \"indsLclsNm\": \"음식\", \"indsMclsCd\": \"I210\", \"indsMclsNm\": \"기타 간이\", \"indsSclsCd\": \"I21007\", \"indsSclsNm\": \"김밥/만두/분식\", \"ksicCd\": \"I56194\", \"ksicNm\": \"김밥 및 기타 간이 음식점업\", \"ctprvnCd\": \"11\", \"ctprvnNm\": \"서울특별시\", \"signguCd\": \"11110\", \"signguNm\": \"종로구\", \"adongCd\": \"11110690\", \"adongNm\": \"창신3동\", \"ldongCd\": \"1111017400\", \"ldongNm\": \"창신동\", \"lnoCd\": \"1111017400107030000\", \"plotSctCd\": \"1\", \"plotSctNm\": \"대지\", \"lnoMnno\": 703, \"lnoSlno\": \"\", \"lnoAdr\": \"서울특별시 종로구 창신동 703\", \"rdnmCd\": \"111104100020\", \"rdnm\": \"서울특별시 종로구 낙산길\", \"bldMnno\": 196, \"bldSlno\": \"\", \"bldMngNo\": \"1111017400107030000003053\", \"bldNm\": \"창신쌍용2차\", \"rdnmAdr\": \"서울특별시 종로구 낙산길 196\", \"oldZipcd\": \"110543\", \"newZipcd\": \"03092\", \"dongNo\": \"\", \"flrNo\": \"\", \"hoNo\": \"\", \"lon\": 127.012068454071, \"lat\": 37.5813225220668}",
+      "created_at": "2026-10-12 05:28:17",
+      "updated_at": "2026-10-12 05:28:17"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+# Franchise Dashboard - 최소 Python 의존성 명세서
+# Python 3.11 이상 권장 (Python 3.11 ~ 3.14 호환)
+
+# 백엔드 웹 프레임워크 및 비동기 서버
+fastapi>=0.100.0
+uvicorn[standard]>=0.20.0
+aiofiles>=23.0.0
+
+# 데이터 유효성 검증 및 스키마 모델링
+pydantic>=2.0.0
+
+# 테스트 및 API 클라이언트
+pytest>=7.0.0
+httpx>=0.24.0

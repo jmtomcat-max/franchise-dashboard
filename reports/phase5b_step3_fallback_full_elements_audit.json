@@ -1,0 +1,109 @@
+{
+  "verification_scope": "Atomic 2025 Fallback Full Elements On-Screen Audit",
+  "all_elements_matched": true,
+  "methodology_note": "운영 DB 무변경 원칙을 준수하기 위해 CDP Fetch.fulfillRequest를 활용한 모의 격리 응답(Mock Isolated Response) 환경에서 화면 표출값 17개 항목을 1:1 대조함.",
+  "records": [
+    {
+      "field_name": "대체 헤더 배지",
+      "test_response_expected": "⚠️ 2025년 대체 표출",
+      "on_screen_actual": "⚠️ 2025년 대체 표출",
+      "matched": true
+    },
+    {
+      "field_name": "대체 경고 배너",
+      "test_response_expected": "2025년 실적으로 원자적 대체 표출 중",
+      "on_screen_actual": "⚠️2026년 등록 데이터 부재로 이전 이용 가능 연도인 2025년 실적으로 원자적 대체 표출 중※ 분모·분자 혼합 없이 2025년 단일 연도 기준으로 제공됩니다.",
+      "matched": true
+    },
+    {
+      "field_name": "대표 매출 중앙값",
+      "test_response_expected": "34,720만원 (3.47억원)",
+      "on_screen_actual": "34,720만원 (3.47억원)",
+      "matched": true
+    },
+    {
+      "field_name": "유효 표본수 (양수 매출)",
+      "test_response_expected": "1,680개 브랜드",
+      "on_screen_actual": "표본 1,680개 브랜드",
+      "matched": true
+    },
+    {
+      "field_name": "매출 0원 공시 수",
+      "test_response_expected": "782개",
+      "on_screen_actual": "782개",
+      "matched": true
+    },
+    {
+      "field_name": "가맹점 수",
+      "test_response_expected": "38,102개",
+      "on_screen_actual": "38,102",
+      "matched": true
+    },
+    {
+      "field_name": "직영점 수",
+      "test_response_expected": "1,540개",
+      "on_screen_actual": "가맹 38,102개 · 직영 1,540개",
+      "matched": true
+    },
+    {
+      "field_name": "가중평균 산출 분모",
+      "test_response_expected": "34,500개점",
+      "on_screen_actual": "(분모: 34,500개점)",
+      "matched": true
+    },
+    {
+      "field_name": "점포수 가중평균 수치",
+      "test_response_expected": "38,712만원",
+      "on_screen_actual": "38,712만원",
+      "matched": true
+    },
+    {
+      "field_name": "5% 절사평균 수치",
+      "test_response_expected": "38,541만원",
+      "on_screen_actual": "38,541만원",
+      "matched": true
+    },
+    {
+      "field_name": "창업비용 - 가맹비",
+      "test_response_expected": "1,000만원",
+      "on_screen_actual": "1,000만원",
+      "matched": true
+    },
+    {
+      "field_name": "창업비용 - 교육비",
+      "test_response_expected": "300만원",
+      "on_screen_actual": "300만원",
+      "matched": true
+    },
+    {
+      "field_name": "창업비용 - 보증금",
+      "test_response_expected": "500만원",
+      "on_screen_actual": "500만원",
+      "matched": true
+    },
+    {
+      "field_name": "창업비용 - 인테리어비",
+      "test_response_expected": "6,500만원",
+      "on_screen_actual": "6,500만원",
+      "matched": true
+    },
+    {
+      "field_name": "창업비용 - 잠정 파생 합계",
+      "test_response_expected": "9,150만원",
+      "on_screen_actual": "중위 9,150만원",
+      "matched": true
+    },
+    {
+      "field_name": "창업비용 - 평당 인테리어",
+      "test_response_expected": "220만원",
+      "on_screen_actual": "220만원",
+      "matched": true
+    },
+    {
+      "field_name": "창업비용 - 예치금 원본",
+      "test_response_expected": "850만원",
+      "on_screen_actual": "850만원",
+      "matched": true
+    }
+  ]
+}

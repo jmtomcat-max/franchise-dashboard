@@ -1,0 +1,647 @@
+{
+  "timestamp": "2026-10-16T05:24:19.123Z",
+  "phase": "Phase 5D Step 5D-1 (R2)",
+  "audit_focus": "공정위 벤치마크 패널 의미 안전성 및 오인 유발 요소 현장 실측 감사",
+  "scenarios": [
+    {
+      "scenarioId": "S-01-DESKTOP-NATIONWIDE",
+      "title": "데스크톱 전국 모드 + 카페·음료 업종",
+      "viewport": "1440x900",
+      "selection": {
+        "sido": "00 (전국)",
+        "sigungu": "전체",
+        "category": "CAT_MAJ_07 (카페·음료)",
+        "year": "2024"
+      },
+      "metrics": {
+        "panelFound": true,
+        "panelClasses": "ftc-benchmark-panel drawer-closed  mobile-collapsed",
+        "isDrawerOpen": false,
+        "isCollapsed": false,
+        "isMobileExpanded": false,
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "header": {
+          "heading": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)",
+          "categoryBadge": "☕ 카페·음료",
+          "yearBadge": "2026년 등록 (2025년 결산)",
+          "provenanceBadge": "공정위 거시 공시",
+          "snapshotBadge": "진행형 스냅샷"
+        },
+        "mobilePeek": {
+          "categoryText": "☕ 카페·음료",
+          "kpiText": "중위매출 16,703만원",
+          "badgeText": "2026년 스냅샷 (2025년 결산)",
+          "fullPeekText": "☕ 카페·음료중위매출 16,703만원2026년 스냅샷 (2025년 결산)▲ 차트/상세✕"
+        },
+        "hero": {
+          "label": "가맹점 연간 대표매출 (중앙값)",
+          "stat": "16,703만원 (1.67억원)",
+          "tag": "1순위 대표",
+          "isVisibleAboveFold": true
+        },
+        "footer": {
+          "lines": [
+            "출처: 공정거래위원회 가맹사업정보제공시스템 (가맹본부 정기공시 정보공개서)",
+            "집계단위: 전국 등록 가맹본부 거시 벤치마크 (개별 매장 실측치 아님)"
+          ],
+          "isVisibleAboveFold": false,
+          "scrollDistancePx": 49
+        },
+        "marketSummary": {
+          "title": "서울특별시 광진구 분석",
+          "topBrandsCount": 5,
+          "topBrands": [
+            {
+              "rank": "1",
+              "name": "메가MGC커피",
+              "stores": "33개소"
+            },
+            {
+              "rank": "2",
+              "name": "스타벅스",
+              "stores": "24개소"
+            },
+            {
+              "rank": "3",
+              "name": "컴포즈커피",
+              "stores": "22개소"
+            }
+          ]
+        },
+        "keywordAudit": {
+          "containsFTC": true,
+          "containsNational": true,
+          "containsCategory": false,
+          "containsReference": true,
+          "containsNotBrand": false,
+          "firstScreenHasFTC": true,
+          "firstScreenHasNational": true,
+          "firstScreenHasCategory": false,
+          "firstScreenHasReference": true,
+          "firstScreenHasNotBrand": false
+        }
+      },
+      "image": "phase5d_step1_audit_desktop_nationwide.png"
+    },
+    {
+      "scenarioId": "S-02-DESKTOP-REGIONAL-GWANGJIN",
+      "title": "데스크톱 시군구 선택 (광진구) + 치킨·패스트푸드 업종",
+      "viewport": "1440x900",
+      "selection": {
+        "sido": "11 (서울)",
+        "sigungu": "11215 (광진구)",
+        "category": "CAT_MAJ_05 (치킨·패스트푸드)",
+        "year": "2024"
+      },
+      "metrics": {
+        "panelFound": true,
+        "panelClasses": "ftc-benchmark-panel drawer-closed  mobile-collapsed",
+        "isDrawerOpen": false,
+        "isCollapsed": false,
+        "isMobileExpanded": false,
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "header": {
+          "heading": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)",
+          "categoryBadge": "🍗 치킨·패스트푸드",
+          "yearBadge": "2026년 등록 (2025년 결산)",
+          "provenanceBadge": "공정위 거시 공시",
+          "snapshotBadge": "진행형 스냅샷"
+        },
+        "mobilePeek": {
+          "categoryText": "🍗 치킨·패스트푸드",
+          "kpiText": "중위매출 19,312만원",
+          "badgeText": "2026년 스냅샷 (2025년 결산)",
+          "fullPeekText": "🍗 치킨·패스트푸드중위매출 19,312만원2026년 스냅샷 (2025년 결산)▲ 차트/상세✕"
+        },
+        "hero": {
+          "label": "가맹점 연간 대표매출 (중앙값)",
+          "stat": "19,312만원 (1.93억원)",
+          "tag": "1순위 대표",
+          "isVisibleAboveFold": true
+        },
+        "footer": {
+          "lines": [
+            "출처: 공정거래위원회 가맹사업정보제공시스템 (가맹본부 정기공시 정보공개서)",
+            "집계단위: 전국 등록 가맹본부 거시 벤치마크 (개별 매장 실측치 아님)"
+          ],
+          "isVisibleAboveFold": false,
+          "scrollDistancePx": 49
+        },
+        "marketSummary": {
+          "title": "서울특별시 광진구 분석",
+          "topBrandsCount": 5,
+          "topBrands": [
+            {
+              "rank": "1",
+              "name": "메가MGC커피",
+              "stores": "33개소"
+            },
+            {
+              "rank": "2",
+              "name": "스타벅스",
+              "stores": "24개소"
+            },
+            {
+              "rank": "3",
+              "name": "컴포즈커피",
+              "stores": "22개소"
+            }
+          ]
+        },
+        "keywordAudit": {
+          "containsFTC": true,
+          "containsNational": true,
+          "containsCategory": false,
+          "containsReference": true,
+          "containsNotBrand": false,
+          "firstScreenHasFTC": true,
+          "firstScreenHasNational": true,
+          "firstScreenHasCategory": false,
+          "firstScreenHasReference": true,
+          "firstScreenHasNotBrand": false
+        }
+      },
+      "image": "phase5d_step1_audit_desktop_regional_gwangjin.png"
+    },
+    {
+      "scenarioId": "S-03-DESKTOP-BRAND-SCENARIO",
+      "title": "데스크톱 실제 브랜드 선택 경로 (광진구 카페 Top 1 브랜드)",
+      "viewport": "1440x900",
+      "selection": {
+        "sido": "11 (서울)",
+        "sigungu": "11215 (광진구)",
+        "category": "CAT_MAJ_07 (카페·음료)",
+        "brand_focus": "메가MGC커피 또는 1위 브랜드"
+      },
+      "metrics": {
+        "panelFound": true,
+        "panelClasses": "ftc-benchmark-panel drawer-closed  mobile-collapsed",
+        "isDrawerOpen": false,
+        "isCollapsed": false,
+        "isMobileExpanded": false,
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "header": {
+          "heading": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)",
+          "categoryBadge": "☕ 카페·음료",
+          "yearBadge": "2026년 등록 (2025년 결산)",
+          "provenanceBadge": "공정위 거시 공시",
+          "snapshotBadge": "진행형 스냅샷"
+        },
+        "mobilePeek": {
+          "categoryText": "☕ 카페·음료",
+          "kpiText": "중위매출 16,703만원",
+          "badgeText": "2026년 스냅샷 (2025년 결산)",
+          "fullPeekText": "☕ 카페·음료중위매출 16,703만원2026년 스냅샷 (2025년 결산)▲ 차트/상세✕"
+        },
+        "hero": {
+          "label": "가맹점 연간 대표매출 (중앙값)",
+          "stat": "16,703만원 (1.67억원)",
+          "tag": "1순위 대표",
+          "isVisibleAboveFold": true
+        },
+        "footer": {
+          "lines": [
+            "출처: 공정거래위원회 가맹사업정보제공시스템 (가맹본부 정기공시 정보공개서)",
+            "집계단위: 전국 등록 가맹본부 거시 벤치마크 (개별 매장 실측치 아님)"
+          ],
+          "isVisibleAboveFold": false,
+          "scrollDistancePx": 49
+        },
+        "marketSummary": {
+          "title": "서울특별시 광진구 분석",
+          "topBrandsCount": 5,
+          "topBrands": [
+            {
+              "rank": "1",
+              "name": "메가MGC커피",
+              "stores": "33개소"
+            },
+            {
+              "rank": "2",
+              "name": "스타벅스",
+              "stores": "24개소"
+            },
+            {
+              "rank": "3",
+              "name": "컴포즈커피",
+              "stores": "22개소"
+            }
+          ]
+        },
+        "keywordAudit": {
+          "containsFTC": true,
+          "containsNational": true,
+          "containsCategory": false,
+          "containsReference": true,
+          "containsNotBrand": false,
+          "firstScreenHasFTC": true,
+          "firstScreenHasNational": true,
+          "firstScreenHasCategory": false,
+          "firstScreenHasReference": true,
+          "firstScreenHasNotBrand": false
+        }
+      },
+      "image": "phase5d_step1_audit_desktop_brand_scenario.png"
+    },
+    {
+      "scenarioId": "S-04-DESKTOP-SNAPSHOT-2026",
+      "title": "데스크톱 2026년 진행형 스냅샷 선택 상태",
+      "viewport": "1440x900",
+      "selection": {
+        "sido": "00 (전국)",
+        "category": "CAT_MAJ_01 (한식)",
+        "year": "2026 (스냅샷)"
+      },
+      "metrics": {
+        "panelFound": true,
+        "panelClasses": "ftc-benchmark-panel drawer-closed  mobile-collapsed",
+        "isDrawerOpen": false,
+        "isCollapsed": false,
+        "isMobileExpanded": false,
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "header": {
+          "heading": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)",
+          "categoryBadge": "🍚 한식",
+          "yearBadge": "2026년 등록 (2025년 결산)",
+          "provenanceBadge": "공정위 거시 공시",
+          "snapshotBadge": "진행형 스냅샷"
+        },
+        "mobilePeek": {
+          "categoryText": "🍚 한식",
+          "kpiText": "중위매출 36,117만원",
+          "badgeText": "2026년 스냅샷 (2025년 결산)",
+          "fullPeekText": "🍚 한식중위매출 36,117만원2026년 스냅샷 (2025년 결산)▲ 차트/상세✕"
+        },
+        "hero": {
+          "label": "가맹점 연간 대표매출 (중앙값)",
+          "stat": "36,117만원 (3.61억원)",
+          "tag": "1순위 대표",
+          "isVisibleAboveFold": true
+        },
+        "footer": {
+          "lines": [
+            "출처: 공정거래위원회 가맹사업정보제공시스템 (가맹본부 정기공시 정보공개서)",
+            "집계단위: 전국 등록 가맹본부 거시 벤치마크 (개별 매장 실측치 아님)"
+          ],
+          "isVisibleAboveFold": false,
+          "scrollDistancePx": 50
+        },
+        "marketSummary": {
+          "title": "서울특별시 광진구 분석",
+          "topBrandsCount": 5,
+          "topBrands": [
+            {
+              "rank": "1",
+              "name": "메가MGC커피",
+              "stores": "33개소"
+            },
+            {
+              "rank": "2",
+              "name": "스타벅스",
+              "stores": "24개소"
+            },
+            {
+              "rank": "3",
+              "name": "컴포즈커피",
+              "stores": "22개소"
+            }
+          ]
+        },
+        "keywordAudit": {
+          "containsFTC": true,
+          "containsNational": true,
+          "containsCategory": false,
+          "containsReference": true,
+          "containsNotBrand": false,
+          "firstScreenHasFTC": true,
+          "firstScreenHasNational": true,
+          "firstScreenHasCategory": false,
+          "firstScreenHasReference": true,
+          "firstScreenHasNotBrand": false
+        }
+      },
+      "image": "phase5d_step1_audit_desktop_snapshot_2026.png"
+    },
+    {
+      "scenarioId": "S-05-MOBILE-PEEK",
+      "title": "모바일 바텀시트 축소(피크) 상태",
+      "viewport": "390x844",
+      "selection": {
+        "sido": "00 (전국)",
+        "category": "CAT_MAJ_01 (한식)",
+        "sheet_state": "collapsed (peek)"
+      },
+      "metrics": {
+        "panelFound": true,
+        "panelClasses": "ftc-benchmark-panel drawer-closed  mobile-collapsed",
+        "isDrawerOpen": false,
+        "isCollapsed": false,
+        "isMobileExpanded": false,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "header": {
+          "heading": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)",
+          "categoryBadge": "🍚 한식",
+          "yearBadge": "2026년 등록 (2025년 결산)",
+          "provenanceBadge": "공정위 거시 공시",
+          "snapshotBadge": "진행형 스냅샷"
+        },
+        "mobilePeek": {
+          "categoryText": "🍚 한식",
+          "kpiText": "중위매출 36,117만원",
+          "badgeText": "2026년 스냅샷 (2025년 결산)",
+          "fullPeekText": "🍚 한식 중위매출 36,117만원 2026년 스냅샷 (2025년 결산) ▲ 차트/상세 ✕"
+        },
+        "hero": {
+          "label": "가맹점 연간 대표매출 (중앙값)",
+          "stat": "36,117만원 (3.61억원)",
+          "tag": "1순위 대표",
+          "isVisibleAboveFold": false
+        },
+        "footer": {
+          "lines": [
+            "출처: 공정거래위원회 가맹사업정보제공시스템 (가맹본부 정기공시 정보공개서)",
+            "집계단위: 전국 등록 가맹본부 거시 벤치마크 (개별 매장 실측치 아님)"
+          ],
+          "isVisibleAboveFold": false,
+          "scrollDistancePx": 742
+        },
+        "marketSummary": {
+          "title": "서울특별시 광진구 분석",
+          "topBrandsCount": 5,
+          "topBrands": [
+            {
+              "rank": "1",
+              "name": "메가MGC커피",
+              "stores": "33개소"
+            },
+            {
+              "rank": "2",
+              "name": "스타벅스",
+              "stores": "24개소"
+            },
+            {
+              "rank": "3",
+              "name": "컴포즈커피",
+              "stores": "22개소"
+            }
+          ]
+        },
+        "keywordAudit": {
+          "containsFTC": true,
+          "containsNational": true,
+          "containsCategory": false,
+          "containsReference": true,
+          "containsNotBrand": false,
+          "firstScreenHasFTC": true,
+          "firstScreenHasNational": true,
+          "firstScreenHasCategory": false,
+          "firstScreenHasReference": true,
+          "firstScreenHasNotBrand": false
+        }
+      },
+      "image": "phase5d_step1_audit_mobile_peek.png"
+    },
+    {
+      "scenarioId": "S-06-MOBILE-EXPANDED",
+      "title": "모바일 바텀시트 확장 상태",
+      "viewport": "390x844",
+      "selection": {
+        "sido": "00 (전국)",
+        "category": "CAT_MAJ_01 (한식)",
+        "sheet_state": "expanded"
+      },
+      "metrics": {
+        "panelFound": true,
+        "panelClasses": "ftc-benchmark-panel drawer-closed  mobile-expanded",
+        "isDrawerOpen": false,
+        "isCollapsed": false,
+        "isMobileExpanded": true,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "header": {
+          "heading": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)",
+          "categoryBadge": "🍚 한식",
+          "yearBadge": "2026년 등록 (2025년 결산)",
+          "provenanceBadge": "공정위 거시 공시",
+          "snapshotBadge": "진행형 스냅샷"
+        },
+        "mobilePeek": {
+          "categoryText": "🍚 한식",
+          "kpiText": "중위매출 36,117만원",
+          "badgeText": "2026년 스냅샷 (2025년 결산)",
+          "fullPeekText": "🍚 한식 중위매출 36,117만원 2026년 스냅샷 (2025년 결산) ▼ 축소 ✕"
+        },
+        "hero": {
+          "label": "가맹점 연간 대표매출 (중앙값)",
+          "stat": "36,117만원 (3.61억원)",
+          "tag": "1순위 대표",
+          "isVisibleAboveFold": false
+        },
+        "footer": {
+          "lines": [
+            "출처: 공정거래위원회 가맹사업정보제공시스템 (가맹본부 정기공시 정보공개서)",
+            "집계단위: 전국 등록 가맹본부 거시 벤치마크 (개별 매장 실측치 아님)"
+          ],
+          "isVisibleAboveFold": false,
+          "scrollDistancePx": 726
+        },
+        "marketSummary": {
+          "title": "서울특별시 광진구 분석",
+          "topBrandsCount": 5,
+          "topBrands": [
+            {
+              "rank": "1",
+              "name": "메가MGC커피",
+              "stores": "33개소"
+            },
+            {
+              "rank": "2",
+              "name": "스타벅스",
+              "stores": "24개소"
+            },
+            {
+              "rank": "3",
+              "name": "컴포즈커피",
+              "stores": "22개소"
+            }
+          ]
+        },
+        "keywordAudit": {
+          "containsFTC": true,
+          "containsNational": true,
+          "containsCategory": false,
+          "containsReference": true,
+          "containsNotBrand": false,
+          "firstScreenHasFTC": true,
+          "firstScreenHasNational": true,
+          "firstScreenHasCategory": false,
+          "firstScreenHasReference": true,
+          "firstScreenHasNotBrand": false
+        }
+      },
+      "image": "phase5d_step1_audit_mobile_expanded.png"
+    },
+    {
+      "scenarioId": "S-07-MOBILE-REGIONAL-SCENARIO",
+      "title": "모바일 시군구(광진구) + 카페 업종 화면",
+      "viewport": "390x844",
+      "selection": {
+        "sido": "11 (서울)",
+        "sigungu": "11215 (광진구)",
+        "category": "CAT_MAJ_07 (카페·음료)",
+        "sheet_state": "collapsed"
+      },
+      "metrics": {
+        "panelFound": true,
+        "panelClasses": "ftc-benchmark-panel drawer-closed  mobile-collapsed",
+        "isDrawerOpen": false,
+        "isCollapsed": false,
+        "isMobileExpanded": false,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "header": {
+          "heading": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)",
+          "categoryBadge": "☕ 카페·음료",
+          "yearBadge": "2026년 등록 (2025년 결산)",
+          "provenanceBadge": "공정위 거시 공시",
+          "snapshotBadge": "진행형 스냅샷"
+        },
+        "mobilePeek": {
+          "categoryText": "☕ 카페·음료",
+          "kpiText": "중위매출 16,703만원",
+          "badgeText": "2026년 스냅샷 (2025년 결산)",
+          "fullPeekText": "☕ 카페·음료 중위매출 16,703만원 2026년 스냅샷 (2025년 결산) ▲ 차트/상세 ✕"
+        },
+        "hero": {
+          "label": "가맹점 연간 대표매출 (중앙값)",
+          "stat": "16,703만원 (1.67억원)",
+          "tag": "1순위 대표",
+          "isVisibleAboveFold": false
+        },
+        "footer": {
+          "lines": [
+            "출처: 공정거래위원회 가맹사업정보제공시스템 (가맹본부 정기공시 정보공개서)",
+            "집계단위: 전국 등록 가맹본부 거시 벤치마크 (개별 매장 실측치 아님)"
+          ],
+          "isVisibleAboveFold": false,
+          "scrollDistancePx": 742
+        },
+        "marketSummary": {
+          "title": "선택 지역 요약",
+          "topBrandsCount": 0,
+          "topBrands": []
+        },
+        "keywordAudit": {
+          "containsFTC": true,
+          "containsNational": true,
+          "containsCategory": false,
+          "containsReference": true,
+          "containsNotBrand": false,
+          "firstScreenHasFTC": true,
+          "firstScreenHasNational": true,
+          "firstScreenHasCategory": false,
+          "firstScreenHasReference": true,
+          "firstScreenHasNotBrand": false
+        }
+      },
+      "image": "phase5d_step1_audit_mobile_brand_scenario.png"
+    }
+  ],
+  "findings": [
+    {
+      "defect_id": "DEF-01-BRAND-ATTRIBUTION-RISK",
+      "title": "특정 브랜드 실적 아님 경고 배너 부재 (브랜드 실적 오인 위험)",
+      "severity": "HIGH",
+      "scope": [
+        "DESKTOP",
+        "MOBILE"
+      ],
+      "element": "FtcBenchmarkPanel 상단 및 visual-hero-section",
+      "description": "좌측 패널에서 특정 브랜드(예: 메가MGC커피 1위, 22개소)를 보고 있는 상태에서 우측 FTC 패널의 히어로 섹션에 \"가맹점 연간 대표매출 (중앙값) 3억 3,061만원\"이 크게 표시되나, \"특정 브랜드 실적 아님\" 또는 \"개별 브랜드 실적 아님\" 문구가 첫 화면에 일체 노출되지 않음.",
+      "evidence": {
+        "firstScreenHasNotBrand": false,
+        "panelFullHasNotBrand": false
+      }
+    },
+    {
+      "defect_id": "DEF-02-REGIONAL-ATTRIBUTION-RISK",
+      "title": "선택 지역 실적 오인 위험 (전국 기준성 시각적 위계 미흡)",
+      "severity": "HIGH",
+      "scope": [
+        "DESKTOP",
+        "MOBILE"
+      ],
+      "element": "FtcBenchmarkPanel 헤더 및 히어로 섹션",
+      "description": "광진구 또는 강남구 등 시군구를 선택한 상태에서도 FTC 패널 히어로 카드는 \"가맹점 연간 대표매출 (중앙값)\"으로만 표기되어 있어, 사용자가 현재 선택한 지역의 가맹점 평균 매출로 착각할 소지가 큼. 헤더 소제목에 \"(전국 가맹본부 기준)\"이라는 괄호 부연 설명이 있으나 히어로 카드 자체에는 \"전국\" 단어가 빠져 있음.",
+      "evidence": {
+        "heroLabel": "가맹점 연간 대표매출 (중앙값)",
+        "heading": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)"
+      }
+    },
+    {
+      "defect_id": "DEF-03-MOBILE-PEEK-CONTEXT-DEFICIT",
+      "title": "모바일 바텀시트 피크(축소) 바의 정보 맥락 완전 결손",
+      "severity": "CRITICAL",
+      "scope": [
+        "MOBILE"
+      ],
+      "element": ".mobile-summary-row",
+      "description": "모바일 390×844 축소 상태에서 사용자에게 노출되는 문구는 \"[아이콘] [업종명] 중위매출 33,061만원 2024년 등록\"뿐임. \"공정위\", \"전국\", \"업종 벤치마크\", \"참고 기준\", \"브랜드 비귀속\" 키워드가 100% 누락되어 있어 모바일 지도 사용자가 화면 하단 바를 볼 때 현재 지역의 점포 매출 실적으로 직관적 오독을 유발함.",
+      "evidence": {
+        "mobilePeekText": "🍚 한식 중위매출 36,117만원 2026년 스냅샷 (2025년 결산) ▲ 차트/상세 ✕",
+        "hasFTC": true,
+        "hasNational": true,
+        "hasNotBrand": false
+      }
+    },
+    {
+      "defect_id": "DEF-04-DISCLAIMER-SCROLL-BURIAL",
+      "title": "핵심 출처 및 비귀속 면책 문구의 최하단 매몰 (스크롤 강제)",
+      "severity": "MEDIUM",
+      "scope": [
+        "DESKTOP",
+        "MOBILE"
+      ],
+      "element": ".panel-footer-meta",
+      "description": "공정위 출처 및 \"개별 매장 실측치 아님\"이라는 핵심 면책 고지가 패널 최하단(footer)에만 위치하여, 데스크톱에서 약 750px~1200px, 모바일에서는 약 1800px 이상 스크롤해야만 확인 가능함. 첫 화면(above the fold)에서 확인 불가.",
+      "evidence": {
+        "desktopScrollDist": 49,
+        "mobileScrollDist": 726,
+        "isFooterVisibleAboveFold": false
+      }
+    },
+    {
+      "defect_id": "DEF-05-SNAPSHOT-TRANSPARENCY-WEAKNESS",
+      "title": "2026년 진행형 스냅샷의 결손율(30% 미등록) 고지 접근성 제한",
+      "severity": "LOW",
+      "scope": [
+        "DESKTOP",
+        "MOBILE"
+      ],
+      "element": ".badge-snapshot-amber 및 .trends-caption",
+      "description": "2026년 선택 시 \"진행형 스냅샷\" 배지가 상단에 붙지만 \"모집단 30% 미등록 결손으로 전년 직접 비교 불가\"라는 핵심 주의사항은 마우스 호버(title 툴팁)나 차트 하단 미세 캡션(* 텍스트)으로만 들어가 있어 터치 디바이스나 키보드 탐색 시 즉시 인지하기 어려움.",
+      "evidence": {
+        "snapshotBadge": "진행형 스냅샷"
+      }
+    }
+  ]
+}

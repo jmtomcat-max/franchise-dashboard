@@ -1,0 +1,197 @@
+{
+  "timestamp": "2026-10-13T14:11:47.853271",
+  "database": "D:\\Franchise_Dashboard\\data\\franchise_analytics_v1.sqlite3",
+  "checks": [
+    {
+      "check_id": "CHK_01",
+      "name": "전국 외식업 총 점포수 일치 (735,185)",
+      "status": "PASS",
+      "expected": 735185,
+      "actual": 735185,
+      "details": ""
+    },
+    {
+      "check_id": "CHK_02",
+      "name": "16개 시도 점포수 합계 일치 (735,185)",
+      "status": "PASS",
+      "expected": {
+        "sum": 735185,
+        "count": 16
+      },
+      "actual": {
+        "sum": 735185,
+        "count": 16
+      },
+      "details": ""
+    },
+    {
+      "check_id": "CHK_03",
+      "name": "256개 시군구 점포수 합계 일치 (735,185)",
+      "status": "PASS",
+      "expected": {
+        "sum": 735185,
+        "count": 256
+      },
+      "actual": {
+        "sum": 735185,
+        "count": 256
+      },
+      "details": ""
+    },
+    {
+      "check_id": "CHK_04",
+      "name": "점포 룩업 테이블 1:1 고유성 무결성 (중복 0건)",
+      "status": "PASS",
+      "expected": 735185,
+      "actual": {
+        "total": 735185,
+        "distinct": 735185
+      },
+      "details": ""
+    },
+    {
+      "check_id": "CHK_05",
+      "name": "브랜드 연결 점포(168,295) + 독립 점포(566,890) = 전체 점포(735,185)",
+      "status": "PASS",
+      "expected": 735185,
+      "actual": 735185,
+      "details": ""
+    },
+    {
+      "check_id": "CHK_06",
+      "name": "8대 확정 외식업 대분류 체계 일치",
+      "status": "PASS",
+      "expected": 8,
+      "actual": 8,
+      "details": ""
+    },
+    {
+      "check_id": "CHK_07",
+      "name": "48개 확정 외식업 중분류 체계 및 점포수 합계 일치 (735,185)",
+      "status": "PASS",
+      "expected": {
+        "count": 48,
+        "sum": 735185
+      },
+      "actual": {
+        "count": 48,
+        "sum": 735185
+      },
+      "details": ""
+    },
+    {
+      "check_id": "CHK_08",
+      "name": "모호 분류(104,060) 격리 필터 대사 (확정: 631,125 + 모호: 104,060 = 735,185)",
+      "status": "PASS",
+      "expected": {
+        "ambiguous": 104060,
+        "confirmed": 631125
+      },
+      "actual": {
+        "ambiguous": 104060,
+        "confirmed": 631125
+      },
+      "details": ""
+    },
+    {
+      "check_id": "CHK_09",
+      "name": "복수 브랜드 샵인샵 점포 수 대사 (23건)",
+      "status": "PASS",
+      "expected": 23,
+      "actual": 23,
+      "details": ""
+    },
+    {
+      "check_id": "CHK_10",
+      "name": "3D GIS 상권 핫스팟 10곳 및 광진구 드론 투어 파라미터 탑재",
+      "status": "PASS",
+      "expected": {
+        "count": 10,
+        "gwangjin_pitch": 60.0
+      },
+      "actual": {
+        "count": 10,
+        "gwangjin_found": true
+      },
+      "details": ""
+    },
+    {
+      "check_id": "CHK_11",
+      "name": "전국 100m 정밀 격자 기둥(ColumnLayer) 밀집도 셀 생성 및 점포 대사 (밀집도 >= 3개소)",
+      "status": "PASS",
+      "expected": {
+        "grid_cells": 76745,
+        "stores_sum": 587500
+      },
+      "actual": {
+        "grid_cells": 76745,
+        "stores_sum": 587500
+      },
+      "details": ""
+    },
+    {
+      "check_id": "CHK_12",
+      "name": "비즈니스 메트릭 공식 정의 및 해석 가이드라인 10종 완비",
+      "status": "PASS",
+      "expected": ">= 10",
+      "actual": 10,
+      "details": ""
+    },
+    {
+      "check_id": "CHK_13",
+      "name": "선행 원본 데이터베이스 3종 불변성 보존 (변조 0건)",
+      "status": "PASS",
+      "expected": {
+        "v2_stores": 735185,
+        "brand_master": 5063,
+        "brand_links": 735208,
+        "category_master": 735185
+      },
+      "actual": {
+        "v2_stores": 735185,
+        "brand_master": 5063,
+        "brand_links": 735208,
+        "category_master": 735185
+      },
+      "details": ""
+    },
+    {
+      "check_id": "CHK_14",
+      "name": "4개 비즈니스 축 독립성 및 다차원 상태 격리 유지",
+      "status": "PASS",
+      "expected": "Independent 4-axes",
+      "actual": {
+        "off_cnt": 4,
+        "match_cnt": 5,
+        "op_cnt": 3,
+        "cat_cnt": 3
+      },
+      "details": ""
+    },
+    {
+      "check_id": "CHK_15",
+      "name": "전국 및 지역별 브랜드 랭킹 데이터 탑재 (Top 20/10)",
+      "status": "PASS",
+      "expected": "> 90,000",
+      "actual": 94060,
+      "details": ""
+    }
+  ],
+  "overall_status": "PASS",
+  "metrics_summary": {
+    "total_stores": 735185,
+    "provinces": 16,
+    "districts": 256,
+    "major_categories": 8,
+    "mid_categories": 48,
+    "brand_linked_stores": 168295,
+    "independent_stores": 566890,
+    "ambiguous_category_stores": 104060,
+    "confirmed_category_stores": 631125,
+    "shop_in_shop_stores": 23,
+    "grid_cells_100m": 76745,
+    "hotspots_3d": 10,
+    "ranking_records": 94060
+  },
+  "elapsed_seconds": 1.886
+}

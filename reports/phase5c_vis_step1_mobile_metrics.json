@@ -1,0 +1,160 @@
+{
+  "timestamp": "2026-10-15T02:33:13.348Z",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "step1_initial": {
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 1976
+    },
+    "headerHeight": 42,
+    "filterHeight": 63.953125,
+    "topNonMapHeight": 105.953125,
+    "mapCss": {
+      "height": 746,
+      "ratio": 0.8838862559241706
+    },
+    "mapVisible": {
+      "top": 105.953125,
+      "bottom": 844,
+      "height": 738.046875,
+      "ratio": 0.8744631220379147
+    },
+    "overlays": {
+      "hudArea": 9806.875,
+      "legendArea": 8463.14453125,
+      "totalOverlayArea": 18270.01953125
+    },
+    "unoccluded": {
+      "area": 269568.26171875,
+      "ratioInViewport": 0.8189581410826042,
+      "ratioInMap": 0.9365267904883656
+    },
+    "hitTest200": {
+      "hits": 170,
+      "total": 200,
+      "ratio": 0.85
+    },
+    "elements": {
+      "header": {
+        "selector": ".app-header",
+        "top": 0,
+        "bottom": 42,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 42
+      },
+      "filter": {
+        "selector": ".category-filter-bar",
+        "top": 42,
+        "bottom": 105.953125,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 63.953125
+      },
+      "map": {
+        "selector": ".map-wrapper",
+        "top": 105.953125,
+        "bottom": 851.953125,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 746
+      },
+      "mapCanvas": {
+        "selector": ".maplibregl-canvas",
+        "top": 105.953125,
+        "bottom": 851.953125,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 746
+      },
+      "hud": {
+        "selector": ".map-overlay-badge",
+        "top": 112.34375,
+        "bottom": 138.34375,
+        "left": 6.390625,
+        "right": 383.578125,
+        "width": 377.1875,
+        "height": 26
+      },
+      "legend": {
+        "selector": ".map-density-legend",
+        "top": 821.5625,
+        "bottom": 845.5625,
+        "left": 6.390625,
+        "right": 383.578125,
+        "width": 377.1875,
+        "height": 24
+      },
+      "ftc": {
+        "selector": ".ftc-benchmark-panel",
+        "top": 844,
+        "bottom": 1571.984375,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 727.984375
+      }
+    }
+  },
+  "step2_bottom_sheet_4stages": {
+    "stage1_open_peek": {
+      "isOpen": true,
+      "isCollapsed": true,
+      "rect": {
+        "top": 780,
+        "bottom": 844,
+        "height": 64
+      },
+      "scrollWidth": 390
+    },
+    "stage2_expanded": {
+      "isOpen": true,
+      "isExpanded": true,
+      "rect": {
+        "top": 244,
+        "bottom": 844,
+        "height": 600
+      },
+      "bodyScrollHeight": 744,
+      "bodyClientHeight": 556,
+      "canScroll": true,
+      "scrollWidth": 390
+    },
+    "stage3_scrolled": {
+      "scrollTop": 188,
+      "scrollWidth": 390
+    },
+    "stage4_closed": {
+      "isClosed": true,
+      "isOpen": false,
+      "scrollWidth": 390
+    }
+  },
+  "step3_regression": {
+    "jeju": {
+      "gridCount": 1351,
+      "hudText": "📍 제주특별자치도 제주시 전체 외식업 밀집도 (100m 격자 1,351개소)|벤치마크 대상: 🍚 한식 (전국 공정위)",
+      "scrollWidth": 390
+    },
+    "nationwide": {
+      "gridCount": 0,
+      "hudText": "📍전국 모드 — 시군구를 선택하시면 100m 정밀 격자가 지도에 표출됩니다.",
+      "scrollWidth": 390
+    },
+    "gwangjin2025": {
+      "gridCount": 466,
+      "ftcTag": "공정위 2025년 등록 (2024년 결산) · 최신 완결 후보",
+      "sedaTag": "소진공 2026-07 공간 전수",
+      "scrollWidth": 390
+    }
+  }
+}

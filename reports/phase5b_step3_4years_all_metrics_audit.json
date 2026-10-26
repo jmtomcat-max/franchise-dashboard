@@ -1,0 +1,1351 @@
+{
+  "total_combinations": 32,
+  "passed_combinations": 32,
+  "pass_rate_pct": 100.0,
+  "details": [
+    {
+      "category_major_id": "CAT_MAJ_01",
+      "category_major_name": "한식",
+      "year": "2023",
+      "status": "PASS",
+      "sample_count": {
+        "api": 2148,
+        "db": 2148,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 298016.0,
+        "db": 298016.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 330650.4,
+        "db": 330650.4,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 324602.19,
+        "db": 324602.19,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 34406,
+        "db": 34406,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 37977,
+        "db": 37977,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 1660,
+        "db": 1660,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_01",
+      "category_major_name": "한식",
+      "year": "2024",
+      "status": "PASS",
+      "sample_count": {
+        "api": 2340,
+        "db": 2340,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 330611.0,
+        "db": 330611.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 371714.33,
+        "db": 371714.33,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 360391.18,
+        "db": 360391.18,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 37789,
+        "db": 37789,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 41914,
+        "db": 41914,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 1798,
+        "db": 1798,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_01",
+      "category_major_name": "한식",
+      "year": "2025",
+      "status": "PASS",
+      "sample_count": {
+        "api": 2532,
+        "db": 2532,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 347197.0,
+        "db": 347197.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 382823.8,
+        "db": 382823.8,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 399445.82,
+        "db": 399445.82,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 39537,
+        "db": 39537,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 43566,
+        "db": 43566,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 1899,
+        "db": 1899,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_01",
+      "category_major_name": "한식",
+      "year": "2026",
+      "status": "PASS",
+      "sample_count": {
+        "api": 1858,
+        "db": 1858,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 361174.5,
+        "db": 361174.5,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 394210.78,
+        "db": 394210.78,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 395702.93,
+        "db": 395702.93,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 27187,
+        "db": 27187,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 29557,
+        "db": 29557,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 1248,
+        "db": 1248,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_02",
+      "category_major_name": "중식",
+      "year": "2023",
+      "status": "PASS",
+      "sample_count": {
+        "api": 204,
+        "db": 204,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 383068.0,
+        "db": 383068.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 440865.4,
+        "db": 440865.4,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 477910.19,
+        "db": 477910.19,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 3154,
+        "db": 3154,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 3469,
+        "db": 3469,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 189,
+        "db": 189,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_02",
+      "category_major_name": "중식",
+      "year": "2024",
+      "status": "PASS",
+      "sample_count": {
+        "api": 214,
+        "db": 214,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 368338.0,
+        "db": 368338.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 442590.62,
+        "db": 442590.62,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 953306.77,
+        "db": 953306.77,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 3887,
+        "db": 3887,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 4174,
+        "db": 4174,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 170,
+        "db": 170,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_02",
+      "category_major_name": "중식",
+      "year": "2025",
+      "status": "PASS",
+      "sample_count": {
+        "api": 203,
+        "db": 203,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 402103.5,
+        "db": 402103.5,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 454831.06,
+        "db": 454831.06,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 513526.35,
+        "db": 513526.35,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 3721,
+        "db": 3721,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 4017,
+        "db": 4017,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 158,
+        "db": 158,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_02",
+      "category_major_name": "중식",
+      "year": "2026",
+      "status": "PASS",
+      "sample_count": {
+        "api": 143,
+        "db": 143,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 412334.0,
+        "db": 412334.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 445207.74,
+        "db": 445207.74,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 415843.22,
+        "db": 415843.22,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 1644,
+        "db": 1644,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 1791,
+        "db": 1791,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 108,
+        "db": 108,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_03",
+      "category_major_name": "일식",
+      "year": "2023",
+      "status": "PASS",
+      "sample_count": {
+        "api": 337,
+        "db": 337,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 312778.0,
+        "db": 312778.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 356794.76,
+        "db": 356794.76,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 432232.52,
+        "db": 432232.52,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 3492,
+        "db": 3492,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 3880,
+        "db": 3880,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 389,
+        "db": 389,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_03",
+      "category_major_name": "일식",
+      "year": "2024",
+      "status": "PASS",
+      "sample_count": {
+        "api": 352,
+        "db": 352,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 304526.0,
+        "db": 304526.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 368254.2,
+        "db": 368254.2,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 471726.26,
+        "db": 471726.26,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 4232,
+        "db": 4232,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 4661,
+        "db": 4661,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 388,
+        "db": 388,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_03",
+      "category_major_name": "일식",
+      "year": "2025",
+      "status": "PASS",
+      "sample_count": {
+        "api": 380,
+        "db": 380,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 336000.0,
+        "db": 336000.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 401728.84,
+        "db": 401728.84,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 532612.58,
+        "db": 532612.58,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 4519,
+        "db": 4519,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 4824,
+        "db": 4824,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 381,
+        "db": 381,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_03",
+      "category_major_name": "일식",
+      "year": "2026",
+      "status": "PASS",
+      "sample_count": {
+        "api": 258,
+        "db": 258,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 323361.5,
+        "db": 323361.5,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 402962.93,
+        "db": 402962.93,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 642682.71,
+        "db": 642682.71,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 3129,
+        "db": 3129,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 3317,
+        "db": 3317,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 281,
+        "db": 281,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_04",
+      "category_major_name": "양식·세계음식",
+      "year": "2023",
+      "status": "PASS",
+      "sample_count": {
+        "api": 320,
+        "db": 320,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 293993.0,
+        "db": 293993.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 334720.62,
+        "db": 334720.62,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 331670.63,
+        "db": 331670.63,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 4100,
+        "db": 4100,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 4526,
+        "db": 4526,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 398,
+        "db": 398,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_04",
+      "category_major_name": "양식·세계음식",
+      "year": "2024",
+      "status": "PASS",
+      "sample_count": {
+        "api": 333,
+        "db": 333,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 293262.0,
+        "db": 293262.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 333498.99,
+        "db": 333498.99,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 353132.79,
+        "db": 353132.79,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 5133,
+        "db": 5133,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 5473,
+        "db": 5473,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 397,
+        "db": 397,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_04",
+      "category_major_name": "양식·세계음식",
+      "year": "2025",
+      "status": "PASS",
+      "sample_count": {
+        "api": 344,
+        "db": 344,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 314893.0,
+        "db": 314893.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 346579.59,
+        "db": 346579.59,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 354505.57,
+        "db": 354505.57,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 5188,
+        "db": 5188,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 5489,
+        "db": 5489,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 413,
+        "db": 413,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_04",
+      "category_major_name": "양식·세계음식",
+      "year": "2026",
+      "status": "PASS",
+      "sample_count": {
+        "api": 221,
+        "db": 221,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 326027.0,
+        "db": 326027.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 371162.64,
+        "db": 371162.64,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 345860.37,
+        "db": 345860.37,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 2431,
+        "db": 2431,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 2656,
+        "db": 2656,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 223,
+        "db": 223,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_05",
+      "category_major_name": "치킨·패스트푸드",
+      "year": "2023",
+      "status": "PASS",
+      "sample_count": {
+        "api": 672,
+        "db": 672,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 175241.0,
+        "db": 175241.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 195906.54,
+        "db": 195906.54,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 325160.57,
+        "db": 325160.57,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 40951,
+        "db": 40951,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 42244,
+        "db": 42244,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 1707,
+        "db": 1707,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_05",
+      "category_major_name": "치킨·패스트푸드",
+      "year": "2024",
+      "status": "PASS",
+      "sample_count": {
+        "api": 692,
+        "db": 692,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 196561.0,
+        "db": 196561.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 209252.27,
+        "db": 209252.27,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 337135.05,
+        "db": 337135.05,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 40084,
+        "db": 40084,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 43304,
+        "db": 43304,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 1763,
+        "db": 1763,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_05",
+      "category_major_name": "치킨·패스트푸드",
+      "year": "2025",
+      "status": "PASS",
+      "sample_count": {
+        "api": 649,
+        "db": 649,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 201706.0,
+        "db": 201706.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 228616.21,
+        "db": 228616.21,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 358154.3,
+        "db": 358154.3,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 38796,
+        "db": 38796,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 41139,
+        "db": 41139,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 1627,
+        "db": 1627,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_05",
+      "category_major_name": "치킨·패스트푸드",
+      "year": "2026",
+      "status": "PASS",
+      "sample_count": {
+        "api": 450,
+        "db": 450,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 193120.0,
+        "db": 193120.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 222274.7,
+        "db": 222274.7,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 322260.39,
+        "db": 322260.39,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 21005,
+        "db": 21005,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 21415,
+        "db": 21415,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 529,
+        "db": 529,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_06",
+      "category_major_name": "분식·간편식",
+      "year": "2023",
+      "status": "PASS",
+      "sample_count": {
+        "api": 373,
+        "db": 373,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 184033.0,
+        "db": 184033.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 197870.73,
+        "db": 197870.73,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 236601.82,
+        "db": 236601.82,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 11291,
+        "db": 11291,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 12357,
+        "db": 12357,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 367,
+        "db": 367,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_06",
+      "category_major_name": "분식·간편식",
+      "year": "2024",
+      "status": "PASS",
+      "sample_count": {
+        "api": 358,
+        "db": 358,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 207050.5,
+        "db": 207050.5,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 225071.4,
+        "db": 225071.4,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 247940.79,
+        "db": 247940.79,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 10206,
+        "db": 10206,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 10990,
+        "db": 10990,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 372,
+        "db": 372,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_06",
+      "category_major_name": "분식·간편식",
+      "year": "2025",
+      "status": "PASS",
+      "sample_count": {
+        "api": 341,
+        "db": 341,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 217250.0,
+        "db": 217250.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 241237.15,
+        "db": 241237.15,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 254433.45,
+        "db": 254433.45,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 10467,
+        "db": 10467,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 11150,
+        "db": 11150,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 337,
+        "db": 337,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_06",
+      "category_major_name": "분식·간편식",
+      "year": "2026",
+      "status": "PASS",
+      "sample_count": {
+        "api": 220,
+        "db": 220,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 247174.0,
+        "db": 247174.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 264102.71,
+        "db": 264102.71,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 263666.82,
+        "db": 263666.82,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 6675,
+        "db": 6675,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 7179,
+        "db": 7179,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 230,
+        "db": 230,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_07",
+      "category_major_name": "카페·음료",
+      "year": "2023",
+      "status": "PASS",
+      "sample_count": {
+        "api": 642,
+        "db": 642,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 151287.0,
+        "db": 151287.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 163936.07,
+        "db": 163936.07,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 221504.96,
+        "db": 221504.96,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 27441,
+        "db": 27441,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 28117,
+        "db": 28117,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 1451,
+        "db": 1451,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_07",
+      "category_major_name": "카페·음료",
+      "year": "2024",
+      "status": "PASS",
+      "sample_count": {
+        "api": 635,
+        "db": 635,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 161490.0,
+        "db": 161490.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 174030.66,
+        "db": 174030.66,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 233102.59,
+        "db": 233102.59,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 31144,
+        "db": 31144,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 32011,
+        "db": 32011,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 1354,
+        "db": 1354,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_07",
+      "category_major_name": "카페·음료",
+      "year": "2025",
+      "status": "PASS",
+      "sample_count": {
+        "api": 654,
+        "db": 654,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 157984.0,
+        "db": 157984.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 177966.54,
+        "db": 177966.54,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 250754.75,
+        "db": 250754.75,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 29714,
+        "db": 29714,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 30308,
+        "db": 30308,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 1406,
+        "db": 1406,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_07",
+      "category_major_name": "카페·음료",
+      "year": "2026",
+      "status": "PASS",
+      "sample_count": {
+        "api": 438,
+        "db": 438,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 167029.0,
+        "db": 167029.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 187827.04,
+        "db": 187827.04,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 267002.32,
+        "db": 267002.32,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 13410,
+        "db": 13410,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 13673,
+        "db": 13673,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 843,
+        "db": 843,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_08",
+      "category_major_name": "베이커리·디저트",
+      "year": "2023",
+      "status": "PASS",
+      "sample_count": {
+        "api": 231,
+        "db": 231,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 181461.0,
+        "db": 181461.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 236707.32,
+        "db": 236707.32,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 478752.94,
+        "db": 478752.94,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 9481,
+        "db": 9481,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 9709,
+        "db": 9709,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 528,
+        "db": 528,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_08",
+      "category_major_name": "베이커리·디저트",
+      "year": "2024",
+      "status": "PASS",
+      "sample_count": {
+        "api": 246,
+        "db": 246,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 200093.0,
+        "db": 200093.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 242149.99,
+        "db": 242149.99,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 350257.92,
+        "db": 350257.92,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 7586,
+        "db": 7586,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 11169,
+        "db": 11169,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 665,
+        "db": 665,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_08",
+      "category_major_name": "베이커리·디저트",
+      "year": "2025",
+      "status": "PASS",
+      "sample_count": {
+        "api": 245,
+        "db": 245,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 200056.0,
+        "db": 200056.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 256718.42,
+        "db": 256718.42,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 385402.37,
+        "db": 385402.37,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 8460,
+        "db": 8460,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 8681,
+        "db": 8681,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 593,
+        "db": 593,
+        "match": true
+      }
+    },
+    {
+      "category_major_id": "CAT_MAJ_08",
+      "category_major_name": "베이커리·디저트",
+      "year": "2026",
+      "status": "PASS",
+      "sample_count": {
+        "api": 171,
+        "db": 171,
+        "match": true
+      },
+      "sample_breakdown_check": true,
+      "median_sales": {
+        "api": 174990.0,
+        "db": 174990.0,
+        "match": true
+      },
+      "trimmed_mean_5pct": {
+        "api": 234948.99,
+        "db": 234948.99,
+        "match": true
+      },
+      "store_weighted_avg": {
+        "api": 216153.49,
+        "db": 216153.49,
+        "match": true
+      },
+      "denominator_stores": {
+        "api": 2654,
+        "db": 2654,
+        "match": true
+      },
+      "franchise_stores": {
+        "api": 2780,
+        "db": 2780,
+        "match": true
+      },
+      "direct_stores": {
+        "api": 237,
+        "db": 237,
+        "match": true
+      }
+    }
+  ]
+}

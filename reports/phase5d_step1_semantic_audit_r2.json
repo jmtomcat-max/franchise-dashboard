@@ -1,0 +1,678 @@
+{
+  "timestamp": "2026-10-16T05:35:40.154Z",
+  "phase": "Phase 5D Step 5D-1 (R2)",
+  "audit_focus": "공정위 패널 실제 화면 오인 가능성 실측 감사 (UI 조작 및 가시성 정밀 평가)",
+  "all_assertions_passed": true,
+  "scenarios": [
+    {
+      "scenarioId": "SCENARIO-A",
+      "title": "데스크톱 전국 업종 시나리오",
+      "viewport": "1440x900",
+      "requested": {
+        "sido": "00 (전국)",
+        "category": "CAT_MAJ_07 (카페·음료)",
+        "year": "2024"
+      },
+      "assertions": {
+        "sidoOk": true,
+        "catOk": true,
+        "yearOk": true,
+        "drawerOk": true,
+        "yearBadgeOk": true,
+        "leftTitleOk": true,
+        "actual": {
+          "sidoVal": "00",
+          "catSelected": "true",
+          "yearVal": "2024",
+          "isDrawerOpen": true,
+          "yearBadgeText": "2024년 등록 (2023년 결산)",
+          "leftTitle": "전국 외식업 시장 분석"
+        }
+      },
+      "passed": true,
+      "measurements": {
+        "heading": {
+          "text": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1467,
+            "top": 193,
+            "right": 1756,
+            "bottom": 212,
+            "width": 289,
+            "height": 20
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "categoryBadge": {
+          "text": "☕ 카페·음료",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1467,
+            "top": 139,
+            "right": 1544,
+            "bottom": 160,
+            "width": 78,
+            "height": 21
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "yearBadge": {
+          "text": "2024년 등록 (2023년 결산)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1550,
+            "top": 139,
+            "right": 1694,
+            "bottom": 161,
+            "width": 145,
+            "height": 22
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "provenanceBadge": {
+          "text": "공정위 거시 공시",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1467,
+            "top": 166,
+            "right": 1554,
+            "bottom": 189,
+            "width": 87,
+            "height": 23
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "heroCard": {
+          "text": "가맹점 연간 대표매출 (중앙값)\n1순위 대표\n16,149만원 (1.61억원)\n중앙값 (대표)\n16,149만원\n5% 절사평균\n17,403만원\n점포수 가중평균 (분모: 31,144개점)\n23,310만원",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1467,
+            "top": 282,
+            "right": 1852,
+            "bottom": 452,
+            "width": 386,
+            "height": 170
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "heroLabel": {
+          "text": "가맹점 연간 대표매출 (중앙값)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1480,
+            "top": 294,
+            "right": 1620,
+            "bottom": 312,
+            "width": 140,
+            "height": 18
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "heroStat": {
+          "text": "16,149만원 (1.61억원)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1480,
+            "top": 319,
+            "right": 1675,
+            "bottom": 343,
+            "width": 195,
+            "height": 24
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "footerMeta": {
+          "text": "출처: 공정거래위원회 가맹사업정보제공시스템 (가맹본부 정기공시 정보공개서)\n집계단위: 전국 등록 가맹본부 거시 벤치마크 (개별 매장 실측치 아님)",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1467,
+            "top": 924,
+            "right": 1852,
+            "bottom": 962,
+            "width": 386,
+            "height": 38
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "brandDisclaimerPresent": false
+      },
+      "image": "phase5d_step1_audit_r2_desktop_nationwide.png",
+      "misinterpretation_evaluation": {
+        "brand_attribution_risk": "높음: 패널 내에 \"특정 브랜드 실적 아님\" 문구가 존재하지 않음",
+        "regional_attribution_risk": "낮음: 전국 모드이며 헤더에 \"(전국 가맹본부 기준)\" 표시됨",
+        "above_the_fold_source": false,
+        "above_the_fold_disclaimer": false
+      }
+    },
+    {
+      "scenarioId": "SCENARIO-B",
+      "title": "데스크톱 지역 업종 시나리오",
+      "viewport": "1440x900",
+      "requested": {
+        "sido": "11 (서울)",
+        "sigungu": "11215 (광진구)",
+        "category": "CAT_MAJ_05 (치킨·패스트푸드)",
+        "year": "2024"
+      },
+      "assertions": {
+        "sidoOk": true,
+        "sigunguOk": true,
+        "leftTitleOk": true,
+        "catOk": true,
+        "yearOk": true,
+        "drawerOk": true,
+        "yearBadgeOk": true,
+        "actual": {
+          "sidoVal": "11",
+          "sigunguVal": "11215",
+          "leftTitle": "서울특별시 광진구 분석",
+          "catSelected": "true",
+          "yearVal": "2024",
+          "isDrawerOpen": true,
+          "yearBadgeText": "2024년 등록 (2023년 결산)"
+        }
+      },
+      "passed": true,
+      "measurements": {
+        "heading": {
+          "text": "공정위 공식 가맹사업 거시통계 (전국 가맹본부 기준)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1230,
+            "top": 193,
+            "right": 1525,
+            "bottom": 212,
+            "width": 295,
+            "height": 20
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": false
+        },
+        "categoryBadge": {
+          "text": "🍗 치킨·패스트푸드",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1230,
+            "top": 139,
+            "right": 1338,
+            "bottom": 160,
+            "width": 108,
+            "height": 21
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": false
+        },
+        "yearBadge": {
+          "text": "2024년 등록 (2023년 결산)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1343,
+            "top": 139,
+            "right": 1488,
+            "bottom": 161,
+            "width": 145,
+            "height": 22
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": false
+        },
+        "heroCard": {
+          "text": "가맹점 연간 대표매출 (중앙값)\n1순위 대표\n19,656만원 (1.97억원)\n중앙값 (대표)\n19,656만원\n5% 절사평균\n20,925만원\n점포수 가중평균 (분모: 40,084개점)\n33,714만원",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1230,
+            "top": 282,
+            "right": 1615,
+            "bottom": 452,
+            "width": 386,
+            "height": 170
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": false
+        },
+        "heroLabel": {
+          "text": "가맹점 연간 대표매출 (중앙값)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1243,
+            "top": 294,
+            "right": 1383,
+            "bottom": 312,
+            "width": 140,
+            "height": 18
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": false
+        },
+        "heroStat": {
+          "text": "19,656만원 (1.97억원)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1243,
+            "top": 319,
+            "right": 1445,
+            "bottom": 343,
+            "width": 202,
+            "height": 24
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": false
+        },
+        "footerMeta": {
+          "text": "출처: 공정거래위원회 가맹사업정보제공시스템 (가맹본부 정기공시 정보공개서)\n집계단위: 전국 등록 가맹본부 거시 벤치마크 (개별 매장 실측치 아님)",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1230,
+            "top": 924,
+            "right": 1615,
+            "bottom": 962,
+            "width": 386,
+            "height": 38
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "heroLabelText": "가맹점 연간 대표매출 (중앙값)"
+      },
+      "image": "phase5d_step1_audit_r2_desktop_regional_gwangjin.png",
+      "misinterpretation_evaluation": {
+        "regional_attribution_risk": "매우 높음: 좌측 패널과 지도가 \"광진구\" 중심인 상태에서 우측 FTC 히어로 라벨이 \"가맹점 연간 대표매출 (중앙값)\"으로만 표기되어 광진구 점포 평균으로 직관적 오인 유발",
+        "national_clarity_in_hero": false
+      }
+    },
+    {
+      "scenarioId": "SCENARIO-C",
+      "title": "지역 Top 5 브랜드와 FTC 패널 동시 노출 시나리오",
+      "viewport": "1440x900",
+      "requested": {
+        "sido": "11 (서울)",
+        "sigungu": "11215 (광진구)",
+        "category": "CAT_MAJ_07 (카페·음료)",
+        "year": "2024",
+        "brand": "메가MGC커피 (1위)"
+      },
+      "assertions": {
+        "topBrandFound": true,
+        "topBrandIsMega": true,
+        "drawerOk": true,
+        "yearBadgeOk": true,
+        "actual": {
+          "topBrandName": "메가MGC커피",
+          "topBrandStores": "33개소",
+          "isDrawerOpen": true,
+          "yearBadgeText": "2024년 등록 (2023년 결산)"
+        }
+      },
+      "passed": true,
+      "measurements": {
+        "brandCard": {
+          "text": "1\n메가MGC커피\n33개소\n(0.732%)",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 48,
+            "top": 715,
+            "right": 270,
+            "bottom": 745,
+            "width": 222,
+            "height": 30
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": true
+        },
+        "ftcHeroStat": {
+          "text": "16,149만원 (1.61억원)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1243,
+            "top": 319,
+            "right": 1438,
+            "bottom": 343,
+            "width": 195,
+            "height": 24
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": false
+        },
+        "ftcHeroLabel": {
+          "text": "가맹점 연간 대표매출 (중앙값)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1243,
+            "top": 294,
+            "right": 1383,
+            "bottom": 312,
+            "width": 140,
+            "height": 18
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": false
+        },
+        "brandAttributionDisclaimerPresent": false
+      },
+      "image": "phase5d_step1_audit_r2_desktop_brand_coexistence.png",
+      "misinterpretation_evaluation": {
+        "brand_misattribution_risk": "높음: 좌측 1위 브랜드 카드(메가MGC커피 33개소)와 우측 FTC 매출(1.67억)이 동일 화면에 노출되나, FTC 패널에 특정 브랜드 실적이 아니라는 설명이 부재하여 메가MGC커피 실적으로 혼동 가능성 상존",
+        "is_both_visible_same_time": false
+      }
+    },
+    {
+      "scenarioId": "SCENARIO-D",
+      "title": "데스크톱 2026 스냅샷 시나리오",
+      "viewport": "1440x900",
+      "requested": {
+        "sido": "00 (전국)",
+        "category": "CAT_MAJ_01 (한식)",
+        "year": "2026"
+      },
+      "assertions": {
+        "yearSelectOk": true,
+        "yearBadgeHas2026": true,
+        "yearBadgeHas2025Fin": true,
+        "snapshotBadgeOk": true,
+        "actual": {
+          "yearSelect": "2026",
+          "yearBadge": "2026년 등록 (2025년 결산)",
+          "snapshotBadge": "진행형 스냅샷"
+        }
+      },
+      "passed": true,
+      "measurements": {
+        "yearBadge": {
+          "text": "2026년 등록 (2025년 결산)",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1221,
+            "top": 139,
+            "right": 1366,
+            "bottom": 161,
+            "width": 145,
+            "height": 22
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": false
+        },
+        "snapshotBadge": {
+          "text": "진행형 스냅샷",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1371,
+            "top": 139,
+            "right": 1447,
+            "bottom": 162,
+            "width": 75,
+            "height": 23
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": false
+        },
+        "snapshotTooltipText": "가맹본부 정보공개서 정기등록 진행 중 스냅샷 (모집단 30% 미등록)",
+        "trendsCaption": {
+          "text": "* 물가변동 미반영 명목금액 · 2026년은 진행형 스냅샷(모집단 30% 미등록 결손)으로 2025년과 직접 비교 불가 · 2025년은 공식 행정마감 미확인 최신 완결 후보",
+          "display": "block",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 1175,
+            "top": 643,
+            "right": 1535,
+            "bottom": 670,
+            "width": 360,
+            "height": 27
+          },
+          "viewportIntersection": true,
+          "isActuallyVisible": false
+        },
+        "trendsCaptionText": "* 물가변동 미반영 명목금액 · 2026년은 진행형 스냅샷(모집단 30% 미등록 결손)으로 2025년과 직접 비교 불가 · 2025년은 공식 행정마감 미확인 최신 완결 후보"
+      },
+      "image": "phase5d_step1_audit_r2_desktop_snapshot_2026.png",
+      "misinterpretation_evaluation": {
+        "snapshot_clarity": "보통: \"진행형 스냅샷\" 배지는 상단에 명확히 표시되나, \"30% 미등록 결손 및 전년 직접 비교 불가\" 상세 주의사항은 마우스 호버(title 속성) 또는 차트 하단 미세 각주에만 기재되어 마우스 미사용 시 확인 곤란",
+        "is_caption_visible_above_fold": false
+      }
+    },
+    {
+      "scenarioId": "SCENARIO-E",
+      "title": "모바일 축소 상태 (피크 바) 시나리오",
+      "viewport": "390x844 (Mobile)",
+      "requested": {
+        "sido": "00 (전국)",
+        "category": "CAT_MAJ_01 (한식)",
+        "year": "2024",
+        "sheet": "collapsed"
+      },
+      "assertions": {
+        "panelFound": true,
+        "collapsedOk": true,
+        "yearSelectOk": true,
+        "peekHas2024": true,
+        "actual": {
+          "isMobileCollapsed": true,
+          "yearVal": "2024",
+          "peekBadgeText": "2024년 등록 (2023년 결산)"
+        }
+      },
+      "passed": true,
+      "measurements": {
+        "handleVisibility": {
+          "text": "🍚 한식\n중위매출 33,061만원\n2024년 등록 (2023년 결산)\n▲ 차트/상세\n✕",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 0,
+            "top": 845,
+            "right": 390,
+            "bottom": 888,
+            "width": 390,
+            "height": 43
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "fullPeekText": "🍚 한식 중위매출 33,061만원 2024년 등록 (2023년 결산) ▲ 차트/상세 ✕",
+        "containsFTC": false,
+        "containsNational": false,
+        "containsCategoryBenchmark": false,
+        "containsNotBrand": false
+      },
+      "image": "phase5d_step1_audit_r2_mobile_peek.png",
+      "misinterpretation_evaluation": {
+        "peek_deficiency": "심각(CRITICAL): 피크 바 문자열(\"🍚 한식 중위매출 33,061만원 2024년 등록 (2023년 결산) ▲ 차트/상세 ✕\")에 \"공정위\", \"전국\", \"업종 참고 기준\", \"특정 브랜드 실적 아님\" 키워드가 모두 누락됨. 모바일 지도 사용자가 화면 하단을 볼 때 현재 지역의 점포 실적으로 오독할 위험 극대",
+        "keyword_presence": {
+          "has_ftc": false,
+          "has_national": false,
+          "has_benchmark": false,
+          "has_not_brand": false
+        }
+      }
+    },
+    {
+      "scenarioId": "SCENARIO-F",
+      "title": "모바일 확장 상태 시나리오",
+      "viewport": "390x844 (Mobile)",
+      "requested": {
+        "sido": "00 (전국)",
+        "category": "CAT_MAJ_01 (한식)",
+        "year": "2024",
+        "sheet": "expanded"
+      },
+      "assertions": {
+        "expandedOk": true,
+        "actual": {
+          "isExpanded": true
+        }
+      },
+      "passed": true,
+      "measurements": {
+        "panelRect": {},
+        "heroVisibility": {
+          "text": "가맹점 연간 대표매출 (중앙값)\n1순위 대표\n33,061만원 (3.31억원)\n중앙값 (대표)\n33,061만원\n5% 절사평균\n37,171만원\n점포수 가중평균 (분모: 37,789개점)\n36,039만원",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 10,
+            "top": 924,
+            "right": 375,
+            "bottom": 1091,
+            "width": 364,
+            "height": 167
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "footerVisibility": {
+          "text": "출처: 공정거래위원회 가맹사업정보제공시스템 (가맹본부 정기공시 정보공개서)\n집계단위: 전국 등록 가맹본부 거시 벤치마크 (개별 매장 실측치 아님)",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 10,
+            "top": 1545,
+            "right": 375,
+            "bottom": 1583,
+            "width": 364,
+            "height": 38
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "footerScrollDistPx": 701,
+        "brandDisclaimerPresentInFirstScreen": false
+      },
+      "image": "phase5d_step1_audit_r2_mobile_expanded.png",
+      "misinterpretation_evaluation": {
+        "above_the_fold_coverage": "미흡: 첫 화면(스크롤 전 844px)에는 대표 매출 수치와 비교 바만 보이며, 출처 및 \"개별 매장 실측치 아님\" 면책 문구는 701px 아래에 매몰되어 있어 스크롤 없이 확인 불가",
+        "is_footer_visible_above_fold": false
+      }
+    },
+    {
+      "scenarioId": "SCENARIO-G",
+      "title": "모바일 지역·업종 시나리오",
+      "viewport": "390x844 (Mobile)",
+      "requested": {
+        "sido": "11 (서울)",
+        "sigungu": "11215 (광진구)",
+        "category": "CAT_MAJ_07 (카페·음료)",
+        "year": "2024",
+        "sheet": "collapsed"
+      },
+      "assertions": {
+        "sidoOk": true,
+        "sigunguOk": true,
+        "catOk": true,
+        "yearOk": true,
+        "peekVisibleOk": true,
+        "actual": {
+          "sidoVal": "11",
+          "sigunguVal": "11215",
+          "catSelected": "true",
+          "yearVal": "2024",
+          "isPeekVisible": true
+        }
+      },
+      "passed": true,
+      "measurements": {
+        "handleVisibility": {
+          "text": "☕ 카페·음료\n중위매출 16,149만원\n2024년 등록 (2023년 결산)\n▲ 차트/상세\n✕",
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": 1,
+          "boundingClientRect": {
+            "left": 0,
+            "top": 845,
+            "right": 390,
+            "bottom": 888,
+            "width": 390,
+            "height": 43
+          },
+          "viewportIntersection": false,
+          "isActuallyVisible": false
+        },
+        "fullPeekText": "☕ 카페·음료 중위매출 16,149만원 2024년 등록 (2023년 결산) ▲ 차트/상세 ✕",
+        "containsNational": false,
+        "containsGwangjin": false,
+        "containsBenchmark": false
+      },
+      "image": "phase5d_step1_audit_r2_mobile_regional.png",
+      "misinterpretation_evaluation": {
+        "regional_misattribution_risk": "높음: 지도 화면에는 광진구가 표시되나 피크 바는 \"☕ 카페·음료 중위매출 16,149만원 2024년 등록 (2023년 결산) ▲ 차트/상세 ✕\"로만 노출되어 \"전국 기준\"임이 표시되지 않아 광진구 카페 평균으로 오인될 위험 높음",
+        "contains_national_in_peek": false
+      }
+    }
+  ],
+  "protection_audit": {
+    "baseline": {
+      "collector.py": {
+        "sha256": "341bac12bb0af58dcbdebba9459033521f27df9817e35bad8b21a4d07ba3369c",
+        "size_bytes": 3780,
+        "mtime_iso": "2026-10-12T03:08:51.119769+00:00"
+      },
+      "gangnam_food_stores.sqlite3": {
+        "sha256": "fee3b58651cfed5c390c0b95db02b05ebe92df18619a06f4e399d429236f3a78",
+        "size_bytes": 15831040,
+        "mtime_iso": "2026-10-12T03:11:28.340826+00:00"
+      },
+      "run_gangnam.bat": {
+        "sha256": "0582c3a1ae53450ddc482e9bf538510780ca2f14d44e987cc753d4e12c816491",
+        "size_bytes": 66,
+        "mtime_iso": "2026-10-12T03:08:51.157843+00:00"
+      }
+    },
+    "current": {
+      "collector.py": "341bac12bb0af58dcbdebba9459033521f27df9817e35bad8b21a4d07ba3369c",
+      "gangnam_food_stores.sqlite3": "fee3b58651cfed5c390c0b95db02b05ebe92df18619a06f4e399d429236f3a78",
+      "run_gangnam.bat": "0582c3a1ae53450ddc482e9bf538510780ca2f14d44e987cc753d4e12c816491"
+    },
+    "all_hashes_match": true
+  }
+}

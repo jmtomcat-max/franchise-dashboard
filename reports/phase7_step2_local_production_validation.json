@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "frontend_build": "PASS",
+  "frontend_entrypoint": {
+    "url": "http://127.0.0.1:4173/",
+    "status_code": 200
+  },
+  "api_health": {
+    "url": "http://127.0.0.1:8000/",
+    "status_code": 200
+  },
+  "same_origin_api_proxy": {
+    "url": "http://127.0.0.1:4173/api/v1/analytics/summary",
+    "status_code": 200,
+    "verified_json_payload": true
+  },
+  "brand_master_before": {
+    "size_bytes": 200921088,
+    "integrity_check": "ok",
+    "brands_count": 5063,
+    "links_count": 735208,
+    "reviews_count": 2
+  },
+  "brand_master_after": {
+    "size_bytes": 200921088,
+    "integrity_check": "ok",
+    "brands_count": 5063,
+    "links_count": 735208,
+    "reviews_count": 2
+  },
+  "brand_master_unchanged": true,
+  "protected_sha256_before": {
+    "collector.py": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+    "gangnam_food_stores.sqlite3": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+    "run_gangnam.bat": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491"
+  },
+  "protected_sha256_after": {
+    "collector.py": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+    "gangnam_food_stores.sqlite3": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+    "run_gangnam.bat": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491"
+  },
+  "protected_files_unchanged": true
+}

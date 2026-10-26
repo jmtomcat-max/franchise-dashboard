@@ -1,0 +1,684 @@
+{
+  "testDate": "2026-10-16T02:24:15.493Z",
+  "apiBaseline": {
+    "gwangjin": 466,
+    "jeju": 1351
+  },
+  "step3Interactions": {
+    "initial": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.08577,
+          37.55039
+        ],
+        "zoom": 12.679,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      }
+    },
+    "mode2D": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.086,
+          37.55033
+        ],
+        "zoom": 13.064,
+        "pitch": 0,
+        "bearing": 0
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 503,
+            "uniqueGridIds": 466,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": false,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      },
+      "capture": {
+        "file": "phase5c_vis_step3_desktop_2d_mode.png",
+        "bytes": 1544546
+      }
+    },
+    "mode3DRestored": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.08577,
+          37.55039
+        ],
+        "zoom": 12.679,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      }
+    },
+    "extrusionOff": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.08577,
+          37.55039
+        ],
+        "zoom": 12.679,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": false,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      },
+      "capture": {
+        "file": "phase5c_vis_step3_desktop_height_off.png",
+        "bytes": 1796992
+      }
+    },
+    "extrusionOn": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.08577,
+          37.55039
+        ],
+        "zoom": 12.679,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      }
+    },
+    "categoryColorMode": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.08577,
+          37.55039
+        ],
+        "zoom": 12.679,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "category",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": true,
+        "isHotspotsPanelVisible": true
+      },
+      "capture": {
+        "file": "phase5c_vis_step3_desktop_category_theme.png",
+        "bytes": 1774894
+      }
+    },
+    "densityColorMode": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.08577,
+          37.55039
+        ],
+        "zoom": 12.679,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      }
+    },
+    "hotspotsPanelHidden": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.08577,
+          37.55039
+        ],
+        "zoom": 12.679,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": false
+      }
+    },
+    "hoverDockCard": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.08577,
+          37.55039
+        ],
+        "zoom": 12.679,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": true,
+        "hoverDockCardText": "📍 격자 [GRID_11215_127089_37549]외식점포:3개소브랜드:1개소최다업종:베이커리·디저트3D높이:9.0 pt소진공 2026-07",
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      },
+      "capture": {
+        "file": "phase5c_vis_step3_desktop_hover_dock_card.png",
+        "bytes": 1752792
+      }
+    },
+    "hoverMouseLeave": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.08577,
+          37.55039
+        ],
+        "zoom": 12.679,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      }
+    }
+  },
+  "performanceBenchmarks": {
+    "desktopJeju": {
+      "frames": 121,
+      "durationMs": 2006.8,
+      "avgFps": 60.3,
+      "minFps": 57.8,
+      "avgFrameTimeMs": 16.59,
+      "passedDesktop": true,
+      "passedMobile": true,
+      "capture": {
+        "file": "phase5c_vis_step3_desktop_jeju_fps_benchmark.png",
+        "bytes": 525685
+      }
+    },
+    "mobileJeju": {
+      "frames": 121,
+      "durationMs": 2003.3,
+      "avgFps": 60.4,
+      "minFps": 59.2,
+      "avgFrameTimeMs": 16.56,
+      "passedDesktop": true,
+      "passedMobile": true
+    }
+  },
+  "desktopRegression": {
+    "d1JejuOverview": {
+      "ok": true,
+      "camera": {
+        "center": [
+          125.89842,
+          34.07645
+        ],
+        "zoom": 8.735,
+        "pitch": 52,
+        "bearing": 80
+      },
+      "counts": {
+        "inState": 1351,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "maxRenderedHeight": 0
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 1351,
+            "uniqueGridIds": 1351
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      },
+      "capture": {
+        "file": "phase5c_vis_step3_desktop_d1_jeju_overview.png",
+        "bytes": 513804
+      }
+    },
+    "d2JejuDetail": {
+      "ok": true,
+      "camera": {
+        "center": [
+          126.492,
+          33.487
+        ],
+        "zoom": 15.3,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 1351,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 260,
+            "uniqueGridIds": 219,
+            "maxRenderedHeight": 123
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      },
+      "capture": {
+        "file": "phase5c_vis_step3_desktop_d2_jeju_detail.png",
+        "bytes": 902064
+      }
+    },
+    "d3GwangjinOverview": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.08577,
+          37.55039
+        ],
+        "zoom": 12.679,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 483,
+            "uniqueGridIds": 466,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 466,
+            "uniqueGridIds": 466
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      },
+      "capture": {
+        "file": "phase5c_vis_step3_desktop_d3_gwangjin_overview.png",
+        "bytes": 1798620
+      }
+    },
+    "d4GwangjinDetail": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.096,
+          37.536
+        ],
+        "zoom": 15.6,
+        "pitch": 52,
+        "bearing": -25
+      },
+      "counts": {
+        "inState": 466,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 141,
+            "uniqueGridIds": 117,
+            "maxRenderedHeight": 165
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      },
+      "capture": {
+        "file": "phase5c_vis_step3_desktop_d4_gwangjin_detail.png",
+        "bytes": 721198
+      }
+    },
+    "d5NationwideEmpty": {
+      "ok": true,
+      "camera": {
+        "center": [
+          127.7669,
+          35.9078
+        ],
+        "zoom": 7,
+        "pitch": 20,
+        "bearing": -20
+      },
+      "counts": {
+        "inState": 0,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "maxRenderedHeight": 0
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      },
+      "popupPresent": false,
+      "capture": {
+        "file": "phase5c_vis_step3_desktop_d5_nationwide_empty.png",
+        "bytes": 1027634
+      }
+    }
+  },
+  "mobileRegression": {
+    "jejuOverview": {
+      "ok": true,
+      "camera": {
+        "center": [
+          125.89842,
+          34.07645
+        ],
+        "zoom": 8.735,
+        "pitch": 52,
+        "bearing": 35
+      },
+      "counts": {
+        "inState": 1351,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "maxRenderedHeight": 0
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "density",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": false,
+        "isHotspotsPanelVisible": true
+      },
+      "capture": {
+        "file": "phase5c_vis_step3_mobile_jeju_overview.png",
+        "bytes": 625143
+      },
+      "pixelAnalysis": {
+        "imageWidth": 780,
+        "imageHeight": 1688,
+        "jejuColoredDotPixelsFound": 1633,
+        "hasVisibleDistribution": true
+      }
+    },
+    "categoryTheme": {
+      "ok": true,
+      "camera": {
+        "center": [
+          125.89842,
+          34.07645
+        ],
+        "zoom": 8.735,
+        "pitch": 52,
+        "bearing": 80
+      },
+      "counts": {
+        "inState": 1351,
+        "rendered": {
+          "extrusionLayer": {
+            "renderedFeatureParts": 0,
+            "uniqueGridIds": 0,
+            "maxRenderedHeight": 0
+          },
+          "overviewLayer": {
+            "renderedFeatureParts": 4,
+            "uniqueGridIds": 4
+          }
+        }
+      },
+      "controls": {
+        "is3DMode": true,
+        "isExtrusionEnabled": true,
+        "colorMode": "category",
+        "hasHoverDockCard": false,
+        "hoverDockCardText": null,
+        "isCategoryLegendVisible": true,
+        "isHotspotsPanelVisible": true
+      },
+      "capture": {
+        "file": "phase5c_vis_step3_mobile_category_theme.png",
+        "bytes": 396231
+      }
+    }
+  },
+  "finishedAt": "2026-10-16T02:24:55.466Z"
+}

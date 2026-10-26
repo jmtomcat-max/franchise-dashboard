@@ -1,0 +1,120 @@
+{
+  "stage": "Phase 4 Stage 4C",
+  "title": "브랜드 마스터 구축 및 전국 점포 정합성 검증",
+  "validated_at": "2026-10-13 11:44:24",
+  "overall_status": "PASS",
+  "verification_summary": {
+    "total_nationwide_stores": 735185,
+    "total_brands_in_master": 5062,
+    "census_80_brands": {
+      "total": 80,
+      "FRANCHISE_CONFIRMED": 72,
+      "BRAND_CONFIRMED_100_PERCENT_DIRECT": 7,
+      "UNVERIFIED_DEFICIENT": 1
+    },
+    "cluster_candidates": 0,
+    "store_brand_links": {
+      "total_links": 735208,
+      "unique_stores": 735185,
+      "multi_candidate_stores": 23,
+      "match_status_breakdown": {
+        "MATCH_AUTO_HIGH_CONFIDENCE": 32903,
+        "MATCH_PROVISIONAL": 117158,
+        "MATCH_REJECTED": 834,
+        "REVIEW_REQUIRED": 18257,
+        "UNMATCHED": 566056
+      },
+      "operation_type_breakdown": {
+        "COMPANY_OPERATED": 5000,
+        "FRANCHISED": 7,
+        "UNKNOWN": 730201
+      }
+    },
+    "independent_quality_evaluation": {
+      "total_samples": 520,
+      "positive_samples": 285,
+      "negative_samples": 235,
+      "precision": 99.63,
+      "recall": 95.09,
+      "f1_score": 97.31,
+      "verdict": "PASS"
+    }
+  },
+  "detailed_checks": {
+    "raw_db_stores_preserved": {
+      "expected": 735185,
+      "actual": 735185,
+      "passed": true
+    },
+    "candidate_brands_migrated": {
+      "expected": 5062,
+      "actual": 5062,
+      "passed": true
+    },
+    "census_80_brands_registered": {
+      "expected": 80,
+      "actual": 80,
+      "passed": true
+    },
+    "census_franchise_confirmed": {
+      "expected": 72,
+      "actual": 72,
+      "passed": true
+    },
+    "census_brand_confirmed_direct": {
+      "expected": 7,
+      "actual": 7,
+      "passed": true
+    },
+    "census_unverified_deficient": {
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    "unique_stores_no_data_loss": {
+      "expected": 735185,
+      "actual": 735185,
+      "passed": true
+    },
+    "total_links_exact_match": {
+      "expected": 735208,
+      "actual": 735208,
+      "passed": true
+    },
+    "multi_candidate_stores_count": {
+      "expected": 23,
+      "actual": 23,
+      "passed": true
+    },
+    "independent_store_converted_to_unmatched": {
+      "expected": 566056,
+      "actual": 566056,
+      "passed": true
+    },
+    "verified_auto_renamed_high_confidence": {
+      "expected": 32903,
+      "actual": 32903,
+      "passed": true
+    },
+    "independent_eval_negative_samples_gte_200": {
+      "expected": ">= 200",
+      "actual": 235,
+      "passed": true
+    },
+    "independent_eval_precision_gte_95": {
+      "expected": ">= 95.0%",
+      "actual": 99.63,
+      "passed": true
+    },
+    "false_merges_zero": {
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    "false_splits_zero": {
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    }
+  }
+}

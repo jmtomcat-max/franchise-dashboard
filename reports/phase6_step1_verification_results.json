@@ -1,0 +1,475 @@
+{
+  "timestamp": "2026-10-20T02:48:51.430Z",
+  "api": {
+    "bbox": {
+      "status": 200,
+      "pass": true,
+      "featureCount": 500,
+      "latencyMs": 199.2,
+      "meta": {
+        "data_reference_month": "2026-07",
+        "universe_definition": "전국 외식업 735,185개 고유 점포 (소진공 I2 음식업, 주점 I211 및 구내식당 I20701 제외)",
+        "decoupled_axes": {
+          "brand_officiality": [
+            "FRANCHISE_CONFIRMED",
+            "BRAND_CONFIRMED",
+            "UNVERIFIED",
+            "UNMATCHED"
+          ],
+          "store_match_status": [
+            "MATCH_VERIFIED",
+            "MATCH_AUTO_HIGH_CONFIDENCE",
+            "MATCH_PROVISIONAL",
+            "REVIEW_REQUIRED",
+            "UNMATCHED"
+          ],
+          "operation_type": [
+            "COMPANY_OPERATED",
+            "FRANCHISED",
+            "UNKNOWN"
+          ],
+          "classification_status": [
+            "CATEGORY_CONFIRMED",
+            "CATEGORY_PROVISIONAL",
+            "AMBIGUOUS_REVIEW"
+          ]
+        },
+        "timestamp": "2026-10-20T11:48:01.872578",
+        "applied_filters": {
+          "bbox": [
+            127.01,
+            37.49,
+            127.05,
+            37.52
+          ],
+          "zoom": null,
+          "category_major_id": "CAT_MAJ_01",
+          "category_mid_id": null,
+          "brand_id": null,
+          "officiality": null,
+          "classification_status": null
+        },
+        "page": 1,
+        "page_size": 500,
+        "total_count": 500
+      }
+    },
+    "categoryFilter": {
+      "pass": true,
+      "cat1Count": 10,
+      "cat7Count": 10
+    },
+    "multiBrandStore": {
+      "status": 200,
+      "pass": true,
+      "store": {
+        "bizes_id": "MA010120220805304850",
+        "bizes_nm": "배스킨라빈스/던킨도너츠SPC스퀘어강남",
+        "brch_nm": "",
+        "std_sido_name": "서울특별시",
+        "std_signgu_name": "강남구",
+        "rdnm_adr": "서울특별시 강남구 강남대로 352",
+        "lno_adr": "서울특별시 강남구 역삼동 831-23",
+        "lon": 127.029796882574,
+        "lat": 37.4943818588787,
+        "category_major_id": "CAT_MAJ_08",
+        "category_major_name": "베이커리·디저트",
+        "category_mid_id": "CAT_MID_0803",
+        "category_mid_name": "아이스크림/빙수",
+        "primary_brand_id": "BRD_BKR_0003",
+        "brand_name_std": "배스킨라빈스",
+        "brand_officiality": "FRANCHISE_CONFIRMED",
+        "match_status": "REVIEW_REQUIRED",
+        "operation_type": "UNKNOWN",
+        "classification_status": "CATEGORY_CONFIRMED",
+        "is_brand_linked": 1,
+        "is_category_divergent": 0,
+        "is_multi_brand_store": 1,
+        "auxiliary_brand_names": "배스킨라빈스, 던킨"
+      },
+      "ui_presentation": {
+        "officiality_badge": {
+          "label": "공인 가맹 브랜드",
+          "color": "#D4AF37"
+        },
+        "operation_badge": {
+          "label": "운영형태 미확인"
+        },
+        "classification_badge": {
+          "label": "확정 분류",
+          "is_ambiguous": false
+        },
+        "divergent_alert": null,
+        "multi_brand_alert": "복수 브랜드(숍인숍) 매장 [보조 브랜드: 배스킨라빈스, 던킨]"
+      }
+    },
+    "fourAxisBadges": {
+      "status": 200,
+      "pass": true,
+      "badges": {
+        "hasOfficiality": true,
+        "hasMatchScore": true,
+        "hasOpType": true,
+        "hasClassStatus": true,
+        "hasMetaAxes": true
+      }
+    },
+    "errorContract": {
+      "status": 422,
+      "pass": true
+    }
+  },
+  "browser": {
+    "P6_S1": {
+      "pass": true,
+      "zoom13_9": {
+        "zoom": 13.9,
+        "status": {
+          "state": "zoom-required",
+          "count": 0,
+          "limited": false,
+          "error": null
+        },
+        "sourceFeaturesCount": 0
+      },
+      "zoom14_5": {
+        "zoom": 14.5,
+        "status": {
+          "state": "ready",
+          "count": 500,
+          "limited": true,
+          "error": null
+        },
+        "sourceUniqueCount": 500,
+        "apiCount": 500,
+        "statusCount": 500,
+        "tiledCount": 490,
+        "renderedCount": 267,
+        "countMatches": true,
+        "allIdsMatch": true,
+        "bounds": [
+          127.02886648125718,
+          37.52886994885118,
+          127.08949800161525,
+          37.57012802366201
+        ]
+      },
+      "screenshots": [
+        "phase6_step1_p6_s1_zoom13_9.png",
+        "phase6_step1_p6_s1_zoom14_5.png"
+      ]
+    },
+    "P6_S2": {
+      "pass": true,
+      "staleOverwrites": 0,
+      "finalState": {
+        "center": [
+          127.0276,
+          37.4979
+        ],
+        "status": {
+          "state": "ready",
+          "count": 500,
+          "limited": true,
+          "error": null
+        },
+        "featuresCount": 500,
+        "totalRequests": 5,
+        "staleOverwrites": 0,
+        "lastRequestApplied": true,
+        "discardedCount": 4,
+        "lastRequestId": 8,
+        "appliedAtLatestRequestId": 8,
+        "pointsInLatestBbox": true,
+        "lastBbox": [
+          126.98656648125166,
+          37.48606316217189,
+          127.04719800161178,
+          37.527344913888
+        ]
+      },
+      "screenshot": "phase6_step1_p6_s2_rapid_pan.png"
+    },
+    "P6_S3": {
+      "pass": true,
+      "colorRamp": [
+        "match",
+        [
+          "get",
+          "brand_officiality"
+        ],
+        "FRANCHISE_CONFIRMED",
+        "#10b981",
+        "BRAND_CONFIRMED",
+        "#3b82f6",
+        "UNVERIFIED",
+        "#f59e0b",
+        "#94a3b8"
+      ],
+      "pairMatches": {
+        "hasEmerald": true,
+        "hasBlue": true,
+        "hasAmber": true,
+        "hasSlate": true
+      },
+      "dataDistribution": {
+        "FRANCHISE_CONFIRMED": 51,
+        "BRAND_CONFIRMED": 46,
+        "UNVERIFIED": 34,
+        "UNMATCHED": 369
+      },
+      "hasAllStates": true,
+      "screenshot": "phase6_step1_p6_s3_officiality_colors.png"
+    },
+    "P6_S4": {
+      "pass": true,
+      "targetStore": {
+        "bizes_id": "MA010120220805304850",
+        "brand_name_std": "배스킨라빈스",
+        "bizes_nm": "배스킨라빈스/던킨도너츠SPC스퀘어강남"
+      },
+      "popupData": {
+        "header": "배스킨라빈스/던킨도너츠SPC스퀘어강남",
+        "items": [
+          {
+            "key": "주 브랜드:",
+            "val": "배스킨라빈스"
+          },
+          {
+            "key": "지점:",
+            "val": "본점/미표기"
+          },
+          {
+            "key": "주소:",
+            "val": "서울특별시 강남구 강남대로 352"
+          },
+          {
+            "key": "업종:",
+            "val": "베이커리·디저트 · 아이스크림/빙수"
+          },
+          {
+            "key": "브랜드 공식성:",
+            "val": "공인 가맹 브랜드"
+          },
+          {
+            "key": "매칭 신뢰도:",
+            "val": "REVIEW_REQUIRED"
+          },
+          {
+            "key": "운영 형태:",
+            "val": "운영형태 미확인"
+          },
+          {
+            "key": "업종 확정 상태:",
+            "val": "확정 분류"
+          }
+        ],
+        "alerts": [
+          "복수 브랜드(숍인숍) 매장 [보조 브랜드: 배스킨라빈스, 던킨]"
+        ]
+      },
+      "screenshot": "phase6_step1_p6_s4_multi_brand_popup.png"
+    },
+    "P6_S5": {
+      "pass": true,
+      "categories": {
+        "CAT_MAJ_01": {
+          "isActive": true,
+          "activeBtnText": "🍚한식",
+          "sourceCount": 500,
+          "sourceMatch": true,
+          "renderedCount": 309,
+          "renderedMatch": true,
+          "name": "한식",
+          "pass": true
+        },
+        "CAT_MAJ_02": {
+          "isActive": true,
+          "activeBtnText": "🥟중식",
+          "sourceCount": 83,
+          "sourceMatch": true,
+          "renderedCount": 53,
+          "renderedMatch": true,
+          "name": "중식",
+          "pass": true
+        },
+        "CAT_MAJ_03": {
+          "isActive": true,
+          "activeBtnText": "🍣일식",
+          "sourceCount": 130,
+          "sourceMatch": true,
+          "renderedCount": 98,
+          "renderedMatch": true,
+          "name": "일식",
+          "pass": true
+        },
+        "CAT_MAJ_04": {
+          "isActive": true,
+          "activeBtnText": "🍝양식·세계음식",
+          "sourceCount": 151,
+          "sourceMatch": true,
+          "renderedCount": 95,
+          "renderedMatch": true,
+          "name": "양식·세계음식",
+          "pass": true
+        },
+        "CAT_MAJ_05": {
+          "isActive": true,
+          "activeBtnText": "🍗치킨·패스트푸드",
+          "sourceCount": 112,
+          "sourceMatch": true,
+          "renderedCount": 79,
+          "renderedMatch": true,
+          "name": "치킨·패스트푸드",
+          "pass": true
+        },
+        "CAT_MAJ_06": {
+          "isActive": true,
+          "activeBtnText": "🍢분식·간편식",
+          "sourceCount": 86,
+          "sourceMatch": true,
+          "renderedCount": 56,
+          "renderedMatch": true,
+          "name": "분식·간편식",
+          "pass": true
+        },
+        "CAT_MAJ_07": {
+          "isActive": true,
+          "activeBtnText": "☕카페·음료",
+          "sourceCount": 272,
+          "sourceMatch": true,
+          "renderedCount": 207,
+          "renderedMatch": true,
+          "name": "카페·음료",
+          "pass": true
+        },
+        "CAT_MAJ_08": {
+          "isActive": true,
+          "activeBtnText": "🥐베이커리·디저트",
+          "sourceCount": 58,
+          "sourceMatch": true,
+          "renderedCount": 42,
+          "renderedMatch": true,
+          "name": "베이커리·디저트",
+          "pass": true
+        }
+      },
+      "screenshot": "phase6_step1_p6_s5_category_cafe.png"
+    },
+    "P6_S6": {
+      "pass": true,
+      "measurements": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "docWidth": 390,
+        "scrollWidth": 390,
+        "horizOverflow": 0,
+        "popupOverflow": 0,
+        "topOverflow": 0,
+        "bottomOverflow": 0,
+        "leftOverflow": 0,
+        "rightOverflow": 0,
+        "tapTargetCheck": true,
+        "popupExists": true
+      },
+      "screenshot": "phase6_step1_p6_s6_mobile_touch.png"
+    },
+    "P6_S7": {
+      "pass": true,
+      "a11y": {
+        "hasRole": true,
+        "hasAriaLive": true,
+        "text": "현재 화면의 점포를 불러오는 중..."
+      },
+      "focus": {
+        "tagName": "BUTTON",
+        "id": "tab-CAT_MAJ_01",
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "boxShadow": "rgba(13, 148, 136, 0.15) 0px 1px 3px 0px",
+        "hasVisibleFocus": true,
+        "isInteractive": true
+      },
+      "keyboard": {
+        "switched": true,
+        "activeTabId": "tab-CAT_MAJ_02"
+      },
+      "reducedMotion": {
+        "matches": true,
+        "transitionDuration": "1e-05s",
+        "animationDuration": "1e-05s",
+        "buttonFound": true,
+        "isMoving": false,
+        "pitchChanged": true,
+        "motionSuppressed": true
+      },
+      "screenshot": "phase6_step1_p6_s7_accessibility.png"
+    },
+    "P6_S8": {
+      "pass": true,
+      "hotspotMoved": true,
+      "hotspotMarker": true,
+      "regionChanged": true,
+      "ftcDrawerOpen": true,
+      "ftcDrawerClose": true,
+      "components": {
+        "gridLayerExists": true,
+        "gridFeatures": 483,
+        "hotspotPanel": true,
+        "regionSelects": true,
+        "slimRail": true
+      },
+      "screenshot": "phase6_step1_p6_s8_non_regression.png"
+    },
+    "P6_S9": {
+      "pass": true,
+      "desktopFps": {
+        "renderFrames": 122,
+        "durationMs": 2012,
+        "avgFps": 60.6,
+        "minFps": 344.8,
+        "passedDesktop": true,
+        "passedMobile": true,
+        "measuredViaMapRenderEvent": true,
+        "testedWithMotion": true
+      },
+      "mobileFps": {
+        "renderFrames": 120,
+        "durationMs": 2002.8,
+        "avgFps": 59.9,
+        "minFps": 125,
+        "passedDesktop": true,
+        "passedMobile": true,
+        "measuredViaMapRenderEvent": true,
+        "testedWithMotion": true
+      },
+      "protectedCheck": {
+        "allPass": true,
+        "results": {
+          "collector.py": {
+            "exists": true,
+            "hash": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+            "expectedHash": "341BAC12BB0AF58DCBDEBBA9459033521F27DF9817E35BAD8B21A4D07BA3369C",
+            "pass": true
+          },
+          "gangnam_food_stores.sqlite3": {
+            "exists": true,
+            "hash": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+            "expectedHash": "FEE3B58651CFED5C390C0B95DB02B05EBE92DF18619A06F4E399D429236F3A78",
+            "pass": true
+          },
+          "run_gangnam.bat": {
+            "exists": true,
+            "hash": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+            "expectedHash": "0582C3A1AE53450DDC482E9BF538510780CA2F14D44E987CC753D4E12C816491",
+            "pass": true
+          }
+        }
+      },
+      "screenshot": "phase6_step1_p6_s9_fps_performance.png"
+    }
+  },
+  "overallPass": true
+}

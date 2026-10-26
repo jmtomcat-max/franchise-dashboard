@@ -1,0 +1,392 @@
+{
+  "meta": {
+    "tested_at": "2026-10-12 16:25:33",
+    "total_cases": 22
+  },
+  "results": [
+    {
+      "group": "업종코드 비교",
+      "name": "광주 동구 (I2 포함)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "signguCd",
+        "key": "29110",
+        "indsLclsCd": "I2"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "업종코드 비교",
+      "name": "광주 동구 (업종코드 제외/전체업종)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "signguCd",
+        "key": "29110"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "업종코드 비교",
+      "name": "광주 북구 (I2 포함)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "signguCd",
+        "key": "29170",
+        "indsLclsCd": "I2"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "업종코드 비교",
+      "name": "광주 북구 (업종코드 제외/전체업종)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "signguCd",
+        "key": "29170"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "업종코드 비교",
+      "name": "전남 목포시 (I2 포함)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "signguCd",
+        "key": "46110",
+        "indsLclsCd": "I2"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "업종코드 비교",
+      "name": "전남 목포시 (업종코드 제외/전체업종)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "signguCd",
+        "key": "46110"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "업종코드 비교",
+      "name": "전남 순천시 (I2 포함)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "signguCd",
+        "key": "46150",
+        "indsLclsCd": "I2"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "업종코드 비교",
+      "name": "전남 순천시 (업종코드 제외/전체업종)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "signguCd",
+        "key": "46150"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "시도단위 비교",
+      "name": "광주광역시 전체 (I2 포함)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "ctprvnCd",
+        "key": "29",
+        "indsLclsCd": "I2"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "시도단위 비교",
+      "name": "광주광역시 전체 (업종코드 제외)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "ctprvnCd",
+        "key": "29"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "시도단위 비교",
+      "name": "전라남도 전체 (I2 포함)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "ctprvnCd",
+        "key": "46",
+        "indsLclsCd": "I2"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "시도단위 비교",
+      "name": "전라남도 전체 (업종코드 제외)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "ctprvnCd",
+        "key": "46"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "행정동단위 조회",
+      "name": "광주 동구 충장동 (adongCd 2911052500, I2)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "adongCd",
+        "key": "2911052500",
+        "indsLclsCd": "I2"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "행정동단위 조회",
+      "name": "광주 동구 충장동 (adongCd 2911052500, 업종제외)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "adongCd",
+        "key": "2911052500"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "행정동단위 조회",
+      "name": "전남 목포시 목원동 (adongCd 4611053000, I2)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "adongCd",
+        "key": "4611053000",
+        "indsLclsCd": "I2"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "행정동단위 조회",
+      "name": "전남 목포시 목원동 (adongCd 4611053000, 업종제외)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "adongCd",
+        "key": "4611053000"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "타 오퍼레이션",
+      "name": "광주 동구 상권조회 (storeZoneInAdmi)",
+      "operation": "storeZoneInAdmi",
+      "params": {
+        "divId": "signguCd",
+        "key": "29110"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "타 오퍼레이션",
+      "name": "광주 전체 상권조회 (storeZoneInAdmi)",
+      "operation": "storeZoneInAdmi",
+      "params": {
+        "divId": "ctprvnCd",
+        "key": "29"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "타 오퍼레이션",
+      "name": "전남 목포 상권조회 (storeZoneInAdmi)",
+      "operation": "storeZoneInAdmi",
+      "params": {
+        "divId": "signguCd",
+        "key": "46110"
+      },
+      "http_status": 200,
+      "result_code": "03",
+      "result_msg": "NODATA_ERROR",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "",
+      "signgu_nm": "",
+      "ctprvn_nm": ""
+    },
+    {
+      "group": "타 오퍼레이션",
+      "name": "광주시청 반경 1km 상권조회 (storeZoneInRadius)",
+      "operation": "storeZoneInRadius",
+      "params": {
+        "cx": "126.8526",
+        "cy": "35.1595",
+        "radius": "1000"
+      },
+      "http_status": 200,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "12240",
+      "signgu_nm": "서구",
+      "ctprvn_nm": "전남광주통합특별시"
+    },
+    {
+      "group": "정상 대조군",
+      "name": "서울 강남구 점포조회 (storeListInDong, I2)",
+      "operation": "storeListInDong",
+      "params": {
+        "divId": "signguCd",
+        "key": "11680",
+        "indsLclsCd": "I2"
+      },
+      "http_status": 200,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 12628,
+      "stdr_ym": "202606",
+      "signgu_cd": "11680",
+      "signgu_nm": "강남구",
+      "ctprvn_nm": "서울특별시"
+    },
+    {
+      "group": "정상 대조군",
+      "name": "서울 강남구 상권조회 (storeZoneInAdmi)",
+      "operation": "storeZoneInAdmi",
+      "params": {
+        "divId": "signguCd",
+        "key": "11680"
+      },
+      "http_status": 200,
+      "result_code": "00",
+      "result_msg": "NORMAL SERVICE",
+      "total_count": 0,
+      "stdr_ym": "",
+      "signgu_cd": "11680",
+      "signgu_nm": "강남구",
+      "ctprvn_nm": "서울특별시"
+    }
+  ]
+}

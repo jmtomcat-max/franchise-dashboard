@@ -1,0 +1,67 @@
+# ==============================================================================
+# Franchise Dashboard - Caddy Reverse Proxy & Automatic TLS Configuration
+# 배포 위치: /etc/caddy/Caddyfile
+# ==============================================================================
+
+dashboard.example.com {
+    # 정적 프론트엔드 서빙
+    root * /opt/franchise-dashboard/frontend/dist
+    file_server
+
+    # Gzip / Zstandard 압축
+    encode gzip zstd
+
+    # 보안 헤더
+    header {
+        X-Frame-Options "SAMEORIGIN"
+        X-Content-Type-Options "nosniff"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    }
+
+    # 정적 빌드 자산 캐싱
+    @static path /assets/*
+    header @static Cache-Control "public, max-age=31536000, immutable"
+
+    # API 리버스 프록시 (/api/*)
+    handle /api/* {
+        reverse_proxy 127.0.0.1:8000 {
+            header_up Host {host}
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+        }
+    }
+
+    # API 문서 프록시
+    handle /docs* {
+        reverse_proxy 127.0.0.1:8000
+    }
+    handle /redoc* {
+        reverse_proxy 127.0.0.1:8000
+    }
+    handle /openapi.json {
+        reverse_proxy 127.0.0.1:8000
+    }
+
+    # 외부 헬스체크 매핑
+    handle /healthz {
+        rewrite * /api/health
+        reverse_proxy 127.0.0.1:8000
+    }
+
+    # SPA Fallback 라우팅
+    handle {
+        try_files {path} /index.html
+    }
+
+    # 액세스 로그
+    log {
+        output file /var/log/caddy/franchise-dashboard.access.log {
+            roll_size 50mb
+            roll_keep 5
+            roll_keep_for 720h
+        }
+    }
+}

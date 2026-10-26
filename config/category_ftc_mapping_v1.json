@@ -1,0 +1,84 @@
+{
+  "mapping_version": "v1.0.0-draft-r1",
+  "source_standard": "FTC Eatout Statistics 15 Categories",
+  "target_standard": "Franchise Dashboard 8 Major Categories (config/food_category_taxonomy_v1.json)",
+  "governance_note": "config/food_category_taxonomy_v1.json의 8대 대분류·48개 중분류 체계를 준용하며, 공정위 15개 업종과의 연계는 대분류 수준의 승인 대기 제안(PROPOSED_FOR_APPROVAL) 상태입니다.",
+  "rules": {
+    "allow_estimation": false,
+    "prevent_average_of_averages": true
+  },
+  "mappings": [
+    {
+      "category_major_id": "CAT_MAJ_01",
+      "category_major_name": "한식",
+      "mapping_type": "ONE_TO_ONE",
+      "status": "PROPOSED_FOR_APPROVAL",
+      "ftc_categories": ["한식"]
+    },
+    {
+      "category_major_id": "CAT_MAJ_02",
+      "category_major_name": "중식",
+      "mapping_type": "ONE_TO_ONE",
+      "status": "PROPOSED_FOR_APPROVAL",
+      "ftc_categories": ["중식"]
+    },
+    {
+      "category_major_id": "CAT_MAJ_03",
+      "category_major_name": "일식",
+      "mapping_type": "ONE_TO_ONE",
+      "status": "PROPOSED_FOR_APPROVAL",
+      "ftc_categories": ["일식"]
+    },
+    {
+      "category_major_id": "CAT_MAJ_04",
+      "category_major_name": "양식·세계음식",
+      "mapping_type": "MANY_TO_ONE",
+      "status": "PROPOSED_FOR_APPROVAL",
+      "ftc_categories": ["서양식", "기타 외국식"]
+    },
+    {
+      "category_major_id": "CAT_MAJ_05",
+      "category_major_name": "치킨·패스트푸드",
+      "mapping_type": "MANY_TO_ONE",
+      "status": "PROPOSED_FOR_APPROVAL",
+      "ftc_categories": ["치킨", "패스트푸드", "피자"]
+    },
+    {
+      "category_major_id": "CAT_MAJ_06",
+      "category_major_name": "분식·간편식",
+      "mapping_type": "ONE_TO_ONE",
+      "status": "PROPOSED_FOR_APPROVAL",
+      "ftc_categories": ["분식"]
+    },
+    {
+      "category_major_id": "CAT_MAJ_07",
+      "category_major_name": "카페·음료",
+      "mapping_type": "MANY_TO_ONE",
+      "status": "PROPOSED_FOR_APPROVAL",
+      "ftc_categories": ["커피", "음료 (커피 외)"]
+    },
+    {
+      "category_major_id": "CAT_MAJ_08",
+      "category_major_name": "베이커리·디저트",
+      "mapping_type": "MANY_TO_ONE",
+      "status": "PROPOSED_FOR_APPROVAL",
+      "ftc_categories": ["제과제빵", "아이스크림/빙수"]
+    }
+  ],
+  "excluded_by_policy": [
+    {
+      "ftc_category_name": "주점",
+      "record_count_2026": 242,
+      "reason": "소상공인진흥공단 I211 주점 제외 정책에 따른 프로젝트 거버넌스 제외",
+      "status": "EXCLUDED_BY_PROJECT_POLICY"
+    }
+  ],
+  "unmapped_categories": [
+    {
+      "ftc_category_name": "기타 외식",
+      "record_count_2026": 520,
+      "reason": "8대 대분류 중 어느 하나로 귀속 시 표본 왜곡 위험이 있어 안전 격리 및 검토 보류",
+      "status": "UNMAPPED_REVIEW"
+    }
+  ]
+}
