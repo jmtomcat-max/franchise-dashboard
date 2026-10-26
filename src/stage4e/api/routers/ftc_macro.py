@@ -178,7 +178,7 @@ def get_ftc_status(response: Response):
     if cache_key in _CACHE_STORE:
         cached_time, cached_val = _CACHE_STORE[cache_key]
         if (now - cached_time).total_seconds() < CACHE_TTL_SECONDS:
-            response.headers["Cache-Control"] = "no-cache"
+            response.headers["Cache-Control"] = f"public, max-age={CACHE_TTL_SECONDS}"
             return cached_val
 
     available_years = get_ftc_available_years()
@@ -258,7 +258,7 @@ def get_ftc_status(response: Response):
     }
 
     _CACHE_STORE[cache_key] = (now, result_data)
-    response.headers["Cache-Control"] = "no-cache"
+    response.headers["Cache-Control"] = f"public, max-age={CACHE_TTL_SECONDS}"
     return result_data
 
 
