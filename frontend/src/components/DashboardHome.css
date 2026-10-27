@@ -463,9 +463,9 @@
   gap: 0.4rem;
   padding: 0.42rem 0.95rem;
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(217, 119, 6, 0.2) 100%);
-  border: 1px solid rgba(245, 158, 11, 0.35);
+  border: 1px solid rgba(245, 158, 11, 0.45);
   border-radius: 9999px;
-  color: #d97706;
+  color: #b45309;
   font-size: 0.8125rem;
   font-weight: 700;
   cursor: pointer;
@@ -476,8 +476,8 @@
 
 .finora-intro-btn:hover {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.22) 0%, rgba(217, 119, 6, 0.35) 100%);
-  border-color: rgba(245, 158, 11, 0.6);
-  color: #b45309;
+  border-color: rgba(245, 158, 11, 0.75);
+  color: #78350f;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
 }
