@@ -330,9 +330,9 @@ export default function CinematicIntro({
             <div className="cinematic-eyebrow-wrapper">
               <div className="cinematic-eyebrow-pill">
                 <span className="eyebrow-spark">✦</span>
-                <span className="eyebrow-text">NEXT-GEN GIS INTELLIGENCE</span>
+                <span className="eyebrow-text">소진공 전수 실측 빅데이터</span>
                 <span className="eyebrow-divider" />
-                <span className="eyebrow-metric">735,000+ STORES</span>
+                <span className="eyebrow-metric">735,185 STORES</span>
               </div>
             </div>
 
@@ -352,26 +352,26 @@ export default function CinematicIntro({
             <section className="paragraph-block paragraph-2 animate-p2">
               <div className="cinematic-subtitle-block">
                 <p className="cinematic-tagline-en">
-                  Next-Generation 3D GIS Commercial Intelligence
+                  3D Spatial Intelligence for Korea's Food & Franchise Market
                 </p>
                 <p className="cinematic-desc-ko">
-                  인간의 시선을 넘어, <strong>3D 공간 데이터와 디지털 트윈</strong>으로<br className="desc-break" />
-                  대한민국 73.5만 외식 상권의 미래를 조망합니다.
+                  엑셀 수작업 없는 3D 공간 데이터와 공정위 4개년 재무 벤치마크로<br className="desc-break" />
+                  대한민국 73.5만 외식 점포와 B2B 식자재 유통 상권을 입체 증명합니다.
                 </p>
 
                 {/* 3D 스펙 지표 피처 칩 */}
                 <div className="cinematic-feature-chips">
                   <div className="feature-chip">
                     <span className="chip-icon">🏢</span>
-                    <span className="chip-label">3D 입체 건물 격자</span>
+                    <span className="chip-label">100m 입체 건물 격자</span>
                   </div>
                   <div className="feature-chip">
                     <span className="chip-icon">📡</span>
-                    <span className="chip-label">소진공 전수 실측 좌표</span>
+                    <span className="chip-label">소진공 73.5만 전수 실측</span>
                   </div>
                   <div className="feature-chip">
-                    <span className="chip-icon">🎯</span>
-                    <span className="chip-label">8대 외식업 알고리즘</span>
+                    <span className="chip-icon">📊</span>
+                    <span className="chip-label">공정위 4개년 재무 벤치마크</span>
                   </div>
                 </div>
               </div>
@@ -394,8 +394,8 @@ export default function CinematicIntro({
                   <span className="btn-inner-glow" />
                   <span className="btn-beacon-pulse" aria-hidden="true" />
                   <span className="btn-label-wrap">
-                    <span className="btn-main-label">종합 대시보드 홈 입장</span>
-                    <span className="btn-sub-label">전국 외식업 총괄 통계 및 잠재 고객 분석</span>
+                    <span className="btn-main-label">종합 대시보드 무료 체험</span>
+                    <span className="btn-sub-label">73.5만 점포 분석 및 B2B 잠재 고객 탐색 →</span>
                   </span>
                   <span className="btn-circle-arrow" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
@@ -414,7 +414,7 @@ export default function CinematicIntro({
                   <span className="btn-inner-glow" />
                   <span className="btn-label-wrap">
                     <span className="btn-main-label">3D 상권 지도 둘러보기</span>
-                    <span className="btn-sub-label">디지털 트윈 입체 공간 직행</span>
+                    <span className="btn-sub-label">100m 입체 격자 및 핫스팟 탐색</span>
                   </span>
                   <span className="btn-circle-arrow" aria-hidden="true">
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none">

@@ -3,6 +3,8 @@
    레퍼런스 영상 기반 밝은 모던 상황실 테마, 고대비, 반응형, 접근성 보장
    ============================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap');
+
 :root {
   /* Apple Light Glass System */
   --bg-app: #f5f5f7;
@@ -29,8 +31,9 @@
   --accent-rose: #e11d48;
   --accent-purple: #8b5cf6;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Pretendard", "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, "SF Mono", monospace;
+  --ease-base: cubic-bezier(0.22, 1, 0.36, 1);
 
   --header-height: 64px;
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
@@ -3081,7 +3084,7 @@ body {
 
 .hero-stat-number {
   font-size: 1.38rem;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
@@ -3231,7 +3234,7 @@ body {
   border-color: #f59e0b;
   color: #b45309;
   background-color: #fffbeb;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .bar-stick-wrapper {

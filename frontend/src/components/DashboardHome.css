@@ -41,7 +41,7 @@
   height: 100vh;
   background-color: var(--fn-bg);
   color: var(--fn-text-main);
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", sans-serif;
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -802,7 +802,7 @@
 
 .hero-balance-number {
   font-size: 2.2rem;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1;
   color: #ffffff;
@@ -1471,7 +1471,7 @@
 
 .gauge-ring-pct {
   font-size: 1.35rem;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--fn-forest-dark);
   line-height: 1;
 }
