@@ -23,6 +23,26 @@ import {
   BASE_URL 
 } from './services/api';
 
+// 대한민국 17개 시도 기본 Fallback 목록 (백엔드 통신 전/장애 시에도 드롭다운 무결성 보장)
+export const DEFAULT_SIDO_LIST = [
+  { region_code: '11', region_name: '서울특별시' },
+  { region_code: '41', region_name: '경기도' },
+  { region_code: '28', region_name: '인천광역시' },
+  { region_code: '26', region_name: '부산광역시' },
+  { region_code: '27', region_name: '대구광역시' },
+  { region_code: '30', region_name: '대전광역시' },
+  { region_code: '31', region_name: '울산광역시' },
+  { region_code: '36', region_name: '세종특별자치시' },
+  { region_code: '12', region_name: '전남광주통합특별시' },
+  { region_code: '51', region_name: '강원특별자치도' },
+  { region_code: '43', region_name: '충청북도' },
+  { region_code: '44', region_name: '충청남도' },
+  { region_code: '52', region_name: '전북특별자치도' },
+  { region_code: '47', region_name: '경상북도' },
+  { region_code: '48', region_name: '경상남도' },
+  { region_code: '50', region_name: '제주특별자치도' }
+];
+
 export default function App() {
   // 1. 전국 총괄 요약 통계 상태 관리
   const [summaryData, setSummaryData] = useState(null);
@@ -31,7 +51,7 @@ export default function App() {
   const [summaryError, setSummaryError] = useState(null);
 
   // 2. 지역 선택 및 드릴다운 상태 관리 (시도 / 시군구)
-  const [sidoList, setSidoList] = useState([]);
+  const [sidoList, setSidoList] = useState(DEFAULT_SIDO_LIST);
   const [sigunguList, setSigunguList] = useState([]);
   const [selectedSido, setSelectedSido] = useState('00'); // 기본: 대한민국 전국 (735,185건 총괄)
   const [selectedSigungu, setSelectedSigungu] = useState(''); // 기본: 시군구 미지정
@@ -184,8 +204,12 @@ export default function App() {
           fetchRegions('SIGUNGU', '11')
         ]);
         if (isMounted) {
-          setSidoList(sidoRes.data || []);
-          setSigunguList(sggRes.data || []);
+          if (Array.isArray(sidoRes?.data) && sidoRes.data.length > 0) {
+            setSidoList(sidoRes.data);
+          }
+          if (Array.isArray(sggRes?.data) && sggRes.data.length > 0) {
+            setSigunguList(sggRes.data);
+          }
         }
       } catch (e) {
         // 무시
