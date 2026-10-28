@@ -337,7 +337,7 @@ export default function CategoryFilterBar({
           className="mid-category-subbar"
           role="tablist"
           aria-label={`${activeMajorObj?.name || '선택 업종'} 하위 중분류 필터`}
-          style={{ '--major-color': activeMajorObj?.color || '#2563eb' }}
+          style={{ '--major-color': activeMajorObj?.color || 'var(--color-cool)' }}
         >
           <span className="mid-subbar-label">
             <span className="mid-subbar-icon">{activeMajorObj?.icon}</span>

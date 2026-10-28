@@ -393,7 +393,7 @@ function ViewportStoreInspector({
             }}
             title="현재 지도 화면 안의 개별 점포 탐색"
           >
-            📍 화면 점포
+            화면 점포
           </button>
           <button
             type="button"
@@ -406,14 +406,16 @@ function ViewportStoreInspector({
             }}
             title="전국 5,062개 브랜드의 지역별 분포 및 실제 지점 목록 검색"
           >
-            🏷️ 브랜드 탐색
+            브랜드 탐색
           </button>
         </div>
 
         <div className="vsi-topbar-divider" />
 
         <div className="vsi-search-wrap">
-          <span className="vsi-search-icon" aria-hidden="true">🔍</span>
+          <span className="vsi-search-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
           <input
             type="text"
             className="vsi-search-input"
@@ -552,28 +554,28 @@ function ViewportStoreInspector({
                 </div>
               </div>
 
-              {/* 서브 탭: [🏪 현재 지역 지점 목록] ↔ [📊 전국 지역별 분포 Top 12] */}
+              {/* 서브 탭: [현재 지역 지점 목록] ↔ [전국 지역별 분포 Top 12] */}
               <div className="vsi-brand-subtabs">
                 <button
                   type="button"
                   className={`vsi-subtab-btn ${brandSubTab === 'stores' ? 'active' : ''}`}
                   onClick={() => setBrandSubTab('stores')}
                 >
-                  🏪 {selectedRegionName || '전국'} 실제 지점 ({brandStoresTotal.toLocaleString()}개)
+                  {selectedRegionName || '전국'} 실제 지점 ({brandStoresTotal.toLocaleString()}개)
                 </button>
                 <button
                   type="button"
                   className={`vsi-subtab-btn ${brandSubTab === 'distribution' ? 'active' : ''}`}
                   onClick={() => setBrandSubTab('distribution')}
                 >
-                  📊 전국 시도·시군구 분포 Top 12
+                  전국 시도·시군구 분포 Top 12
                 </button>
               </div>
 
               <div className="vsi-body">
                 {brandSubTab === 'stores' ? (
                   brandStoresLoading ? (
-                    <div className="vsi-empty">지점 목록을 불러오는 중...</div>
+                    <div className="vsi-empty">지점 목록을 불러오는 중…</div>
                   ) : brandStores.length === 0 ? (
                     <div className="vsi-empty">
                       현재 선택된 <strong>{selectedRegionName}</strong>에는{' '}
@@ -583,13 +585,13 @@ function ViewportStoreInspector({
                         className="vsi-reset-inline"
                         onClick={() => setBrandSubTab('distribution')}
                       >
-                        전국 최다 분포 지역 보기 →
+                        전국 최다 분포 지역 보기
                       </button>
                     </div>
                   ) : (
                     <>
                       <div className="vsi-sub-hint">
-                        💡 지점을 클릭하면 수동으로 지도를 확대할 필요 없이 해당 매장 위치로 즉시 줌인합니다.
+                        지점을 클릭하면 수동으로 지도를 확대할 필요 없이 해당 매장 위치로 즉시 줌인합니다.
                       </div>
                       <ul className="vsi-list">
                         {brandStores.map((s) => (
@@ -706,11 +708,11 @@ function ViewportStoreInspector({
               </div>
               <div className="vsi-body">
                 <div className="vsi-sub-hint">
-                  💡 브랜드를 클릭하면 <strong>전국 256개 시군구 분포</strong>와{' '}
+                  브랜드를 클릭하면 <strong>전국 256개 시군구 분포</strong>와{' '}
                   <strong>{selectedRegionName} 실제 지점 목록(도로명주소)</strong>을 즉시 확인할 수 있습니다.
                 </div>
                 {brandLoading && brandResults.length === 0 ? (
-                  <div className="vsi-empty">브랜드를 검색하는 중...</div>
+                  <div className="vsi-empty">브랜드를 검색하는 중…</div>
                 ) : brandResults.length === 0 ? (
                   <div className="vsi-empty">조건에 맞는 브랜드가 없습니다.</div>
                 ) : (
@@ -729,7 +731,7 @@ function ViewportStoreInspector({
               </div>
             </>
           ) : (
-            /* C. [📍 화면 점포] 모드 + 스마트 브랜드 브릿지 (줌 < 14이거나 검색어 입력 시 브랜드 즉시 연결) */
+            /* C. [화면 점포] 모드 + 스마트 브랜드 브릿지 (줌 < 14이거나 검색어 입력 시 브랜드 즉시 연결) */
             <>
               <div className="vsi-dropdown-header">
                 <span>
@@ -755,8 +757,8 @@ function ViewportStoreInspector({
                   <div className="vsi-smart-brand-bridge">
                     <div className="vsi-bridge-header">
                       <span>
-                        🏷️ <strong>{trimmedQuery ? `'${query.trim()}' 매칭 브랜드` : `${selectedRegionName} 대표 브랜드`}</strong>
-                        {' '}— 클릭 시 지도를 직접 확대하지 않아도 지점 위치·전국 분포를 바로 봅니다
+                        <strong>{trimmedQuery ? `'${query.trim()}' 매칭 브랜드` : `${selectedRegionName} 대표 브랜드`}</strong>
+                        : 클릭 시 지도를 직접 확대하지 않아도 지점 위치·전국 분포를 바로 봅니다
                       </span>
                     </div>
                     <ul className="vsi-list vsi-bridge-list">

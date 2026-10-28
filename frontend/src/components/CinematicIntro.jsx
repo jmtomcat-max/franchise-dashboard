@@ -352,7 +352,7 @@ export default function CinematicIntro({
             <section className="paragraph-block paragraph-2 animate-p2">
               <div className="cinematic-subtitle-block">
                 <p className="cinematic-tagline-en">
-                  3D Spatial Intelligence for Korea's Food & Franchise Market
+                  3D Spatial Intelligence for Korea’s Food & Franchise Market
                 </p>
                 <p className="cinematic-desc-ko">
                   엑셀 수작업 없는 3D 공간 데이터와 공정위 4개년 재무 벤치마크로<br className="desc-break" />
@@ -362,15 +362,21 @@ export default function CinematicIntro({
                 {/* 3D 스펙 지표 피처 칩 */}
                 <div className="cinematic-feature-chips">
                   <div className="feature-chip">
-                    <span className="chip-icon">🏢</span>
+                    <span className="chip-icon" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="22" x2="9" y2="2"/><line x1="15" y1="22" x2="15" y2="2"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
+                    </span>
                     <span className="chip-label">100m 입체 건물 격자</span>
                   </div>
                   <div className="feature-chip">
-                    <span className="chip-icon">📡</span>
+                    <span className="chip-icon" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5M12 12h.01"/><path d="M19.1 4.9c3.9 3.9 3.9 10.3 0 14.2M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/></svg>
+                    </span>
                     <span className="chip-label">소진공 73.5만 전수 실측</span>
                   </div>
                   <div className="feature-chip">
-                    <span className="chip-icon">📊</span>
+                    <span className="chip-icon" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </span>
                     <span className="chip-label">공정위 4개년 재무 벤치마크</span>
                   </div>
                 </div>
@@ -395,7 +401,7 @@ export default function CinematicIntro({
                   <span className="btn-beacon-pulse" aria-hidden="true" />
                   <span className="btn-label-wrap">
                     <span className="btn-main-label">종합 대시보드 무료 체험</span>
-                    <span className="btn-sub-label">73.5만 점포 분석 및 B2B 잠재 고객 탐색 →</span>
+                    <span className="btn-sub-label">73.5만 점포 분석 및 B2B 잠재 고객 탐색</span>
                   </span>
                   <span className="btn-circle-arrow" aria-hidden="true">
                     <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
@@ -443,7 +449,9 @@ export default function CinematicIntro({
           </label>
         ) : hasStartedVideo ? (
           <div className="cinematic-play-hint">
-            <span className="hint-icon">💡</span>
+            <span className="hint-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </span>
             <span>
               {stage === 0 
                 ? '화면을 클릭하면 즉시 소개 내용으로 이동합니다' 

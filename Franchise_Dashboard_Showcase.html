@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Franchise Dashboard 인터랙티브 라이브 쇼케이스 | Apple Style</title>
+  <title>Franchise Dashboard | 대한민국 73.5만 외식 상권 3D GIS 공간 인텔리전스</title>
   
-  <meta name="description" content="대한민국 73.5만 외식 상권 3D GIS 공간 인텔리전스 대시보드. 소상공인시장진흥공단 실측 좌표와 공정거래위원회 4개년 재무 벤치마크를 결합하여 출점 입지와 B2B 납품 거래처를 3D로 발굴합니다.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230071e3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
+  <meta name="description" content="소상공인시장진흥공단 실측 좌표 735,185개 점포와 공정거래위원회 4개년 재무 벤치마크를 결합한 대한민국 외식 상권 3D GIS 인텔리전스 플랫폼.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
   
-  <!-- OpenGraph & Social Cards (landing-page-design B10) -->
+  <!-- OpenGraph Metadata -->
   <meta property="og:title" content="대한민국 73.5만 외식 상권 3D GIS 공간 인텔리전스 | Franchise Dashboard">
   <meta property="og:description" content="소진공 전수 실측 735,185개 점포와 공정위 4개년 재무 벤치마크를 3D 공간으로 입체 분석하세요.">
   <meta property="og:type" content="website">
@@ -18,1629 +18,1514 @@
   <meta name="twitter:title" content="대한민국 73.5만 외식 상권 3D GIS 공간 인텔리전스">
   <meta name="twitter:description" content="소진공 전수 실측 735,185개 점포와 공정위 4개년 재무 벤치마크를 3D 공간으로 입체 분석하세요.">
   
-  <!-- Geist & Geist Mono Typography (landing-page-design B1 Approved) -->
+  <!-- Host Grotesk & Atkinson Hyperlegible Mono (Console Theme) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Host+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Three.js for Interactive 3D WebGL Map Engine -->
+  <!-- Three.js for 3D WebGL Geospatial Engine -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <style>
-    /* ==========================================================================
-       APPLE SIGNATURE CLEAN LIGHT DESIGN SYSTEM (landing-page-design Token Compliant)
-       ========================================================================== */
-    :root {
-      --bg-canvas: #ffffff;
-      --bg-subtle: #f5f5f7;
-      --bg-surface: #fbfbfd;
-      --bg-card: #ffffff;
-      --bg-nav: rgba(255, 255, 255, 0.92);
-      
-      --text-primary: #1d1d1f;
-      --text-secondary: #515154;
-      --text-tertiary: #86868b;
-      
-      --border-subtle: rgba(0, 0, 0, 0.08);
-      --border-medium: rgba(0, 0, 0, 0.16);
-      
-      --apple-blue: #0071e3;
-      --apple-blue-hover: #0077ed;
-      --apple-blue-bg: rgba(0, 113, 227, 0.08);
-      --apple-green: #28cd41;
-      --apple-green-bg: rgba(40, 205, 65, 0.08);
-      --apple-orange: #ff9500;
-      --apple-orange-bg: rgba(255, 149, 0, 0.08);
-      --apple-purple: #af52de;
-      --apple-red: #ff3b30;
-      
-      --font-system: 'Geist', -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif;
-      --font-mono: 'Geist Mono', Consolas, monospace;
-      --ease-base: cubic-bezier(0.22, 1, 0.36, 1);
-      --ease-apple: cubic-bezier(0.22, 1, 0.36, 1);
-      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    html, body {
-      background-color: var(--bg-subtle);
-      color: var(--text-primary);
-      font-family: var(--font-system);
-      line-height: 1.6;
-    }
-
-    /* ==========================================================================
-       TOP APPLE NAV BAR
-       ========================================================================== */
-    .apple-nav {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      height: 52px;
-      background: var(--bg-nav);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .nav-brand-title {
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-    }
-
-    .nav-brand-title svg {
-      width: 20px;
-      height: 20px;
-      fill: var(--apple-blue);
-    }
-
-    .nav-badge-pill {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--apple-blue-bg);
-      color: var(--apple-blue);
-      border: 1px solid rgba(0, 113, 227, 0.2);
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .btn-nav-guide {
-      height: 32px;
-      padding: 0 12px;
-      border-radius: 8px;
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-primary);
-      font-size: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s var(--ease-base);
-    }
-
-    .btn-nav-guide:hover {
-      border-color: var(--border-medium);
-      background: var(--bg-surface);
-    }
-
-    .btn-nav-launch {
-      height: 32px;
-      padding: 0 16px;
-      border-radius: 999px;
-      background: var(--apple-blue);
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: background-color 0.2s var(--ease-base);
-    }
-
-    .btn-nav-launch:hover {
-      background: var(--apple-blue-hover);
-    }
-
-    /* ==========================================================================
-       HERO INTRODUCTION BLOCK (landing-page-design: 680px Max-Width & Left-to-Right Gradient)
-       ========================================================================== */
-    .showcase-hero {
-      text-align: center;
-      padding: 56px 20px 32px 20px;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .hero-eyebrow-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: var(--apple-blue-bg);
-      border: 1px solid rgba(0, 113, 227, 0.2);
-      color: var(--apple-blue);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      margin-bottom: 16px;
-    }
-
-    .hero-title {
-      font-size: clamp(30px, 4vw, 42px);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.25;
-      margin-bottom: 16px;
-      text-wrap: balance;
-      background: linear-gradient(90deg, #000000 0%, #666666 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-desc {
-      font-size: 16px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      text-wrap: pretty;
-      margin-bottom: 24px;
-    }
-
-    .hero-cta-group {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
-    .btn-hero-primary {
-      height: 44px;
-      padding: 0 20px;
-      border-radius: 999px;
-      background: var(--apple-blue);
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 14px rgba(0, 113, 227, 0.3);
-      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .btn-hero-primary:hover {
-      background: var(--apple-blue-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0, 113, 227, 0.4);
-    }
-
-    .btn-hero-primary:active {
-      transform: scale(0.98);
-    }
-
-    .btn-hero-secondary {
-      height: 44px;
-      padding: 0 18px;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid var(--border-medium);
-      color: var(--text-primary);
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .btn-hero-secondary:hover {
-      background: var(--bg-surface);
-      border-color: var(--text-tertiary);
-    }
-
-    .btn-hero-secondary:active {
-      transform: scale(0.98);
-    }
-
-    .hero-proof-strip {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      font-size: 12px;
-      color: var(--text-tertiary);
-      margin-bottom: 8px;
-    }
-
-    .proof-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .proof-divider {
-      color: var(--border-medium);
-    }
-
-    /* ==========================================================================
-       MAIN INTERACTIVE SIMULATOR FRAME (Apple Display Frame)
-       ========================================================================== */
-    .simulator-stage-wrap {
-      max-width: 1280px;
-      margin: 0 auto 60px auto;
-      padding: 0 24px;
-    }
-
-    .apple-display-frame {
-      background: #ffffff;
-      border-radius: 24px;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    /* Sub-Header inside Virtual Dashboard */
-    .dash-mock-header {
-      background: #ffffff;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .dash-region-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .dash-region-badge svg {
-      width: 16px;
-      height: 16px;
-      stroke: var(--apple-blue);
-    }
-
-    .dash-kpi-bar {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .dash-kpi-item {
-      display: flex;
-      align-items: baseline;
-      gap: 5px;
-      font-size: 12px;
-      color: var(--text-tertiary);
-    }
-
-    .dash-kpi-val {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    /* Category Filter Bar */
-    .dash-cat-bar {
-      background: var(--bg-surface);
-      padding: 10px 24px;
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-    }
-
-    .dash-cat-pill {
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s var(--ease-base);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .dash-cat-pill:hover {
-      background: var(--border-subtle);
-      color: var(--text-primary);
-    }
-
-    .dash-cat-pill.active {
-      background: var(--apple-blue);
-      color: #ffffff;
-      border-color: transparent;
-      box-shadow: 0 2px 8px rgba(0, 113, 227, 0.3);
-    }
-
-    /* ==========================================================================
-       VIRTUAL 3D/2D MAP CANVAS (WebGL Real 3D Renderer)
-       ========================================================================== */
-    .dash-viewport-body {
-      position: relative;
-      width: 100%;
-      height: 560px;
-      background: #e9eef4; /* Apple Map Light Surface */
-      overflow: hidden;
-    }
-
-    #three-map-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      cursor: grab;
-    }
-
-    #three-map-canvas:active {
-      cursor: grabbing;
-    }
-
-    /* Floating Street HUD Overlay */
-    .map-street-hud {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      padding: 8px 14px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      pointer-events: none;
-    }
-
-    .map-street-hud span {
-      color: var(--apple-blue);
-      font-weight: 700;
-    }
-
-    /* Floating Store Popup Card */
-    .store-popup-card {
-      position: absolute;
-      top: 140px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 16px 20px;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
-      z-index: 200;
-      min-width: 270px;
-      display: none;
-      animation: popIn 0.25s var(--ease-spring);
-    }
-
-    @keyframes popIn {
-      from { opacity: 0; transform: translateX(-50%) scale(0.9); }
-      to { opacity: 1; transform: translateX(-50%) scale(1); }
-    }
-
-    .popup-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 4px;
-      background: var(--apple-green-bg);
-      color: var(--apple-green);
-      margin-bottom: 6px;
-    }
-
-    .popup-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 4px;
-    }
-
-    .popup-sub {
-      font-size: 12px;
-      color: var(--text-tertiary);
-      margin-bottom: 8px;
-    }
-
-    .popup-close-btn {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: none;
-      border: none;
-      font-size: 16px;
-      color: var(--text-tertiary);
-      cursor: pointer;
-    }
-
-    /* ==========================================================================
-       RIGHT FLOATING SLIMMAPRAIL (44px Slim Floating Rail)
-       ========================================================================== */
-    .dash-maprail-dock {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 48px;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 6px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      z-index: 100;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    }
-
-    .rail-action-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.15s var(--ease-apple);
-      position: relative;
-    }
-
-    .rail-action-btn:hover {
-      background: var(--bg-subtle);
-      color: var(--text-primary);
-      border-color: var(--border-medium);
-    }
-
-    .rail-action-btn.active {
-      background: var(--apple-blue);
-      color: #ffffff;
-      border-color: transparent;
-      box-shadow: 0 2px 8px rgba(0, 113, 227, 0.35);
-    }
-
-    .rail-action-btn svg {
-      width: 15px;
-      height: 15px;
-      stroke: currentColor;
-    }
-
-    .rail-action-btn span {
-      font-size: 8px;
-      font-weight: 700;
-      margin-top: 2px;
-    }
-
-    .rail-divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border-subtle);
-      margin: 2px 0;
-    }
-
-    /* ==========================================================================
-       SLIDING FTC BENCHMARK DRAWER (landing-page-design: 4-Sided Floating Card & GPU Transform)
-       ========================================================================== */
-    .dash-ftc-drawer {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      bottom: 16px;
-      width: 340px;
-      height: calc(100% - 32px);
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-      z-index: 120;
-      padding: 24px;
-      transform: translateX(calc(100% + 24px));
-      transition: transform 0.5s var(--ease-base);
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .dash-ftc-drawer.is-open {
-      transform: translateX(0);
-    }
-
-    .drawer-title-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .drawer-title-row h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .drawer-close-btn {
-      background: none;
-      border: none;
-      font-size: 18px;
-      color: var(--text-tertiary);
-      cursor: pointer;
-    }
-
-    .drawer-stat-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 14px;
-    }
-
-    .drawer-stat-label {
-      font-size: 11px;
-      color: var(--text-tertiary);
-      margin-bottom: 4px;
-    }
-
-    .drawer-stat-val {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--apple-blue);
-    }
-
-    /* ==========================================================================
-       WHAT CHANGED SMART GUIDANCE OVERLAY (landing-page-design: 4-Sided Nested Card)
-       ========================================================================== */
-    .dash-live-guidance-bar {
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      margin: 12px 16px 16px 16px;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .guidance-badge {
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: var(--apple-blue-bg);
-      border: 1px solid rgba(0, 113, 227, 0.2);
-      color: var(--apple-blue);
-      font-size: 11px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .guidance-message {
-      font-size: 14px;
-      color: var(--text-primary);
-      font-weight: 500;
-      flex: 1;
-      text-wrap: pretty;
-    }
-
-    .guidance-message strong {
-      color: var(--apple-blue);
-    }
-
-    /* ==========================================================================
-       BOTTOM INTERACTIVE CALCULATOR (실시간 창업비용 & 매출 시뮬레이터)
-       ========================================================================== */
-    .calculator-section {
-      max-width: 1280px;
-      margin: 0 auto 80px auto;
-      padding: 0 24px;
-    }
-
-    .calc-hardware-card {
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      border-radius: 24px;
-      padding: 36px 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    }
-
-    .calc-header {
-      margin-bottom: 24px;
-    }
-
-    .calc-header h3 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 6px;
-    }
-
-    .calc-header p {
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    .calc-slider-wrap {
-      margin: 28px 0;
-    }
-
-    .calc-slider-info {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .calc-slider-val {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--apple-blue);
-    }
-
-    input[type=range] {
-      width: 100%;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--border-medium);
-      outline: none;
-      -webkit-appearance: none;
-      cursor: pointer;
-    }
-
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--apple-blue);
-      box-shadow: 0 2px 8px rgba(0, 113, 227, 0.4);
-      cursor: pointer;
-    }
-
-    .calc-grid-results {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 32px;
-      padding-top: 0;
-    }
-
-    .calc-stat-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-    }
-
-    .calc-stat-sub {
-      font-size: 11px;
-      color: var(--text-tertiary);
-      margin-bottom: 4px;
-    }
-
-    .calc-stat-num {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .calc-stat-num.highlight {
-      color: var(--apple-blue);
-    }
-
-    /* Accessibility & Focus States (landing-page-design B8) */
-    :focus-visible {
-      outline: 2px solid var(--apple-blue);
-      outline-offset: 2px;
-    }
-
-    .skip-to-content {
-      position: absolute;
-      top: -100px;
-      left: 16px;
-      background: var(--apple-blue);
-      color: #ffffff;
-      padding: 12px 16px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      z-index: 99999;
-      text-decoration: none;
-      transition: top 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .skip-to-content:focus {
-      top: 16px;
-    }
-
-    /* ==========================================================================
-       TAGLINE REVEAL SECTION (landing-page-design B11)
-       ========================================================================== */
-    .tagline-reveal-section {
-      padding: 80px 20px;
-      display: flex;
-      justify-content: center;
-      background: var(--bg-canvas);
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .tagline-reveal-container {
-      max-width: 680px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .tagline-eyebrow {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--apple-blue);
-      margin-bottom: 24px;
-    }
-
-    .tagline-reveal-text {
-      font-size: clamp(26px, 3.2vw, 38px);
-      font-weight: 700;
-      line-height: 1.35;
-      letter-spacing: -0.025em;
-      color: var(--text-primary);
-      text-wrap: balance;
-      margin-bottom: 24px;
-    }
-
-    .reveal-word {
-      display: inline-block;
-      opacity: 0.28;
-      transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-      transform: translateY(2px);
-      margin: 0 3px;
-    }
-
-    .reveal-word.is-active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .tagline-sub-text {
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--text-secondary);
-      max-width: 580px;
-      margin: 0 auto;
-      text-wrap: pretty;
-    }
-
-    /* ==========================================================================
-       FAQ ACCORDION SECTION (landing-page-design 8 Items)
-       ========================================================================== */
-    .faq-section {
-      padding: 80px 20px;
-      background: var(--bg-subtle);
-      display: flex;
-      justify-content: center;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .faq-container {
-      max-width: 760px;
-      width: 100%;
-    }
-
-    .faq-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .faq-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: var(--apple-blue);
-      text-transform: uppercase;
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-
-    .faq-title {
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-
-    .faq-desc {
-      font-size: 15px;
-      color: var(--text-secondary);
-    }
-
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .faq-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: border-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .faq-card:hover {
-      border-color: var(--border-medium);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    }
-
-    .faq-trigger {
-      width: 100%;
-      text-align: left;
-      padding: 20px 24px;
-      background: transparent;
-      border: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    .faq-question {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.4;
-    }
-
-    .faq-icon {
-      width: 24px;
-      height: 24px;
-      min-width: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-tertiary);
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
-    }
-
-    .faq-icon svg {
-      width: 16px;
-      height: 16px;
-      stroke: currentColor;
-    }
-
-    .faq-card.is-open .faq-icon {
-      transform: rotate(180deg);
-      color: var(--apple-blue);
-    }
-
-    .faq-panel {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .faq-answer {
-      padding: 0 24px 20px 24px;
-      font-size: 14px;
-      line-height: 1.65;
-      color: var(--text-secondary);
-    }
-
-    /* ==========================================================================
-       FINAL CONVERSION & RISK REVERSAL (landing-page-design Outcome-First)
-       ========================================================================== */
-    .final-conversion-section {
-      padding: 96px 20px;
-      background: var(--bg-canvas);
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .final-conversion-container {
-      max-width: 680px;
-      width: 100%;
-    }
-
-    .final-conversion-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: var(--apple-blue-bg);
-      color: var(--apple-blue);
-      font-size: 12px;
-      font-weight: 600;
-      font-family: var(--font-mono);
-      margin-bottom: 24px;
-    }
-
-    .final-conversion-title {
-      font-size: clamp(28px, 3.5vw, 40px);
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      line-height: 1.25;
-      color: var(--text-primary);
-      text-wrap: balance;
-      margin-bottom: 16px;
-      background: linear-gradient(90deg, #000000 0%, #666666 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .final-conversion-desc {
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-      text-wrap: pretty;
-    }
-
-    .final-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: var(--apple-blue);
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 600;
-      padding: 16px 36px;
-      border-radius: 999px;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(0, 113, 227, 0.25);
-      transition: background-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-      margin-bottom: 24px;
-    }
-
-    .final-cta-btn:hover {
-      background: var(--apple-blue-hover);
-      transform: translateY(-1px);
-    }
-
-    .final-proof-strip {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 24px;
-      font-size: 13px;
-      color: var(--text-tertiary);
-    }
-
-    .final-proof-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .final-proof-item svg {
-      color: var(--apple-green);
-    }
-
-    /* ==========================================================================
-       SHOWCASE FOOTER (B9 Provenance, Legal & Trust)
-       ========================================================================== */
-    .showcase-footer {
-      background: var(--bg-subtle);
-      border-top: 1px solid var(--border-subtle);
-      padding: 64px 20px 48px 20px;
-      font-size: 13px;
-      color: var(--text-tertiary);
-    }
-
-    .footer-container {
-      max-width: 980px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover {
-      color: var(--apple-blue);
-    }
-
-    .footer-legal {
-      line-height: 1.6;
-      color: var(--text-tertiary);
-      font-size: 12px;
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 12px;
-    }
-
-    @media (max-width: 768px) {
-      .calc-grid-results {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .dash-kpi-bar {
-        display: none;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, ::before, ::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-      .dash-ftc-drawer {
-        transition: opacity 0.2s ease !important;
-        transform: none !important;
-        display: none;
-      }
-      .dash-ftc-drawer.is-open {
-        display: flex !important;
-      }
-    }
+/* Hallmark · theme: console (graphite) · redesign: full */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 · weakest: V, dark telemetry theme shares bento grid with console genre; tightened 1px hairline seams */
+/* Hallmark · answered F3 · display head is balanced with text-wrap */
+/* Hallmark · answered F4 · rail-btn.active is an instrument telemetry toggle state on cool-soft, not a second primary CTA */
+/* Hallmark · answered F16 · selection, caret and scrollbars themed to console graphite and amber */
+/* Hallmark · dismissed 49 · FAQ accordion question labels are complete sentences that must wrap on responsive screens */
+
+:root {
+  /* Console Theme Graphite Tokens */
+  --color-paper: oklch(17% 0.008 250);
+  --color-paper-2: oklch(21% 0.009 250);
+  --color-paper-3: oklch(13.5% 0.007 250);
+  --color-paper-glass: oklch(17% 0.008 250 / 0.92);
+
+  --color-ink: oklch(95% 0.005 250);
+  --color-ink-2: oklch(83% 0.008 250);
+  --color-muted: oklch(71% 0.01 250);
+
+  --color-rule: oklch(31% 0.01 250);
+  --color-rule-2: oklch(42% 0.012 250);
+
+  /* Amber: Human / Operator / Primary Action */
+  --color-accent: oklch(82% 0.15 80);
+  --color-accent-ink: oklch(18% 0.04 75);
+  --color-accent-soft: oklch(29% 0.05 80);
+  --color-focus: oklch(82% 0.15 80);
+
+  /* Cool Blue: Instrument / Measurement / Telemetry */
+  --color-cool: oklch(77% 0.12 245);
+  --color-cool-soft: oklch(29% 0.05 245);
+
+  --color-ok: oklch(76% 0.15 150);
+  --color-ok-soft: oklch(24.5% 0.03 150);
+  --color-bad: oklch(70% 0.17 25);
+  --color-bad-soft: oklch(24.5% 0.035 25);
+
+  --font-display: "Host Grotesk", -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif;
+  --font-body: var(--font-display);
+  --font-outlier: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
+
+  --radius-card: 10px;
+  --radius-pill: 6px;
+  --radius-sm: 4px;
+  --rule-hair: 1px;
+
+  --tracking-display: -0.03em;
+  --display-weight: 500;
+
+  /* Spacing Scale (4px multiple strictly maintained) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Durations */
+  --dur-short: 150ms;
+  --dur-base: 250ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --container-max: 1280px;
+
+  scrollbar-color: var(--color-rule-2) var(--color-paper-3);
+  caret-color: var(--color-accent);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+button:active, .btn-primary:active, .btn-secondary:active, .rail-btn:active, .filter-pill:active {
+  transform: scale(0.98);
+}
+
+button:disabled, .btn-primary:disabled, .btn-secondary:disabled, .rail-btn:disabled, .filter-pill:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Accessibility Skip Link */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  z-index: 9999;
+  text-decoration: none;
+  transition: top var(--dur-short) var(--ease-out);
+}
+.skip-to-content:focus {
+  top: var(--space-4);
+}
+
+/* Shared Container Invariant */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Console Header Nav */
+.console-nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 56px;
+  background: var(--color-paper-glass);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.nav-brand svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--color-accent);
+  fill: none;
+  stroke-width: 2;
+}
+
+.nav-meta-tag {
+  font-family: var(--font-outlier);
+  font-size: 12px;
+  color: var(--color-muted);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  padding: 2px var(--space-2);
+  background: var(--color-paper-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.btn-nav-guide {
+  font-size: 13px;
+  color: var(--color-muted);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  border: var(--rule-hair) solid var(--color-rule);
+  background: var(--color-paper-2);
+  transition: color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+.btn-nav-guide:hover {
+  color: var(--color-ink);
+  border-color: var(--color-rule-2);
+}
+
+.btn-nav-primary {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-ink);
+  background: var(--color-paper-2);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  border: var(--rule-hair) solid var(--color-rule-2);
+  transition: color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+.btn-nav-primary:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+  padding: var(--space-20) 0 var(--space-12);
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: clamp(32px, 4.5vw, 48px);
+  line-height: 1.08;
+  letter-spacing: var(--tracking-display);
+  color: var(--color-ink);
+  margin-bottom: var(--space-4);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+.hero-sentence {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin-bottom: var(--space-8);
+  text-wrap: balance;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-size: 14px;
+  font-weight: 500;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-pill);
+  border: var(--rule-hair) solid var(--color-accent);
+  text-decoration: none;
+  transition: opacity var(--dur-short) var(--ease-out);
+}
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: 500;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-pill);
+  border: var(--rule-hair) solid var(--color-rule-2);
+  text-decoration: none;
+  transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+}
+.btn-secondary:hover {
+  background: var(--color-paper-3);
+  color: var(--color-accent);
+}
+
+/* Proof Ledger */
+.hero-proof-ledger {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-3) 0;
+  border-top: var(--rule-hair) solid var(--color-rule);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.proof-cell {
+  font-family: var(--font-outlier);
+  font-size: 13px;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+.proof-cell strong {
+  color: var(--color-cool);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   3D GIS INTERACTIVE TELEMETRY STAGE
+   ========================================================================== */
+.simulator-stage-section {
+  padding: var(--space-12) 0 var(--space-20);
+}
+
+.console-stage-panel {
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+/* Mock Telemetry Header Bar */
+.telemetry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-paper-3);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.telemetry-location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: var(--color-ink-2);
+}
+
+.telemetry-location svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--color-accent);
+  fill: none;
+  stroke-width: 2;
+}
+
+.telemetry-metrics-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.metric-value {
+  font-family: var(--font-outlier);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink);
+}
+.metric-value.cool {
+  color: var(--color-cool);
+}
+.metric-value.amber {
+  color: var(--color-accent);
+}
+
+/* Category Filter Strips */
+.telemetry-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-paper-2);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  overflow-x: auto;
+}
+
+.filter-pill {
+  appearance: none;
+  background: var(--color-paper-3);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  padding: var(--space-1) var(--space-3);
+  color: var(--color-muted);
+  font-size: 12px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+.filter-pill:hover {
+  color: var(--color-ink);
+  border-color: var(--color-rule-2);
+}
+.filter-pill.active {
+  background: var(--color-cool-soft);
+  color: var(--color-cool);
+  border-color: var(--color-cool);
+}
+
+/* 3D Viewport Body */
+.viewport-body {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background: var(--color-paper-3);
+  overflow: hidden;
+}
+
+#three-map-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* HUD Overlay */
+.map-hud-overlay {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  background: var(--color-paper-glass);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-outlier);
+  font-size: 12px;
+  color: var(--color-muted);
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
+.map-hud-overlay span {
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+/* Store Popup Window */
+.store-popup-card {
+  position: absolute;
+  bottom: var(--space-6);
+  left: var(--space-6);
+  width: 270px;
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  border: var(--rule-hair) solid var(--color-rule-2);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+  display: none;
+  z-index: 50;
+}
+
+.popup-close-btn {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  font-size: 16px;
+  cursor: pointer;
+  padding: var(--space-1);
+}
+.popup-close-btn:hover {
+  color: var(--color-ink);
+}
+
+.popup-tag {
+  display: inline-block;
+  font-family: var(--font-outlier);
+  font-size: 11px;
+  color: var(--color-cool);
+  background: var(--color-cool-soft);
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+}
+
+.popup-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--space-1);
+}
+
+.popup-category {
+  font-size: 12px;
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+
+.popup-address {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
+/* Floating Rail Dock */
+.maprail-dock {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: var(--color-paper-glass);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  padding: var(--space-2);
+  z-index: 30;
+}
+
+.rail-btn {
+  appearance: none;
+  background: var(--color-paper-2);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+  color: var(--color-muted);
+  font-size: 10px;
+  font-family: var(--font-body);
+  transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+
+.rail-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.rail-btn:hover {
+  color: var(--color-ink);
+  border-color: var(--color-rule-2);
+}
+
+.rail-btn.active {
+  background: var(--color-cool-soft);
+  color: var(--color-cool);
+  border-color: var(--color-cool);
+}
+
+.rail-rule-separator {
+  height: var(--rule-hair);
+  background: var(--color-rule);
+  margin: var(--space-1) 0;
+}
+
+/* FTC Slide Drawer */
+.ftc-slide-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100%;
+  background: var(--color-paper-glass);
+  color: var(--color-ink);
+  border-left: var(--rule-hair) solid var(--color-rule);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transform: translateX(100%);
+  transition: transform var(--dur-base) var(--ease-out);
+  z-index: 40;
+  overflow-y: auto;
+}
+
+.ftc-slide-drawer.is-open {
+  transform: translateX(0);
+}
+
+.drawer-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer-top-row h2 {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.drawer-close {
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.drawer-desc {
+  font-size: 12px;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.drawer-panel-card {
+  background: var(--color-paper-3);
+  color: var(--color-ink);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+}
+
+.drawer-panel-label {
+  font-size: 12px;
+  color: var(--color-muted);
+  margin-bottom: var(--space-1);
+}
+
+.drawer-panel-value {
+  font-family: var(--font-outlier);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.drawer-panel-sub {
+  font-family: var(--font-outlier);
+  font-size: 11px;
+  color: var(--color-ok);
+  margin-top: var(--space-1);
+}
+
+/* Bottom Guidance Bar */
+.telemetry-guidance-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-paper-3);
+  border-top: var(--rule-hair) solid var(--color-rule);
+  font-size: 12.5px;
+  color: var(--color-muted);
+}
+
+.guidance-tag {
+  font-family: var(--font-outlier);
+  font-size: 11px;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border: var(--rule-hair) solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  padding: 2px var(--space-2);
+  white-space: nowrap;
+}
+
+.guidance-message strong {
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   STATEMENT WORD REVEAL SECTION
+   ========================================================================== */
+.statement-section {
+  padding: var(--space-20) 0;
+  background: var(--color-paper-3);
+  color: var(--color-ink);
+  border-top: var(--rule-hair) solid var(--color-rule);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  text-align: center;
+}
+
+.statement-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.statement-lead {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(26px, 3.5vw, 40px);
+  line-height: 1.25;
+  letter-spacing: var(--tracking-display);
+  color: var(--color-ink);
+  margin-bottom: var(--space-6);
+  text-wrap: balance;
+}
+
+.reveal-word {
+  opacity: 0.35;
+  transition: opacity var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+}
+.reveal-word.is-active {
+  opacity: 1;
+  color: var(--color-ink);
+}
+
+.statement-sub {
+  font-size: 16px;
+  color: var(--color-muted);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   INTERACTIVE CALCULATOR SECTION
+   ========================================================================== */
+.calculator-section {
+  padding: var(--space-20) 0;
+}
+
+.calc-panel {
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  padding: var(--space-8);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.calc-header {
+  margin-bottom: var(--space-6);
+}
+
+.calc-header h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+  text-wrap: balance;
+}
+
+.calc-header p {
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.calc-control-group {
+  margin-bottom: var(--space-8);
+}
+
+.calc-slider-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.calc-area-reading {
+  font-family: var(--font-outlier);
+  font-size: 15px;
+  color: var(--color-accent);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 6px;
+  background: var(--color-paper-3);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  outline: none;
+  accent-color: var(--color-accent);
+}
+
+.calc-results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+.calc-result-cell {
+  background: var(--color-paper-3);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+}
+
+.calc-result-label {
+  font-size: 12px;
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+
+.calc-result-number {
+  font-family: var(--font-outlier);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+.calc-result-number.accent {
+  color: var(--color-accent);
+}
+.calc-result-number.ok {
+  color: var(--color-ok);
+}
+
+/* ==========================================================================
+   FAQ ACCORDION SECTION
+   ========================================================================== */
+.faq-section {
+  padding: var(--space-20) 0;
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+
+.faq-header {
+  max-width: 720px;
+  margin: 0 auto var(--space-10);
+  text-align: center;
+}
+
+.faq-header h2 {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+}
+
+.faq-header p {
+  font-size: 15px;
+  color: var(--color-muted);
+}
+
+.faq-list {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.faq-card {
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: border-color var(--dur-short) var(--ease-out);
+}
+.faq-card:hover {
+  border-color: var(--color-rule-2);
+}
+.faq-card.is-open {
+  border-color: var(--color-rule-2);
+}
+
+.faq-trigger {
+  width: 100%;
+  padding: var(--space-4) var(--space-5);
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-icon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-muted);
+  fill: none;
+  stroke-width: 2;
+  transition: transform var(--dur-short) var(--ease-out), stroke var(--dur-short) var(--ease-out);
+}
+.faq-card.is-open .faq-icon {
+  transform: rotate(180deg);
+  stroke: var(--color-accent);
+}
+
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--dur-base) var(--ease-out);
+}
+
+.faq-answer {
+  padding: 0 var(--space-5) var(--space-5);
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  border-top: var(--rule-hair) solid var(--color-paper-3);
+  padding-top: var(--space-3);
+}
+
+/* ==========================================================================
+   FINAL CONVERSION SECTION
+   ========================================================================== */
+.final-conversion-section {
+  padding: var(--space-20) 0;
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  border-top: var(--rule-hair) solid var(--color-rule);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  text-align: center;
+}
+
+.conversion-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.conversion-wrap h2 {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-display);
+  color: var(--color-ink);
+  margin-bottom: var(--space-3);
+  text-wrap: balance;
+}
+
+.conversion-wrap p {
+  font-size: 16px;
+  color: var(--color-muted);
+  margin-bottom: var(--space-8);
+}
+
+.conversion-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-8);
+}
+
+.conversion-proof-ledger {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  font-family: var(--font-outlier);
+  font-size: 13px;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+  flex-wrap: wrap;
+}
+.conversion-proof-ledger span {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.conversion-proof-ledger svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--color-ok);
+  fill: none;
+  stroke-width: 2.5;
+}
+
+/* ==========================================================================
+   CONSOLE PROVENANCE FOOTER
+   ========================================================================== */
+.console-footer {
+  padding: var(--space-12) 0 var(--space-8);
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--space-6);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+.footer-brand svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-accent);
+  fill: none;
+  stroke-width: 2;
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color var(--dur-short) var(--ease-out);
+}
+.footer-links a:hover {
+  color: var(--color-accent);
+}
+
+.footer-legal {
+  padding: var(--space-6) 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-6);
+  font-size: 12px;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.footer-version {
+  font-family: var(--font-outlier);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-cool);
+}
+
+/* Responsive Rules */
+@media (max-width: 768px) {
+  .telemetry-metrics-bar {
+    display: none;
+  }
+  .calc-results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-proof-ledger {
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .ftc-slide-drawer {
+    transition: opacity var(--dur-short) ease !important;
+    transform: none !important;
+    display: none;
+  }
+  .ftc-slide-drawer.is-open {
+    display: flex !important;
+  }
+}
   </style>
 </head>
 <body>
-  <a href="#simulator-stage" class="skip-to-content">본문 바로가기 (Skip to Content)</a>
+  <a href="#simulator-stage" class="skip-to-content">본문 바로가기</a>
 
-  <!-- ==========================================================================
-       TOP APPLE NAV BAR
-       ========================================================================== -->
-  <header class="apple-nav">
-    <div class="nav-left">
-      <a href="#" class="nav-brand-title">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        <span>Franchise Dashboard</span>
-      </a>
-      <span class="nav-badge-pill">소진공 73.5만 점포 실측 3D GIS</span>
-    </div>
+  <!-- Console Header Nav -->
+  <header class="console-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="nav-left">
+          <a href="#" class="nav-brand">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <span>Franchise Dashboard</span>
+          </a>
+          <span class="nav-meta-tag">735,185 Stores · 3D GIS</span>
+        </div>
 
-    <div class="nav-right">
-      <a href="USER_GUIDE.html" class="btn-nav-guide">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-        <span>사용자 설명서</span>
-      </a>
-      <a href="https://franchise-dashboard-scpz.onrender.com/" target="_blank" class="btn-nav-launch" title="클라우드 공식 웹 대시보드로 이동">
-        <span>전국 73.5만 상권 바로가기 →</span>
-      </a>
+        <div class="nav-right">
+          <a href="USER_GUIDE.html" class="btn-nav-guide">사용자 설명서</a>
+          <a href="https://franchise-dashboard-scpz.onrender.com/" target="_blank" class="btn-nav-primary">전국 상권 대시보드</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- ==========================================================================
-       HERO INTRODUCTION (landing-page-design: Outcome-First & Proof Signal)
-       ========================================================================== -->
-  <section class="showcase-hero">
-    <div class="hero-eyebrow-pill">
-      <span>✦</span>
-      <span>소진공 73.5만 전수 실측 · 3D GIS 공간 인텔리전스</span>
-    </div>
-    <h1 class="hero-title">
-      대한민국 73.5만 외식 상권,<br>3D 공간 인텔리전스로 분석하세요
-    </h1>
-    <p class="hero-desc">
-      소상공인시장진흥공단 실측 좌표와 공정거래위원회 4개년 재무 데이터를 결합하여,<br>실패 없는 신규 출점 입지와 B2B 식자재 납품 거래처를 3D로 즉시 발굴합니다.
-    </p>
-
-    <!-- Primary Action & Simulator Jump -->
-    <div class="hero-cta-group">
-      <a href="https://franchise-dashboard-scpz.onrender.com/" target="_blank" class="btn-hero-primary" title="공식 클라우드 웹 대시보드 바로가기">
-        <span>전국 73.5만 상권 대시보드 무료 탐색하기</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-      </a>
-      <a href="#simulator-stage" class="btn-hero-secondary">
-        <span>3D 시뮬레이터로 먼저 체험하기 ↓</span>
-      </a>
-    </div>
-
-    <!-- Proof Signal Strip (landing-page-design A2.4) -->
-    <div class="hero-proof-strip">
-      <span class="proof-item">✓ 소진공 전수 실측 735,185개 점포 연동</span>
-      <span class="proof-divider">·</span>
-      <span class="proof-item">✓ 공정위 4개년 FTC 가맹본부 재무 벤치마크</span>
-      <span class="proof-divider">·</span>
-      <span class="proof-item">✓ 100m 정밀 입체 격자</span>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       INTERACTIVE DISPLAY STAGE (실제 WebGL 3D 맵 샌드박스)
-       ========================================================================== -->
-  <section class="simulator-stage-wrap" id="simulator-stage">
-    <div class="apple-display-frame">
-      
-      <!-- 1. Mock Sub-Header -->
-      <div class="dash-mock-header">
-        <div class="dash-region-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          <span>서울특별시 강남구 (역삼·신논현 상권)</span>
-        </div>
-
-        <div class="dash-kpi-bar">
-          <div class="dash-kpi-item">
-            <span>선택 업종 점포수:</span>
-            <span class="dash-kpi-val" id="kpi-store-count">11,296 개</span>
-          </div>
-          <div class="dash-kpi-item">
-            <span>프랜차이즈 침투율:</span>
-            <span class="dash-kpi-val" style="color: var(--apple-blue);" id="kpi-penetration">28.4 %</span>
-          </div>
-          <div class="dash-kpi-item">
-            <span>최고 밀집도:</span>
-            <span class="dash-kpi-val" style="color: var(--apple-orange);">100m당 42개소</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. Category Filter Bar (Clickable) -->
-      <div class="dash-cat-bar">
-        <button class="dash-cat-pill active" onclick="clickCategoryFilter(this, '전체 외식업', 11296, 28.4, 0x0071e3)">
-          <span>🍽️ 전체 외식업</span>
-        </button>
-        <button class="dash-cat-pill" onclick="clickCategoryFilter(this, '카페·음료', 2410, 36.8, 0xff9500)">
-          <span>☕ 카페·음료</span>
-        </button>
-        <button class="dash-cat-pill" onclick="clickCategoryFilter(this, '치킨·패스트푸드', 1840, 48.2, 0xff3b30)">
-          <span>🍗 치킨·패스트푸드</span>
-        </button>
-        <button class="dash-cat-pill" onclick="clickCategoryFilter(this, '베이커리·디저트', 980, 41.5, 0xaf52de)">
-          <span>🥐 베이커리·디저트</span>
-        </button>
-        <button class="dash-cat-pill" onclick="clickCategoryFilter(this, '한식', 3620, 19.4, 0x28cd41)">
-          <span>🍚 한식</span>
-        </button>
-        <button class="dash-cat-pill" onclick="clickCategoryFilter(this, '일식', 1180, 24.1, 0x0071e3)">
-          <span>🍣 일식</span>
-        </button>
-      </div>
-
-      <!-- 3. WebGL 3D Interactive Map Viewport -->
-      <div class="dash-viewport-body" id="viewport-body">
-        
-        <!-- Three.js Real 3D Canvas -->
-        <canvas id="three-map-canvas"></canvas>
-
-        <!-- Street HUD -->
-        <div class="map-street-hud">
-          📍 <span>테헤란로 × 강남대로</span> 교차 상권 (100m 단위 격자 표출 중)
-        </div>
-
-        <!-- Store Popup Window -->
-        <div class="store-popup-card" id="store-popup">
-          <button class="popup-close-btn" onclick="closeStorePopup()">×</button>
-          <span class="popup-badge" id="pop-badge">공인 프랜차이즈</span>
-          <div class="popup-title" id="pop-name">메가MGC커피 강남역점</div>
-          <div class="popup-sub" id="pop-cat">카페·음료 (커피전문점)</div>
-          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4;" id="pop-addr">서울 강남구 강남대로 396</div>
-        </div>
-
-        <!-- Right Floating SlimMapRail (44px) -->
-        <aside class="dash-maprail-dock">
-          <!-- 1. 3D/2D Pitch Toggle -->
-          <button class="rail-action-btn active" id="btn-rail-3d" onclick="toggleMap3D()" title="3D 경사각 시점 / 2D 평면 탑뷰 토글">
-            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            <span id="rail-lbl-3d">3D</span>
-          </button>
-
-          <!-- 2. Extrusion Height Toggle -->
-          <button class="rail-action-btn active" id="btn-rail-ext" onclick="toggleMapExtrusion()" title="100m 기둥 높이 On/Off">
-            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            <span>기둥</span>
-          </button>
-
-          <!-- 3. Color Mode Toggle -->
-          <button class="rail-action-btn" id="btn-rail-color" onclick="toggleColorMode()" title="밀집도 색상 / 업종별 색상 전환">
-            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20z"/></svg>
-            <span>색상</span>
-          </button>
-
-          <!-- 4. Drone Tour -->
-          <button class="rail-action-btn" id="btn-rail-drone" onclick="triggerDroneTour()" title="상권 핫스팟 드론 비행 투어">
-            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
-            <span>드론</span>
-          </button>
-
-          <div class="rail-divider"></div>
-
-          <!-- 5. FTC Benchmark Drawer Toggle -->
-          <button class="rail-action-btn" id="btn-rail-ftc" onclick="toggleFtcDrawer()" title="공정위 창업비용 벤치마크 드로어">
-            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
-            <span>FTC</span>
-          </button>
-
-          <!-- 6. Reset View -->
-          <button class="rail-action-btn" onclick="resetMapView()" title="상권 시점 초기화">
-            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
-            <span>초기화</span>
-          </button>
-        </aside>
-
-        <!-- Sliding FTC Benchmark Drawer -->
-        <div class="dash-ftc-drawer" id="ftc-drawer">
-          <div class="drawer-title-row">
-            <h3>공정위(FTC) 벤치마크</h3>
-            <button class="drawer-close-btn" onclick="toggleFtcDrawer()">×</button>
-          </div>
-          <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;">
-            공정거래위원회 4개년(2023~2026) 실측 정보공개서 데이터를 기반으로 산출된 공식 재무 지표입니다.
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">대한민국 73.5만 외식 상권 3D 공간 인텔리전스</h1>
+          <p class="hero-sentence">
+            소상공인시장진흥공단 실측 좌표와 공정거래위원회 4개년 재무 데이터를 결합한 3D 상권 분석 플랫폼입니다.
           </p>
 
-          <div class="drawer-stat-card">
-            <div class="drawer-stat-label">강남구 외식 가맹점 평균 연매출</div>
-            <div class="drawer-stat-val">3억 8,400 만원</div>
-            <div style="font-size: 11px; color: var(--apple-green); font-weight: 600; margin-top: 2px;">↑ 전년 대비(YoY) +5.4%</div>
+          <div class="hero-actions">
+            <a href="https://franchise-dashboard-scpz.onrender.com/" target="_blank" class="btn-primary" title="공식 클라우드 웹 대시보드로 이동">
+              <span>대시보드 무료 탐색</span>
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+            <a href="#simulator-stage" class="btn-secondary">
+              <span>3D 시뮬레이터 조작</span>
+            </a>
           </div>
 
-          <div class="drawer-stat-card">
-            <div class="drawer-stat-label">평당 평균 인테리어 시공비</div>
-            <div class="drawer-stat-val">220 만원 / 평</div>
-            <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">기본 집기 및 조명 포함 기준</div>
+          <div class="hero-proof-ledger">
+            <div class="proof-cell">소진공 전수 실측 <strong>735,185개</strong> 점포</div>
+            <div class="proof-cell">공정위 <strong>4개년</strong> FTC 재무 벤치마크</div>
+            <div class="proof-cell"><strong>100m</strong> 정밀 입체 격자</div>
           </div>
-
-          <div class="drawer-stat-card">
-            <div class="drawer-stat-label">평균 가맹비 + 보증금 + 교육비</div>
-            <div class="drawer-stat-val">2,150 만원</div>
-            <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">보증금은 계약 종료 시 환급</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- 4. Real-time Smart Guidance Feedback Bar -->
-      <div class="dash-live-guidance-bar">
-        <span class="guidance-badge">실시간 동작 안내</span>
-        <div class="guidance-message" id="guidance-text">
-          현재 <strong>3D 경사각 시점(52°)</strong>에서 100m 정밀 기둥을 보고 계십니다. 우측 <strong>SlimMapRail 버튼</strong>들을 클릭해 보세요!
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- 3D Interactive Telemetry Stage -->
+    <section class="simulator-stage-section" id="simulator-stage">
+      <div class="container">
+        <div class="console-stage-panel">
+          
+          <!-- Mock Telemetry Bar -->
+          <div class="telemetry-header">
+            <div class="telemetry-location">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>서울특별시 강남구 (역삼·신논현 상권)</span>
+            </div>
 
-  <!-- ==========================================================================
-       TAGLINE REVEAL (landing-page-design B11: Scroll-driven Word Reveal)
-       ========================================================================== -->
-  <section class="tagline-reveal-section" id="tagline-reveal">
-    <div class="tagline-reveal-container">
-      <span class="tagline-eyebrow">✦ SPATIAL STATEMENT</span>
-      <h2 class="tagline-reveal-text" id="reveal-text">
-        <span class="reveal-word">데이터의</span>
-        <span class="reveal-word">파편화를</span>
-        <span class="reveal-word">넘어,</span>
-        <span class="reveal-word">대한민국</span>
-        <span class="reveal-word">모든</span>
-        <span class="reveal-word">골목의</span>
-        <span class="reveal-word">외식</span>
-        <span class="reveal-word">상권을</span>
-        <span class="reveal-word">3D</span>
-        <span class="reveal-word">공간으로</span>
-        <span class="reveal-word">증명합니다.</span>
-      </h2>
-      <p class="tagline-sub-text">
-        소상공인시장진흥공단 73.5만 점포 실측 좌표와 공정거래위원회 4개년 재무 벤치마크가 결합된 단 하나의 3D 공간 상권 인텔리전스입니다.
-      </p>
-    </div>
-  </section>
+            <div class="telemetry-metrics-bar">
+              <div class="metric-item">
+                <span>선택 점포수:</span>
+                <span class="metric-value" id="kpi-store-count">11,296 개</span>
+              </div>
+              <div class="metric-item">
+                <span>프랜차이즈 침투율:</span>
+                <span class="metric-value cool" id="kpi-penetration">28.4 %</span>
+              </div>
+              <div class="metric-item">
+                <span>최고 밀집도:</span>
+                <span class="metric-value amber">100m당 42개소</span>
+              </div>
+            </div>
+          </div>
 
-  <!-- ==========================================================================
-       BOTTOM INTERACTIVE CALCULATOR (실시간 창업비용 & 매출 계산기)
-       ========================================================================== -->
-  <section class="calculator-section">
-    <div class="calc-hardware-card">
-      <div class="calc-header">
-        <h3>📊 실시간 창업비용 & 매출 벤치마크 시뮬레이터</h3>
-        <p>공정거래위원회 2026 실측 통계를 바탕으로 매장 평수를 조절해 초기 투자금과 예상 연매출을 즉시 계산합니다.</p>
+          <!-- Category Filter Bar -->
+          <div class="telemetry-filter-bar">
+            <button class="filter-pill active" onclick="clickCategoryFilter(this, '전체 외식업', 11296, 28.4, 0x4fa3e3)">전체 외식업</button>
+            <button class="filter-pill" onclick="clickCategoryFilter(this, '카페·음료', 2410, 36.8, 0xf59e0b)">카페·음료</button>
+            <button class="filter-pill" onclick="clickCategoryFilter(this, '치킨·패스트푸드', 1840, 48.2, 0xe11d48)">치킨·패스트푸드</button>
+            <button class="filter-pill" onclick="clickCategoryFilter(this, '베이커리·디저트', 980, 41.5, 0xa855f7)">베이커리·디저트</button>
+            <button class="filter-pill" onclick="clickCategoryFilter(this, '한식', 3620, 19.4, 0x10b981)">한식</button>
+            <button class="filter-pill" onclick="clickCategoryFilter(this, '일식', 1180, 24.1, 0x06b6d4)">일식</button>
+          </div>
+
+          <!-- 3D Map Viewport Body -->
+          <div class="viewport-body" id="viewport-body">
+            <canvas id="three-map-canvas" aria-label="3D 상권 지도 시뮬레이터"></canvas>
+
+            <!-- Street HUD -->
+            <div class="map-hud-overlay">
+              테헤란로 × 강남대로 <span>(100m 정밀 격자 분석 중)</span>
+            </div>
+
+            <!-- Store Popup Card -->
+            <div class="store-popup-card" id="store-popup">
+              <button class="popup-close-btn" onclick="closeStorePopup()">×</button>
+              <div class="popup-tag" id="pop-badge">공인 프랜차이즈</div>
+              <div class="popup-title" id="pop-name">메가MGC커피 강남역점</div>
+              <div class="popup-category" id="pop-cat">카페·음료 (커피전문점)</div>
+              <div class="popup-address" id="pop-addr">서울 강남구 강남대로 396</div>
+            </div>
+
+            <!-- Map Rail Dock -->
+            <aside class="maprail-dock">
+              <button class="rail-btn active" id="btn-rail-3d" onclick="toggleMap3D()" title="3D 경사각 시점 / 2D 탑뷰 토글">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                <span id="rail-lbl-3d">3D</span>
+              </button>
+
+              <button class="rail-btn active" id="btn-rail-ext" onclick="toggleMapExtrusion()" title="100m 격자 기둥 On/Off">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <span>기둥</span>
+              </button>
+
+              <button class="rail-btn" id="btn-rail-color" onclick="toggleColorMode()" title="밀집도 색상 / 업종별 색상 전환">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20z"/></svg>
+                <span>색상</span>
+              </button>
+
+              <button class="rail-btn" id="btn-rail-drone" onclick="triggerDroneTour()" title="상권 핫스팟 드론 비행">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
+                <span>드론</span>
+              </button>
+
+              <div class="rail-rule-separator"></div>
+
+              <button class="rail-btn" id="btn-rail-ftc" onclick="toggleFtcDrawer()" title="공정위 재무 벤치마크 패널">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+                <span>FTC</span>
+              </button>
+
+              <button class="rail-btn" onclick="resetMapView()" title="상권 시점 초기화">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                <span>초기화</span>
+              </button>
+            </aside>
+
+            <!-- FTC Drawer -->
+            <div class="ftc-slide-drawer" id="ftc-drawer">
+              <div class="drawer-top-row">
+                <h2>공정위 FTC 벤치마크</h2>
+                <button class="drawer-close" onclick="toggleFtcDrawer()">×</button>
+              </div>
+              <p class="drawer-desc">
+                공정거래위원회 4개년 실측 정보공개서 데이터를 기반으로 산출된 공식 재무 지표입니다.
+              </p>
+
+              <div class="drawer-panel-card">
+                <div class="drawer-panel-label">강남구 외식 가맹점 평균 연매출</div>
+                <div class="drawer-panel-value">3억 8,400 만원</div>
+                <div class="drawer-panel-sub">전년 대비 +5.4%</div>
+              </div>
+
+              <div class="drawer-panel-card">
+                <div class="drawer-panel-label">평당 평균 인테리어 시공비</div>
+                <div class="drawer-panel-value">220 만원 / 평</div>
+                <div class="drawer-panel-sub">기본 집기 및 조명 포함</div>
+              </div>
+
+              <div class="drawer-panel-card">
+                <div class="drawer-panel-label">평균 가맹비 + 보증금 + 교육비</div>
+                <div class="drawer-panel-value">2,150 만원</div>
+                <div class="drawer-panel-sub">보증금은 계약 종료 시 환급</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Guidance Bar -->
+          <div class="telemetry-guidance-bar">
+            <span class="guidance-tag">실시간 안내</span>
+            <div class="guidance-message" id="guidance-text">
+              현재 <strong>3D 경사각 시점(52도)</strong>에서 100m 정밀 격자를 관측 중입니다. 우측 <strong>조작 버튼</strong>을 클릭해 보세요.
+            </div>
+          </div>
+
+        </div>
       </div>
+    </section>
 
-      <div class="calc-slider-wrap">
-        <div class="calc-slider-info">
-          <span>창업 희망 매장 전용 면적</span>
-          <span class="calc-slider-val" id="calc-area-label">15 평 (49.6 ㎡)</span>
-        </div>
-        <input type="range" id="calc-area-range" min="8" max="60" value="15" step="1" oninput="updateCalculator(this.value)">
-      </div>
-
-      <div class="calc-grid-results">
-        <div class="calc-stat-box">
-          <div class="calc-stat-sub">가맹비 + 보증금 + 교육비</div>
-          <div class="calc-stat-num">1,850 만원</div>
-        </div>
-        <div class="calc-stat-box">
-          <div class="calc-stat-sub">인테리어비 (평당 210만)</div>
-          <div class="calc-stat-num" id="stat-interior">3,150 만원</div>
-        </div>
-        <div class="calc-stat-box">
-          <div class="calc-stat-sub">총 추정 초기 창업비용</div>
-          <div class="calc-stat-num highlight" id="stat-total">5,000 만원</div>
-        </div>
-        <div class="calc-stat-box">
-          <div class="calc-stat-sub">연간 평균 가맹점 매출액</div>
-          <div class="calc-stat-num" style="color: var(--apple-green);" id="stat-rev">2.5 억원</div>
+    <!-- Word Reveal Statement Section -->
+    <section class="statement-section" id="tagline-reveal">
+      <div class="container">
+        <div class="statement-wrap">
+          <h2 class="statement-lead" id="reveal-text">
+            <span class="reveal-word">데이터의</span>
+            <span class="reveal-word">파편화를</span>
+            <span class="reveal-word">넘어,</span>
+            <span class="reveal-word">대한민국</span>
+            <span class="reveal-word">모든</span>
+            <span class="reveal-word">골목의</span>
+            <span class="reveal-word">외식</span>
+            <span class="reveal-word">상권을</span>
+            <span class="reveal-word">3D</span>
+            <span class="reveal-word">공간으로</span>
+            <span class="reveal-word">증명합니다.</span>
+          </h2>
+          <p class="statement-sub">
+            소상공인시장진흥공단 73.5만 점포 실측 좌표와 공정거래위원회 4개년 재무 벤치마크가 결합된 3D 공간 상권 인텔리전스입니다.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==========================================================================
-       FAQ SECTION (landing-page-design 8 Objection-Handling Items)
-       ========================================================================== -->
-  <section class="faq-section" id="faq-section">
-    <div class="faq-container">
-      <div class="faq-header">
-        <span class="faq-eyebrow">자주 묻는 질문</span>
-        <h2 class="faq-title">궁금한 점을 확인하세요</h2>
-        <p class="faq-desc">전국 73.5만 외식 상권 3D GIS 대시보드에 대한 주요 질문과 답변입니다.</p>
-      </div>
-
-      <div class="faq-list">
-        <!-- FAQ 1 -->
-        <div class="faq-card" id="faq-card-1">
-          <button class="faq-trigger" onclick="toggleFaq(1)" aria-expanded="false" id="faq-btn-1">
-            <span class="faq-question">수집된 데이터의 출처와 갱신 주기는 어떻게 되나요?</span>
-            <span class="faq-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </button>
-          <div class="faq-panel" id="faq-panel-1">
-            <div class="faq-answer">
-              중소벤처기업부 산하 소상공인시장진흥공단(소진공) 상가(상권)정보 공공데이터 API와 공정거래위원회(FTC) 정보공개서 공식 데이터를 기반으로 합니다. 전국 735,185개 외식 점포의 위경도 실측 좌표와 4개년 프랜차이즈 가맹본부 재무 벤치마크를 정기적으로 최신 동기화합니다.
-            </div>
+    <!-- Interactive Calculator Section -->
+    <section class="calculator-section">
+      <div class="container">
+        <div class="calc-panel">
+          <div class="calc-header">
+            <h2>실시간 창업비용 및 매출 벤치마크 시뮬레이터</h2>
+            <p>공정거래위원회 실측 통계를 바탕으로 매장 평수를 조절해 초기 투자금과 예상 연매출을 계산합니다.</p>
           </div>
-        </div>
 
-        <!-- FAQ 2 -->
-        <div class="faq-card" id="faq-card-2">
-          <button class="faq-trigger" onclick="toggleFaq(2)" aria-expanded="false" id="faq-btn-2">
-            <span class="faq-question">개인 독립점포와 프랜차이즈 가맹점은 어떻게 구분하나요?</span>
-            <span class="faq-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </button>
-          <div class="faq-panel" id="faq-panel-2">
-            <div class="faq-answer">
-              전국 점포 수 10개 이상, 상호명 정규화 알고리즘(지점명, 특수문자, 법인 표기 분리), 공정위 가맹사업 등록 여부를 교차 검증하는 독자적 분류 파이프라인을 적용합니다. 이를 통해 일반 개인 식당이 프랜차이즈로 오분류되는 문제를 원천 차단합니다.
+          <div class="calc-control-group">
+            <div class="calc-slider-meta">
+              <span>창업 희망 매장 전용 면적</span>
+              <span class="calc-area-reading" id="calc-area-label">15 평 (49.6 ㎡)</span>
             </div>
+            <input type="range" id="calc-area-range" min="8" max="60" value="15" step="1" oninput="updateCalculator(this.value)">
           </div>
-        </div>
 
-        <!-- FAQ 3 -->
-        <div class="faq-card" id="faq-card-3">
-          <button class="faq-trigger" onclick="toggleFaq(3)" aria-expanded="false" id="faq-btn-3">
-            <span class="faq-question">공정거래위원회 4개년 재무 벤치마크는 어떤 데이터를 제공하나요?</span>
-            <span class="faq-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </button>
-          <div class="faq-panel" id="faq-panel-3">
-            <div class="faq-answer">
-              가맹본부의 4개년(2021~2024년) 가맹점 수, 신규 개점률, 폐점률, 평균 매출액, 초기 가맹비·인테리어 창업비용 등 공식 법정 정보공개서 데이터를 제공하여 브랜드의 장기적 안정성과 수익성을 비교 분석할 수 있습니다.
+          <div class="calc-results-grid">
+            <div class="calc-result-cell">
+              <div class="calc-result-label">가맹비 + 보증금 + 교육비</div>
+              <div class="calc-result-number">1,850 만원</div>
             </div>
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="faq-card" id="faq-card-4">
-          <button class="faq-trigger" onclick="toggleFaq(4)" aria-expanded="false" id="faq-btn-4">
-            <span class="faq-question">3D 지도의 100m 입체 격자(Extrusion Pillar) 높이는 무엇을 의미하나요?</span>
-            <span class="faq-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </button>
-          <div class="faq-panel" id="faq-panel-4">
-            <div class="faq-answer">
-              전국 국토를 100m x 100m 정사각형 셀로 정밀 분할한 뒤, 해당 격자 내에 밀집된 실제 점포 수와 업종 다양성을 3D 높이로 시각화한 지표입니다. 붉은색에 높을수록 초고밀도 핵심 상권(핫스팟)을 의미합니다.
+            <div class="calc-result-cell">
+              <div class="calc-result-label">인테리어비 (평당 210만)</div>
+              <div class="calc-result-number" id="stat-interior">3,150 만원</div>
             </div>
-          </div>
-        </div>
-
-        <!-- FAQ 5 -->
-        <div class="faq-card" id="faq-card-5">
-          <button class="faq-trigger" onclick="toggleFaq(5)" aria-expanded="false" id="faq-btn-5">
-            <span class="faq-question">B2B 식자재 유통 및 납품 기업에서는 어떻게 활용할 수 있나요?</span>
-            <span class="faq-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </button>
-          <div class="faq-panel" id="faq-panel-5">
-            <div class="faq-answer">
-              목표 지역 내 특정 외식 업종(예: 한식 고기집, 일식 초밥전문점 등)의 밀집 구역을 100m 단위로 특정하고, 배송 경로 최적화 및 신규 잠재 가맹점·개인 점포의 상세 주소와 상호명을 한눈에 발굴하여 영업 리드로 활용할 수 있습니다.
+            <div class="calc-result-cell">
+              <div class="calc-result-label">총 추정 초기 창업비용</div>
+              <div class="calc-result-number accent" id="stat-total">5,000 만원</div>
             </div>
-          </div>
-        </div>
-
-        <!-- FAQ 6 -->
-        <div class="faq-card" id="faq-card-6">
-          <button class="faq-trigger" onclick="toggleFaq(6)" aria-expanded="false" id="faq-btn-6">
-            <span class="faq-question">모바일 기기나 태블릿에서도 대시보드를 이용할 수 있나요?</span>
-            <span class="faq-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </button>
-          <div class="faq-panel" id="faq-panel-6">
-            <div class="faq-answer">
-              네, 모바일 및 태블릿 반응형 레이아웃을 완벽하게 지원합니다. 화면 크기에 맞춰 3D WebGL 뷰포트와 사이드바, 필터 패널이 유연하게 최적화되어 언제 어디서나 현장 상권 조사가 가능합니다.
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ 7 -->
-        <div class="faq-card" id="faq-card-7">
-          <button class="faq-trigger" onclick="toggleFaq(7)" aria-expanded="false" id="faq-btn-7">
-            <span class="faq-question">클라우드 웹 대시보드 이용 시 별도 프로그램 설치나 유료 결제가 필요한가요?</span>
-            <span class="faq-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </button>
-          <div class="faq-panel" id="faq-panel-7">
-            <div class="faq-answer">
-              별도의 소프트웨어 설치 없이 최신 크롬, 사파리, 엣지 등 웹 브라우저만 있으면 100% 무료로 즉시 접속하여 전국 73.5만 상권 데이터를 탐색하실 수 있습니다.
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ 8 -->
-        <div class="faq-card" id="faq-card-8">
-          <button class="faq-trigger" onclick="toggleFaq(8)" aria-expanded="false" id="faq-btn-8">
-            <span class="faq-question">특정 브랜드나 상호명을 직접 검색하여 위치를 찾을 수 있나요?</span>
-            <span class="faq-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </button>
-          <div class="faq-panel" id="faq-panel-8">
-            <div class="faq-answer">
-              대시보드 내 검색창을 통해 브랜드명(예: 메가MGC커피, 스타벅스, BBQ치킨 등) 또는 도로명 주소를 입력하면 전국 지점의 위치로 지도 시점이 즉시 부드럽게 비행(Fly-to) 이동하며 세부 정보를 확인할 수 있습니다.
+            <div class="calc-result-cell">
+              <div class="calc-result-label">연간 평균 가맹점 매출액</div>
+              <div class="calc-result-number ok" id="stat-rev">2.5 억원</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==========================================================================
-       FINAL CONVERSION SECTION (landing-page-design B5 / Risk Reversal)
-       ========================================================================== -->
-  <section class="final-conversion-section">
-    <div class="final-conversion-container">
-      <div class="final-conversion-pill">
-        <span>✦</span>
-        <span>대한민국 73.5만 외식 상권 전수 분석</span>
+    <!-- FAQ Accordion Section -->
+    <section class="faq-section" id="faq-section">
+      <div class="container">
+        <div class="faq-header">
+          <h2>자주 묻는 질문</h2>
+          <p>전국 73.5만 외식 상권 3D GIS 대시보드에 대한 주요 질문과 답변입니다.</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-card" id="faq-card-1">
+            <button class="faq-trigger" onclick="toggleFaq(1)" aria-expanded="false" id="faq-btn-1">
+              <span>수집된 데이터의 출처와 갱신 주기는 어떻게 되나요?</span>
+              <svg aria-hidden="true" class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-panel" id="faq-panel-1">
+              <div class="faq-answer">
+                중소벤처기업부 산하 소상공인시장진흥공단 상가(상권)정보 공공데이터 API와 공정거래위원회 정보공개서 공식 데이터를 기반으로 합니다. 전국 735,185개 외식 점포의 위경도 실측 좌표와 4개년 프랜차이즈 가맹본부 재무 벤치마크를 정기적으로 최신 동기화합니다.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card" id="faq-card-2">
+            <button class="faq-trigger" onclick="toggleFaq(2)" aria-expanded="false" id="faq-btn-2">
+              <span>개인 독립점포와 프랜차이즈 가맹점은 어떻게 구분하나요?</span>
+              <svg aria-hidden="true" class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-panel" id="faq-panel-2">
+              <div class="faq-answer">
+                전국 점포 수 10개 이상, 상호명 정규화 알고리즘(지점명, 특수문자, 법인 표기 분리), 공정위 가맹사업 등록 여부를 교차 검증하는 독자적 분류 파이프라인을 적용합니다. 이를 통해 일반 개인 식당이 프랜차이즈로 오분류되는 문제를 원천 차단합니다.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card" id="faq-card-3">
+            <button class="faq-trigger" onclick="toggleFaq(3)" aria-expanded="false" id="faq-btn-3">
+              <span>공정거래위원회 4개년 재무 벤치마크는 어떤 데이터를 제공하나요?</span>
+              <svg aria-hidden="true" class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-panel" id="faq-panel-3">
+              <div class="faq-answer">
+                가맹본부의 4개년 가맹점 수, 신규 개점률, 폐점률, 평균 매출액, 초기 가맹비 및 인테리어 창업비용 등 공식 법정 정보공개서 데이터를 제공하여 브랜드의 장기적 안정성과 수익성을 비교 분석할 수 있습니다.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card" id="faq-card-4">
+            <button class="faq-trigger" onclick="toggleFaq(4)" aria-expanded="false" id="faq-btn-4">
+              <span>3D 지도의 100m 입체 격자 높이는 무엇을 의미하나요?</span>
+              <svg aria-hidden="true" class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-panel" id="faq-panel-4">
+              <div class="faq-answer">
+                전국 국토를 100m x 100m 정사각형 셀로 분할한 뒤, 해당 격자 내에 밀집된 실제 점포 수와 업종 다양성을 3D 높이로 시각화한 지표입니다. 붉은색에 높을수록 초고밀도 핵심 상권을 의미합니다.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card" id="faq-card-5">
+            <button class="faq-trigger" onclick="toggleFaq(5)" aria-expanded="false" id="faq-btn-5">
+              <span>B2B 식자재 유통 및 납품 기업에서는 어떻게 활용할 수 있나요?</span>
+              <svg aria-hidden="true" class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-panel" id="faq-panel-5">
+              <div class="faq-answer">
+                목표 지역 내 특정 외식 업종(예: 한식 고기집, 일식 초밥전문점 등)의 밀집 구역을 100m 단위로 특정하고, 배송 경로 최적화 및 신규 잠재 가맹점과 개인 점포의 상세 주소를 발굴하여 영업 리드로 활용할 수 있습니다.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card" id="faq-card-6">
+            <button class="faq-trigger" onclick="toggleFaq(6)" aria-expanded="false" id="faq-btn-6">
+              <span>모바일 기기나 태블릿에서도 대시보드를 이용할 수 있나요?</span>
+              <svg aria-hidden="true" class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-panel" id="faq-panel-6">
+              <div class="faq-answer">
+                네, 모바일 및 태블릿 반응형 레이아웃을 지원합니다. 화면 크기에 맞춰 3D WebGL 뷰포트와 사이드바, 필터 패널이 유연하게 최적화되어 언제 어디서나 현장 상권 조사가 가능합니다.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card" id="faq-card-7">
+            <button class="faq-trigger" onclick="toggleFaq(7)" aria-expanded="false" id="faq-btn-7">
+              <span>클라우드 웹 대시보드 이용 시 프로그램 설치나 결제가 필요한가요?</span>
+              <svg aria-hidden="true" class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-panel" id="faq-panel-7">
+              <div class="faq-answer">
+                별도의 소프트웨어 설치 없이 웹 브라우저에서 무료로 즉시 접속하여 전국 73.5만 상권 데이터를 탐색하실 수 있습니다.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card" id="faq-card-8">
+            <button class="faq-trigger" onclick="toggleFaq(8)" aria-expanded="false" id="faq-btn-8">
+              <span>특정 브랜드나 상호명을 직접 검색하여 위치를 찾을 수 있나요?</span>
+              <svg aria-hidden="true" class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-panel" id="faq-panel-8">
+              <div class="faq-answer">
+                대시보드 내 검색창을 통해 브랜드명 또는 도로명 주소를 입력하면 전국 지점의 위치로 지도 시점이 즉시 이동하며 세부 정보를 확인할 수 있습니다.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <h2 class="final-conversion-title">
-        지금 바로 전국 상권을 입체로 분석하세요
-      </h2>
-      <p class="final-conversion-desc">
-        별도 회원가입이나 신용카드 등록 없이, 웹 브라우저에서 1초 만에 무료로 시작할 수 있습니다.
-      </p>
+    </section>
 
-      <a href="https://franchise-dashboard-scpz.onrender.com/" target="_blank" class="final-cta-btn" title="공식 클라우드 웹 대시보드로 이동">
-        <span>전국 73.5만 상권 대시보드 바로가기 →</span>
-      </a>
+    <!-- Final Conversion Section -->
+    <section class="final-conversion-section">
+      <div class="container">
+        <div class="conversion-wrap">
+          <h2>지금 바로 전국 상권을 입체로 분석하세요</h2>
+          <p>별도 회원가입 없이, 웹 브라우저에서 바로 시작할 수 있습니다.</p>
 
-      <div class="final-proof-strip">
-        <div class="final-proof-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>소진공 735,185개 점포 실측</span>
-        </div>
-        <div class="final-proof-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>공정위 4개년 재무 벤치마크</span>
-        </div>
-        <div class="final-proof-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>100% 웹 브라우저 즉시 구동</span>
+          <div class="conversion-actions">
+            <a href="https://franchise-dashboard-scpz.onrender.com/" target="_blank" class="btn-primary" title="공식 클라우드 웹 대시보드로 이동">
+              <span>전국 상권 대시보드 열기</span>
+            </a>
+          </div>
+
+          <div class="conversion-proof-ledger">
+            <span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              소진공 735,185개 점포 실측
+            </span>
+            <span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              공정위 4개년 재무 벤치마크
+            </span>
+            <span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              웹 브라우저 즉시 구동
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- ==========================================================================
-       COMPREHENSIVE PROVENANCE & LEGAL FOOTER (landing-page-design B9)
-       ========================================================================== -->
-  <footer class="showcase-footer">
-    <div class="footer-container">
+  <!-- Console Footer -->
+  <footer class="console-footer">
+    <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
           <span>Franchise Dashboard</span>
         </div>
         <div class="footer-links">
           <a href="USER_GUIDE.html">사용자 설명서</a>
           <a href="https://franchise-dashboard-scpz.onrender.com/" target="_blank">대시보드 바로가기</a>
-          <a href="https://www.data.go.kr/" target="_blank" rel="noopener noreferrer">소상공인시장진흥공단 공공데이터</a>
+          <a href="https://www.data.go.kr/" target="_blank" rel="noopener noreferrer">소상공인시장진흥공단 데이터</a>
           <a href="https://franchise.ftc.go.kr/" target="_blank" rel="noopener noreferrer">공정거래위원회 정보공개서</a>
         </div>
       </div>
@@ -1650,15 +1535,13 @@
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 Franchise Dashboard. All rights reserved. Designed with Apple Clean Light System.</div>
-        <div style="font-family: var(--font-mono); font-size: 11px;">DATA VER: 2026.04-STABLE (735,185 STORES)</div>
+        <div>© 2026 Franchise Dashboard. Geospatial Intelligence System.</div>
+        <div class="footer-version">DATA VER: 2026.04-STABLE (735,185 STORES)</div>
       </div>
     </div>
   </footer>
 
-  <!-- ==========================================================================
-       THREE.JS WEBGL REAL 3D ENGINE & INTERACTION LOGIC
-       ========================================================================== -->
+  <!-- Three.js 3D WebGL Engine & Telemetry Logic -->
   <script>
     let scene, camera, renderer;
     let pillarsGroup = new THREE.Group();
@@ -1670,7 +1553,6 @@
     let isColorCategory = false;
     let isDrawerOpen = false;
 
-    // Target Camera Transforms for Smooth LERP Animation
     let targetCamera = {
       x: 0,
       y: 18,
@@ -1687,7 +1569,8 @@
       const height = container.clientHeight;
 
       scene = new THREE.Scene();
-      scene.background = new THREE.Color(0xe9eef4); // Apple Map Surface Color
+      // Console Graphite Control Room Background
+      scene.background = new THREE.Color(0x13171f);
 
       camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
       camera.position.set(targetCamera.x, targetCamera.y, targetCamera.z);
@@ -1701,15 +1584,12 @@
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
       scene.add(ambientLight);
 
-      const dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
+      const dirLight = new THREE.DirectionalLight(0xffffff, 0.7);
       dirLight.position.set(20, 40, 20);
       scene.add(dirLight);
 
-      // 1. Street Grid & Blocks (Apple Map Streets)
-      const roadMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-      const greenMat = new THREE.MeshBasicMaterial({ color: 0xd8e8d8 }); // Parks
-
-      // Main Arterial Roads
+      // Roads & Ground Grid
+      const roadMat = new THREE.MeshBasicMaterial({ color: 0x222a36 });
       const hRoad = new THREE.Mesh(new THREE.PlaneGeometry(60, 2.5), roadMat);
       hRoad.rotation.x = -Math.PI / 2;
       hRoad.position.y = 0.01;
@@ -1720,26 +1600,25 @@
       vRoad.position.y = 0.01;
       roadsGroup.add(vRoad);
 
-      // Map City Grid Lines
-      const gridHelper = new THREE.GridHelper(60, 30, 0xc5d3e0, 0xdbe4ed);
+      const gridHelper = new THREE.GridHelper(60, 30, 0x2e3847, 0x1d232e);
       gridHelper.position.y = 0.005;
       roadsGroup.add(gridHelper);
 
       scene.add(roadsGroup);
 
-      // 2. 100m Density 3D Extrusion Pillars
+      // 100m Density 3D Extrusion Pillars
       const pillarGeo = new THREE.BoxGeometry(1.6, 1, 1.6);
       const pillarData = [
-        { x: -1.2, z: -1.2, h: 8.5, color: 0xff3b30, count: 42 },
-        { x: 1.2, z: -1.2, h: 7.2, color: 0xff3b30, count: 38 },
-        { x: -1.2, z: 1.2, h: 6.4, color: 0xff9500, count: 34 },
-        { x: 1.2, z: 1.2, h: 5.1, color: 0xff9500, count: 26 },
-        { x: -4.5, z: -4.5, h: 4.2, color: 0x0071e3, count: 21 },
-        { x: 4.5, z: -4.5, h: 3.6, color: 0x0071e3, count: 18 },
-        { x: -4.5, z: 4.5, h: 2.5, color: 0x28cd41, count: 12 },
-        { x: 4.5, z: 4.5, h: 1.8, color: 0x28cd41, count: 8 },
-        { x: 0, z: -6.0, h: 3.0, color: 0x0071e3, count: 15 },
-        { x: 0, z: 6.0, h: 2.0, color: 0x28cd41, count: 10 }
+        { x: -1.2, z: -1.2, h: 8.5, color: 0xe11d48, count: 42 },
+        { x: 1.2, z: -1.2, h: 7.2, color: 0xe11d48, count: 38 },
+        { x: -1.2, z: 1.2, h: 6.4, color: 0xf59e0b, count: 34 },
+        { x: 1.2, z: 1.2, h: 5.1, color: 0xf59e0b, count: 26 },
+        { x: -4.5, z: -4.5, h: 4.2, color: 0x38bdf8, count: 21 },
+        { x: 4.5, z: -4.5, h: 3.6, color: 0x38bdf8, count: 18 },
+        { x: -4.5, z: 4.5, h: 2.5, color: 0x10b981, count: 12 },
+        { x: 4.5, z: 4.5, h: 1.8, color: 0x10b981, count: 8 },
+        { x: 0, z: -6.0, h: 3.0, color: 0x38bdf8, count: 15 },
+        { x: 0, z: 6.0, h: 2.0, color: 0x10b981, count: 10 }
       ];
 
       pillarData.forEach(item => {
@@ -1757,9 +1636,8 @@
           count: item.count
         };
 
-        // Wireframe Edge
         const edges = new THREE.EdgesGeometry(pillarGeo);
-        const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 }));
+        const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x64748b, linewidth: 1 }));
         mesh.add(line);
 
         pillarsGroup.add(mesh);
@@ -1767,9 +1645,9 @@
 
       scene.add(pillarsGroup);
 
-      // 3. Store Marker Pins (3D Spheres with Pulsing ring)
+      // Store Marker Pins
       const pinGeo = new THREE.SphereGeometry(0.35, 16, 16);
-      const pinMat = new THREE.MeshBasicMaterial({ color: 0x0071e3 });
+      const pinMat = new THREE.MeshBasicMaterial({ color: 0xf59e0b });
       
       const pinCoords = [
         { x: -0.8, z: -0.8, name: "메가MGC커피 강남역점", cat: "카페·음료", addr: "서울 강남구 강남대로 396" },
@@ -1787,10 +1665,7 @@
 
       scene.add(pinsGroup);
 
-      // Window resize listener
       window.addEventListener('resize', onResizeThree, false);
-
-      // Render Loop
       animateThree();
     }
 
@@ -1806,48 +1681,38 @@
 
     function animateThree() {
       requestAnimationFrame(animateThree);
-
-      // Smooth Camera Transition (LERP)
       camera.position.x += (targetCamera.x - camera.position.x) * 0.08;
       camera.position.y += (targetCamera.y - camera.position.y) * 0.08;
       camera.position.z += (targetCamera.z - camera.position.z) * 0.08;
       camera.lookAt(0, targetCamera.lookAtY, 0);
-
-      // Render
       renderer.render(scene, camera);
     }
 
-    /* ==========================================================================
-       SLIMMAPRAIL CONTROLS
-       ========================================================================== */
-    // 1. 3D / 2D Toggle
+    /* Rail Controls */
     function toggleMap3D() {
       const btn = document.getElementById('btn-rail-3d');
       const lbl = document.getElementById('rail-lbl-3d');
       is3D = !is3D;
 
       if (is3D) {
-        // 3D Pitch View (52° Inclined Birdseye View)
         targetCamera.x = 0;
         targetCamera.y = 18;
         targetCamera.z = 24;
         targetCamera.lookAtY = 0;
         btn.classList.add('active');
         lbl.innerText = '3D';
-        guidanceEl.innerHTML = '👉 <strong>[3D 경사각 시점(52°)]</strong> 활성화: 카메라가 52도 각도로 기울어져 100m 격자 기둥의 높낮이를 입체적으로 관찰합니다.';
+        guidanceEl.innerHTML = '<strong>3D 경사각 시점(52도)</strong>: 100m 격자 기둥의 높낮이를 입체적으로 관찰합니다.';
       } else {
-        // 2D Flat Top View (Straight Down Top View)
         targetCamera.x = 0;
         targetCamera.y = 34;
-        targetCamera.z = 0.2; // Almost directly above
+        targetCamera.z = 0.2;
         targetCamera.lookAtY = 0;
         btn.classList.remove('active');
         lbl.innerText = '2D';
-        guidanceEl.innerHTML = '👉 <strong>[2D 평면 탑뷰]</strong>로 전환되었습니다. 지도를 수직 직하강으로 내려다보며 도로망과 점포의 평면 위치를 왜곡 없이 파악합니다.';
+        guidanceEl.innerHTML = '<strong>2D 평면 탑뷰</strong>: 지도를 수직으로 내려다보며 점포 평면 위치를 파악합니다.';
       }
     }
 
-    // 2. Extrusion Height Toggle (기둥 높이 켜기/끄기)
     function toggleMapExtrusion() {
       const btn = document.getElementById('btn-rail-ext');
       isExtrusion = !isExtrusion;
@@ -1860,61 +1725,54 @@
 
       if (isExtrusion) {
         btn.classList.add('active');
-        guidanceEl.innerHTML = '👉 <strong>[3D 기둥 렌즈 켜짐]</strong>: 100m 단위 점포 밀집도가 입체 기둥 높이로 솟아올랐습니다.';
+        guidanceEl.innerHTML = '<strong>3D 기둥 켜짐</strong>: 100m 단위 점포 밀집도가 입체 기둥 높이로 표시됩니다.';
       } else {
         btn.classList.remove('active');
-        guidanceEl.innerHTML = '👉 <strong>[3D 기둥 렌즈 꺼짐]</strong>: 기둥 높이가 바닥으로 내려앉아 가려졌던 골목의 개별 점포 위치가 명확히 드러납니다.';
+        guidanceEl.innerHTML = '<strong>3D 기둥 꺼짐</strong>: 기둥 높이가 평면화되어 개별 점포 위치가 드러납니다.';
       }
     }
 
-    // 3. Color Mode Toggle (밀집도 vs 업종별)
     function toggleColorMode() {
       const btn = document.getElementById('btn-rail-color');
       isColorCategory = !isColorCategory;
 
       pillarsGroup.children.forEach((mesh, idx) => {
         if (isColorCategory) {
-          // Category Theme Colors (Orange for Cafe, Purple for Bakery)
-          mesh.material.color.setHex(idx % 2 === 0 ? 0xff9500 : 0xaf52de);
+          mesh.material.color.setHex(idx % 2 === 0 ? 0xf59e0b : 0xa855f7);
         } else {
-          // Restore Heatmap Density Colors
           mesh.material.color.setHex(mesh.userData.origColor);
         }
       });
 
       if (isColorCategory) {
         btn.classList.add('active');
-        guidanceEl.innerHTML = '👉 <strong>[업종별 고유 테마 색상]</strong>으로 변경되었습니다. 카페(주황), 베이커리(보라) 등 업종 테마별 분포가 강조됩니다.';
+        guidanceEl.innerHTML = '<strong>업종별 고유 색상</strong>: 카페(앰버), 베이커리(보라) 등 업종별 분포가 강조됩니다.';
       } else {
         btn.classList.remove('active');
-        guidanceEl.innerHTML = '👉 <strong>[과밀도 히트맵 색상]</strong>으로 복귀했습니다. 빨간색 기둥일수록 경쟁이 치열한 과밀 상권입니다.';
+        guidanceEl.innerHTML = '<strong>과밀도 히트맵 색상</strong>: 붉은색 기둥일수록 경쟁이 치열한 과밀 상권입니다.';
       }
     }
 
-    // 4. Drone Tour Simulation
     function triggerDroneTour() {
       const btn = document.getElementById('btn-rail-drone');
       btn.classList.add('active');
-      guidanceEl.innerHTML = '🚁 <strong>[상권 핫스팟 드론 비행 투어 시작]</strong>: 카메라가 강남역 사거리로 부드럽게 하강 비행 중입니다...';
+      guidanceEl.innerHTML = '<strong>상권 핫스팟 비행</strong>: 강남역 사거리로 하강 비행 중입니다...';
 
-      // Swoop Camera Down
       targetCamera.x = 4;
       targetCamera.y = 8;
       targetCamera.z = 12;
       targetCamera.lookAtY = 2;
 
       setTimeout(() => {
-        // Return to normal 3D
         targetCamera.x = 0;
         targetCamera.y = 18;
         targetCamera.z = 24;
         targetCamera.lookAtY = 0;
         btn.classList.remove('active');
-        guidanceEl.innerHTML = '👉 드론 비행 투어가 완료되었습니다. 핵심 상권 중심부를 성공적으로 둘러보았습니다.';
+        guidanceEl.innerHTML = '상권 비행 투어가 완료되었습니다.';
       }, 2500);
     }
 
-    // 5. FTC Benchmark Drawer Toggle
     function toggleFtcDrawer() {
       const drawer = document.getElementById('ftc-drawer');
       const btn = document.getElementById('btn-rail-ftc');
@@ -1923,15 +1781,14 @@
       if (isDrawerOpen) {
         drawer.classList.add('is-open');
         btn.classList.add('active');
-        guidanceEl.innerHTML = '👉 <strong>[공정위(FTC) 벤치마크 패널 오픈]</strong>: 우측 서랍이 열리며 4개년 실측 가맹점 매출액과 평당 인테리어비가 표시됩니다.';
+        guidanceEl.innerHTML = '<strong>공정위 FTC 패널 열림</strong>: 4개년 실측 가맹점 매출액과 평당 인테리어비가 표시됩니다.';
       } else {
         drawer.classList.remove('is-open');
         btn.classList.remove('active');
-        guidanceEl.innerHTML = '👉 공정위 벤치마크 패널을 닫았습니다. 지도를 넓게 탐색할 수 있습니다.';
+        guidanceEl.innerHTML = '공정위 패널을 닫았습니다.';
       }
     }
 
-    // 6. Reset View
     function resetMapView() {
       targetCamera.x = 0;
       targetCamera.y = 18;
@@ -1940,26 +1797,23 @@
       is3D = true;
       document.getElementById('btn-rail-3d').classList.add('active');
       document.getElementById('rail-lbl-3d').innerText = '3D';
-      guidanceEl.innerHTML = '👉 기본 시점으로 리셋되었습니다.';
+      guidanceEl.innerHTML = '기본 관측 시점으로 리셋되었습니다.';
     }
 
-    // 7. Category Filter Bar Click
     function clickCategoryFilter(btn, catName, count, penet, hexColor) {
-      document.querySelectorAll('.dash-cat-pill').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       document.getElementById('kpi-store-count').innerText = count.toLocaleString() + ' 개';
       document.getElementById('kpi-penetration').innerText = penet + ' %';
 
-      // Sync 3D Pillar Colors
       pillarsGroup.children.forEach(mesh => {
         mesh.material.color.setHex(hexColor);
       });
 
-      guidanceEl.innerHTML = `👉 <strong>[${catName}]</strong> 업종 필터 적용 완료: 점포수 <strong>${count.toLocaleString()}개</strong> 및 침투율 <strong>${penet}%</strong>로 3D 지도가 동기화되었습니다.`;
+      guidanceEl.innerHTML = `<strong>${catName}</strong> 필터 적용: 점포수 <strong>${count.toLocaleString()}개</strong>, 침투율 <strong>${penet}%</strong> 동기화.`;
     }
 
-    // 8. Store Popup
     function openStorePopup(name, cat, addr, badge) {
       const pop = document.getElementById('store-popup');
       document.getElementById('pop-name').innerText = name;
@@ -1967,15 +1821,12 @@
       document.getElementById('pop-addr').innerText = addr;
       document.getElementById('pop-badge').innerText = badge;
       pop.style.display = 'block';
-
-      guidanceEl.innerHTML = `📍 <strong>[개별 점포 팝업]</strong> '${name}' 매장의 상세 정보(업종: ${cat}, 가맹 여부: ${badge})를 확인하고 있습니다.`;
     }
 
     function closeStorePopup() {
       document.getElementById('store-popup').style.display = 'none';
     }
 
-    // 9. Interactive Calculator
     function updateCalculator(val) {
       const py = parseInt(val, 10);
       const m2 = (py * 3.3058).toFixed(1);
@@ -1990,7 +1841,6 @@
       document.getElementById('stat-rev').innerText = `${rev} 억원`;
     }
 
-    // 10. FAQ Accordion Toggle (landing-page-design 8 Items)
     function toggleFaq(index) {
       const card = document.getElementById(`faq-card-${index}`);
       const btn = document.getElementById(`faq-btn-${index}`);
@@ -1999,7 +1849,6 @@
 
       const isOpen = card.classList.contains('is-open');
 
-      // Close other open FAQs for clean accordion feel
       document.querySelectorAll('.faq-card').forEach(c => {
         if (c !== card) {
           c.classList.remove('is-open');
@@ -2021,7 +1870,6 @@
       }
     }
 
-    // 11. Tagline Reveal Sequential Animation (landing-page-design B11)
     function initTaglineReveal() {
       const section = document.getElementById('tagline-reveal');
       const words = document.querySelectorAll('.reveal-word');
@@ -2033,7 +1881,7 @@
             words.forEach((word, idx) => {
               setTimeout(() => {
                 word.classList.add('is-active');
-              }, idx * 60);
+              }, idx * 50);
             });
             observer.unobserve(section);
           }
@@ -2045,7 +1893,6 @@
       observer.observe(section);
     }
 
-    // Initialize WebGL Scene and Tagline Reveal
     window.addEventListener('DOMContentLoaded', () => {
       initWebGLMap();
       initTaglineReveal();

@@ -301,17 +301,17 @@ export default function MarketSummary({
           {/* 3색 미니 범례 */}
           <div className="segmented-legend-row">
             <div className="legend-chip">
-              <span className="chip-dot dot-franchise" />
+              <span className="chip-swatch swatch-franchise" aria-hidden="true" />
               <span className="chip-label">가맹</span>
               <span className="chip-val">{franchisePct}%</span>
             </div>
             <div className="legend-chip">
-              <span className="chip-dot dot-brand" />
+              <span className="chip-swatch swatch-brand" aria-hidden="true" />
               <span className="chip-label">브랜드</span>
               <span className="chip-val">{brandOnlyPct}%</span>
             </div>
             <div className="legend-chip">
-              <span className="chip-dot dot-independent" />
+              <span className="chip-swatch swatch-independent" aria-hidden="true" />
               <span className="chip-label">독립</span>
               <span className="chip-val">{independentPct}%</span>
             </div>
@@ -392,7 +392,7 @@ export default function MarketSummary({
         <div className="stat-card commercial-diagnosis-card" aria-label="상권 경쟁·특화·독과점 종합 진단">
           <div className="diagnosis-card-header">
             <span className="stat-label" style={{ marginBottom: 0 }}>
-              🧭 상권 경쟁·특화 종합 진단
+              상권 경쟁·특화 종합 진단
             </span>
             <span className="diagnosis-scope-tag">
               {displayCatTitle || '전 업종 종합'}
@@ -437,7 +437,9 @@ export default function MarketSummary({
           </div>
 
           <div className="diagnosis-verdict-box">
-            <span className="verdict-icon" aria-hidden="true">💡</span>
+            <span className="verdict-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </span>
             <p className="verdict-text">{diagnosisSummaryText}</p>
           </div>
         </div>
@@ -543,7 +545,7 @@ export default function MarketSummary({
             상위 브랜드 Top 5 · {displayCatTitle || '전체 업종'}
           </div>
           {topBrandsState?.loading && topBrands.length === 0 ? (
-            <div className="stat-sub">불러오는 중...</div>
+            <div className="stat-sub">불러오는 중…</div>
           ) : topBrandsState?.error ? (
             <div className="stat-sub">상위 브랜드를 불러오지 못했습니다.</div>
           ) : topBrands.length === 0 ? (

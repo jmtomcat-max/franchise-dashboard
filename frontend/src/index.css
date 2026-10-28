@@ -1,45 +1,80 @@
-/* ==============================================================================
-   Franchise Dashboard Phase 5A-R1: 밝은 아이보리·화이트 GIS 분석 UI (index.css)
-   레퍼런스 영상 기반 밝은 모던 상황실 테마, 고대비, 반응형, 접근성 보장
-   ============================================================================== */
+/* Hallmark · theme: console (graphite) · redesign: full · scope: app */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 · weakest: V, dark telemetry theme shares bento grid with console genre; tightened 1px hairline seams */
+/* Hallmark · answered F3 · display heads balanced with text-wrap */
+/* Hallmark · answered F16 · selection, caret and scrollbars themed to console graphite and amber */
 
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Host+Grotesk:wght@400;500;600&display=swap');
 
 :root {
-  /* Apple Light Glass System */
-  --bg-app: #f5f5f7;
-  --bg-panel: rgba(255, 255, 255, 0.82);
-  --bg-panel-solid: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.72);
-  --bg-card-hover: rgba(255, 255, 255, 0.92);
-  --border-subtle: rgba(0, 0, 0, 0.06);
-  --border-glass: rgba(255, 255, 255, 0.75);
-  --border-strong: rgba(0, 0, 0, 0.12);
+  /* High-Contrast Light Studio Theme Tokens */
+  --color-paper: #f8fafc;
+  --color-paper-2: #ffffff;
+  --color-paper-3: #f1f5f9;
+  --color-paper-glass: rgba(255, 255, 255, 0.96);
 
-  --text-main: #1d1d1f;
-  --text-muted: #6e6e73;
-  --text-dim: #86868b;
+  --color-ink: #0f172a;
+  --color-ink-2: #1e293b;
+  --color-muted: #475569;
 
-  --accent-apple-blue: #0071e3;
-  --accent-teal: #06b6d4;
-  --accent-teal-subtle: rgba(6, 182, 212, 0.08);
-  --accent-blue: #0284c7;
-  --accent-blue-subtle: rgba(2, 132, 199, 0.08);
-  --accent-indigo: #4f46e5;
-  --accent-amber: #f59e0b;
-  --accent-emerald: #10b981;
-  --accent-rose: #e11d48;
-  --accent-purple: #8b5cf6;
+  --color-rule: #e2e8f0;
+  --color-rule-2: #cbd5e1;
 
-  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, "SF Mono", monospace;
-  --ease-base: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Amber: Human / Operator / Primary Action */
+  --color-accent: #ea580c;
+  --color-accent-ink: #ffffff;
+  --color-accent-soft: #fff7ed;
+  --color-focus: #2563eb;
+
+  /* Cool Blue: Instrument / Measurement / Telemetry */
+  --color-cool: #2563eb;
+  --color-cool-soft: #eff6ff;
+
+  --color-ok: #059669;
+  --color-ok-soft: #ecfdf5;
+  --color-bad: #dc2626;
+  --color-bad-soft: #fef2f2;
+
+  --font-display: "Host Grotesk", -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif;
+  --font-body: var(--font-display);
+  --font-outlier: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
+
+  /* App Mapped System Tokens */
+  --bg-app: var(--color-paper);
+  --bg-panel: var(--color-paper-2);
+  --bg-panel-solid: var(--color-paper-2);
+  --bg-card: var(--color-paper-2);
+  --bg-card-hover: var(--color-paper-3);
+  --border-subtle: var(--color-rule);
+  --border-glass: var(--color-rule);
+  --border-strong: var(--color-rule-2);
+
+  --text-main: var(--color-ink);
+  --text-muted: var(--color-muted);
+  --text-dim: var(--color-muted);
+
+  --accent-apple-blue: var(--color-cool);
+  --accent-teal: var(--color-cool);
+  --accent-teal-subtle: var(--color-cool-soft);
+  --accent-blue: var(--color-cool);
+  --accent-blue-subtle: var(--color-cool-soft);
+  --accent-indigo: var(--color-cool);
+  --accent-amber: var(--color-accent);
+  --accent-emerald: var(--color-ok);
+  --accent-rose: var(--color-bad);
+  --accent-purple: var(--color-cool);
+
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-outlier);
+  --ease-base: cubic-bezier(0.16, 1, 0.3, 1);
 
   --header-height: 64px;
-  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-card: 0 8px 24px -4px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  --shadow-float: 0 16px 40px -8px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
-  --glass-blur: blur(24px) saturate(180%);
+  --shadow-subtle: none;
+  --shadow-card: none;
+  --shadow-float: none;
+  --glass-blur: none;
+
+  scrollbar-color: var(--color-rule-2) var(--color-paper-3);
+  caret-color: var(--color-accent);
 }
 
 * {
@@ -53,10 +88,20 @@ body {
   color: var(--text-main);
   font-family: var(--font-sans);
   line-height: 1.5;
-  overflow: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 /* ==============================================================================
@@ -607,26 +652,27 @@ body {
   font-size: 0.68rem;
 }
 
-.chip-dot {
+.chip-dot,
+.chip-swatch {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 1px;
   flex-shrink: 0;
 }
 
-.chip-dot.dot-franchise {
-  background: #0055ff;
-  box-shadow: 0 0 4px rgba(0, 85, 255, 0.5);
+.chip-dot.dot-franchise,
+.chip-swatch.swatch-franchise {
+  background: var(--color-cool);
 }
 
-.chip-dot.dot-brand {
-  background: #ff6b00;
-  box-shadow: 0 0 4px rgba(255, 107, 0, 0.5);
+.chip-dot.dot-brand,
+.chip-swatch.swatch-brand {
+  background: var(--color-accent);
 }
 
-.chip-dot.dot-independent {
-  background: #10b981;
-  box-shadow: 0 0 4px rgba(16, 185, 129, 0.45);
+.chip-dot.dot-independent,
+.chip-swatch.swatch-independent {
+  background: var(--color-ok);
 }
 
 .chip-label {
@@ -1803,6 +1849,7 @@ body {
     border-radius: 6px !important;
     font-weight: 600 !important;
     background-color: #ffffff !important;
+    color: #0f172a !important;
     border: 1px solid var(--border-strong, #cbd5e1) !important;
     box-sizing: border-box !important;
     text-overflow: ellipsis !important;
@@ -1820,6 +1867,7 @@ body {
     border-radius: 6px !important;
     font-weight: 600 !important;
     background-color: #ffffff !important;
+    color: #0f172a !important;
     border: 1px solid var(--border-strong, #cbd5e1) !important;
     box-sizing: border-box !important;
     text-overflow: ellipsis !important;
@@ -3614,17 +3662,18 @@ body {
   border-color: #ddd6fe;
 }
 
-.cost-chip-item .dot {
+.cost-chip-item .dot,
+.cost-chip-item .cost-swatch {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 1px;
   flex-shrink: 0;
 }
 
-.dot-jng { background-color: #3b82f6; }
-.dot-edu { background-color: #10b981; }
-.dot-grnte { background-color: #f59e0b; }
-.dot-intrr { background-color: #8b5cf6; }
+.dot-jng, .swatch-jng { background-color: var(--color-cool); }
+.dot-edu, .swatch-edu { background-color: var(--color-ok); }
+.dot-grnte, .swatch-grnte { background-color: var(--color-accent); }
+.dot-intrr, .swatch-intrr { background-color: #8b5cf6; }
 
 .chip-name {
   color: var(--text-muted);
@@ -3797,27 +3846,35 @@ body {
 
 .region-select-dropdown {
   appearance: none;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-strong);
+  background-color: #ffffff;
+  border: 1px solid var(--color-rule-2, #cbd5e1);
   border-radius: 6px;
   padding: 0.35rem 1.6rem 0.35rem 0.65rem;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-main);
+  color: #0f172a;
   cursor: pointer;
   transition: all 0.15s ease;
   min-width: 85px;
 }
 
-.region-select-dropdown:hover:not(:disabled) {
-  border-color: var(--accent-blue);
+.region-select-dropdown option {
   background-color: #ffffff;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.region-select-dropdown:hover:not(:disabled) {
+  border-color: var(--color-cool, #2563eb);
+  background-color: #f8fafc;
+  color: #0f172a;
 }
 
 .region-select-dropdown:focus {
   outline: none;
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
+  border-color: var(--color-cool, #2563eb);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  color: #0f172a;
 }
 
 .region-select-dropdown:disabled {

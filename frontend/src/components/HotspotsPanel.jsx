@@ -67,9 +67,11 @@ export default function HotspotsPanel({
 
       <div className="hotspots-popover-header">
         <div className="hotspots-popover-title-wrap">
-          <span className="hotspots-popover-badge">🔥 HOT</span>
           <div>
-            <h2 className="hotspots-popover-title">주요 상권 핫스팟</h2>
+            <h2 className="hotspots-popover-title">
+              주요 상권 핫스팟
+              <span className="hotspots-popover-badge">HOT</span>
+            </h2>
             <p className="hotspots-popover-sub">
               {isNationwide
                 ? '전국 대표 핵심 상권 Top 5'

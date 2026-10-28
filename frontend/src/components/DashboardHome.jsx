@@ -240,7 +240,6 @@ export default function DashboardHome({
       return {
         id: item.category_major_id,
         name: item.category_major_name || meta?.name || item.category_major_id,
-        icon: meta?.icon || '🍽️',
         count,
         pct: Number(pct.toFixed(1)),
         rawPct: pct,
@@ -485,7 +484,9 @@ export default function DashboardHome({
             className={`finora-nav-item ${activeNav === 'dashboard' ? 'active' : ''}`}
             onClick={() => handleNavClick('dashboard', overviewSectionRef)}
           >
-            <span className="nav-icon">🏠</span>
+            <span className="nav-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
             <span className="nav-label">대시보드 홈</span>
           </button>
 
@@ -494,7 +495,9 @@ export default function DashboardHome({
             className={`finora-nav-item ${activeNav === 'categories' ? 'active' : ''}`}
             onClick={() => handleNavClick('categories', categorySectionRef)}
           >
-            <span className="nav-icon">🍽️</span>
+            <span className="nav-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20z"/></svg>
+            </span>
             <span className="nav-label">8대 업종 점유율</span>
           </button>
 
@@ -503,7 +506,9 @@ export default function DashboardHome({
             className={`finora-nav-item ${activeNav === 'ftc' ? 'active' : ''}`}
             onClick={() => handleNavClick('ftc', ftcSectionRef)}
           >
-            <span className="nav-icon">💰</span>
+            <span className="nav-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </span>
             <span className="nav-label">점포 매출·발주력</span>
           </button>
 
@@ -512,7 +517,9 @@ export default function DashboardHome({
             className={`finora-nav-item ${activeNav === 'brands' ? 'active' : ''}`}
             onClick={() => handleNavClick('brands', brandSectionRef)}
           >
-            <span className="nav-icon">🏆</span>
+            <span className="nav-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </span>
             <span className="nav-label">주요 브랜드 네트워크</span>
           </button>
 
@@ -521,7 +528,9 @@ export default function DashboardHome({
             className={`finora-nav-item ${activeNav === 'hotspots' ? 'active' : ''}`}
             onClick={() => handleNavClick('hotspots', hotspotSectionRef)}
           >
-            <span className="nav-icon">🔥</span>
+            <span className="nav-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+            </span>
             <span className="nav-label">고밀도 상권 핫스팟</span>
           </button>
         </nav>
@@ -530,11 +539,11 @@ export default function DashboardHome({
         <div className="finora-sidebar-promo">
           <div className="promo-illustration" aria-hidden="true">
             <svg viewBox="0 0 120 76" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="60" cy="66" rx="46" ry="8" fill="#10b981" fillOpacity="0.18" />
-              <rect x="28" y="30" width="16" height="34" rx="4" fill="#059669" />
-              <rect x="50" y="14" width="20" height="50" rx="4" fill="#0f5132" />
-              <rect x="76" y="24" width="16" height="40" rx="4" fill="#10b981" />
-              <circle cx="60" cy="12" r="7" fill="#fbbf24" />
+              <ellipse cx="60" cy="66" rx="46" ry="8" fill="var(--color-cool)" fillOpacity="0.18" />
+              <rect x="28" y="30" width="16" height="34" rx="4" fill="var(--color-cool-soft)" />
+              <rect x="50" y="14" width="20" height="50" rx="4" fill="var(--color-paper-3)" />
+              <rect x="76" y="24" width="16" height="40" rx="4" fill="var(--color-rule-2)" />
+              <circle cx="60" cy="12" r="7" fill="var(--color-accent)" />
             </svg>
           </div>
           <h4 className="promo-title">
@@ -545,7 +554,6 @@ export default function DashboardHome({
           <p className="promo-sub">73.5만 점포 밀집도 · 식자재 배송 루트 기획</p>
           <button type="button" className="promo-cta-btn" onClick={onOpenMap}>
             <span>3D 상권 지도 열기</span>
-            <span className="promo-arrow">→</span>
           </button>
         </div>
       </aside>
@@ -555,11 +563,13 @@ export default function DashboardHome({
         {/* 상단 헤더 바 */}
         <header className="finora-topbar">
           <div className="finora-search-wrapper" ref={searchBoxRef}>
-            <span className="search-icon" aria-hidden="true">🔍</span>
+            <span className="search-icon" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
             <input
               type="text"
               className="finora-search-input"
-              placeholder="브랜드 검색 (예: 메가커피, 스타벅스, 교촌치킨, 한솥도시락...)"
+              placeholder="브랜드 검색 (예: 메가커피, 스타벅스, 교촌치킨, 한솥도시락…)"
               value={brandQuery}
               onChange={(e) => {
                 setBrandQuery(e.target.value);
@@ -589,7 +599,7 @@ export default function DashboardHome({
                   <span className="dropdown-region-tag">{regionTitle} 기준</span>
                 </div>
                 {brandSearching ? (
-                  <div className="dropdown-empty">브랜드 데이터베이스 검색 중...</div>
+                  <div className="dropdown-empty">브랜드 데이터베이스 검색 중…</div>
                 ) : brandResults.length === 0 ? (
                   <div className="dropdown-empty">일치하는 브랜드 후보가 없습니다.</div>
                 ) : (
@@ -617,7 +627,7 @@ export default function DashboardHome({
                             onOpenMapWithBrand(b);
                           }}
                         >
-                          📍 지도 위치
+                          지도 위치
                         </button>
                       </li>
                     ))}
@@ -635,10 +645,10 @@ export default function DashboardHome({
                 onChange={(e) => onSelectSido(e.target.value)}
                 aria-label="시도 선택"
               >
-                <option value="00">🌍 전국 (17개 시도)</option>
+                <option value="00">전국 (17개 시도)</option>
                 {sidoList.map((s) => (
                   <option key={s.region_code} value={s.region_code}>
-                    📍 {s.region_name}
+                    {s.region_name}
                   </option>
                 ))}
               </select>
@@ -668,7 +678,7 @@ export default function DashboardHome({
               >
                 {CATEGORY_MAJOR_LIST.filter((c) => !c.isUnmapped).map((c) => (
                   <option key={c.id} value={c.id}>
-                    {c.icon} {c.name}
+                    {c.name}
                   </option>
                 ))}
               </select>
@@ -682,7 +692,9 @@ export default function DashboardHome({
                 title="3D 공간 인텔리전스 시네마틱 인트로 다시보기"
                 aria-label="시네마틱 인트로 열기"
               >
-                <span className="finora-intro-icon">🎬</span>
+                <span className="finora-intro-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </span>
                 <span className="finora-intro-label">시네마틱 인트로</span>
               </button>
             )}
@@ -695,12 +707,14 @@ export default function DashboardHome({
                 title="3D 대시보드 사용자 가이드 및 용어 사전 열기"
                 aria-label="사용자 가이드 모달 열기"
                 style={{ 
-                  borderColor: 'rgba(0, 113, 227, 0.35)', 
-                  color: '#0071e3', 
-                  background: 'rgba(0, 113, 227, 0.08)' 
+                  borderColor: 'var(--color-rule-2)', 
+                  color: 'var(--color-cool)', 
+                  background: 'var(--color-cool-soft)' 
                 }}
               >
-                <span className="finora-intro-icon">📖</span>
+                <span className="finora-intro-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </span>
                 <span className="finora-intro-label">사용자 가이드</span>
               </button>
             )}
@@ -721,7 +735,6 @@ export default function DashboardHome({
         {selectedBrandPreview && (
           <div className="finora-brand-spotlight-banner" role="region" aria-label="선택 브랜드 요약">
             <div className="spotlight-left">
-              <span className="spotlight-badge">브랜드 포커스</span>
               <h3 className="spotlight-title">{selectedBrandPreview.brand_name_std}</h3>
               <span className="spotlight-stats">
                 전국 총 <strong>{selectedBrandPreview.nationwide_store_count?.toLocaleString()}개</strong> 점포 ·{' '}
@@ -735,7 +748,7 @@ export default function DashboardHome({
                 className="spotlight-map-btn"
                 onClick={() => onOpenMapWithBrand(selectedBrandPreview)}
               >
-                📍 3D 지도에서 이 브랜드 점포 위치 보기 →
+                3D 지도에서 이 브랜드 점포 위치 보기
               </button>
               <button
                 type="button"
@@ -760,13 +773,13 @@ export default function DashboardHome({
               <div className="hero-top-row">
                 <div>
                   <h1 className="hero-greeting">
-                    {regionTitle} 식자재 납품 잠재 고객 분석 📦
+                    {regionTitle} 식자재 납품 잠재 고객 분석
                   </h1>
                   <p className="hero-subtitle">
                     소진공 공간 전수({summaryMeta?.data_reference_month || '2025.12'}) 기반 B2B 영업 타깃 분석
                   </p>
                 </div>
-                <span className="hero-health-pill">✓ 실측 잠재 고객</span>
+                <span className="hero-health-pill">실측 잠재 고객</span>
               </div>
 
               <div className="hero-balance-row">
@@ -774,7 +787,7 @@ export default function DashboardHome({
                   <span className="hero-balance-label">
                     {selectedCategory === 'ALL'
                       ? `${regionTitle} 식자재 납품 대상 외식 점포 모수`
-                      : `${regionTitle} [${currentCatMeta.icon} ${currentCatMeta.name}] 타깃 점포 수`}
+                      : `${regionTitle} [${currentCatMeta.name}] 타깃 점포 수`}
                   </span>
                   <div className="hero-balance-number">
                     {totalStores.toLocaleString()}
@@ -782,23 +795,23 @@ export default function DashboardHome({
                   </div>
                   <div className="hero-delta-row">
                     <span className="hero-delta-positive">
-                      🎯 자유 발주 개인 독립점 {independentStores.toLocaleString()}개 ({independentRate}%)
+                      자유 발주 개인 독립점 {independentStores.toLocaleString()}개 ({independentRate}%)
                     </span>
-                    <span className="hero-delta-compare">
-                      · {regionTitle} 외식업 추정 연매출 {estimatedSalesAnalytics.formattedTotalEstSales} (월 발주 약 {estimatedSalesAnalytics.formattedMonthlyFoodPurchasing})
-                    </span>
+                  </div>
+                  <div className="hero-sales-est-row">
+                    · {regionTitle} 외식업 추정 연매출 {estimatedSalesAnalytics.formattedTotalEstSales} (월 발주 약 {estimatedSalesAnalytics.formattedMonthlyFoodPurchasing})
                   </div>
                 </div>
 
                 <div className="hero-wallet-graphic" aria-hidden="true">
                   <svg viewBox="0 0 150 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="28" y="34" width="96" height="64" rx="14" fill="#063724" />
-                    <rect x="22" y="28" width="96" height="64" rx="14" fill="#10b981" />
-                    <rect x="34" y="14" width="68" height="36" rx="8" fill="#dcfce7" transform="rotate(-8 34 14)" />
-                    <rect x="42" y="22" width="32" height="6" rx="3" fill="#059669" transform="rotate(-8 42 22)" />
-                    <circle cx="96" cy="60" r="8" fill="#fbbf24" />
-                    <circle cx="18" cy="86" r="11" fill="#f59e0b" />
-                    <circle cx="128" cy="88" r="9" fill="#fbbf24" />
+                    <rect x="28" y="34" width="96" height="64" rx="14" fill="#f1f5f9" stroke="#cbd5e1" />
+                    <rect x="22" y="28" width="96" height="64" rx="14" fill="#eff6ff" stroke="#bfdbfe" />
+                    <rect x="34" y="14" width="68" height="36" rx="8" fill="#ffffff" stroke="#cbd5e1" transform="rotate(-8 34 14)" />
+                    <rect x="42" y="22" width="32" height="6" rx="3" fill="#ea580c" transform="rotate(-8 42 22)" />
+                    <circle cx="96" cy="60" r="8" fill="#f59e0b" />
+                    <circle cx="18" cy="86" r="11" fill="#2563eb" />
+                    <circle cx="128" cy="88" r="9" fill="#f59e0b" />
                   </svg>
                 </div>
               </div>
@@ -839,7 +852,7 @@ export default function DashboardHome({
                       cy="70"
                       r="50"
                       fill="none"
-                      stroke="#f1f5f9"
+                      stroke="var(--color-rule)"
                       strokeWidth="18"
                     />
                     {donutSegments.map((seg) => {
@@ -923,7 +936,6 @@ export default function DashboardHome({
             <div className="finora-card finora-logistics-card" aria-label="식자재 배송 물류 밀집도">
               <div className="finora-card-header">
                 <div>
-                  <span className="logistics-eyebrow">🚚 B2B DISTRIBUTION LOGISTICS</span>
                   <h2 className="finora-card-title">식자재 배송 밀집도 & 물류 효율</h2>
                 </div>
                 <span className="logistics-badge">밀집도 A+</span>
@@ -948,7 +960,9 @@ export default function DashboardHome({
                 </div>
 
                 <div className="logistics-footer-tip">
-                  <span className="tip-icon">📍</span>
+                  <span className="tip-icon" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </span>
                   <span className="tip-text">좌측 사이드바 하단 버튼으로 3D 입체 밀집도를 확인할 수 있습니다.</span>
                 </div>
               </div>
@@ -969,7 +983,9 @@ export default function DashboardHome({
                 className={`cat-pill-btn ${selectedCategory === 'ALL' ? 'active' : ''}`}
                 onClick={() => onSelectCategory('ALL')}
               >
-                <span className="cat-pill-icon">🌍</span>
+                <span className="cat-pill-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </span>
                 <span className="cat-pill-name">전체 외식업</span>
                 <span className="cat-pill-badge">{totalStores.toLocaleString()}개</span>
               </button>
@@ -983,7 +999,6 @@ export default function DashboardHome({
                     className={`cat-pill-btn ${isSelected ? 'active' : ''}`}
                     onClick={() => onSelectCategory(isSelected ? 'ALL' : cat.id)}
                   >
-                    <span className="cat-pill-icon">{cat.icon}</span>
                     <span className="cat-pill-name">{cat.name}</span>
                     {seg && <span className="cat-pill-badge">{seg.count.toLocaleString()}개</span>}
                   </button>
@@ -1038,7 +1053,7 @@ export default function DashboardHome({
                     </h2>
                     {(barChartMode === 'category_total_est' || barChartMode === 'category_monthly_supply') && (
                       <span className="est-badge" title="소진공 실측 점포수와 공정위 중위매출을 결합한 통계 추정 모델">
-                        📊 통계 추정치
+                        통계 추정치
                       </span>
                     )}
                   </div>
@@ -1137,7 +1152,7 @@ export default function DashboardHome({
                       cy="75"
                       r="56"
                       fill="none"
-                      stroke="#e2e8f0"
+                      stroke="var(--color-rule)"
                       strokeWidth="15"
                     />
                     <circle
@@ -1145,7 +1160,7 @@ export default function DashboardHome({
                       cy="75"
                       r="56"
                       fill="none"
-                      stroke="#3b82f6"
+                      stroke="var(--color-cool)"
                       strokeWidth="15"
                       strokeLinecap="round"
                       strokeDasharray={`${(Number(brandRate) / 100) * 351.8} 351.8`}
@@ -1156,7 +1171,7 @@ export default function DashboardHome({
                       cy="75"
                       r="56"
                       fill="none"
-                      stroke="#059669"
+                      stroke="var(--color-ok)"
                       strokeWidth="15"
                       strokeLinecap="round"
                       strokeDasharray={`${(Number(independentRate) / 100) * 351.8} 351.8`}
@@ -1171,26 +1186,26 @@ export default function DashboardHome({
 
                 <ul className="gauge-breakdown-list">
                   <li>
-                    <span className="gb-dot" style={{ background: '#059669' }} />
+                    <span className="gb-dot" style={{ background: 'var(--color-ok)' }} />
                     <span className="gb-name">개인 독립점 (자유 발주)</span>
                     <strong className="gb-val" title={`${independentStores.toLocaleString()}개 점포`}>
                       {independentRate}% ({formatStoreCountCompact(independentStores)})
                     </strong>
                   </li>
                   <li>
-                    <span className="gb-dot" style={{ background: '#3b82f6' }} />
+                    <span className="gb-dot" style={{ background: 'var(--color-cool)' }} />
                     <span className="gb-name">중소 브랜드 연계 점포</span>
                     <strong className="gb-val">{candidateOnlyRate}%</strong>
                   </li>
                   <li>
-                    <span className="gb-dot" style={{ background: '#94a3b8' }} />
+                    <span className="gb-dot" style={{ background: 'var(--color-muted)' }} />
                     <span className="gb-name">공식 프랜차이즈 가맹점</span>
                     <strong className="gb-val" title={`${franchiseStores.toLocaleString()}개 점포`}>
                       {franchiseRate}% ({formatStoreCountCompact(franchiseStores)})
                     </strong>
                   </li>
                   <li>
-                    <span className="gb-dot" style={{ background: '#f59e0b' }} />
+                    <span className="gb-dot" style={{ background: 'var(--color-accent)' }} />
                     <span className="gb-name">상위 5대 브랜드 점유율</span>
                     <strong className="gb-val">{cr5Pct}%</strong>
                   </li>
@@ -1198,7 +1213,9 @@ export default function DashboardHome({
               </div>
 
               <div className="finora-insight-banner">
-                <span className="insight-trophy">💡</span>
+                <span className="insight-trophy" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </span>
                 <div className="insight-copy">
                   <strong>
                     {regionTitle}은 자유 발주 가능한 개인 독립점포 비중이 {independentRate}%({independentStores.toLocaleString()}개)입니다!
@@ -1220,13 +1237,15 @@ export default function DashboardHome({
                   </span>
                 </div>
                 <span className="bills-tag est-tag" title="소진공 실측 점포수와 공정위 중위매출을 결합한 통계 추정 모델">
-                  📊 통계 추정치
+                  통계 추정치
                 </span>
               </div>
 
               <ul className="finora-bills-list">
                 <li className="bill-item">
-                  <div className="bill-icon tone-emerald">💰</div>
+                  <div className="bill-icon tone-emerald" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="8"/><line x1="12" y1="8" x2="12" y2="16"/><path d="M9.5 10a2.5 2.5 0 0 1 5 0c0 1.5-1 2-2.5 2.5s-2.5 1-2.5 2.5a2.5 2.5 0 0 0 5 0"/></svg>
+                  </div>
                   <div className="bill-info">
                     <span className="bill-title">{regionTitle} 외식업 추정 연매출</span>
                     <span className="bill-sub">소진공 실측 점포 {totalStores.toLocaleString()}개소 × 공정위 중위매출 결합</span>
@@ -1235,7 +1254,9 @@ export default function DashboardHome({
                 </li>
 
                 <li className="bill-item">
-                  <div className="bill-icon tone-blue">📦</div>
+                  <div className="bill-icon tone-blue" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                  </div>
                   <div className="bill-info">
                     <span className="bill-title">월간 식자재 추정 발주 파이</span>
                     <span className="bill-sub">외식업 표준 식자재 원가율(매출의 약 32%) 적용</span>
@@ -1244,7 +1265,9 @@ export default function DashboardHome({
                 </li>
 
                 <li className="bill-item">
-                  <div className="bill-icon tone-purple">🎯</div>
+                  <div className="bill-icon tone-purple" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                  </div>
                   <div className="bill-info">
                     <span className="bill-title">자유발주 독립점 추정 발주액</span>
                     <span className="bill-sub">본사 강제사입 없는 1차 핵심 직납 공략 파이 ({independentRate}%)</span>
@@ -1253,7 +1276,9 @@ export default function DashboardHome({
                 </li>
 
                 <li className="bill-item">
-                  <div className="bill-icon tone-amber">🏬</div>
+                  <div className="bill-icon tone-amber" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                  </div>
                   <div className="bill-info">
                     <span className="bill-title">점포당 연평균 중위 매출</span>
                     <span className="bill-sub">가맹점 1곳당 연간 실질 발주 규모 기준</span>
@@ -1311,7 +1336,7 @@ export default function DashboardHome({
                     {topBrands.length === 0 ? (
                       <tr>
                         <td colSpan={6} className="table-empty-cell">
-                          브랜드 순위 데이터를 불러오는 중입니다...
+                          브랜드 순위 데이터를 불러오는 중입니다…
                         </td>
                       </tr>
                     ) : (
@@ -1369,7 +1394,7 @@ export default function DashboardHome({
                                 onClick={() => onOpenMapWithBrand(brand)}
                                 title={`${brand.brand_name_std} 점포 위치를 3D 지도에서 확인`}
                               >
-                                📍 지도
+                                지도
                               </button>
                             </td>
                           </tr>
@@ -1414,7 +1439,7 @@ export default function DashboardHome({
                         <strong className="activity-count">
                           {(spot.store_count || 0).toLocaleString()}개 점포
                         </strong>
-                        <span className="activity-fly">상세 보기 ↗</span>
+                        <span className="activity-fly">상세 보기</span>
                       </div>
                     </li>
                   );
@@ -1422,7 +1447,9 @@ export default function DashboardHome({
               </ul>
 
               <div className="hotspot-footer-insight">
-                <span className="insight-truck-icon">🚚</span>
+                <span className="insight-truck-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </span>
                 <p className="insight-truck-text">
                   상위 고밀도 상권 집중 영업 시 배송 차량 1대로 일일 최대 30개 점포 순회 납품이 가능합니다.
                 </p>

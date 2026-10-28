@@ -183,8 +183,10 @@ export default function FtcBenchmarkPanel({
       >
         <div className="panel-header">
           <div className="panel-title-group">
-            <span className="panel-category-badge unmapped">매핑 검토</span>
-            <h3 className="panel-title">{categoryInfo?.name || '선택 업종'}</h3>
+            <h3 className="panel-title">
+              {categoryInfo?.name || '선택 업종'}
+              <span className="panel-category-badge unmapped">매핑 검토</span>
+            </h3>
           </div>
           <div className="panel-header-actions desktop-only">
             {onCloseDrawer && (
@@ -207,7 +209,9 @@ export default function FtcBenchmarkPanel({
         </div>
         <div className="panel-body">
           <div className="unmapped-notice-card" role="alert">
-            <div className="notice-icon">ℹ️</div>
+            <div className="notice-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </div>
             <div className="notice-content">
               <strong>거시 벤치마크 미제공 (배타적 매핑 불가)</strong>
               <p>
@@ -233,8 +237,10 @@ export default function FtcBenchmarkPanel({
       >
         <div className="panel-header">
           <div className="panel-title-group">
-            <span className="panel-category-badge nodata">데이터 없음</span>
-            <h3 className="panel-title">{categoryInfo?.name}</h3>
+            <h3 className="panel-title">
+              {categoryInfo?.name}
+              <span className="panel-category-badge nodata">데이터 없음</span>
+            </h3>
           </div>
           <div className="panel-header-actions desktop-only">
             {onCloseDrawer && (
@@ -257,7 +263,9 @@ export default function FtcBenchmarkPanel({
         </div>
         <div className="panel-body">
           <div className="no-data-card" role="alert">
-            <div className="notice-icon">📂</div>
+            <div className="notice-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </div>
             <div className="notice-content">
               <strong>요청 연도 등록 데이터 부재</strong>
               <p>{error.data?.message || '요청하신 연도에 해당하는 공정위 등록 데이터가 존재하지 않습니다.'}</p>
@@ -286,8 +294,10 @@ export default function FtcBenchmarkPanel({
       >
         <div className="panel-header">
           <div className="panel-title-group">
-            <span className="panel-category-badge error">연결 오류</span>
-            <h3 className="panel-title">{categoryInfo?.name || '공정위 거시 벤치마크'}</h3>
+            <h3 className="panel-title">
+              {categoryInfo?.name || '공정위 거시 벤치마크'}
+              <span className="panel-category-badge error">연결 오류</span>
+            </h3>
           </div>
           <div className="panel-header-actions desktop-only">
             {onCloseDrawer && (
@@ -310,7 +320,9 @@ export default function FtcBenchmarkPanel({
         </div>
         <div className="panel-body">
           <div className="api-error-card" role="alert">
-            <div className="notice-icon">⚠️</div>
+            <div className="notice-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
             <div className="notice-content">
               <strong>공정위 거시통계 조회 지연</strong>
               <p>{error?.message || '데이터를 불러오는 중 문제가 발생했습니다.'}</p>
@@ -428,14 +440,14 @@ export default function FtcBenchmarkPanel({
         <div className="panel-title-group">
           <div className="title-badge-row">
             <span className="panel-category-badge" style={{ backgroundColor: themeColor }}>
-              📍 {regionCtx.region_name} · {categoryInfo?.icon} {data.category_major_name}
+              {regionCtx.region_name} · {categoryInfo?.icon} {data.category_major_name}
             </span>
             <span className="panel-year-badge">
               {data.benchmark_year}년 등록 ({finYearText})
             </span>
             {data.is_fallback_applied ? (
               <span className="fallback-pill" title={data.fallback_reason}>
-                ⚠️ {data.benchmark_year}년 대체 표출 ({finYearText})
+                [대체] {data.benchmark_year}년 대체 표출 ({finYearText})
               </span>
             ) : data.benchmark_year === '2026' ? (
               <span className="badge-meta badge-snapshot-amber" title="가맹본부 정보공개서 정기등록 진행 중 스냅샷 (모집단 30% 미등록)">
@@ -484,7 +496,7 @@ export default function FtcBenchmarkPanel({
       {/* 접힌 상태(데스크톱) 미니 바 */}
       {isCollapsed && (
         <div className="collapsed-mini-bar desktop-only" onClick={() => setIsCollapsed(false)}>
-          <span>📊 {data.category_major_name} 중위매출: {formatManwonOnly(sales.median_sales_thousand_krw)} ({data.benchmark_year}년 등록 · {finYearText})</span>
+          <span>{data.category_major_name} 중위매출: {formatManwonOnly(sales.median_sales_thousand_krw)} ({data.benchmark_year}년 등록 · {finYearText})</span>
           <button 
             className="mini-open-btn"
             onClick={(e) => {
@@ -510,14 +522,18 @@ export default function FtcBenchmarkPanel({
         <div className="panel-body">
           {/* 모바일 확장 시 첫 화면 즉각 인지용 콤팩트 출처/비귀속 배너 */}
           <div className="mobile-first-screen-notice mobile-only" role="note">
-            <span className="notice-icon">📌</span>
+            <span className="notice-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </span>
             <span>공정위 정기공시 {regionCtx.region_name} 가맹본부 벤치마크 (개별 점포·특정 브랜드 실적 아님)</span>
           </div>
 
           {/* 단일 이전 연도 대체 안내 배너 (원자적 대체 적용 시) */}
           {data.is_fallback_applied && (
             <div className="fallback-alert-banner" role="status">
-              <span className="alert-icon">⚠️</span>
+              <span className="alert-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </span>
               <div className="alert-text">
                 <strong>{data.fallback_reason}</strong>
                 <p className="fallback-sub">
@@ -530,7 +546,9 @@ export default function FtcBenchmarkPanel({
           {/* 2026년 진행형 스냅샷 인라인 경고 콜아웃 (호버 불필요, 상시 가시) */}
           {data.benchmark_year === '2026' && (
             <div className="snapshot-inline-alert" role="alert">
-              <span className="alert-icon">⚠️</span>
+              <span className="alert-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </span>
               <div className="alert-content">
                 <strong>진행형 스냅샷:</strong> 2026년은 정기공시 진행 중(약 30% 미등록 결손)으로 2025년과 직접 비교가 불가합니다.
               </div>
@@ -608,7 +626,7 @@ export default function FtcBenchmarkPanel({
                     className="bar-fill" 
                     style={{ 
                       width: `${(sales.trimmed_mean_5pct_thousand_krw / maxSalesVal) * 100}%`,
-                      backgroundColor: '#3b82f6'
+                      backgroundColor: 'var(--color-cool)'
                     }} 
                   />
                 </div>
@@ -631,7 +649,7 @@ export default function FtcBenchmarkPanel({
                     className="bar-fill" 
                     style={{ 
                       width: `${(sales.store_weighted_avg_thousand_krw / maxSalesVal) * 100}%`,
-                      backgroundColor: '#8b5cf6'
+                      backgroundColor: 'var(--color-accent)'
                     }} 
                   />
                 </div>
@@ -645,7 +663,7 @@ export default function FtcBenchmarkPanel({
               <div className="ftc-cat-comp-header">
                 <div>
                   <span className="ftc-cat-comp-title">
-                    📊 8대 업종별 연매출 vs 창업비용 비교 ({regionCtx.region_name})
+                    8대 업종별 연매출 vs 창업비용 비교 ({regionCtx.region_name})
                   </span>
                   <p className="ftc-cat-comp-sub">
                     업종을 클릭하면 해당 업종으로 즉시 전환됩니다 · <span className="legend-blue">■ 연매출</span> <span className="legend-amber">■ 창업비용</span>
@@ -744,7 +762,7 @@ export default function FtcBenchmarkPanel({
                           className={`bar-stick ${isSnap ? 'stick-snapshot' : ''}`}
                           style={{ 
                             height: `${barHeightPct}%`,
-                            backgroundColor: isSnap ? '#f59e0b' : (isCurrentSelected ? themeColor : '#94a3b8')
+                            backgroundColor: isSnap ? 'var(--color-accent)' : (isCurrentSelected ? themeColor : 'var(--color-muted)')
                           }}
                         >
                           {isSnap && <div className="stick-stripe-overlay" />}
@@ -762,7 +780,9 @@ export default function FtcBenchmarkPanel({
               </div>
 
               <div className="trends-caption">
-                * 물가변동 미반영 명목금액 · 2026년은 진행형 스냅샷(모집단 30% 미등록 결손)으로 2025년과 직접 비교 불가 · 2025년은 공식 행정마감 미확인 최신 완결 후보
+                <span>* 물가변동 미반영 명목금액. </span>
+                <span>2026년은 진행형 스냅샷(모집단 30% 미등록 결손)으로 2025년과 직접 비교 불가. </span>
+                <span>2025년은 공식 행정마감 미확인 최신 완결 후보.</span>
               </div>
             </section>
           )}
@@ -907,22 +927,22 @@ export default function FtcBenchmarkPanel({
             {/* 4대 구성항목 칩 그리드 */}
             <div className="cost-chips-grid">
               <div className="cost-chip-item">
-                <span className="dot dot-jng" />
+                <span className="cost-swatch swatch-jng" aria-hidden="true" />
                 <span className="chip-name">가맹비</span>
                 <span className="chip-val">{formatManwonOnly(feeJng)}</span>
               </div>
               <div className="cost-chip-item">
-                <span className="dot dot-edu" />
+                <span className="cost-swatch swatch-edu" aria-hidden="true" />
                 <span className="chip-name">교육비</span>
                 <span className="chip-val">{formatManwonOnly(feeEdu)}</span>
               </div>
               <div className="cost-chip-item">
-                <span className="dot dot-grnte" />
+                <span className="cost-swatch swatch-grnte" aria-hidden="true" />
                 <span className="chip-name">보증금</span>
                 <span className="chip-val">{formatManwonOnly(feeGrnte)}</span>
               </div>
               <div className="cost-chip-item highlight">
-                <span className="dot dot-intrr" />
+                <span className="cost-swatch swatch-intrr" aria-hidden="true" />
                 <span className="chip-name">인테리어</span>
                 <span className="chip-val">{formatManwonOnly(feeIntrr)}</span>
               </div>
@@ -935,7 +955,7 @@ export default function FtcBenchmarkPanel({
                 <span className="tentative-text">
                   항목 합산 잠정 창업비용: <strong>중위 {formatCurrency(costs.tentative_derived_sum.median_thousand_krw)}</strong>
                   {regionCtx.is_regional && regionCtx.cost_vs_national_pct != null && (
-                    <span style={{ marginLeft: '6px', fontSize: '0.72rem', fontWeight: 700, color: '#64748b' }}>
+                    <span style={{ marginLeft: '6px', fontSize: '0.72rem', fontWeight: 700, color: 'var(--color-muted)' }}>
                       (전국 대비 {regionCtx.cost_vs_national_pct >= 0 ? `+${regionCtx.cost_vs_national_pct}%` : `${regionCtx.cost_vs_national_pct}%`})
                     </span>
                   )}
